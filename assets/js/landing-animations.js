@@ -34,16 +34,70 @@ if (!prefersReducedMotion) {
   });
 
   // ===========================================
-  // 2. OVERVIEW SECTION - FADE IN ANIMATION
+  // 2. OVERVIEW SECTION - SCROLL UP ANIMATION
   // ===========================================
   
+  const overviewSection = document.querySelector('.landing-overview');
+  const bannerSection = document.querySelector('.landing-banner');
+  const overviewDecoration = document.querySelector('.landing-overview__decoration');
+  
+  if (overviewSection && bannerSection) {
+    // Scroll event to move overview section up and fade out banner
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          
+          // Start animating when user scrolls past 20% of viewport
+          if (scrollY > windowHeight * 0.2) {
+            // Calculate how much to move up (max 100vw)
+            const progress = Math.min((scrollY - windowHeight * 0.2) / (windowHeight * 0.8), 1);
+            const translateValue = 100 - (progress * 100); // From 100vh to 0vh
+            overviewSection.style.top = `${translateValue}vh`;
+            
+            // Fade out banner as overview moves up
+            // When translateValue reaches 0 (or negative), banner opacity should be 0
+            bannerSection.style.opacity = translateValue / 100;
+            
+            // Change decoration size at 50% scroll progress
+            if (overviewDecoration) {
+              if (progress >= 0.5) {
+                overviewDecoration.style.width = '63.891vw';
+                overviewDecoration.style.height = '72.903vw';
+              } else {
+                overviewDecoration.style.width = '73.891vw';
+                overviewDecoration.style.height = '82.903vw';
+              }
+            }
+          } else {
+            overviewSection.style.top = '100vh';
+            bannerSection.style.opacity = '1';
+            
+            // Reset decoration to original size
+            if (overviewDecoration) {
+              overviewDecoration.style.width = '73.891vw';
+              overviewDecoration.style.height = '82.903vw';
+            }
+          }
+          
+          ticking = false;
+        });
+        
+        ticking = true;
+      }
+    });
+  }
+
+  // Observer for content fade-in
   const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.2
   };
 
-  // Overview animation observer
   const overviewObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
