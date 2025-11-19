@@ -1,0 +1,433 @@
+// ===========================================
+// LANDING PAGE - TESTIMONIALS SECTION
+// ===========================================
+
+.landing-testimonials {
+  width: 100%;
+  background-color: $color-bg-primary;
+  padding: 50px 100px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1573px;
+    height: 565px;
+  }
+
+  // Slider wrapper
+  &__slider-wrapper {
+    position: absolute;
+    left: 455px;
+    top: 80px;
+    width: 1118px;
+    height: 485px;
+    overflow: visible;
+  }
+
+  &__slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .slick-list {
+      height: 100%;
+    }
+
+    .slick-track {
+      height: 100%;
+    }
+
+    .slick-slide {
+      height: 100%;
+      display: flex !important;
+      
+      > div {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .slick-active {
+      z-index: 2;
+    }
+
+    .slick-current {
+      .landing-testimonials__slide {
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  &__slide {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    position: relative;
+    display: block !important;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  // Header section
+  &__header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    width: 100%;
+    max-width: 690.5px;
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-brand-primary;
+    line-height: 1.5;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: 58px;
+    line-height: 1.2;
+    color: $color-brand-black;
+    font-weight: 325;
+    margin: 0;
+  }
+
+  // Testimonial content area
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 485px;
+  }
+
+  // Background image
+  &__image {
+    position: absolute;
+    left: 405px;
+    top: 0;
+    width: 713px;
+    height: 429px;
+    overflow: hidden;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  // Testimonial card
+  &__card {
+    position: absolute;
+    left: 0;
+    top: 158px;
+    width: 526px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    z-index: 2;
+  }
+
+  &__card-content {
+    background-color: $color-white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 50px;
+
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 12px;
+      height: 100%;
+      background-color: $color-brand-primary;
+    }
+  }
+
+  // Stars rating
+  &__stars {
+    display: flex;
+    gap: 0;
+  }
+
+  &__star {
+    width: 25.948px;
+    height: 25.948px;
+  }
+
+  // Text content
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 426px;
+  }
+
+  &__quote {
+    font-family: $font-secondary;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: $color-brand-black;
+    white-space: pre-wrap;
+    margin: 0;
+  }
+
+  // Author info
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 5.096px;
+    width: 100%;
+  }
+
+  &__author-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10.192px;
+    border-right: 1.274px solid $color-brand-black;
+
+    span {
+      font-family: $font-primary;
+      font-size: 24px;
+      line-height: 1.3;
+      color: $color-brand-black;
+      font-weight: 325;
+    }
+  }
+
+  &__author-role {
+    font-family: $font-secondary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #505050;
+  }
+
+  // Navigation buttons
+  &__navigation {
+    position: absolute;
+    left: 30%;
+    bottom: -25px;
+    display: flex;
+    gap: 26px;
+    z-index: 10;
+  }
+
+  &__nav-btn {
+    width: 56.619px;
+    height: 56.619px;
+    border-radius: 0;
+    border: none;
+    background-color: $color-white;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-bg-primary;
+      transform: translateY(-2px);
+      box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      stroke: $color-brand-black;
+    }
+
+    &--prev {
+      svg {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  // Responsive
+  @include respond-to('laptop') {
+    padding: 50px 60px;
+
+    &__container {
+      height: 500px;
+    }
+
+    &__title {
+      font-size: 48px;
+    }
+
+    &__slider-wrapper {
+      left: 350px;
+      width: 950px;
+    }
+
+    &__content {
+      width: 100%;
+    }
+
+    &__image {
+      width: 600px;
+      height: 380px;
+    }
+
+    &__card {
+      width: 460px;
+    }
+
+    &__card-content {
+      padding: 40px;
+    }
+
+    &__text-content {
+      width: 380px;
+    }
+
+    &__quote {
+      font-size: 18px;
+    }
+  }
+
+  @include respond-to('tablet') {
+    padding: 40px;
+
+    &__container {
+      height: auto;
+    }
+
+    &__header {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    &__title {
+      font-size: 38px;
+    }
+
+    &__slider-wrapper {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: auto;
+    }
+
+    &__content {
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    &__image {
+      position: relative;
+      left: 0;
+      width: 100%;
+      height: 300px;
+    }
+
+    &__card {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    &__text-content {
+      width: 100%;
+    }
+  }
+
+  @include respond-to('mobile') {
+    padding: 25px 16px;
+
+    &__header {
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    &__label {
+      font-size: 16px;
+    }
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__image {
+      height: 200px;
+    }
+
+    &__card-content {
+      padding: 20px;
+      gap: 16px;
+    }
+
+    &__stars {
+      gap: 2px;
+    }
+
+    &__star {
+      width: 16px;
+      height: 16px;
+    }
+
+    &__quote {
+      font-size: 14px;
+    }
+
+    &__author-name span {
+      font-size: 18px;
+    }
+
+    &__author-role {
+      font-size: 14px;
+    }
+
+    &__navigation {
+      position: relative;
+      right: 0;
+      bottom: 0;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    &__nav-btn {
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+

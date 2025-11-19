@@ -1,0 +1,25 @@
+{
+  "name": "ashtech-presidential-towers",
+  "version": "1.0.0",
+  "description": "Ashtech Presidential Towers - Premium residential website",
+  "scripts": {
+    "sass": "sass assets/scss/main.scss assets/css/main.css",
+    "sass:watch": "sass assets/scss/main.scss assets/css/main.css --watch",
+    "sass:build": "sass assets/scss/main.scss assets/css/main.css --style compressed",
+    "server": "npx http-server -p 8000",
+    "dev": "npm run sass:watch"
+  },
+  "keywords": [
+    "real-estate",
+    "ashtech",
+    "website",
+    "scss",
+    "responsive"
+  ],
+  "author": "Ashtech Industries Pvt. Ltd.",
+  "license": "PROPRIETARY",
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}
+

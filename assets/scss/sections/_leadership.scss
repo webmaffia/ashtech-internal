@@ -1,0 +1,238 @@
+// ===========================================
+// LEADERSHIP SECTION
+// ===========================================
+
+.leadership {
+  position: relative;
+  background-color: $color-bg-primary;
+  @include flex-column;
+  gap: $spacing-4xl;
+  padding: $spacing-2xl $container-padding-desktop $spacing-5xl;
+  overflow: hidden;
+
+  @include respond-to('desktop') {
+    padding: 40px $container-padding-tablet 80px;
+    gap: $spacing-2xl;
+  }
+
+  @include respond-to('tablet') {
+    padding: $spacing-lg $container-padding-mobile $spacing-2xl;
+    gap: 40px;
+  }
+}
+
+.leadership__decoration {
+  position: absolute;
+  left: 480px;
+  top: 0;
+  width: 960px;
+  height: 502px;
+  z-index: 0;
+
+  @include respond-to('desktop') {
+    left: 300px;
+    width: 700px;
+    height: 350px;
+  }
+
+  @include respond-to('laptop') {
+    left: 200px;
+    width: 600px;
+    height: 300px;
+  }
+
+  @include respond-to('tablet') {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.leadership__header {
+  @include flex-column-center;
+  gap: $spacing-xl;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+
+  @include respond-to('tablet') {
+    gap: 25px;
+  }
+}
+
+.leadership__label {
+  @include heading-secondary;
+  font-size: $font-size-small;
+  color: $color-brand-primary;
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+}
+
+.leadership__title {
+  @include heading-primary;
+  font-size: $font-size-h2;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+
+  @include respond-to('desktop') {
+    font-size: 52px;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 46px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 36px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 28px;
+  }
+}
+
+.leadership__team {
+  @include flex-column;
+  gap: $spacing-2xl;
+  width: 100%;
+  max-width: 1420px;
+  margin: 0 auto;
+  z-index: 2;
+
+  @include respond-to('tablet') {
+    gap: 40px;
+  }
+}
+
+.leadership__director {
+  display: grid;
+  grid-template-columns: 336px 1fr;
+  gap: 20px;
+  width: 100%;
+  background-color: $color-bg-white;
+
+  @include respond-to('laptop') {
+    grid-template-columns: 300px 1fr;
+  }
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.leadership__director-image {
+  width: 100%;
+  height: 413px;
+  overflow: hidden;
+
+  @include respond-to('laptop') {
+    height: 380px;
+  }
+
+  @include respond-to('tablet') {
+    height: 400px;
+  }
+
+  @include respond-to('mobile') {
+    height: 300px;
+  }
+
+  img {
+    @include cover-image;
+  }
+}
+
+.leadership__director-content {
+  @include flex-column;
+  gap: $spacing-2xl;
+  padding: 40px $spacing-2xl;
+
+  @include respond-to('tablet') {
+    padding: $spacing-lg 0;
+    gap: $spacing-lg;
+  }
+}
+
+.leadership__director-quote {
+  @include body-paragraph;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+
+  @include respond-to('laptop') {
+    font-size: 18px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+}
+
+.leadership__director-info {
+  @include flex-column;
+  gap: 10px;
+}
+
+.leadership__director-name {
+  @include heading-primary;
+  font-size: $font-size-h6;
+  line-height: $line-height-normal;
+  color: $color-text-primary;
+
+  @include respond-to('tablet') {
+    font-size: 20px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 18px;
+  }
+}
+
+.leadership__director-title {
+  @include body-text;
+  font-size: $font-size-caption;
+  color: $color-text-body;
+
+  @include respond-to('tablet') {
+    font-size: 12px;
+  }
+}
+
+.leadership__core-team {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: $spacing-lg;
+
+  @include respond-to('tablet') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('mobile') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.leadership__team-member {
+  width: 100%;
+  height: 307px;
+  overflow: hidden;
+
+  @include respond-to('tablet') {
+    height: 250px;
+  }
+
+  @include respond-to('mobile') {
+    height: 300px;
+  }
+
+  img {
+    @include cover-image;
+  }
+}
+

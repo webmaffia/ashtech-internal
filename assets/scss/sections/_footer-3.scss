@@ -1,0 +1,257 @@
+// ===========================================
+// FOOTER 2 SECTION
+// ===========================================
+
+.footer-3 {
+  position: relative;
+  background-color: $color-bg-primary;
+  min-height: 557px;
+  overflow: hidden;
+
+  @include respond-to('tablet') {
+    min-height: auto;
+  }
+}
+
+.footer-3__bg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 693px;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 0;
+
+  @include respond-to('tablet') {
+    height: 500px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.footer-3__content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: $spacing-2xl;
+  padding: 60px $container-padding-desktop;
+  z-index: 2;
+
+  @include respond-to('desktop') {
+    padding: 60px $container-padding-tablet;
+  }
+
+  @include respond-to('laptop') {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+    padding: 40px $container-padding-mobile;
+    gap: $spacing-lg;
+  }
+}
+
+.footer-3__col {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.footer-3__logo {
+  height: 42px;
+  width: auto;
+  max-width: 312px;
+
+  @include respond-to('tablet') {
+    height: 32px;
+  }
+}
+
+.footer-3__description {
+  @include body-text;
+  font-size: $font-size-small;
+  line-height: $line-height-loose;
+  color: $color-brand-black;
+  max-width: 420px;
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+    max-width: 100%;
+  }
+}
+
+.footer-3__social {
+  display: flex;
+  gap: 3px;
+
+  @include respond-to('mobile') {
+    gap: 8px;
+  }
+}
+
+.footer-3__social-link {
+  display: block;
+  width: 46.328px;
+  height: 46.328px;
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  @include respond-to('mobile') {
+    width: 36px;
+    height: 36px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.footer-3__heading {
+  @include heading-primary;
+  font-size: $font-size-h5;
+  line-height: $line-height-medium;
+  color: $color-brand-primary;
+
+  @include respond-to('tablet') {
+    font-size: 24px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 20px;
+  }
+}
+
+.footer-3__list {
+  @include flex-column;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    line-height: 2;
+  }
+
+  a {
+    @include body-text;
+    font-size: $font-size-small;
+    color: $color-brand-black;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-brand-primary;
+    }
+
+    @include respond-to('tablet') {
+      font-size: 16px;
+    }
+
+    @include respond-to('mobile') {
+      font-size: 14px;
+    }
+  }
+}
+
+.footer-3__contact {
+  @include flex-column;
+  gap: 20px;
+
+  @include respond-to('tablet') {
+    gap: 15px;
+  }
+}
+
+.footer-3__contact-item {
+  display: flex;
+  gap: 7.27px;
+  align-items: flex-start;
+
+  @include respond-to('mobile') {
+    gap: 10px;
+  }
+
+  p {
+    @include body-text;
+    font-size: $font-size-small;
+    line-height: 2;
+    color: $color-brand-black;
+    padding-top: 13px;
+
+    @include respond-to('tablet') {
+      font-size: 16px;
+    }
+
+    @include respond-to('mobile') {
+      font-size: 14px;
+      padding-top: 8px;
+    }
+  }
+}
+
+.footer-3__contact-icon {
+  width: 38.73px;
+  height: 38.73px;
+  flex-shrink: 0;
+
+  @include respond-to('mobile') {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.footer-3__bottom {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px $container-padding-desktop;
+  gap: $spacing-lg;
+  z-index: 2;
+
+  @include respond-to('desktop') {
+    padding: 40px $container-padding-tablet;
+  }
+
+  @include respond-to('tablet') {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: $spacing-lg $container-padding-mobile;
+    gap: 10px;
+  }
+}
+
+.footer-3__copyright,
+.footer-3__legal {
+  @include body-text;
+  font-size: $font-size-small;
+  line-height: $line-height-medium;
+  color: $color-brand-primary;
+
+  @include respond-to('tablet') {
+    font-size: 14px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 12px;
+  }
+}
+
+.footer-3__legal {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+

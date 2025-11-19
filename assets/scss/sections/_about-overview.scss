@@ -1,0 +1,126 @@
+// ===========================================
+// ABOUT OVERVIEW SECTION
+// ===========================================
+
+.about-overview {
+  position: relative;
+  background-color: $color-bg-primary;
+  display: flex;
+  gap: $spacing-4xl;
+  align-items: flex-start;
+  padding: $spacing-6xl $container-padding-desktop;
+  overflow: hidden;
+
+  @include respond-to('desktop') {
+    gap: $spacing-2xl;
+    padding: 80px $container-padding-tablet;
+  }
+
+  @include respond-to('laptop') {
+    gap: 40px;
+  }
+
+  @include respond-to('tablet') {
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding: $spacing-2xl $container-padding-mobile;
+  }
+}
+
+.about-overview__decoration {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 960px;
+  height: 502px;
+  z-index: 0;
+
+  @include respond-to('laptop') {
+    width: 600px;
+    height: 300px;
+  }
+
+  @include respond-to('tablet') {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.about-overview__left {
+  @include flex-column;
+  gap: $spacing-xl;
+  flex: 1;
+  z-index: 2;
+
+  @include respond-to('tablet') {
+    gap: 25px;
+  }
+}
+
+.about-overview__label {
+  @include heading-secondary;
+  font-size: $font-size-small;
+  color: $color-brand-primary;
+  text-align: center;
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+}
+
+.about-overview__title {
+  @include heading-primary;
+  font-size: $font-size-h2;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+  width: 556px;
+  max-width: 100%;
+
+  @include respond-to('desktop') {
+    font-size: 52px;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 46px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 36px;
+    width: 100%;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 28px;
+  }
+}
+
+.about-overview__right {
+  @include body-paragraph;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+  max-width: 974px;
+  flex: 1;
+  z-index: 2;
+
+  @include respond-to('laptop') {
+    max-width: 600px;
+    font-size: 18px;
+  }
+
+  @include respond-to('tablet') {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: $spacing-xs;
+    }
+  }
+}
+

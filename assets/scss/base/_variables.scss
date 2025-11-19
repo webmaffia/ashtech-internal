@@ -1,0 +1,104 @@
+// ===========================================
+// DESIGN TOKENS - Ashtech Presidential Towers
+// ===========================================
+
+// Primary Colors
+$color-brand-primary: #720C10;      // Rose Gold/Maroon
+$color-brand-gold: #E0BD75;         // Gold accent
+$color-brand-black: #0C0D0D;        // Primary black
+$color-body: #19191A;               // Body text color
+$color-white: #FFFFFF;              // Pure white
+
+// Background Colors
+$color-bg-primary: #F4EAD7;         // Beige/Cream
+$color-bg-red: #FAE9E9;             // Light red background
+$color-bg-white: #FFFFFF;           // White background
+
+// Typography Colors
+$color-text-primary: $color-brand-black;
+$color-text-body: $color-body;
+$color-text-accent: $color-brand-primary;
+$color-text-white: $color-white;
+
+// Font Families
+$font-primary: 'Chronicle Display', Georgia, serif;
+$font-secondary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Font Sizes - Desktop
+$font-size-h1: 72px;                // Hero titles
+$font-size-h2: 58px;                // Section titles
+$font-size-h3: 44px;                // Sub-section titles
+$font-size-h4: 36px;                // Card titles
+$font-size-h5: 30px;                // Footer headings
+$font-size-h6: 24px;                // Button text
+$font-size-body: 20px;              // Body text
+$font-size-small: 18px;             // Overhead/menu text
+$font-size-caption: 14px;           // Caption text
+
+// Line Heights
+$line-height-tight: 1.2;            // For headings
+$line-height-normal: 1.3;           // For button text
+$line-height-medium: 1.5;           // For body text
+$line-height-relaxed: 1.7;          // For paragraphs
+$line-height-loose: 1.8;            // For footer text
+
+// Spacing Scale
+$spacing-xs: 10px;
+$spacing-sm: 12px;
+$spacing-md: 18px;
+$spacing-lg: 30px;
+$spacing-xl: 35px;
+$spacing-2xl: 50px;
+$spacing-3xl: 60px;
+$spacing-4xl: 70px;
+$spacing-5xl: 100px;
+$spacing-6xl: 120px;
+
+// Container & Layout
+$container-max-width: 1920px;
+$container-padding-desktop: 100px;
+$container-padding-tablet: 60px;
+$container-padding-mobile: 16px;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1440px;
+$breakpoint-wide: 1920px;
+
+// Z-Index Scale
+$z-index-dropdown: 10;
+$z-index-sticky: 100;
+$z-index-fixed: 1000;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Transitions
+$transition-fast: 0.15s ease-in-out;
+$transition-base: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+// Border Radius
+$border-radius-sm: 2px;
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+// Gradients
+$gradient-dark-overlay: linear-gradient(179.99999999999972deg, rgba(25, 29, 47, 0) 47.25%, rgba(8, 9, 15, 0.8) 87.128%),
+                        linear-gradient(-0.000006254413250417201deg, rgba(0, 0, 0, 0) 64.815%, rgba(0, 0, 0, 0.7) 110.65%);
+$gradient-top-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 74.9%);
+

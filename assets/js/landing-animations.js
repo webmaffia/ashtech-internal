@@ -1,0 +1,317 @@
+// ===========================================
+// LANDING PAGE ANIMATIONS
+// ===========================================
+
+/**
+ * Landing Page Scroll Animations
+ * Uses Intersection Observer API for performance-optimized scroll animations
+ */
+
+// Check for reduced motion preference
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion) {
+  // ===========================================
+  // 1. BANNER FADE-IN ANIMATION (On Load)
+  // ===========================================
+  
+  window.addEventListener('load', () => {
+    const bannerTitle = document.querySelector('.landing-banner__title');
+    const bannerScroll = document.querySelector('.landing-banner__scroll');
+    
+    if (bannerTitle) {
+      setTimeout(() => {
+        bannerTitle.style.opacity = '1';
+        bannerTitle.style.transform = 'translate(-50%, calc(-50% + 103px))';
+      }, 300);
+    }
+    
+    if (bannerScroll) {
+      setTimeout(() => {
+        bannerScroll.style.opacity = '1';
+      }, 600);
+    }
+  });
+
+  // ===========================================
+  // 2. OVERVIEW SECTION - FADE IN ANIMATION
+  // ===========================================
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+  };
+
+  // Overview animation observer
+  const overviewObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        overviewObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const overviewContent = document.querySelector('.landing-overview__content');
+  if (overviewContent) {
+    overviewContent.classList.add('fade-in');
+    overviewObserver.observe(overviewContent);
+  }
+
+  // ===========================================
+  // 3. VALUES SECTION - STAGGERED ANIMATION
+  // ===========================================
+  
+  const valuesHeader = document.querySelector('.landing-values__header');
+  if (valuesHeader) {
+    valuesHeader.classList.add('fade-in');
+    overviewObserver.observe(valuesHeader);
+  }
+
+  const valuesObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const valueItems = document.querySelectorAll('.landing-values__item');
+        
+        // Staggered pairs: [[0,3], [1,4], [2,5]]
+        const pairs = [
+          [valueItems[0], valueItems[3]], // जुनून + विश्वास
+          [valueItems[1], valueItems[4]], // संकल्प + निष्ठा
+          [valueItems[2], valueItems[5]]  // लगन + दृढता
+        ];
+
+        pairs.forEach((pair, pairIndex) => {
+          setTimeout(() => {
+            pair.forEach((item) => {
+              if (item) {
+                const title = item.querySelector('.landing-values__item-title');
+                const description = item.querySelector('.landing-values__item-description');
+                
+                // Title animates first
+                if (title) {
+                  title.style.opacity = '1';
+                  title.style.transform = 'translateY(0)';
+                }
+                
+                // Description animates 150ms after title
+                if (description) {
+                  setTimeout(() => {
+                    description.style.opacity = '1';
+                    description.style.transform = 'translateY(0)';
+                  }, 150);
+                }
+              }
+            });
+          }, pairIndex * 300); // 300ms delay between pairs
+        });
+        
+        valuesObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const valuesGraphic = document.querySelector('.landing-values__graphic');
+  if (valuesGraphic) {
+    // Set initial states
+    const valueItems = document.querySelectorAll('.landing-values__item-title, .landing-values__item-description');
+    valueItems.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(40px)';
+      item.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+    
+    valuesObserver.observe(valuesGraphic);
+  }
+
+  // ===========================================
+  // 4. PROJECTS SECTION - FADE IN ANIMATION
+  // ===========================================
+  
+  const projectsContent = document.querySelector('.landing-projects__content');
+  if (projectsContent) {
+    projectsContent.classList.add('fade-in');
+    overviewObserver.observe(projectsContent);
+  }
+
+  // ===========================================
+  // 5. NRI DESK SECTION - STAGGERED ANIMATION
+  // ===========================================
+  
+  const nriObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const nriContent = entry.target.querySelector('.landing-nri__info');
+        const nriFeatures = entry.target.querySelectorAll('.landing-nri__feature');
+        
+        // Animate main content first
+        if (nriContent) {
+          nriContent.style.opacity = '1';
+          nriContent.style.transform = 'translateY(0)';
+        }
+        
+        // Then animate features with stagger
+        nriFeatures.forEach((feature, index) => {
+          setTimeout(() => {
+            feature.style.opacity = '1';
+            feature.style.transform = 'translateX(0)';
+          }, 300 + (index * 150));
+        });
+        
+        nriObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const nriSection = document.querySelector('.landing-nri');
+  if (nriSection) {
+    const nriInfo = nriSection.querySelector('.landing-nri__info');
+    const nriFeatures = nriSection.querySelectorAll('.landing-nri__feature');
+    
+    if (nriInfo) {
+      nriInfo.style.opacity = '0';
+      nriInfo.style.transform = 'translateY(40px)';
+      nriInfo.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    }
+    
+    nriFeatures.forEach(feature => {
+      feature.style.opacity = '0';
+      feature.style.transform = 'translateX(-30px)';
+      feature.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+    
+    nriObserver.observe(nriSection);
+  }
+
+  // ===========================================
+  // 6. AWARDS SECTION - STAGGERED ANIMATION
+  // ===========================================
+  
+  const awardsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const header = entry.target.querySelector('.landing-awards__header');
+        const items = entry.target.querySelectorAll('.landing-awards__item');
+        
+        // Animate header first
+        if (header) {
+          header.style.opacity = '1';
+          header.style.transform = 'translateY(0)';
+        }
+        
+        // Then animate award items with stagger
+        items.forEach((item, index) => {
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 400 + (index * 150));
+        });
+        
+        awardsObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const awardsSection = document.querySelector('.landing-awards');
+  if (awardsSection) {
+    const header = awardsSection.querySelector('.landing-awards__header');
+    const items = awardsSection.querySelectorAll('.landing-awards__item');
+    
+    if (header) {
+      header.style.opacity = '0';
+      header.style.transform = 'translateY(40px)';
+      header.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    }
+    
+    items.forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(40px)';
+      item.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    });
+    
+    awardsObserver.observe(awardsSection);
+  }
+
+  // ===========================================
+  // 7. TESTIMONIALS SECTION - SLIDE ANIMATIONS
+  // ===========================================
+  
+  const testimonialsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const header = entry.target.querySelector('.landing-testimonials__header');
+        const content = entry.target.querySelector('.landing-testimonials__content');
+        
+        // Slide title from left
+        if (header) {
+          setTimeout(() => {
+            header.style.opacity = '1';
+            header.style.transform = 'translateX(0)';
+          }, 200);
+        }
+        
+        // Slide content from right
+        if (content) {
+          setTimeout(() => {
+            content.style.opacity = '1';
+            content.style.transform = 'translateX(0)';
+          }, 400);
+        }
+        
+        testimonialsObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const testimonialsSection = document.querySelector('.landing-testimonials');
+  if (testimonialsSection) {
+    const header = testimonialsSection.querySelector('.landing-testimonials__header');
+    const content = testimonialsSection.querySelector('.landing-testimonials__content');
+    
+    if (header) {
+      header.style.opacity = '0';
+      header.style.transform = 'translateX(-100px)';
+      header.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    }
+    
+    if (content) {
+      content.style.opacity = '0';
+      content.style.transform = 'translateX(100px)';
+      content.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    }
+    
+    testimonialsObserver.observe(testimonialsSection);
+  }
+
+  // ===========================================
+  // 8. FOOTER SECTION - FADE IN ANIMATION
+  // ===========================================
+  
+  const footerContent = document.querySelector('.landing-footer__content');
+  if (footerContent) {
+    footerContent.classList.add('fade-in');
+    overviewObserver.observe(footerContent);
+  }
+}
+
+// ===========================================
+// TESTIMONIAL NAVIGATION (Interactive)
+// ===========================================
+
+const prevBtn = document.querySelector('.landing-testimonials__nav-btn--prev');
+const nextBtn = document.querySelector('.landing-testimonials__nav-btn--next');
+
+if (prevBtn && nextBtn) {
+  prevBtn.addEventListener('click', () => {
+    console.log('Previous testimonial');
+    // Add testimonial navigation logic here
+  });
+
+  nextBtn.addEventListener('click', () => {
+    console.log('Next testimonial');
+    // Add testimonial navigation logic here
+  });
+}
+
+console.log('Landing page animations initialized');
+

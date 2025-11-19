@@ -1,0 +1,267 @@
+// ===========================================
+// VALUES 2 SECTION
+// ===========================================
+
+.values-3 {
+  background-color: $color-bg-primary;
+  @include flex-column-center;
+  gap: 70px;
+  padding: $container-padding-desktop;
+  min-height: 1416px;
+  overflow: hidden;
+  position: relative;
+
+  @include respond-to('desktop') {
+    padding: 80px $container-padding-tablet;
+    min-height: 1300px;
+  }
+
+  @include respond-to('laptop') {
+    min-height: 1200px;
+  }
+
+  @include respond-to('tablet') {
+    padding: $spacing-2xl $container-padding-mobile;
+    gap: 50px;
+    min-height: auto;
+  }
+}
+
+.values-3__header {
+  @include flex-column-center;
+  gap: 45px;
+  text-align: center;
+  max-width: 943px;
+
+  @include respond-to('tablet') {
+    gap: 25px;
+  }
+}
+
+.values-3__label {
+  @include heading-secondary;
+  font-size: $font-size-small;
+  color: $color-brand-primary;
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+}
+
+.values-3__title {
+  @include heading-primary;
+  font-size: $font-size-h2;
+  line-height: $line-height-tight;
+  color: $color-brand-black;
+
+  @include respond-to('desktop') {
+    font-size: 52px;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 46px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 36px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 28px;
+  }
+}
+
+.values-3__diagram {
+  position: relative;
+  width: 100%;
+  max-width: 1800px;
+  height: 812px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include respond-to('laptop') {
+    height: 700px;
+  }
+
+  @include respond-to('tablet') {
+    height: 600px;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  @include respond-to('mobile') {
+    height: auto;
+  }
+}
+
+.values-3__tree {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 711.625px;
+  height: 812px;
+  z-index: 1;
+
+  @include respond-to('laptop') {
+    width: 600px;
+    height: auto;
+  }
+
+  @include respond-to('tablet') {
+    display: none;
+  }
+}
+
+.values-3__value {
+  position: absolute;
+  z-index: 2;
+
+  @include respond-to('tablet') {
+    position: relative;
+    text-align: center;
+  }
+}
+
+.values-3__value-title {
+  @include heading-primary;
+  font-size: 44px;
+  line-height: $line-height-normal;
+  color: $color-brand-black;
+  margin-bottom: 20px;
+
+  @include respond-to('laptop') {
+    font-size: 36px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 24px;
+  }
+}
+
+.values-3__value-text {
+  @include body-text;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+  max-width: 468px;
+
+  @include respond-to('laptop') {
+    font-size: 18px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+    max-width: 100%;
+  }
+}
+
+// Left side values
+.values-3__value--1 {
+  left: 565px;
+  top: 428px;
+  text-align: right;
+
+  @include respond-to('desktop') {
+    left: 450px;
+    top: 380px;
+  }
+
+  @include respond-to('laptop') {
+    left: 350px;
+  }
+
+  .values-3__value-text {
+    text-align: right;
+    margin-left: auto;
+  }
+}
+
+.values-3__value--2 {
+  left: 388px;
+  top: 607px;
+  text-align: right;
+
+  @include respond-to('desktop') {
+    left: 300px;
+    top: 550px;
+  }
+
+  @include respond-to('laptop') {
+    left: 220px;
+  }
+
+  .values-3__value-text {
+    text-align: right;
+    margin-left: auto;
+  }
+}
+
+.values-3__value--3 {
+  left: 303px;
+  top: 786px;
+  text-align: right;
+
+  @include respond-to('desktop') {
+    left: 230px;
+    top: 700px;
+  }
+
+  @include respond-to('laptop') {
+    left: 150px;
+  }
+
+  .values-3__value-text {
+    text-align: right;
+    margin-left: auto;
+  }
+}
+
+// Right side values
+.values-3__value--4 {
+  left: 1107px;
+  top: 428px;
+
+  @include respond-to('desktop') {
+    left: 950px;
+    top: 380px;
+  }
+
+  @include respond-to('laptop') {
+    left: 850px;
+  }
+}
+
+.values-3__value--5 {
+  left: 1174px;
+  top: 606px;
+
+  @include respond-to('desktop') {
+    left: 1000px;
+    top: 550px;
+  }
+
+  @include respond-to('laptop') {
+    left: 900px;
+  }
+}
+
+.values-3__value--6 {
+  left: 1249px;
+  top: 784px;
+
+  @include respond-to('desktop') {
+    left: 1050px;
+    top: 700px;
+  }
+
+  @include respond-to('laptop') {
+    left: 950px;
+  }
+}
+

@@ -1,0 +1,135 @@
+// ===========================================
+// LEGACY SECTION
+// ===========================================
+
+.legacy {
+  position: relative;
+  background-color: $color-bg-primary;
+  display: flex;
+  gap: 169px;
+  align-items: flex-start;
+  padding: $spacing-6xl $container-padding-desktop;
+  overflow: hidden;
+
+  @include respond-to('desktop') {
+    gap: 100px;
+    padding: 80px $container-padding-tablet;
+  }
+
+  @include respond-to('laptop') {
+    gap: 60px;
+  }
+
+  @include respond-to('tablet') {
+    flex-direction: column;
+    gap: 40px;
+    padding: $spacing-2xl $container-padding-mobile;
+  }
+}
+
+.legacy__decoration {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 960px;
+  height: 502px;
+  z-index: 0;
+
+  @include respond-to('laptop') {
+    width: 600px;
+    height: 300px;
+  }
+
+  @include respond-to('tablet') {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.legacy__left {
+  @include flex-column;
+  gap: $spacing-xl;
+  flex: 1;
+  z-index: 2;
+
+  @include respond-to('tablet') {
+    gap: 25px;
+  }
+}
+
+.legacy__label {
+  @include heading-secondary;
+  font-size: $font-size-small;
+  color: $color-brand-primary;
+  text-align: center;
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+}
+
+.legacy__title {
+  @include heading-primary;
+  font-size: $font-size-h2;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+
+  @include respond-to('desktop') {
+    font-size: 52px;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 46px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 36px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 28px;
+  }
+}
+
+.legacy__right {
+  @include flex-column;
+  gap: $spacing-2xl;
+  width: 974px;
+  flex-shrink: 0;
+  z-index: 2;
+
+  @include respond-to('laptop') {
+    width: 600px;
+  }
+
+  @include respond-to('tablet') {
+    width: 100%;
+    gap: $spacing-lg;
+  }
+}
+
+.legacy__description {
+  @include body-paragraph;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+
+  @include respond-to('laptop') {
+    font-size: 18px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: $spacing-xs;
+    }
+  }
+}
+

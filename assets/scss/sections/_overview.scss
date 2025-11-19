@@ -1,0 +1,207 @@
+// ===========================================
+// OVERVIEW SECTION
+// ===========================================
+
+.overview {
+  position: relative;
+  background-color: $color-bg-primary;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+
+  @include respond-to('laptop') {
+    flex-direction: column;
+  }
+}
+
+.overview__left {
+  @include flex-column;
+  gap: $spacing-3xl;
+  width: 676px;
+  padding: 0 0 0 $container-padding-desktop;
+  flex-shrink: 0;
+  z-index: 2;
+
+  @include respond-to('desktop') {
+    width: 600px;
+    padding-left: $container-padding-tablet;
+    gap: $spacing-2xl;
+  }
+
+  @include respond-to('laptop') {
+    width: 100%;
+    padding: $spacing-2xl $container-padding-tablet;
+  }
+
+  @include respond-to('tablet') {
+    padding: 40px $container-padding-mobile;
+    gap: 40px;
+  }
+}
+
+.overview__title-wrap {
+  @include flex-column;
+  gap: $spacing-xl;
+
+  @include respond-to('tablet') {
+    gap: 25px;
+  }
+}
+
+.overview__label {
+  @include heading-secondary;
+  font-size: $font-size-small;
+  color: $color-brand-primary;
+  text-align: center;
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+}
+
+.overview__title {
+  @include heading-primary;
+  font-size: $font-size-h2;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+
+  @include respond-to('desktop') {
+    font-size: 52px;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 46px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 36px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 28px;
+  }
+}
+
+.overview__logo-box {
+  background-color: $color-white;
+  padding: 90px 40px;
+  @include flex-center;
+
+  @include respond-to('tablet') {
+    padding: 60px $spacing-lg;
+  }
+
+  @include respond-to('mobile') {
+    padding: 40px 20px;
+  }
+}
+
+.overview__logo {
+  width: 480px;
+  height: 120.702px;
+
+  @include respond-to('tablet') {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.overview__decoration {
+  position: relative;
+  width: 512px;
+  height: 502px;
+  flex-shrink: 0;
+  margin-left: -200px;
+  margin-right: -200px;
+  z-index: 1;
+
+  @include respond-to('desktop') {
+    width: 400px;
+    margin-left: -150px;
+    margin-right: -150px;
+  }
+
+  @include respond-to('laptop') {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.overview__right {
+  @include flex-column;
+  gap: $spacing-2xl;
+  flex: 1;
+  padding-right: $container-padding-desktop;
+  margin-left: -100px;
+  z-index: 3;
+
+  @include respond-to('desktop') {
+    padding-right: $container-padding-tablet;
+    margin-left: -50px;
+  }
+
+  @include respond-to('laptop') {
+    margin-left: 0;
+    padding: 0 $container-padding-tablet $spacing-2xl;
+  }
+
+  @include respond-to('tablet') {
+    padding: 0 $container-padding-mobile 40px;
+    gap: 40px;
+  }
+}
+
+.overview__description {
+  @include body-paragraph;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+  max-width: 974px;
+  width: 100%;
+
+  @include respond-to('laptop') {
+    font-size: 18px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: $spacing-xs;
+    }
+  }
+}
+
+.overview__stats {
+  @include flex-between;
+  width: 100%;
+  max-width: 974px;
+
+  @include respond-to('laptop') {
+    flex-wrap: wrap;
+    gap: $spacing-lg;
+  }
+
+  @include respond-to('mobile') {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-lg;
+  }
+}
+

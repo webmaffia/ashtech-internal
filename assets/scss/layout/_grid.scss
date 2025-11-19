@@ -1,0 +1,102 @@
+// ===========================================
+// GRID SYSTEM
+// ===========================================
+
+.container {
+  @include container;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+
+  @include respond-to('tablet') {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+
+.col {
+  flex: 1 0 0%;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @include respond-to('tablet') {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+// Grid layouts
+.grid {
+  display: grid;
+  gap: $spacing-lg;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+
+  @include respond-to('laptop') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+
+  @include respond-to('laptop') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Flex utilities
+.flex {
+  display: flex;
+}
+
+.flex--center {
+  @include flex-center;
+}
+
+.flex--between {
+  @include flex-between;
+}
+
+.flex--column {
+  @include flex-column;
+}
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+.flex--gap-sm {
+  gap: $spacing-sm;
+}
+
+.flex--gap-md {
+  gap: $spacing-lg;
+}
+
+.flex--gap-lg {
+  gap: $spacing-2xl;
+}
+

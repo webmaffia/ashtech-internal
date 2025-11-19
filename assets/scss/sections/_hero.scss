@@ -1,0 +1,183 @@
+// ===========================================
+// HERO SECTION
+// ===========================================
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: $spacing-2xl $container-padding-desktop;
+  overflow: hidden;
+
+  @include respond-to('desktop') {
+    height: 700px;
+    padding: 40px $container-padding-tablet;
+  }
+
+  @include respond-to('laptop') {
+    height: 600px;
+  }
+
+  @include respond-to('tablet') {
+    height: 500px;
+    padding: $spacing-lg $container-padding-mobile;
+  }
+
+  @include respond-to('mobile') {
+    height: 640px;
+    padding: 25px $container-padding-mobile;
+  }
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__bg-image {
+  position: absolute;
+  top: -16.94%;
+  left: -13.94%;
+  width: 127.88%;
+  height: 116.94%;
+  
+  @include respond-to('tablet') {
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: $gradient-dark-overlay;
+  z-index: 1;
+}
+
+.hero__content {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  @include flex-column-center;
+  gap: $spacing-2xl;
+  width: 1082px;
+  max-width: calc(100% - 40px);
+  z-index: 10;
+
+  @include respond-to('laptop') {
+    width: 900px;
+  }
+
+  @include respond-to('tablet') {
+    bottom: 50px;
+    gap: $spacing-lg;
+    width: 100%;
+    max-width: calc(100% - 32px);
+  }
+
+  @include respond-to('mobile') {
+    bottom: 40px;
+    gap: $spacing-lg;
+  }
+}
+
+.hero__title {
+  @include heading-primary;
+  font-size: $font-size-h1;
+  line-height: $line-height-tight;
+  color: $color-white;
+  text-align: center;
+
+  @include respond-to('desktop') {
+    font-size: 60px;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 52px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 42px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 36px;
+  }
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: $spacing-xs;
+    }
+  }
+}
+
+.hero__subtitle {
+  @include flex-column;
+  gap: $spacing-lg;
+  width: 100%;
+  text-align: center;
+  color: $color-white;
+
+  @include respond-to('tablet') {
+    gap: 20px;
+  }
+}
+
+.hero__subtitle-main {
+  @include heading-primary;
+  font-size: $font-size-h4;
+  line-height: $line-height-medium;
+
+  @include respond-to('desktop') {
+    font-size: 32px;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 28px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 24px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 20px;
+  }
+}
+
+.hero__subtitle-text {
+  @include heading-primary;
+  font-size: $font-size-h6;
+  line-height: $line-height-normal;
+
+  @include respond-to('desktop') {
+    font-size: 22px;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 20px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 18px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 16px;
+  }
+}
+

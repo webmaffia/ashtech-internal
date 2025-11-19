@@ -1,0 +1,168 @@
+// ===========================================
+// AWARDS 2 SECTION
+// ===========================================
+
+.awards-2 {
+  background-color: $color-bg-primary;
+  @include flex-column-center;
+  gap: $container-padding-desktop;
+  padding: 120px $container-padding-desktop;
+  min-height: 693px;
+  overflow: hidden;
+
+  @include respond-to('desktop') {
+    padding: 100px $container-padding-tablet;
+    gap: 80px;
+  }
+
+  @include respond-to('tablet') {
+    padding: $spacing-2xl $container-padding-mobile;
+    gap: $spacing-2xl;
+    min-height: auto;
+  }
+}
+
+.awards-2__header {
+  @include flex-column-center;
+  gap: 50px;
+  text-align: center;
+  max-width: 1721px;
+
+  @include respond-to('tablet') {
+    gap: 40px;
+  }
+}
+
+.awards-2__label {
+  @include heading-secondary;
+  font-size: $font-size-small;
+  color: $color-brand-primary;
+  padding: 15px 20px 15px 0;
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+}
+
+.awards-2__title {
+  @include heading-primary;
+  font-size: $font-size-h2;
+  line-height: $line-height-tight;
+  color: $color-brand-black;
+
+  @include respond-to('desktop') {
+    font-size: 52px;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 46px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 36px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 28px;
+  }
+}
+
+.awards-2__text {
+  @include body-paragraph;
+  font-size: $font-size-body;
+  color: $color-brand-black;
+  max-width: 921px;
+
+  @include respond-to('laptop') {
+    font-size: 18px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+}
+
+.awards-2__list {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @include respond-to('laptop') {
+    gap: 50px;
+  }
+
+  @include respond-to('tablet') {
+    gap: 40px;
+  }
+
+  @include respond-to('mobile') {
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+}
+
+.awards-2__item {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  align-items: center;
+  gap: 0;
+  position: relative;
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+  }
+}
+
+.awards-2__laurel {
+  width: 80.855px;
+  height: 144.243px;
+
+  @include respond-to('tablet') {
+    width: 60px;
+    height: auto;
+  }
+
+  @include respond-to('mobile') {
+    width: 50px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &:last-child {
+    img {
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.awards-2__award-text {
+  @include heading-primary;
+  font-size: $font-size-h6;
+  line-height: $line-height-tight;
+  color: $color-brand-primary;
+  text-align: center;
+  width: 200px;
+  transform: translateX(-50%);
+  margin-left: 100px;
+
+  @include respond-to('tablet') {
+    font-size: 20px;
+    width: 180px;
+    margin-left: 0;
+    transform: none;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 18px;
+    width: 100%;
+  }
+}
+
