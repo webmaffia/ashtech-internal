@@ -66,6 +66,10 @@ if (!prefersReducedMotion) {
       });
     });
     
+    // Get banner content elements
+    const bannerTitle = document.querySelector('.landing-banner__title');
+    const bannerScrollText = document.querySelector('.landing-banner__scroll');
+    
     // Scroll-based path drawing animation
     let svgTicking = false;
     
@@ -86,6 +90,28 @@ if (!prefersReducedMotion) {
             const drawLength = data.length * (1 - scrollProgress);
             data.element.style.strokeDashoffset = drawLength;
           });
+          
+          // Fade out banner content as SVG animation progresses
+          if (scrollProgress > 0) {
+            // Start fading out from the beginning of scroll
+            const fadeOutProgress = Math.min(scrollProgress * 2, 1); // Fade out faster (by 50% of animation)
+            const opacity = 1 - fadeOutProgress;
+            
+            if (bannerTitle) {
+              bannerTitle.style.opacity = opacity;
+            }
+            if (bannerScrollText) {
+              bannerScrollText.style.opacity = opacity;
+            }
+          } else {
+            // Show banner content when at the top
+            if (bannerTitle) {
+              bannerTitle.style.opacity = '1';
+            }
+            if (bannerScrollText) {
+              bannerScrollText.style.opacity = '1';
+            }
+          }
           
           // Check if SVG animation is complete (when scroll progress reaches 100%)
           if (scrollProgress >= 1 && !svgAnimationComplete) {

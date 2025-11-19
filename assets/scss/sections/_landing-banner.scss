@@ -145,6 +145,8 @@
     text-align: center;
     font-weight: 325;
     margin: 0;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
   }
 
   // Scroll indicator
@@ -160,6 +162,8 @@
     letter-spacing: 12px;
     text-align: center;
     line-height: 1.5;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
   }
 
   // Responsive
