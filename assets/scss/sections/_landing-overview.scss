@@ -35,16 +35,15 @@
     position: absolute;
     top: -297.74px;
     left: 50%;
-    transform: translateX(-50%);
-    width: 73.891vw;
-    height: 82.903vw;
+    transform: translateX(-50%) scale(1);
+    width: 63.891vw;
+    height: 72.903vw;
     background-image: url('../images/landing/overview-decoration.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     pointer-events: none;
     z-index: 1;
-    transition: width 0.8s ease-out, height 0.8s ease-out;
   }
 
   &__content {
@@ -158,8 +157,6 @@
     }
 
     &__decoration {
-      width: 800px;
-      height: 933px;
       top: -200px;
     }
   }
@@ -192,8 +189,6 @@
     }
 
     &__decoration {
-      width: 600px;
-      height: 700px;
       top: -150px;
     }
 

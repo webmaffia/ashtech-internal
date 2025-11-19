@@ -52,7 +52,7 @@ if (!prefersReducedMotion) {
           const windowHeight = window.innerHeight;
           
           // Start animating when user scrolls past 20% of viewport
-          if (scrollY > windowHeight * 0.2) {
+          if (scrollY > windowHeight * 0.8) {
             // Calculate how much to move up (max 100vw)
             const progress = Math.min((scrollY - windowHeight * 0.2) / (windowHeight * 0.8), 1);
             const translateValue = 100 - (progress * 100); // From 100vh to 0vh
@@ -62,24 +62,27 @@ if (!prefersReducedMotion) {
             // When translateValue reaches 0 (or negative), banner opacity should be 0
             bannerSection.style.opacity = translateValue / 100;
             
-            // Change decoration size at 50% scroll progress
+            // Gradually scale decoration based on scroll progress
             if (overviewDecoration) {
-              if (progress >= 0.5) {
-                overviewDecoration.style.width = '63.891vw';
-                overviewDecoration.style.height = '72.903vw';
-              } else {
-                overviewDecoration.style.width = '73.891vw';
-                overviewDecoration.style.height = '82.903vw';
-              }
+              // Start scale: 1.565 (zoomed/big)
+              // End scale: 1.0 (original size)
+              // Interpolate smoothly based on scroll progress (0 to 1)
+              
+              const startScale = 1.565;
+              const endScale = 1.0;
+              
+              // Calculate current scale based on progress
+              const currentScale = startScale - ((startScale - endScale) * progress);
+              
+              overviewDecoration.style.transform = `translateX(-50%) scale(${currentScale})`;
             }
           } else {
             overviewSection.style.top = '100vh';
             bannerSection.style.opacity = '1';
             
-            // Reset decoration to original size
+            // Reset decoration to big/zoomed size when scrolled back to top
             if (overviewDecoration) {
-              overviewDecoration.style.width = '73.891vw';
-              overviewDecoration.style.height = '82.903vw';
+              overviewDecoration.style.transform = 'translateX(-50%) scale(1.565)';
             }
           }
           
@@ -102,7 +105,9 @@ if (!prefersReducedMotion) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
-        overviewObserver.unobserve(entry.target);
+      } else {
+        // Remove animate class when scrolling out to reset animation
+        entry.target.classList.remove('animate');
       }
     });
   }, observerOptions);
@@ -117,10 +122,20 @@ if (!prefersReducedMotion) {
   // 3. VALUES SECTION - STAGGERED ANIMATION
   // ===========================================
   
+  const valuesHeaderObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      } else {
+        entry.target.classList.remove('animate');
+      }
+    });
+  }, observerOptions);
+
   const valuesHeader = document.querySelector('.landing-values__header');
   if (valuesHeader) {
     valuesHeader.classList.add('fade-in');
-    overviewObserver.observe(valuesHeader);
+    valuesHeaderObserver.observe(valuesHeader);
   }
 
   const valuesObserver = new IntersectionObserver((entries) => {
@@ -135,6 +150,7 @@ if (!prefersReducedMotion) {
           [valueItems[2], valueItems[5]]  // लगन + दृढता
         ];
 
+        // Animate in forward
         pairs.forEach((pair, pairIndex) => {
           setTimeout(() => {
             pair.forEach((item) => {
@@ -159,8 +175,40 @@ if (!prefersReducedMotion) {
             });
           }, pairIndex * 300); // 300ms delay between pairs
         });
+      } else {
+        // Animate out in reverse order
+        const valueItems = document.querySelectorAll('.landing-values__item');
+        const pairs = [
+          [valueItems[0], valueItems[3]], // जुनून + विश्वास
+          [valueItems[1], valueItems[4]], // संकल्प + निष्ठा
+          [valueItems[2], valueItems[5]]  // लगन + दृढता
+        ];
         
-        valuesObserver.unobserve(entry.target);
+        // Reverse animation: last pair animates out first
+        pairs.reverse().forEach((pair, pairIndex) => {
+          setTimeout(() => {
+            pair.forEach((item) => {
+              if (item) {
+                const title = item.querySelector('.landing-values__item-title');
+                const description = item.querySelector('.landing-values__item-description');
+                
+                // Description fades out first
+                if (description) {
+                  description.style.opacity = '0';
+                  description.style.transform = 'translateY(40px)';
+                }
+                
+                // Title fades out after
+                if (title) {
+                  setTimeout(() => {
+                    title.style.opacity = '0';
+                    title.style.transform = 'translateY(40px)';
+                  }, 150);
+                }
+              }
+            });
+          }, pairIndex * 200); // Faster reverse animation
+        });
       }
     });
   }, observerOptions);
@@ -182,10 +230,20 @@ if (!prefersReducedMotion) {
   // 4. PROJECTS SECTION - FADE IN ANIMATION
   // ===========================================
   
+  const projectsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      } else {
+        entry.target.classList.remove('animate');
+      }
+    });
+  }, observerOptions);
+  
   const projectsContent = document.querySelector('.landing-projects__content');
   if (projectsContent) {
     projectsContent.classList.add('fade-in');
-    overviewObserver.observe(projectsContent);
+    projectsObserver.observe(projectsContent);
   }
 
   // ===========================================
@@ -211,8 +269,26 @@ if (!prefersReducedMotion) {
             feature.style.transform = 'translateX(0)';
           }, 300 + (index * 150));
         });
+      } else {
+        // Animate out in reverse order
+        const nriContent = entry.target.querySelector('.landing-nri__info');
+        const nriFeatures = entry.target.querySelectorAll('.landing-nri__feature');
         
-        nriObserver.unobserve(entry.target);
+        // Features fade out first in reverse order
+        Array.from(nriFeatures).reverse().forEach((feature, index) => {
+          setTimeout(() => {
+            feature.style.opacity = '0';
+            feature.style.transform = 'translateX(-30px)';
+          }, index * 100);
+        });
+        
+        // Content fades out last
+        if (nriContent) {
+          setTimeout(() => {
+            nriContent.style.opacity = '0';
+            nriContent.style.transform = 'translateY(40px)';
+          }, nriFeatures.length * 100);
+        }
       }
     });
   }, observerOptions);
@@ -260,8 +336,26 @@ if (!prefersReducedMotion) {
             item.style.transform = 'translateY(0)';
           }, 400 + (index * 150));
         });
+      } else {
+        // Animate out in reverse order
+        const header = entry.target.querySelector('.landing-awards__header');
+        const items = entry.target.querySelectorAll('.landing-awards__item');
         
-        awardsObserver.unobserve(entry.target);
+        // Items fade out first in reverse order
+        Array.from(items).reverse().forEach((item, index) => {
+          setTimeout(() => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(40px)';
+          }, index * 100);
+        });
+        
+        // Header fades out last
+        if (header) {
+          setTimeout(() => {
+            header.style.opacity = '0';
+            header.style.transform = 'translateY(40px)';
+          }, items.length * 100);
+        }
       }
     });
   }, observerOptions);
@@ -296,7 +390,7 @@ if (!prefersReducedMotion) {
         const header = entry.target.querySelector('.landing-testimonials__header');
         const content = entry.target.querySelector('.landing-testimonials__content');
         
-        // Slide title from left
+        // Slide in from sides
         if (header) {
           setTimeout(() => {
             header.style.opacity = '1';
@@ -304,15 +398,30 @@ if (!prefersReducedMotion) {
           }, 200);
         }
         
-        // Slide content from right
         if (content) {
           setTimeout(() => {
             content.style.opacity = '1';
             content.style.transform = 'translateX(0)';
           }, 400);
         }
+      } else {
+        // Slide out in reverse order
+        const header = entry.target.querySelector('.landing-testimonials__header');
+        const content = entry.target.querySelector('.landing-testimonials__content');
         
-        testimonialsObserver.unobserve(entry.target);
+        // Content slides out first
+        if (content) {
+          content.style.opacity = '0';
+          content.style.transform = 'translateX(100px)';
+        }
+        
+        // Header slides out after
+        if (header) {
+          setTimeout(() => {
+            header.style.opacity = '0';
+            header.style.transform = 'translateX(-100px)';
+          }, 150);
+        }
       }
     });
   }, observerOptions);
@@ -341,10 +450,20 @@ if (!prefersReducedMotion) {
   // 8. FOOTER SECTION - FADE IN ANIMATION
   // ===========================================
   
+  const footerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      } else {
+        entry.target.classList.remove('animate');
+      }
+    });
+  }, observerOptions);
+  
   const footerContent = document.querySelector('.landing-footer__content');
   if (footerContent) {
     footerContent.classList.add('fade-in');
-    overviewObserver.observe(footerContent);
+    footerObserver.observe(footerContent);
   }
 }
 
