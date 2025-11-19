@@ -5,7 +5,7 @@
 .landing-footer {
   position: relative;
   width: 100%;
-  min-height: 557px;
+  min-height: vw(557);
   background-color: $color-bg-primary;
   overflow: hidden;
 
@@ -14,8 +14,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 1920px;
-    height: 693px;
+    width: vw(1920);
+    height: vw(693);
     background-image: url('../images/landing/footer-pattern.jpg');
     background-size: cover;
     background-position: center;
@@ -26,9 +26,9 @@
   &__content {
     position: relative;
     width: 100%;
-    max-width: 1920px;
+    max-width: vw(1920);
     margin: 0 auto;
-    padding: 60px 100px 13px 100px;
+    padding: vw(60) vw(100) vw(13) vw(100);
     z-index: 2;
   }
 
@@ -36,22 +36,22 @@
   &__main {
     display: flex;
     justify-content: space-between;
-    gap: 80px;
-    margin-bottom: 50px;
+    gap: vw(80);
+    margin-bottom: vw(50);
   }
 
   // About section (left)
   &__about {
     flex: 1;
-    max-width: 420px;
+    max-width: vw(420);
     display: flex;
     flex-direction: column;
     gap: 30px;
   }
 
   &__logo {
-    width: 316px;
-    height: 48px;
+    width: vw(316);
+    height: vw(48);
 
     img {
       width: 100%;
@@ -62,7 +62,7 @@
 
   &__description {
     font-family: $font-secondary;
-    font-size: 18px;
+    font-size: vw(18);
     font-weight: 400;
     line-height: 1.8;
     color: $color-brand-black;
@@ -73,12 +73,12 @@
   // Social media links
   &__social {
     display: flex;
-    gap: 3px;
+    gap: vw(3);
   }
 
   &__social-link {
-    width: 46.328px;
-    height: 46.328px;
+    width: vw(46.328);
+    height: vw(46.328);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,12 +99,12 @@
   &__links {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: vw(35);
   }
 
   &__links-title {
     font-family: $font-primary;
-    font-size: 30px;
+    font-size: vw(30);
     line-height: 1.5;
     color: $color-brand-primary;
     font-weight: 325;
@@ -117,7 +117,7 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: vw(10);
 
     li {
       margin: 0;
@@ -125,7 +125,7 @@
 
     a {
       font-family: $font-secondary;
-      font-size: 18px;
+      font-size: vw(18);
       font-weight: 400;
       line-height: 2;
       color: $color-brand-black;
@@ -142,12 +142,12 @@
   &__contact {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: vw(35);
   }
 
   &__contact-title {
     font-family: $font-primary;
-    font-size: 30px;
+    font-size: vw(30);
     line-height: 1.5;
     color: $color-brand-primary;
     font-weight: 325;
@@ -157,17 +157,17 @@
   &__contact-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: vw(20);
   }
 
   &__contact-item {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
+    gap: vw(14);
 
     p {
       font-family: $font-secondary;
-      font-size: 18px;
+      font-size: vw(18);
       font-weight: 400;
       line-height: 2;
       color: $color-brand-black;
@@ -176,8 +176,8 @@
   }
 
   &__contact-icon {
-    width: 38.73px;
-    height: 38.73px;
+    width: vw(38.73);
+    height: vw(38.73);
     flex-shrink: 0;
     object-fit: contain;
   }
@@ -187,15 +187,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
-    padding-top: 30px;
+    gap: vw(20);
+    padding-top: vw(30);
     border-top: 1px solid rgba(114, 12, 16, 0.2);
   }
 
   &__copyright,
   &__legal {
     font-family: $font-secondary;
-    font-size: 18px;
+    font-size: vw(18);
     font-weight: 400;
     line-height: 1.5;
     color: $color-brand-primary;
@@ -205,20 +205,20 @@
   // Responsive
   @include respond-to('laptop') {
     &__content {
-      padding: 50px 60px 13px 60px;
+      padding: vw(50) vw(60) vw(13) vw(60);
     }
 
     &__main {
-      gap: 60px;
+      gap: vw(60);
     }
 
     &__about {
-      max-width: 350px;
+      max-width: vw(350);
     }
 
     &__logo {
-      width: 260px;
-      height: 40px;
+      width: vw(260);
+      height: vw(40);
     }
 
     &__description,
@@ -226,23 +226,23 @@
     &__contact-item p,
     &__copyright,
     &__legal {
-      font-size: 16px;
+      font-size: vw(16);
     }
 
     &__links-title,
     &__contact-title {
-      font-size: 26px;
+      font-size: vw(26);
     }
   }
 
   @include respond-to('tablet') {
     &__content {
-      padding: 40px;
+      padding: vw(40);
     }
 
     &__main {
       flex-direction: column;
-      gap: 40px;
+      gap: vw(40);
     }
 
     &__about {
@@ -256,52 +256,52 @@
   }
 
   @include respond-to('mobile') {
-    min-height: 653.527px;
+    min-height: vw(653.527);
 
     &__content {
-      padding: 25px 16px 13px 16px;
+      padding: vw(25) vw(16) vw(13) vw(16);
     }
 
     &__main {
-      gap: 30px;
+      gap: vw(30);
     }
 
     &__logo {
-      width: 211.711px;
-      height: 32px;
+      width: vw(211.711);
+      height: vw(32);
     }
 
     &__description {
-      font-size: 14px;
+      font-size: vw(14);
     }
 
     &__social-link {
-      width: 32px;
-      height: 32px;
+      width: vw(32);
+      height: vw(32);
     }
 
     &__links-title,
     &__contact-title {
-      font-size: 20px;
+      font-size: vw(20);
     }
 
     &__links-list a,
     &__contact-item p {
-      font-size: 14px;
+      font-size: vw(14);
     }
 
     &__contact-icon {
-      width: 18px;
-      height: 18px;
+      width: vw(18);
+      height: vw(18);
     }
 
     &__copyright,
     &__legal {
-      font-size: 14px;
+      font-size: vw(14);
     }
 
     &__background {
-      height: 400px;
+      height: vw(400);
     }
   }
 }

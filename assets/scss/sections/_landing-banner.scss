@@ -8,13 +8,13 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1721px;
+    max-width: vw(1721);
     position: absolute;
     z-index: 999;
-     padding: 50px 100px;
+     padding: vw(50) vw(100);
       &__logo {
-    height: 45px;
-    width: 297.72px;
+    height: vw(45);
+    width: vw(297.72);
 
     img {
       width: 100%;
@@ -26,7 +26,7 @@
   &__menu {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: vw(16);
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -37,21 +37,21 @@
 
   &__menu-text {
     font-family: $font-primary;
-    font-size: 24px;
+    font-size: vw(24);
     color: $color-white;
     line-height: 1.3;
   }
 
   &__menu-icon {
-    width: 46px;
-    height: 10px;
+    width: vw(46);
+    height: vw(10);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     span {
       width: 100%;
-      height: 2px;
+      height: vw(2);
       background-color: $color-white;
       display: block;
     }
@@ -85,8 +85,8 @@
   &__content {
     position: relative;
     width: 100%;
-    max-width: 1920px;
-    padding: 50px 100px;
+    max-width: vw(1920);
+    padding: vw(50) vw(100);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,7 +102,7 @@
     left: 50%;
     transform: translate(-50%, calc(-50% + 103px));
     font-family: $font-primary;
-    font-size: 72px;
+    font-size: vw(72);
     line-height: 1.2;
     color: $color-white;
     text-align: center;
@@ -113,76 +113,76 @@
   // Scroll indicator
   &__scroll {
     position: absolute;
-    bottom: 97px;
+    bottom: vw(97);
     left: 50%;
     transform: translate(-50%, 100%);
     font-family: $font-secondary;
-    font-size: 20px;
+    font-size: vw(20);
     font-weight: 500;
     color: $color-white;
-    letter-spacing: 12px;
+    letter-spacing: vw(12);
     text-align: center;
     line-height: 1.5;
   }
 
   // Responsive
   @include respond-to('laptop') {
-    height: 700px;
+    height: vw(700);
 
     &__content {
-      padding: 40px 60px;
+      padding: vw(40) vw(60);
     }
 
     &__title {
-      font-size: 58px;
+      font-size: vw(58);
     }
   }
 
   @include respond-to('tablet') {
-    height: 600px;
+    height: vw(600);
 
     &__content {
-      padding: 30px 40px;
+      padding: vw(30) vw(40);
     }
 
     &__logo {
-      width: 200px;
-      height: 35px;
+      width: vw(200);
+      height: vw(35);
     }
 
     &__title {
-      font-size: 48px;
+      font-size: vw(48);
     }
 
     &__scroll {
-      font-size: 16px;
-      letter-spacing: 8px;
+      font-size: vw(16);
+      letter-spacing: vw(8);
     }
   }
 
   @include respond-to('mobile') {
-    height: 640px;
+    height: vw(640, 414);
 
     &__content {
-      padding: 20px 16px;
+      padding: vw(20, 414) vw(16, 414);
     }
 
     &__logo {
-      width: 150px;
-      height: 30px;
+      width: vw(150, 414);
+      height: vw(30, 414);
     }
 
     &__menu-text {
-      font-size: 18px;
+      font-size: vw(18, 414);
     }
 
     &__menu-icon {
-      width: 30px;
-      height: 8px;
+      width: vw(30, 414);
+      height: vw(8, 414);
     }
 
     &__title {
-      font-size: 32px;
+      font-size: vw(32, 414);
       transform: translate(-50%, calc(-50% + 50px));
     }
 

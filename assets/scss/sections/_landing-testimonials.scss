@@ -5,7 +5,7 @@
 .landing-testimonials {
   width: 100%;
   background-color: $color-bg-primary;
-  padding: 50px 100px;
+  padding: vw(50) vw(100);
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -13,17 +13,17 @@
   &__container {
     position: relative;
     width: 100%;
-    max-width: 1573px;
-    height: 565px;
+    max-width: vw(1573);
+    height: vw(565);
   }
 
   // Slider wrapper
   &__slider-wrapper {
     position: absolute;
-    left: 455px;
-    top: 80px;
-    width: 1118px;
-    height: 485px;
+    left: vw(455);
+    top: vw(80);
+    width: vw(1118);
+    height: vw(485);
     overflow: visible;
   }
 
@@ -79,14 +79,14 @@
     top: 0;
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: vw(45);
     width: 100%;
-    max-width: 690.5px;
+    max-width: vw(690.5);
   }
 
   &__label {
     font-family: $font-secondary;
-    font-size: 18px;
+    font-size: vw(18);
     font-weight: 600;
     color: $color-brand-primary;
     line-height: 1.5;
@@ -94,7 +94,7 @@
 
   &__title {
     font-family: $font-primary;
-    font-size: 58px;
+    font-size: vw(58);
     line-height: 1.2;
     color: $color-brand-black;
     font-weight: 325;
@@ -106,16 +106,16 @@
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 485px;
+    min-height: vw(485);
   }
 
   // Background image
   &__image {
     position: absolute;
-    left: 405px;
+    left: vw(405);
     top: 0;
-    width: 713px;
-    height: 429px;
+    width: vw(713);
+    height: vw(429);
     overflow: hidden;
     z-index: 1;
 
@@ -131,8 +131,8 @@
   &__card {
     position: absolute;
     left: 0;
-    top: 158px;
-    width: 526px;
+    top: vw(158);
+    width: vw(526);
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -144,8 +144,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 22px;
-    padding: 50px;
+    gap: vw(22);
+    padding: vw(50);
 
     position: relative;
 
@@ -154,7 +154,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: 12px;
+      width: vw(12);
       height: 100%;
       background-color: $color-brand-primary;
     }
@@ -167,21 +167,21 @@
   }
 
   &__star {
-    width: 25.948px;
-    height: 25.948px;
+    width: vw(25.948);
+    height: vw(25.948);
   }
 
   // Text content
   &__text-content {
     display: flex;
     flex-direction: column;
-    gap: 22px;
-    width: 426px;
+    gap: vw(22);
+    width: vw(426);
   }
 
   &__quote {
     font-family: $font-secondary;
-    font-size: 20px;
+    font-size: vw(20);
     font-weight: 500;
     line-height: 1.5;
     color: $color-brand-black;
@@ -193,7 +193,7 @@
   &__author {
     display: flex;
     align-items: center;
-    gap: 5.096px;
+    gap: vw(5.096);
     width: 100%;
   }
 
@@ -201,12 +201,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 10.192px;
+    padding-right: vw(10.192);
     border-right: 1.274px solid $color-brand-black;
 
     span {
       font-family: $font-primary;
-      font-size: 24px;
+      font-size: vw(24);
       line-height: 1.3;
       color: $color-brand-black;
       font-weight: 325;
@@ -215,7 +215,7 @@
 
   &__author-role {
     font-family: $font-secondary;
-    font-size: 16px;
+    font-size: vw(16);
     font-weight: 400;
     line-height: 1.5;
     color: #505050;
@@ -225,15 +225,15 @@
   &__navigation {
     position: absolute;
     left: 30%;
-    bottom: -25px;
+    bottom: vw(-25);
     display: flex;
-    gap: 26px;
+    gap: vw(26);
     z-index: 10;
   }
 
   &__nav-btn {
-    width: 56.619px;
-    height: 56.619px;
+    width: vw(56.619);
+    height: vw(56.619);
     border-radius: 0;
     border: none;
     background-color: $color-white;
@@ -255,8 +255,8 @@
     }
 
     svg {
-      width: 20px;
-      height: 20px;
+      width: vw(20);
+      height: vw(20);
       stroke: $color-brand-black;
     }
 
@@ -269,19 +269,19 @@
 
   // Responsive
   @include respond-to('laptop') {
-    padding: 50px 60px;
+    padding: vw(50) vw(60);
 
     &__container {
-      height: 500px;
+      height: vw(500);
     }
 
     &__title {
-      font-size: 48px;
+      font-size: vw(48);
     }
 
     &__slider-wrapper {
-      left: 350px;
-      width: 950px;
+      left: vw(350);
+      width: vw(950);
     }
 
     &__content {
@@ -289,29 +289,29 @@
     }
 
     &__image {
-      width: 600px;
-      height: 380px;
+      width: vw(600);
+      height: vw(380);
     }
 
     &__card {
-      width: 460px;
+      width: vw(460);
     }
 
     &__card-content {
-      padding: 40px;
+      padding: vw(40);
     }
 
     &__text-content {
-      width: 380px;
+      width: vw(380);
     }
 
     &__quote {
-      font-size: 18px;
+      font-size: vw(18);
     }
   }
 
   @include respond-to('tablet') {
-    padding: 40px;
+    padding: vw(40);
 
     &__container {
       height: auto;
@@ -319,11 +319,11 @@
 
     &__header {
       position: relative;
-      margin-bottom: 40px;
+      margin-bottom: vw(40);
     }
 
     &__title {
-      font-size: 38px;
+      font-size: vw(38);
     }
 
     &__slider-wrapper {
@@ -342,14 +342,14 @@
       height: auto;
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: vw(30);
     }
 
     &__image {
       position: relative;
       left: 0;
       width: 100%;
-      height: 300px;
+      height: vw(300);
     }
 
     &__card {
@@ -365,66 +365,66 @@
   }
 
   @include respond-to('mobile') {
-    padding: 25px 16px;
+    padding: vw(25, 414) vw(16, 414);
 
     &__header {
-      gap: 30px;
-      margin-bottom: 30px;
+      gap: vw(30, 414);
+      margin-bottom: vw(30, 414);
     }
 
     &__label {
-      font-size: 16px;
+      font-size: vw(16, 414);
     }
 
     &__title {
-      font-size: 28px;
+      font-size: vw(28, 414);
     }
 
     &__image {
-      height: 200px;
+      height: vw(200, 414);
     }
 
     &__card-content {
-      padding: 20px;
-      gap: 16px;
+      padding: vw(20, 414);
+      gap: vw(16, 414);
     }
 
     &__stars {
-      gap: 2px;
+      gap: vw(2, 414);
     }
 
     &__star {
-      width: 16px;
-      height: 16px;
+      width: vw(16, 414);
+      height: vw(16, 414);
     }
 
     &__quote {
-      font-size: 14px;
+      font-size: vw(14, 414);
     }
 
     &__author-name span {
-      font-size: 18px;
+      font-size: vw(18, 414);
     }
 
     &__author-role {
-      font-size: 14px;
+      font-size: vw(14, 414);
     }
 
     &__navigation {
       position: relative;
       right: 0;
       bottom: 0;
-      margin-top: 20px;
+      margin-top: vw(20, 414);
       justify-content: center;
     }
 
     &__nav-btn {
-      width: 40px;
-      height: 40px;
+      width: vw(40, 414);
+      height: vw(40, 414);
 
       svg {
-        width: 16px;
-        height: 16px;
+        width: vw(16, 414);
+        height: vw(16, 414);
       }
     }
   }
