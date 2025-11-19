@@ -596,6 +596,62 @@ if (!prefersReducedMotion) {
     footerContent.classList.add('fade-in');
     footerObserver.observe(footerContent);
   }
+
+  // ===========================================
+  // 9. UNIVERSAL TEXT ANIMATIONS
+  // ===========================================
+  
+  // Bottom to Top Animation for all text elements
+  const textAnimationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      } else {
+        // Reset animation when scrolling out
+        entry.target.style.opacity = '0';
+        entry.target.style.transform = 'translateY(40px)';
+      }
+    });
+  }, observerOptions);
+
+  // Right to Left Animation for specific elements
+  const textRTLAnimationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateX(0)';
+      } else {
+        // Reset animation when scrolling out
+        entry.target.style.opacity = '0';
+        entry.target.style.transform = 'translateX(100px)';
+      }
+    });
+  }, observerOptions);
+
+  // Select all text elements with animate-text class
+  const animateTextElements = document.querySelectorAll('.animate-text');
+  animateTextElements.forEach(element => {
+    // Set initial state
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(40px)';
+    element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    
+    // Observe element
+    textAnimationObserver.observe(element);
+  });
+
+  // Select all text elements with animate-text-rtl class (Right to Left)
+  const animateTextRTLElements = document.querySelectorAll('.animate-text-rtl');
+  animateTextRTLElements.forEach(element => {
+    // Set initial state
+    element.style.opacity = '0';
+    element.style.transform = 'translateX(100px)';
+    element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+    
+    // Observe element
+    textRTLAnimationObserver.observe(element);
+  });
 }
 
 // ===========================================
