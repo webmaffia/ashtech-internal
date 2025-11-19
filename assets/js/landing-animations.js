@@ -37,6 +37,9 @@ if (!prefersReducedMotion) {
   // 1A. SVG PATH DRAWING ANIMATION (On Scroll)
   // ===========================================
   
+  // Flag to track if SVG animation is complete
+  let svgAnimationComplete = false;
+  
   const bannerSvg = document.getElementById('banner-svg-animation');
   
   if (bannerSvg) {
@@ -84,6 +87,14 @@ if (!prefersReducedMotion) {
             data.element.style.strokeDashoffset = drawLength;
           });
           
+          // Check if SVG animation is complete (when scroll progress reaches 100%)
+          if (scrollProgress >= 1 && !svgAnimationComplete) {
+            svgAnimationComplete = true;
+          } else if (scrollProgress < 1 && svgAnimationComplete) {
+            // Reset flag if user scrolls back up
+            svgAnimationComplete = false;
+          }
+          
           svgTicking = false;
         });
         
@@ -113,10 +124,10 @@ if (!prefersReducedMotion) {
           const scrollY = window.scrollY;
           const windowHeight = window.innerHeight;
           
-          // Start animating when user scrolls past 20% of viewport
-          if (scrollY > windowHeight * 0.8) {
+          // Only start overview scroll animation after SVG animation completes
+          if (svgAnimationComplete && scrollY > windowHeight * 0.8) {
             // Calculate how much to move up (max 100vw)
-            const progress = Math.min((scrollY - windowHeight * 0.2) / (windowHeight * 0.8), 1);
+            const progress = Math.min((scrollY - windowHeight * 0.8) / (windowHeight * 0.8), 1);
             const translateValue = 100 - (progress * 100); // From 100vh to 0vh
             overviewSection.style.top = `${translateValue}vh`;
             
@@ -165,7 +176,8 @@ if (!prefersReducedMotion) {
 
   const overviewObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      // Only animate if SVG animation is complete
+      if (entry.isIntersecting && svgAnimationComplete) {
         entry.target.classList.add('animate');
       } else {
         // Remove animate class when scrolling out to reset animation
