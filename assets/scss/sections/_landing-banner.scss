@@ -97,7 +97,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 800px;
   background-image: url('../images/landing/banner-bg.jpg');
   background-size: cover;
   background-position: center;
@@ -204,3 +204,6 @@
   }
 }
 
+#Layer_2 {
+  position: absolute;
+}
