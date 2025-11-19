@@ -67,6 +67,30 @@
         clip-path: url(#clippath);
       }
     </style>
+    
+    <!-- Glow Filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Strong Glow Filter -->
+    <filter id="strongGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2" result="blur1"/>
+      <feGaussianBlur stdDeviation="6" result="blur2"/>
+      <feGaussianBlur stdDeviation="12" result="blur3"/>
+      <feMerge>
+        <feMergeNode in="blur3"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
     <clipPath id="clippath">
       <rect class="st0" width="1920" height="800"/>
     </clipPath>
@@ -173,6 +197,7 @@
     <!-- Ongoing Projects Section -->
     <section class="landing-projects">
         <div class="landing-projects__background"></div>
+           <img src="assets/images/landing/building.png" alt="" srcset="" class="building">
         <div class="landing-projects__content">
             <div class="landing-projects__header">
                 <div class="landing-projects__label">Ongoing Projects</div>
@@ -195,7 +220,7 @@
                 </button>
             </div>
         </div>
-        <img src="assets/images/landing/building.png" alt="" srcset="">
+     
     </section>
 
     <!-- NRI Desk Section -->

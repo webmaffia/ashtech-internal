@@ -54,6 +54,9 @@ if (!prefersReducedMotion) {
       path.style.strokeDashoffset = length;
       path.style.opacity = '1';
       
+      // Apply glow filter
+      path.setAttribute('filter', 'url(#strongGlow)');
+      
       pathData.push({
         element: path,
         length: length

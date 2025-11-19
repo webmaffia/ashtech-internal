@@ -214,14 +214,20 @@
     height: auto;
     pointer-events: none;
     z-index: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8))
+            drop-shadow(0 0 15px rgba(255, 255, 255, 0.5))
+            drop-shadow(0 0 25px rgba(255, 255, 255, 0.3));
     
-    // Ensure paths are visible
+    // Ensure paths are visible with glow
     path,
     line {
       stroke: #fff;
       fill: none;
-      stroke-width: 1;
+      stroke-width: 1.5;
       transition: stroke-dashoffset 0.3s ease-out;
+      
+      // Additional glow through stroke
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
     }
   }
 }
