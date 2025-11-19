@@ -202,8 +202,26 @@
       display: none;
     }
   }
-}
 
-#Layer_2 {
-  position: absolute;
+  // SVG Animation
+  &__svg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1920px;
+    height: auto;
+    pointer-events: none;
+    z-index: 1;
+    
+    // Ensure paths are visible
+    path,
+    line {
+      stroke: #fff;
+      fill: none;
+      stroke-width: 1;
+      transition: stroke-dashoffset 0.3s ease-out;
+    }
+  }
 }

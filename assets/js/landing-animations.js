@@ -34,6 +34,65 @@ if (!prefersReducedMotion) {
   });
 
   // ===========================================
+  // 1A. SVG PATH DRAWING ANIMATION (On Scroll)
+  // ===========================================
+  
+  const bannerSvg = document.getElementById('banner-svg-animation');
+  
+  if (bannerSvg) {
+    // Get all paths and lines in the SVG
+    const svgPaths = bannerSvg.querySelectorAll('path, line');
+    
+    // Store path lengths and set up initial state
+    const pathData = [];
+    
+    svgPaths.forEach((path) => {
+      const length = path.getTotalLength();
+      
+      // Set up the starting positions
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+      path.style.opacity = '1';
+      
+      pathData.push({
+        element: path,
+        length: length
+      });
+    });
+    
+    // Scroll-based path drawing animation
+    let svgTicking = false;
+    
+    window.addEventListener('scroll', () => {
+      if (!svgTicking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          
+          // Start drawing when user starts scrolling (0 to 80% of viewport height)
+          // Paths should be fully drawn by the time user scrolls 80vh
+          const maxScroll = windowHeight * 0.8;
+          const scrollProgress = Math.min(scrollY / maxScroll, 1);
+          
+          // Draw paths based on scroll progress
+          pathData.forEach((data) => {
+            // Calculate how much of the path to reveal
+            const drawLength = data.length * (1 - scrollProgress);
+            data.element.style.strokeDashoffset = drawLength;
+          });
+          
+          svgTicking = false;
+        });
+        
+        svgTicking = true;
+      }
+    });
+    
+    // Trigger initial state on load
+    window.dispatchEvent(new Event('scroll'));
+  }
+
+  // ===========================================
   // 2. OVERVIEW SECTION - SCROLL UP ANIMATION
   // ===========================================
   
