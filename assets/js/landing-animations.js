@@ -150,6 +150,13 @@ if (!prefersReducedMotion) {
           const scrollY = window.scrollY;
           const windowHeight = window.innerHeight;
           
+          // Show/hide overview section based on SVG animation completion
+          if (svgAnimationComplete) {
+            overviewSection.style.opacity = '1';
+          } else {
+            overviewSection.style.opacity = '0';
+          }
+          
           // Only start overview scroll animation after SVG animation completes
           if (svgAnimationComplete && scrollY > windowHeight * 0.8) {
             // Calculate how much to move up (max 100vw)
