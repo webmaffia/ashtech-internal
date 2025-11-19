@@ -309,6 +309,30 @@ if (!prefersReducedMotion) {
   }
 
   // ===========================================
+  // 4A. BUILDING IMAGE - SCROLL UP ANIMATION
+  // ===========================================
+  
+  const buildingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const buildingImg = document.querySelector('.building');
+      if (buildingImg) {
+        if (entry.isIntersecting) {
+          // Animate building to bottom: 0
+          buildingImg.style.bottom = '0';
+        } else {
+          // Reset to initial position
+          buildingImg.style.bottom = '-50vw';
+        }
+      }
+    });
+  }, observerOptions);
+  
+  const buildingTrigger = document.querySelector('.landing-projects');
+  if (buildingTrigger) {
+    buildingObserver.observe(buildingTrigger);
+  }
+
+  // ===========================================
   // 5. NRI DESK SECTION - STAGGERED ANIMATION
   // ===========================================
   

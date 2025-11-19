@@ -185,3 +185,18 @@
 }
 
 
+
+.building {
+  position: absolute;
+  bottom: -50vw;
+  left: 140px;
+  z-index: 9;
+  transition: bottom 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  @include respond-to('mobile') {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 300px;
+  }
+}
