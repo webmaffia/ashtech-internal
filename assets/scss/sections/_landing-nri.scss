@@ -5,7 +5,7 @@
 .landing-nri {
   position: relative;
   width: 100%;
-  min-height: vw(978);
+  min-height: 978px;
   background-color: $color-bg-primary;
   display: flex;
   align-items: center;
@@ -14,10 +14,10 @@
   // Background image
   &__image {
     position: absolute;
-    top: vw(-126);
-    left: vw(610);
-    width: vw(1310);
-    height: vw(1104);
+    top: -126px;
+    left: 610px;
+    width: 1310px;
+    height: 1104px;
     overflow: hidden;
     z-index: 4;
 
@@ -31,9 +31,9 @@
   // Main content container
   &__content {
     position: absolute;
-    left: vw(69);
-    top: vw(64);
-    width: vw(836);
+    left: 69px;
+    top: 64px;
+    width: 836px;
     display: flex;
     flex-direction: column;
     z-index: 2;
@@ -45,21 +45,21 @@
     padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: vw(50);
+    gap: 50px;
   }
 
   // Header
   &__header {
     display: flex;
     flex-direction: column;
-    gap: vw(45);
+    gap: 45px;
     width: 100%;
-    max-width: vw(690.5);
+    max-width: 690.5px;
   }
 
   &__label {
     font-family: $font-secondary;
-    font-size: vw(18);
+    font-size: 18px;
     font-weight: 600;
     color: $color-brand-primary;
     line-height: 1.5;
@@ -67,7 +67,7 @@
 
   &__title {
     font-family: $font-primary;
-    font-size: vw(72);
+    font-size: 72px;
     line-height: 1.2;
     color: $color-brand-black;
     font-weight: 325;
@@ -78,14 +78,14 @@
   &__description-container {
     display: flex;
     flex-direction: column;
-    gap: vw(35);
+    gap: 35px;
     width: 100%;
-    max-width: vw(740);
+    max-width: 740px;
   }
 
   &__description {
     font-family: $font-secondary;
-    font-size: vw(20);
+    font-size: 20px;
     font-weight: 500;
     line-height: 1.5;
     color: $color-brand-black;
@@ -95,21 +95,21 @@
 
   // Features section
   &__features {
-    padding: vw(30);
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: vw(19);
+    gap: 19px;
   }
 
   &__feature {
     display: flex;
     align-items: center;
-    gap: vw(820);
+    gap: 20px;
   }
 
   &__feature-icon {
-    width: vw(40);
-    height: vw(40);
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
 
     img {
@@ -121,7 +121,7 @@
 
   &__feature-text {
     font-family: $font-primary;
-    font-size: vw(24);
+    font-size: 24px;
     line-height: 1.3;
     color: $color-text-body;
     font-weight: 325;
@@ -134,42 +134,42 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: vw(23);
+    height: 23px;
     background-color: $color-brand-primary;
     z-index: 3;
   }
 
   // Responsive
   @include respond-to('laptop') {
-    min-height: vw(850);
+    min-height: 850px;
 
     &__image {
-      top: vw(-100);
-      left: vw(500);
-      width: vw(1100);
-      height: vw(900);
+      top: -100px;
+      left: 500px;
+      width: 1100px;
+      height: 900px;
     }
 
     &__content {
-      left: vw(50);
-      width: vw(700);
+      left: 50px;
+      width: 700px;
     }
 
     &__title {
-      font-size: vw(58);
+      font-size: 58px;
     }
 
     &__description {
-      font-size: vw(18);
+      font-size: 18px;
     }
 
     &__feature-text {
-      font-size: vw(20);
+      font-size: 20px;
     }
   }
 
   @include respond-to('tablet') {
-    min-height: vw(700);
+    min-height: 700px;
     flex-direction: column;
     align-items: flex-start;
 
@@ -178,7 +178,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: vw(400);
+      height: 400px;
     }
 
     &__content {
@@ -186,7 +186,7 @@
       left: 0;
       top: 0;
       width: 100%;
-      padding: vw(40);
+      padding: 40px;
     }
 
     &__info {
@@ -194,85 +194,85 @@
     }
 
     &__header {
-      gap: vw(30);
+      gap: 30px;
     }
 
     &__title {
-      font-size: vw(48);
+      font-size: 48px;
     }
 
     &__description {
-      font-size: vw(16);
+      font-size: 16px;
     }
 
     &__features {
       padding: 0;
-      padding-top: vw(30);
+      padding-top: 30px;
     }
 
     &__feature-text {
-      font-size: vw(18);
+      font-size: 18px;
     }
   }
 
   @include respond-to('mobile') {
-    min-height: vw(790, 414);
+    min-height: 790px;
 
     &__image {
-      height: vw(327.83, 414);
+      height: 327.83px;
     }
 
     &__content {
-      padding: vw(16, 414);
+      padding: 16px;
     }
 
     &__header {
-      gap: vw(20, 414);
+      gap: 20px;
     }
 
     &__label {
-      font-size: vw(16, 414);
+      font-size: 16px;
       text-align: center;
     }
 
     &__title {
-      font-size: vw(32, 414);
+      font-size: 32px;
       text-align: center;
     }
 
     &__description-container {
-      gap: vw(25, 414);
+      gap: 25px;
     }
 
     &__description {
-      font-size: vw(14, 414);
+      font-size: 14px;
       text-align: center;
     }
 
     &__features {
-      gap: vw(12, 414);
+      gap: 12px;
     }
 
     &__feature {
-      gap: vw(12, 414);
+      gap: 12px;
     }
 
     &__feature-icon {
-      width: vw(20, 414);
-      height: vw(20, 414);
+      width: 20px;
+      height: 20px;
     }
 
     &__feature-text {
-      font-size: vw(14, 414);
+      font-size: 14px;
     }
 
     &__accent {
-      height: vw(18);
+      height: 18px;
     }
   }
 }
 
 
 .landing-nri__description-container .btn {
-  width: vw(430);
+  width: 430px;
 }

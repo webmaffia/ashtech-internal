@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
-  padding: vw(100) 0 0 0;
+  padding: 100vw 0 0 0;
   position: relative;
   top: 100vh;
   z-index: 2;
@@ -20,13 +20,13 @@
   &__interaction {
     position: relative;
     width: 100%;
-    max-width: vw(100);
-    height: vw(700);
+    max-width: 100vw;
+    height: 700px;
     background-color: rgba(243, 233, 214, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 vw(100);
+    padding: 0 100px;
     margin: 0 auto;
  
   }
@@ -34,11 +34,11 @@
   // Decorative background graphic
   &__decoration {
     position: absolute;
-    top: vw(-297.74);
+    top: -297.74px;
     left: 50%;
     transform: translateX(-50%) scale(1);
-    width: vw(63.891);
-    height: vw(72.903);
+    width: 63.891vw;
+    height: 72.903vw;
     background-image: url('../images/landing/overview-decoration.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -50,11 +50,11 @@
   &__content {
     position: relative;
     width: 100%;
-    max-width: vw(1039);
+    max-width: 1039px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: vw(50);
+    gap: 50px;
     z-index: 2;
   }
 
@@ -64,18 +64,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: vw(30);
+    gap: 30px;
   }
 
   &__label {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: vw(15) 0;
+    padding: 15px 0;
 
     span {
       font-family: $font-secondary;
-      font-size: vw(18);
+      font-size: 18px;
       font-weight: 600;
       color: $color-brand-primary;
       text-align: center;
@@ -85,7 +85,7 @@
 
   &__title {
     font-family: $font-primary;
-    font-size: vw(58);
+    font-size: 58px;
     line-height: 1.2;
     color: $color-brand-black;
     text-align: center;
@@ -96,7 +96,7 @@
   // Description text
   &__description {
     font-family: $font-secondary;
-    font-size: vw(20);
+    font-size: 20px;
     font-weight: 500;
     line-height: 1.5;
     color: $color-text-body;
@@ -121,7 +121,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    height: vw(181);
+    height: 181px;
     background: linear-gradient(to top, #f4ead7, rgba(244, 234, 215, 0));
     pointer-events: none;
     z-index: 3;
@@ -130,72 +130,71 @@
   // Responsive
   @include respond-to('laptop') {
     &__interaction {
-      height: vw(600);
-      padding: 0 vw(60);
+      height: 600px;
+      padding: 0 60px;
     }
 
     &__title {
-      font-size: vw(48);
+      font-size: 48px;
     }
 
     &__description {
-      font-size: vw(18);
+      font-size: 18px;
     }
   }
 
   @include respond-to('tablet') {
     &__interaction {
-      height: vw(500);
-      padding: 0 vw(40);
+      height: 500px;
+      padding: 0 40px;
     }
 
     &__title {
-      font-size: vw(38);
+      font-size: 38px;
     }
 
     &__description {
-      font-size: vw(16);
+      font-size: 16px;
     }
 
     &__decoration {
-      top: vw(-200);
+      top: -200px;
     }
   }
 
   @include respond-to('mobile') {
     &__interaction {
-      height: vw(900, 414);
-      padding: vw(40, 414) vw(16, 414);
+      height: 900px;
+      padding: 40px 16px;
     }
 
     &__content {
-      gap: vw(30, 414);
+      gap: 30px;
     }
 
     &__header {
-      gap: vw(20, 414);
+      gap: 20px;
     }
 
     &__label span {
-      font-size: vw(16, 414);
+      font-size: 16px;
     }
 
     &__title {
-      font-size: vw(28, 414);
+      font-size: 28px;
     }
 
     &__description {
-      font-size: vw(14, 414);
+      font-size: 14px;
       line-height: 1.6;
     }
 
     &__decoration {
-      top: vw(-150, 414);
+      top: -150px;
     }
 
     &__gradient {
-      height: vw(100, 414);
+      height: 100px;
     }
   }
 }
-
