@@ -7,7 +7,7 @@
   width: 100%;
   min-height: 1040px;
   background-color: $color-bg-primary;
-  padding: 100px;
+  padding: vw(100);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -16,10 +16,10 @@
   // Background image
   &__background {
     position: absolute;
-    bottom: -143.91px;
-    left: -1478px;
-    width: 3398px;
-    height: 1512.914px;
+    bottom: vw(-143.91);
+    left: vw(-1478);
+    width: vw(3398);
+    height: vw(1512.914);
     background-image: url('../images/landing/project-building.jpg');
     background-size: cover;
     background-position: center;
@@ -32,10 +32,10 @@
   &__content {
     position: relative;
     width: 100%;
-    max-width: 798px;
+    max-width: vw(798);
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: vw(50);
     z-index: 2;
   }
 
@@ -43,14 +43,14 @@
   &__header {
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: vw(45);
     width: 100%;
-    max-width: 690.5px;
+    max-width: vw(690.5);
   }
 
   &__label {
     font-family: $font-secondary;
-    font-size: 18px;
+    font-size: vw(18);
     font-weight: 600;
     color: $color-brand-primary;
     line-height: 1.5;
@@ -58,7 +58,7 @@
 
   &__title {
     font-family: $font-primary;
-    font-size: 58px;
+    font-size: vw(58);
     line-height: 1.2;
     color: $color-brand-black;
     font-weight: 325;
@@ -68,12 +68,12 @@
   // Description
   &__description {
     font-family: $font-secondary;
-    font-size: 20px;
+    font-size: vw(20);
     font-weight: 500;
     line-height: 1.5;
     color: $color-brand-black;
     width: 100%;
-    max-width: 798px;
+    max-width: vw(798);
     white-space: pre-wrap;
     margin: 0;
   }
@@ -81,93 +81,93 @@
   // Buttons container
   &__buttons {
     display: flex;
-    gap: 50px;
+    gap: vw(50);
     align-items: flex-start;
     width: 100%;
-    max-width: 598px;
+    max-width: vw(598);
   }
 
   // Responsive
   @include respond-to('laptop') {
-    min-height: 900px;
-    padding: 80px 60px;
+    min-height: vw(900);
+    padding: vw(80) vw(60);
 
     &__content {
-      max-width: 700px;
+      max-width: vw(700);
     }
 
     &__title {
-      font-size: 48px;
+      font-size: vw(48);
     }
 
     &__description {
-      font-size: 18px;
+      font-size: vw(18);
     }
 
     &__background {
-      bottom: -100px;
-      left: -1200px;
-      width: 2800px;
-      height: 1200px;
+      bottom: vw(-100);
+      left: vw(-1200);
+      width: vw(2800);
+      height: vw(1200);
     }
   }
 
   @include respond-to('tablet') {
-    min-height: 800px;
-    padding: 60px 40px;
+    min-height: vw(800);
+    padding: vw(60) vw(40);
     justify-content: center;
 
     &__content {
-      max-width: 600px;
+      max-width: vw(600);
     }
 
     &__header {
-      gap: 30px;
+      gap: vw(30);
     }
 
     &__title {
-      font-size: 38px;
+      font-size: vw(38);
     }
 
     &__description {
-      font-size: 16px;
+      font-size: vw(16);
     }
 
     &__buttons {
       flex-direction: column;
-      gap: 20px;
+      gap: vw(20);
     }
 
     &__background {
-      bottom: -50px;
-      left: -800px;
-      width: 2000px;
-      height: 900px;
+      bottom: vw(-50);
+      left: vw(-800);
+      width: vw(2000);
+      height: vw(900);
     }
   }
 
   @include respond-to('mobile') {
-    min-height: 614px;
-    padding: 40px 16px;
+    min-height: vw(614, 414);
+    padding: vw(40, 414) vw(16, 414);
 
     &__content {
-      gap: 30px;
+      gap: vw(30, 414);
     }
 
     &__header {
-      gap: 20px;
+      gap: vw(20, 414);
     }
 
     &__label {
-      font-size: 16px;
+      font-size: vw(16, 414);
     }
 
     &__title {
-      font-size: 28px;
+      font-size: vw(28, 414);
     }
 
     &__description {
-      font-size: 14px;
+      font-size: vw(14, 414);
     }
 
     &__buttons {
@@ -177,9 +177,9 @@
     &__background {
       opacity: 0.3;
       bottom: 0;
-      left: -500px;
-      width: 1200px;
-      height: 600px;
+      left: vw(-500, 414);
+      width: vw(1200, 414);
+      height: vw(600, 414);
     }
   }
 }
@@ -188,8 +188,8 @@
 
 .building {
   position: absolute;
-  bottom: -50vw;
-  left: 140px;
+  bottom: vw(-50);
+  left: vw(140);
   z-index: 9;
   transition: bottom 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   
@@ -197,6 +197,6 @@
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
-    max-width: 300px;
+    max-width: vw(300, 414);
   }
 }
