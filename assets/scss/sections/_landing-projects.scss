@@ -5,7 +5,7 @@
 .landing-projects {
   position: relative;
   width: 100%;
-  min-height: 1040px;
+  min-height: vw(1040);
   background-color: $color-bg-primary;
   padding: vw(100);
   display: flex;
@@ -13,13 +13,14 @@
   justify-content: flex-end;
   overflow: hidden;
 
+
   // Background image
   &__background {
     position: absolute;
-    bottom: vw(-143.91);
-    left: vw(-1478);
-    width: vw(3398);
-    height: vw(1512.914);
+    bottom: vw(0);
+    left: vw(0);
+    width: 100vw;
+    height: vw(1040);
     background-image: url('../images/landing/project-building.jpg');
     background-size: cover;
     background-position: center;
@@ -192,6 +193,7 @@
   left: vw(140);
   z-index: 9;
   transition: bottom 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: vw(803);
   
   @include respond-to('mobile') {
     left: 50%;

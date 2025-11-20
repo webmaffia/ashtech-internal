@@ -5,7 +5,7 @@
 .landing-nri {
   position: relative;
   width: 100%;
-  min-height: 978px;
+  min-height: vw(978);
   background-color: $color-bg-primary;
   display: flex;
   align-items: center;
@@ -14,10 +14,10 @@
   // Background image
   &__image {
     position: absolute;
-    top: -126px;
-    left: 610px;
-    width: 1310px;
-    height: 1104px;
+    top: vw(-126);
+    left: vw(610);
+    width: vw(1310);
+    height: vw(1104);
     overflow: hidden;
     z-index: 4;
 
@@ -31,9 +31,9 @@
   // Main content container
   &__content {
     position: absolute;
-    left: 69px;
-    top: 64px;
-    width: 836px;
+    left: vw(69);
+    top: vw(64);
+    width: vw(836);
     display: flex;
     flex-direction: column;
     z-index: 2;
@@ -45,21 +45,21 @@
     padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: vw(50);
   }
 
   // Header
   &__header {
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: vw(45);
     width: 100%;
-    max-width: 690.5px;
+    max-width: vw(690.5);
   }
 
   &__label {
     font-family: $font-secondary;
-    font-size: 18px;
+    font-size: vw(18);
     font-weight: 600;
     color: $color-brand-primary;
     line-height: 1.5;
@@ -67,7 +67,7 @@
 
   &__title {
     font-family: $font-primary;
-    font-size: 72px;
+    font-size: vw(72);
     line-height: 1.2;
     color: $color-brand-black;
     font-weight: 325;
@@ -78,14 +78,14 @@
   &__description-container {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: vw(35);
     width: 100%;
-    max-width: 740px;
+    max-width: vw(740);
   }
 
   &__description {
     font-family: $font-secondary;
-    font-size: 20px;
+    font-size: vw(20);
     font-weight: 500;
     line-height: 1.5;
     color: $color-brand-black;
@@ -95,21 +95,21 @@
 
   // Features section
   &__features {
-    padding: 30px;
+    padding: vw(30);
     display: flex;
     flex-direction: column;
-    gap: 19px;
+    gap: vw(19);
   }
 
   &__feature {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: vw(20);
   }
 
   &__feature-icon {
-    width: 40px;
-    height: 40px;
+    width: vw(40);
+    height: vw(40);
     flex-shrink: 0;
 
     img {
@@ -121,7 +121,7 @@
 
   &__feature-text {
     font-family: $font-primary;
-    font-size: 24px;
+    font-size: vw(24);
     line-height: 1.3;
     color: $color-text-body;
     font-weight: 325;
@@ -134,42 +134,42 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 23px;
+    height: vw(23);
     background-color: $color-brand-primary;
     z-index: 3;
   }
 
   // Responsive
   @include respond-to('laptop') {
-    min-height: 850px;
+    min-height: vw(850);
 
     &__image {
-      top: -100px;
-      left: 500px;
-      width: 1100px;
-      height: 900px;
+      top: vw(-100);
+      left: vw(500);
+      width: vw(1100);
+      height: vw(900);
     }
 
     &__content {
-      left: 50px;
-      width: 700px;
+      left: vw(50);
+      width: vw(700);
     }
 
     &__title {
-      font-size: 58px;
+      font-size: vw(58);
     }
 
     &__description {
-      font-size: 18px;
+      font-size: vw(18);
     }
 
     &__feature-text {
-      font-size: 20px;
+      font-size: vw(20);
     }
   }
 
   @include respond-to('tablet') {
-    min-height: 700px;
+    min-height: vw(700);
     flex-direction: column;
     align-items: flex-start;
 
@@ -178,7 +178,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 400px;
+      height: vw(400);
     }
 
     &__content {
@@ -186,7 +186,7 @@
       left: 0;
       top: 0;
       width: 100%;
-      padding: 40px;
+      padding: vw(40);
     }
 
     &__info {
@@ -194,85 +194,86 @@
     }
 
     &__header {
-      gap: 30px;
+      gap: vw(30);
     }
 
     &__title {
-      font-size: 48px;
+      font-size: vw(48);
     }
 
     &__description {
-      font-size: 16px;
+      font-size: vw(16);
     }
 
     &__features {
       padding: 0;
-      padding-top: 30px;
+      padding-top: vw(30);
     }
 
     &__feature-text {
-      font-size: 18px;
+      font-size: vw(18);
     }
   }
 
   @include respond-to('mobile') {
-    min-height: 790px;
+    min-height: vw(790, 414);
 
     &__image {
-      height: 327.83px;
+      height: vw(327.83, 414);
     }
 
     &__content {
-      padding: 16px;
+      padding: vw(16, 414);
     }
 
     &__header {
-      gap: 20px;
+      gap: vw(20, 414);
     }
 
     &__label {
-      font-size: 16px;
+      font-size: vw(16, 414);
       text-align: center;
     }
 
     &__title {
-      font-size: 32px;
+      font-size: vw(32, 414);
       text-align: center;
     }
 
     &__description-container {
-      gap: 25px;
+      gap: vw(25, 414);
     }
 
     &__description {
-      font-size: 14px;
+      font-size: vw(14, 414);
       text-align: center;
     }
 
     &__features {
-      gap: 12px;
+      gap: vw(12, 414);
     }
 
     &__feature {
-      gap: 12px;
+      gap: vw(12, 414);
     }
 
     &__feature-icon {
-      width: 20px;
-      height: 20px;
+      width: vw(20, 414);
+      height: vw(20, 414);
     }
 
     &__feature-text {
-      font-size: 14px;
+      font-size: vw(14, 414);
     }
 
     &__accent {
-      height: 18px;
+      height: vw(18);
     }
   }
 }
 
 
 .landing-nri__description-container .btn {
-  width: 430px;
+  width: vw(376);
+  font-size: vw(22);
 }

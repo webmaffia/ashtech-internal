@@ -5,7 +5,7 @@
 .btn {
   @include button-reset;
   @include flex-center;
-  gap: 14.5px;
+  gap: vw(14.5);
   padding: $spacing-lg;
   background-color: $color-bg-white;
   font-family: $font-primary;
@@ -23,7 +23,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 3px;
+    width: vw(3);
     height: 100%;
     background-color: $color-brand-primary;
     transition: width $transition-base;
@@ -33,24 +33,24 @@
     background-color: #f2f2f2; // Slightly darker white
     
     &::before {
-      width: 6px;
+      width: 100%;
     }
   }
 
   &:focus {
-    outline: 2px solid $color-brand-primary;
-    outline-offset: 2px;
+    outline: vw(2) solid $color-brand-primary;
+    outline-offset: vw(2);
   }
 
   @include respond-to('tablet') {
-    padding: 20px;
-    font-size: 20px;
+    padding: vw(20);
+    font-size: vw(20);
   }
 
   @include respond-to('mobile') {
-    padding: 15px 20px;
-    font-size: 18px;
-    gap: 10px;
+    padding: vw(15, 414) vw(20, 414);
+    font-size: vw(18, 414);
+    gap: vw(10, 414);
   }
 }
 
@@ -59,8 +59,8 @@
 }
 
 .btn__icon {
-  width: 11px;
-  height: 11px;
+  width: vw(11);
+  height: vw(11);
   transform: rotate(-45deg);
   transition: transform $transition-base;
   
@@ -77,15 +77,27 @@
 
 // Button variants
 .btn--primary {
-  background-color: $color-brand-primary;
-  color: $color-white;
+  background-color: #fff;
+  color: $color-brand-black;
 
   &::before {
-    background-color: $color-brand-gold;
+    background-color: $color-brand-primary;
   }
 
-  &:hover {
-    background-color: #5a0a0d; // Darker shade of brand primary
+ 
+}
+
+.btn--primary:hover {
+  span,svg{
+    position: relative;
+    z-index: 1;
+  }
+  svg{
+   filter: invert(1);
+  }
+  color: $color-white;
+  .btn--primary::before{
+    width: 100% !important;
   }
 }
 
@@ -94,19 +106,28 @@
   border: 2px solid $color-brand-primary;
   color: $color-brand-primary;
 
-  &:hover {
-    background-color: $color-brand-primary;
-    color: $color-white;
+  
+}
+.btn--secondary:hover {
+  span,svg{
+    position: relative;
+    z-index: 1;
+  }
+  svg{
+   filter: invert(1);
+  }
+  color: $color-white;
+  .btn--primary::before{
+    width: 100% !important;
   }
 }
-
 // Download brochure button (specific)
 .btn--brochure {
-  gap: 14.5px;
+  gap: vw(14.5);
   
   .btn__icon {
-    width: 15.5px;
-    height: 15.5px;
+    width: vw(15.5);
+    height: vw(15.5);
   }
 }
 

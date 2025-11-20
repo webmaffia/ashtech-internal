@@ -31,15 +31,15 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 // Font Sizes - Desktop
-$font-size-h1: 72px;                // Hero titles
-$font-size-h2: 58px;                // Section titles
-$font-size-h3: 44px;                // Sub-section titles
-$font-size-h4: 36px;                // Card titles
-$font-size-h5: 30px;                // Footer headings
-$font-size-h6: 24px;                // Button text
-$font-size-body: 20px;              // Body text
-$font-size-small: 18px;             // Overhead/menu text
-$font-size-caption: 14px;           // Caption text
+$font-size-h1: vw(72);                // Hero titles
+$font-size-h2: vw(58);                // Section titles
+$font-size-h3: vw(44);                // Sub-section titles
+$font-size-h4: vw(36);                // Card titles
+$font-size-h5: vw(30);                // Footer headings
+$font-size-h6: vw(24);                // Button text
+$font-size-body: vw(20);              // Body text
+$font-size-small: vw(18);             // Overhead/menu text
+$font-size-caption: vw(14);           // Caption text
 
 // Line Heights
 $line-height-tight: 1.2;            // For headings
@@ -49,16 +49,16 @@ $line-height-relaxed: 1.7;          // For paragraphs
 $line-height-loose: 1.8;            // For footer text
 
 // Spacing Scale
-$spacing-xs: 10px;
-$spacing-sm: 12px;
-$spacing-md: 18px;
-$spacing-lg: 30px;
-$spacing-xl: 35px;
-$spacing-2xl: 50px;
-$spacing-3xl: 60px;
-$spacing-4xl: 70px;
-$spacing-5xl: 100px;
-$spacing-6xl: 120px;
+$spacing-xs: vw(10);
+$spacing-sm: vw(12);
+$spacing-md: vw(18);
+$spacing-lg: vw(30);
+$spacing-xl: vw(35);
+$spacing-2xl: vw(50);
+$spacing-3xl: vw(60);
+$spacing-4xl: vw(70);
+$spacing-5xl: vw(100);
+$spacing-6xl: vw(120);
 
 // Container & Layout
 $container-max-width: 1920px;
@@ -88,14 +88,14 @@ $transition-base: 0.3s ease-in-out;
 $transition-slow: 0.5s ease-in-out;
 
 // Border Radius
-$border-radius-sm: 2px;
-$border-radius-md: 4px;
-$border-radius-lg: 8px;
+$border-radius-sm: vw(2);
+$border-radius-md: vw(4);
+$border-radius-lg: vw(8);
 
 // Shadows
-$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+$shadow-sm: 0 vw(1) vw(2) 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 vw(4) vw(6) vw(-1) rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 vw(10) vw(15) vw(-3) rgba(0, 0, 0, 0.1);
 
 // Gradients
 $gradient-dark-overlay: linear-gradient(179.99999999999972deg, rgba(25, 29, 47, 0) 47.25%, rgba(8, 9, 15, 0.8) 87.128%),
