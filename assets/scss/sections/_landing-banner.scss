@@ -204,6 +204,7 @@
       font-size: vw(32, 414);
       transform: translate(-50%, calc(-50% + 50px));
       width: 100%;
+      top: 70%;
     }
 
     &__scroll {
@@ -241,10 +242,22 @@
     }
   }
 
-  @include respond-to('mobile') {
-
-    &__svg {
-    opacity: 0;
+  // Hide mobile SVG on desktop by default
+  &__svg.mobile-svg {
+    display: none;
+  }
+  
+  // Show/hide appropriate SVG based on screen size
+  @include respond-to('tablet') {
+    // Hide desktop SVG on mobile/tablet
+    &__svg:not(.mobile-svg) {
+      display: none !important;
+    }
+    
+    // Show mobile SVG on mobile/tablet
+    &__svg.mobile-svg {
+      display: block !important;
+      opacity: 1;
     }
   }
 }

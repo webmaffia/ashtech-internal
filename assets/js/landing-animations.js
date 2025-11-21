@@ -4,11 +4,17 @@ if (!prefersReducedMotion) {
   window.addEventListener('load', () => {
     const bannerTitle = document.querySelector('.landing-banner__title');
     const bannerScroll = document.querySelector('.landing-banner__scroll');
+    const isMobile = window.innerWidth <= 767; // Match tablet breakpoint for mobile devices
     
     if (bannerTitle) {
       setTimeout(() => {
         bannerTitle.style.opacity = '1';
-        bannerTitle.style.transform = 'translate(-50%, calc(-50% + 103px))';
+        // Different transform for mobile vs desktop
+        if (isMobile) {
+          bannerTitle.style.transform = 'translate(-50%, calc(-50% + 50px))';
+        } else {
+          bannerTitle.style.transform = 'translate(-50%, calc(-50% + 103px))';
+        }
       }, 300);
     }
     
@@ -21,28 +27,52 @@ if (!prefersReducedMotion) {
 
   let svgAnimationComplete = false;
   
-  const bannerSvg = document.getElementById('banner-svg-animation');
+  // Get both desktop and mobile SVGs
+  const desktopSvg = document.getElementById('banner-svg-animation');
+  const mobileSvg = document.getElementById('banner-svg-animation-mobile');
+  const bannerSvgs = [desktopSvg, mobileSvg].filter(svg => svg !== null);
+  const pathData = [];
   
-  if (bannerSvg) {
+  console.log('Desktop SVG found:', desktopSvg !== null);
+  console.log('Mobile SVG found:', mobileSvg !== null);
+  console.log('Window width:', window.innerWidth);
+  
+  // Initialize animation for all SVGs (both desktop and mobile)
+  bannerSvgs.forEach((bannerSvg) => {
     const svgPaths = bannerSvg.querySelectorAll('path, line');
+    const isMobile = bannerSvg.classList.contains('mobile-svg');
+    const filterUrl = isMobile ? 'url(#strongGlow-mobile)' : 'url(#strongGlow)';
     
-    const pathData = [];
+    // Check if SVG is visible
+    const computedStyle = window.getComputedStyle(bannerSvg);
+    const isVisible = computedStyle.display !== 'none';
+    
+    console.log(`${isMobile ? 'Mobile' : 'Desktop'} SVG - Paths: ${svgPaths.length}, Visible: ${isVisible}, Display: ${computedStyle.display}`);
     
     svgPaths.forEach((path) => {
-      const length = path.getTotalLength();
-      
-      path.style.strokeDasharray = length;
-      path.style.strokeDashoffset = length;
-      path.style.opacity = '1';
-      
-      path.setAttribute('filter', 'url(#strongGlow)');
-      
-      pathData.push({
-        element: path,
-        length: length
-      });
+      try {
+        const length = path.getTotalLength();
+        
+        path.style.strokeDasharray = length;
+        path.style.strokeDashoffset = length;
+        path.style.opacity = '1';
+        
+        path.setAttribute('filter', filterUrl);
+        
+        pathData.push({
+          element: path,
+          length: length
+        });
+      } catch (error) {
+        console.error('Error initializing path:', error);
+      }
     });
-    
+  });
+  
+  console.log(`Total paths to animate: ${pathData.length}`);
+  
+  // Only set up scroll animation if we found paths to animate
+  if (pathData.length > 0) {
     const bannerTitle = document.querySelector('.landing-banner__title');
     const bannerScrollText = document.querySelector('.landing-banner__scroll');
     const header = document.querySelector('.header');
@@ -161,11 +191,16 @@ if (!prefersReducedMotion) {
     });
   }
 
+  // Different observer options for mobile vs desktop
+  const isMobileView = window.innerWidth <= 767;
+  
   const observerOptions = {
     root: null,
-    rootMargin: '0px',
-    threshold: 0.2
+    rootMargin: isMobileView ? '-50px 0px' : '0px', // Delay trigger on mobile
+    threshold: isMobileView ? 0.3 : 0.2 // Higher threshold on mobile (30% vs 20%)
   };
+  
+  console.log('Observer options:', observerOptions);
 
   const overviewObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -199,9 +234,17 @@ if (!prefersReducedMotion) {
     valuesHeaderObserver.observe(valuesHeader);
   }
 
+  // Special observer options for values section on mobile
+  const valuesObserverOptions = {
+    root: null,
+    rootMargin: isMobileView ? '-100px 0px' : '0px', // Wait until element is 100px into viewport on mobile
+    threshold: isMobileView ? 0.4 : 0.2 // Require 40% visible on mobile vs 20% on desktop
+  };
+  
   const valuesObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        console.log('Values animation triggered - intersectionRatio:', entry.intersectionRatio);
         const valueItems = document.querySelectorAll('.landing-values__item');
         
         const pairs = [
@@ -264,10 +307,14 @@ if (!prefersReducedMotion) {
         });
       }
     });
-  }, observerOptions);
+  }, valuesObserverOptions);
 
+  // Observe different elements on mobile vs desktop for better trigger timing
   const valuesGraphic = document.querySelector('.landing-values__graphic');
-  if (valuesGraphic) {
+  const valuesItems = document.querySelector('.landing-values__items');
+  const valuesObserveTarget = (isMobileView && valuesItems) ? valuesItems : valuesGraphic;
+  
+  if (valuesObserveTarget) {
     const valueItems = document.querySelectorAll('.landing-values__item-title, .landing-values__item-description');
     valueItems.forEach(item => {
       item.style.opacity = '0';
@@ -275,7 +322,8 @@ if (!prefersReducedMotion) {
       item.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
     });
     
-    valuesObserver.observe(valuesGraphic);
+    console.log('Observing values section on:', valuesObserveTarget.className);
+    valuesObserver.observe(valuesObserveTarget);
   }
 
   const projectsObserver = new IntersectionObserver((entries) => {

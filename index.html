@@ -126,7 +126,7 @@
 
 
 
-<svg id="banner-svg-animation" class="landing-banner__svg mobile-svg"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 414 665">
+<svg id="banner-svg-animation-mobile" class="landing-banner__svg mobile-svg"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 414 665">
   <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
   <defs>
     <style>
@@ -148,10 +148,34 @@
       }
 
       .st3 {
-        clip-path: url(#clippath);
+        clip-path: url(#clippath-mobile);
       }
     </style>
-    <clipPath id="clippath">
+    
+    <!-- Glow Filter -->
+    <filter id="glow-mobile" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Strong Glow Filter -->
+    <filter id="strongGlow-mobile" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2" result="blur1"/>
+      <feGaussianBlur stdDeviation="6" result="blur2"/>
+      <feGaussianBlur stdDeviation="12" result="blur3"/>
+      <feMerge>
+        <feMergeNode in="blur3"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <clipPath id="clippath-mobile">
       <rect class="st0" width="414" height="665"/>
     </clipPath>
   </defs>
