@@ -43,7 +43,7 @@ export default function save({ attributes }) {
                     {attributes.features.map((feature, index) => (
                         <div key={index} className="landing-nri__feature">
                             <div className="landing-nri__feature-icon">
-                                <img src={`/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/${feature.icon}`} alt={feature.text} />
+                                <img src={`/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/${feature.icon}`} alt={feature.text} />
                             </div>
                             <p className="landing-nri__feature-text animate-text">{feature.text}</p>
                         </div>

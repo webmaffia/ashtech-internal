@@ -22,11 +22,11 @@ export default function save({ attributes }) {
                     />
                 </div>
                 <div className="landing-awards__grid">
-                    {attributes.awards.map((award, index) => (
-                        <div key={index} className="landing-awards__item">
-                            <div className="landing-awards__item-images">
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/award-laurel-left.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/award-laurel-right.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
+                        {attributes.awards.map((award, index) => (
+                            <div key={index} className="landing-awards__item">
+                                <div className="landing-awards__item-images">
+                                    <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/award-laurel-left.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
+                                    <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/award-laurel-right.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
                             </div>
                             <p className="landing-awards__item-text animate-text">{award.text}</p>
                         </div>

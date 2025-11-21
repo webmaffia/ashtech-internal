@@ -8,7 +8,7 @@ export default function save({ attributes }) {
                 <div className="landing-footer__main">
                     <div className="landing-footer__about">
                         <div className="landing-footer__logo">
-                            <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/footer-logo.svg" alt="Ashtech Logo" />
+                            <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/footer-logo.svg" alt="Ashtech Logo" />
                         </div>
                         <RichText.Content
                             tagName="p"
@@ -17,19 +17,19 @@ export default function save({ attributes }) {
                         />
                         <div className="landing-footer__social">
                             <a href="#" className="landing-footer__social-link" aria-label="Facebook">
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/social-facebook.svg" alt="Facebook" />
+                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/social-facebook.svg" alt="Facebook" />
                             </a>
                             <a href="#" className="landing-footer__social-link" aria-label="Twitter">
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/social-twitter.svg" alt="Twitter" />
+                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/social-twitter.svg" alt="Twitter" />
                             </a>
                             <a href="#" className="landing-footer__social-link" aria-label="Instagram">
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/social-instagram.svg" alt="Instagram" />
+                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/social-instagram.svg" alt="Instagram" />
                             </a>
                             <a href="#" className="landing-footer__social-link" aria-label="LinkedIn">
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/social-linkedin.svg" alt="LinkedIn" />
+                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/social-linkedin.svg" alt="LinkedIn" />
                             </a>
                             <a href="#" className="landing-footer__social-link" aria-label="YouTube">
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/social-youtube.svg" alt="YouTube" />
+                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/social-youtube.svg" alt="YouTube" />
                             </a>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ export default function save({ attributes }) {
                         <h3 className="landing-footer__contact-title animate-text">Contact Us</h3>
                         <div className="landing-footer__contact-list">
                             <div className="landing-footer__contact-item">
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/icon-location.svg" alt="Location" className="landing-footer__contact-icon" />
+                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/icon-location.svg" alt="Location" className="landing-footer__contact-icon" />
                                 <RichText.Content
                                     tagName="p"
                                     className="animate-text"
@@ -56,7 +56,7 @@ export default function save({ attributes }) {
                                 />
                             </div>
                             <div className="landing-footer__contact-item">
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/icon-phone.svg" alt="Phone" className="landing-footer__contact-icon" />
+                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/icon-phone.svg" alt="Phone" className="landing-footer__contact-icon" />
                                 <p>
                                     <a href={`tel:${attributes.phone.replace(/\s/g, '')}`} className="animate-text w-400">
                                         <RichText.Content value={attributes.phone} />
@@ -64,7 +64,7 @@ export default function save({ attributes }) {
                                 </p>
                             </div>
                             <div className="landing-footer__contact-item">
-                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/icon-email.svg" alt="Email" className="landing-footer__contact-icon" />
+                                <img src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/icon-email.svg" alt="Email" className="landing-footer__contact-icon" />
                                 <p>
                                     <a href={`mailto:${attributes.email}`} className="animate-text w-400">
                                         <RichText.Content value={attributes.email} />

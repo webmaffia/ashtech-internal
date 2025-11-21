@@ -66,42 +66,6 @@ export default function save({ attributes }) {
                     </div>
                 </div>
             </div>
-
-            {/* Inline script for slider initialization */}
-            <script dangerouslySetInnerHTML={{
-                __html: `
-                    if (typeof jQuery !== 'undefined' && typeof jQuery.fn.slick !== 'undefined') {
-                        jQuery(document).ready(function($){
-                            var slider = $('.landing-testimonials__slider');
-                            if(slider.length > 0 && !slider.hasClass('slick-initialized')) {
-                                slider.slick({
-                                    dots: false,
-                                    infinite: true,
-                                    speed: 800,
-                                    slidesToShow: 1,
-                                    slidesToScroll: 1,
-                                    autoplay: true,
-                                    autoplaySpeed: 5000,
-                                    fade: true,
-                                    cssEase: 'ease-in-out',
-                                    arrows: false,
-                                    pauseOnHover: true,
-                                    pauseOnFocus: true,
-                                    adaptiveHeight: false
-                                });
-
-                                $('.landing-testimonials__nav-btn--prev').click(function(){
-                                    slider.slick('slickPrev');
-                                });
-
-                                $('.landing-testimonials__nav-btn--next').click(function(){
-                                    slider.slick('slickNext');
-                                });
-                            }
-                        });
-                    }
-                `
-            }} />
         </section>
     );
 }

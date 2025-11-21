@@ -152,6 +152,15 @@ function ashtech_enqueue_frontend_assets() {
         true
     );
     
+    // Testimonials slider
+    wp_enqueue_script(
+        'ashtech-testimonials-slider',
+        ASHTECH_BLOCKS_URL . 'assets/js/testimonials-slider.js',
+        array('jquery', 'slick-js'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
+    
     // Make plugin URL available to frontend JavaScript
     wp_add_inline_script(
         'ashtech-animations',
@@ -177,6 +186,54 @@ function ashtech_block_categories($categories) {
     );
 }
 add_filter('block_categories_all', 'ashtech_block_categories', 10, 1);
+
+/**
+ * Enable SVG uploads in WordPress Media Library
+ */
+function ashtech_enable_svg_upload($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'ashtech_enable_svg_upload');
+
+/**
+ * Fix SVG MIME type check
+ */
+function ashtech_fix_svg_mime_type($data, $file, $filename, $mimes) {
+    $ext = isset($data['ext']) ? $data['ext'] : '';
+    
+    if (strlen($ext) < 1) {
+        $exploded = explode('.', $filename);
+        $ext = strtolower(end($exploded));
+    }
+    
+    if ($ext === 'svg') {
+        $data['type'] = 'image/svg+xml';
+        $data['ext'] = 'svg';
+    } elseif ($ext === 'svgz') {
+        $data['type'] = 'image/svg+xml';
+        $data['ext'] = 'svgz';
+    }
+    
+    return $data;
+}
+add_filter('wp_check_filetype_and_ext', 'ashtech_fix_svg_mime_type', 10, 4);
+
+/**
+ * Display SVG thumbnails in Media Library
+ */
+function ashtech_fix_svg_thumb_display() {
+    echo '<style>
+        img[src$=".svg"], 
+        .attachment-266x266[src$=".svg"], 
+        .thumbnail[src$=".svg"] {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>';
+}
+add_action('admin_head', 'ashtech_fix_svg_thumb_display');
 
 /**
  * Remove classes from main content wrapper when Ashtech blocks are present
@@ -242,6 +299,7 @@ add_action('wp_head', 'ashtech_remove_content_wrapper');
 /**
  * Fix image paths in block content
  * This ensures images load correctly regardless of WordPress installation path
+ * ONLY replaces default plugin images, NOT uploaded images
  */
 function ashtech_fix_block_image_paths($block_content, $block) {
     // Only process Ashtech blocks
@@ -254,14 +312,15 @@ function ashtech_fix_block_image_paths($block_content, $block) {
         return $block_content;
     }
     
-    // Replace various path formats
+    // Only replace paths that point to plugin assets (not wp-content/uploads)
+    // This preserves uploaded images while fixing default plugin images
     $replacements = array(
         // src="/wp-content/plugins/...
-        'src="/wp-content/plugins/ashtech-gutenberg-blocks/' => 'src="' . ASHTECH_BLOCKS_URL,
+        'src="/wp-content/plugins/ashtech-gutenberg-blocks/assets/' => 'src="' . ASHTECH_BLOCKS_URL . 'assets/',
         // href="/wp-content/plugins/...
-        'href="/wp-content/plugins/ashtech-gutenberg-blocks/' => 'href="' . ASHTECH_BLOCKS_URL,
+        'href="/wp-content/plugins/ashtech-gutenberg-blocks/assets/' => 'href="' . ASHTECH_BLOCKS_URL . 'assets/',
         // url(/wp-content/plugins/... (for CSS)
-        'url(/wp-content/plugins/ashtech-gutenberg-blocks/' => 'url(' . ASHTECH_BLOCKS_URL,
+        'url(/wp-content/plugins/ashtech-gutenberg-blocks/assets/' => 'url(' . ASHTECH_BLOCKS_URL . 'assets/',
     );
     
     $block_content = str_replace(
