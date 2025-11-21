@@ -217,6 +217,7 @@
 
   @include respond-to('mobile') {
     min-height: vw(790, 414);
+    flex-direction: column-reverse;
 
     &__image {
       height: vw(327.83, 414);
@@ -228,6 +229,7 @@
 
     &__header {
       gap: vw(20, 414);
+      max-width: 100%;
     }
 
     &__label {
@@ -242,6 +244,13 @@
 
     &__description-container {
       gap: vw(25, 414);
+      max-width: 100%;
+      .btn{
+        width: 65% !important;
+        margin: 0 auto;
+        font-size: vw(14, 414) !important;
+        margin-bottom: vw(40, 414) !important;
+      }
     }
 
     &__description {

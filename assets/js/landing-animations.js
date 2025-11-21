@@ -45,6 +45,11 @@ if (!prefersReducedMotion) {
     
     const bannerTitle = document.querySelector('.landing-banner__title');
     const bannerScrollText = document.querySelector('.landing-banner__scroll');
+    const header = document.querySelector('.header');
+    
+    if (header) {
+      header.style.transition = 'opacity 0.5s ease-out';
+    }
     
     let svgTicking = false;
     
@@ -83,8 +88,16 @@ if (!prefersReducedMotion) {
           
           if (scrollProgress >= 1 && !svgAnimationComplete) {
             svgAnimationComplete = true;
+            if (header) {
+              header.style.opacity = '0';
+              header.style.pointerEvents = 'none';
+            }
           } else if (scrollProgress < 1 && svgAnimationComplete) {
             svgAnimationComplete = false;
+            if (header) {
+              header.style.opacity = '1';
+              header.style.pointerEvents = 'auto';
+            }
           }
           
           svgTicking = false;

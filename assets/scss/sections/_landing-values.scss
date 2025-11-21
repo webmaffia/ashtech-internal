@@ -290,6 +290,9 @@
     &__container {
       gap: vw(30, 414);
     }
+    &__header {
+      max-width: 100%;
+    }
 
     &__label {
       font-size: vw(16, 414);

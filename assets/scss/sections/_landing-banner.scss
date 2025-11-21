@@ -168,6 +168,7 @@
 
   // Responsive
   @include respond-to('laptop') {
+
     &__content {
       padding: vw(40) vw(60);
     }
@@ -193,6 +194,8 @@
   }
 
   @include respond-to('mobile') {
+ 
+    height: vw(665, 414);
     &__content {
       padding: vw(20, 414) vw(16, 414);
     }
@@ -200,15 +203,18 @@
     &__title {
       font-size: vw(32, 414);
       transform: translate(-50%, calc(-50% + 50px));
+      width: 100%;
     }
 
     &__scroll {
-      display: none;
+      font-size: vw(18, 414);
+      bottom: vw(54, 414);
     }
   }
 
   // SVG Animation
   &__svg {
+
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -232,6 +238,13 @@
       
       // Additional glow through stroke
       filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+    }
+  }
+
+  @include respond-to('mobile') {
+
+    &__svg {
+    opacity: 0;
     }
   }
 }
