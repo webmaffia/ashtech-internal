@@ -1,2 +1,231 @@
-// Styles from _landing-awards.scss will be used
+// Awards Block Styles
+.landing-awards {
+  width: 100%;
+  background-color: #F4EAD7;
+  padding: 6.25vw 5.15625vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.landing-awards__container {
+  width: 100%;
+  max-width: 89.6354166667vw;
+  display: flex;
+  flex-direction: column;
+  gap: 5.2083333333vw;
+  align-items: center;
+}
+
+.landing-awards__header {
+  display: flex;
+  flex-direction: column;
+  gap: 2.6041666667vw;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.landing-awards__label {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9375vw;
+  font-weight: 600;
+  color: #720C10;
+  line-height: 1.5;
+  padding: 0.78125vw 0;
+}
+
+.landing-awards__title {
+  font-family: "Chronicle Display", Georgia, serif;
+  font-size: 3.0208333333vw;
+  line-height: 1.2;
+  color: #0C0D0D;
+  font-weight: 325;
+  margin: 0;
+  width: 100%;
+  max-width: 89.6875vw;
+}
+
+.landing-awards__description {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #0C0D0D;
+  width: 100%;
+  max-width: 47.96875vw;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.landing-awards__grid {
+  display: flex;
+  gap: 4.1666666667vw;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.landing-awards__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.0416666667vw;
+}
+
+.landing-awards__item-images {
+  position: relative;
+  width: 14.6709895833vw;
+  height: 7.5216145833vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.landing-awards__laurel {
+  width: 4.2111979167vw;
+  height: 7.51265625vw;
+  object-fit: contain;
+
+  &--left {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  &--right {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.landing-awards__item-text {
+  font-family: "Chronicle Display", Georgia, serif;
+  font-size: 1.25vw;
+  line-height: 1.3;
+  color: #720C10;
+  text-align: center;
+  font-weight: 325;
+  width: 10.4166666667vw;
+  white-space: pre-wrap;
+  margin: 0;
+  position: absolute;
+}
+
+// Responsive Styles
+@media (max-width: 1023px) {
+  .landing-awards {
+    padding: 5.2083333333vw 3.125vw;
+  }
+
+  .landing-awards__container {
+    gap: 4.1666666667vw;
+  }
+
+  .landing-awards__title {
+    font-size: 2.5vw;
+  }
+
+  .landing-awards__description {
+    font-size: 0.9375vw;
+  }
+
+  .landing-awards__grid {
+    gap: 3.125vw;
+  }
+
+  .landing-awards__item-text {
+    font-size: 1.0416666667vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .landing-awards {
+    padding: 4.1666666667vw 2.0833333333vw;
+  }
+
+  .landing-awards__container {
+    gap: 3.125vw;
+  }
+
+  .landing-awards__header {
+    gap: 2.0833333333vw;
+  }
+
+  .landing-awards__title {
+    font-size: 1.9791666667vw;
+  }
+
+  .landing-awards__description {
+    font-size: 0.8333333333vw;
+  }
+
+  .landing-awards__grid {
+    gap: 2.0833333333vw;
+  }
+
+  .landing-awards__item-images {
+    width: 11.4583333333vw;
+    height: 5.7291666667vw;
+  }
+
+  .landing-awards__laurel {
+    width: 3.125vw;
+    height: 5.7291666667vw;
+  }
+
+  .landing-awards__item-text {
+    font-size: 0.9375vw;
+    width: 8.3333333333vw;
+  }
+}
+
+@media (max-width: 479px) {
+  .landing-awards {
+    padding: 12.077294686vw 3.8647342995vw;
+  }
+
+  .landing-awards__container {
+    gap: 9.6618357488vw;
+  }
+
+  .landing-awards__header {
+    gap: 7.2463768116vw;
+    max-width: 100%;
+  }
+
+  .landing-awards__label {
+    font-size: 3.8647342995vw;
+  }
+
+  .landing-awards__title {
+    font-size: 6.7632850242vw;
+  }
+
+  .landing-awards__description {
+    font-size: 3.3816425121vw;
+    max-width: 100%;
+  }
+
+  .landing-awards__grid {
+    gap: 4.8309178744vw;
+    flex-direction: row;
+  }
+
+  .landing-awards__item-images {
+    width: 40.3381642512vw;
+    height: 21.7391304348vw;
+  }
+
+  .landing-awards__laurel {
+    width: 12.077294686vw;
+    height: 21.7391304348vw;
+  }
+
+  .landing-awards__item-text {
+    font-size: 3.8647342995vw;
+    width: 29.2270531401vw;
+  }
+}

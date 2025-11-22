@@ -1,6 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps, RichText, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { PanelBody, TextControl, TextareaControl, Button } from '@wordpress/components';
+import { PanelBody, TextControl, TextareaControl, Button, SelectControl } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 import './editor.scss';
 
 export default function Edit({ attributes, setAttributes }) {
@@ -10,6 +11,9 @@ export default function Edit({ attributes, setAttributes }) {
     
     // Get plugin URL for images
     const pluginUrl = window.ashtechBlocksUrl || '/wp-content/plugins/ashtech-gutenberg-blocks/';
+    
+    // State to track which testimonial is being previewed
+    const [selectedTestimonial, setSelectedTestimonial] = useState(0);
 
     const updateTestimonial = (index, field, value) => {
         const newTestimonials = [...attributes.testimonials];
@@ -22,12 +26,13 @@ export default function Edit({ attributes, setAttributes }) {
             <InspectorControls>
                 <PanelBody title={__('Testimonials Settings', 'ashtech-blocks')}>
                     {attributes.testimonials.map((testimonial, index) => (
-                        <div key={index} style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ddd' }}>
+                        <div key={index} style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ddd', borderRadius: '4px', background: selectedTestimonial === index ? '#f0f8ff' : '#fff' }}>
                             <h4>{__('Testimonial', 'ashtech-blocks')} {index + 1}</h4>
                             <TextareaControl
                                 label={__('Quote', 'ashtech-blocks')}
                                 value={testimonial.quote}
                                 onChange={(val) => updateTestimonial(index, 'quote', val)}
+                                rows={4}
                             />
                             <TextControl
                                 label={__('Name', 'ashtech-blocks')}
@@ -39,6 +44,13 @@ export default function Edit({ attributes, setAttributes }) {
                                 value={testimonial.role}
                                 onChange={(val) => updateTestimonial(index, 'role', val)}
                             />
+                            <Button
+                                variant="secondary"
+                                onClick={() => setSelectedTestimonial(index)}
+                                style={{ marginTop: '10px' }}
+                            >
+                                {selectedTestimonial === index ? '✓ Previewing' : 'Preview This'}
+                            </Button>
                         </div>
                     ))}
                 </PanelBody>
@@ -62,6 +74,30 @@ export default function Edit({ attributes, setAttributes }) {
                             placeholder={__('Title...', 'ashtech-blocks')}
                         />
                     </div>
+                    
+                    {/* Testimonial Selector */}
+                    <div style={{ textAlign: 'center', padding: '20px', background: 'rgba(0,123,255,0.1)', borderRadius: '4px', marginBottom: '20px' }}>
+                        <p style={{ margin: '0 0 10px 0', color: '#007cba', fontWeight: 'bold' }}>
+                            {__('Preview Testimonial:', 'ashtech-blocks')}
+                        </p>
+                        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+                            {attributes.testimonials.map((_, index) => (
+                                <Button
+                                    key={index}
+                                    variant={selectedTestimonial === index ? 'primary' : 'secondary'}
+                                    onClick={() => setSelectedTestimonial(index)}
+                                >
+                                    {index + 1}
+                                </Button>
+                            ))}
+                        </div>
+                        <p style={{ margin: '10px 0 0 0', fontSize: '12px', color: '#666' }}>
+                            {__('Click buttons above to preview different testimonials', 'ashtech-blocks')}
+                            <br />
+                            {__('Edit all testimonials in the right sidebar →', 'ashtech-blocks')}
+                        </p>
+                    </div>
+                    
                     <div className="landing-testimonials__slider-wrapper">
                         <div className="landing-testimonials__content animate-text-rtl">
                             <div className="landing-testimonials__image">
@@ -126,19 +162,19 @@ export default function Edit({ attributes, setAttributes }) {
                                         ))}
                                     </div>
                                     <div className="landing-testimonials__text-content">
-                                        <p className="landing-testimonials__quote">"{attributes.testimonials[0].quote}"</p>
+                                        <p className="landing-testimonials__quote">"{attributes.testimonials[selectedTestimonial].quote}"</p>
                                         <div className="landing-testimonials__author">
                                             <div className="landing-testimonials__author-name">
-                                                <span>{attributes.testimonials[0].name}</span>
+                                                <span>{attributes.testimonials[selectedTestimonial].name}</span>
                                             </div>
-                                            <span className="landing-testimonials__author-role">{attributes.testimonials[0].role}</span>
+                                            <span className="landing-testimonials__author-role">{attributes.testimonials[selectedTestimonial].role}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <p style={{ marginTop: '20px', color: '#666', textAlign: 'center' }}>
-                            {__('Slider will work on frontend', 'ashtech-blocks')}
+                        <p style={{ marginTop: '20px', color: '#666', textAlign: 'center', fontSize: '14px', background: 'rgba(0,123,255,0.05)', padding: '10px', borderRadius: '4px' }}>
+                            {__('All 3 testimonials will auto-play on the frontend. Use Inspector Controls (→) to edit all testimonials.', 'ashtech-blocks')}
                         </p>
                     </div>
                 </div>

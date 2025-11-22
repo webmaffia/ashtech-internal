@@ -4,6 +4,7 @@ const path = require('path');
 module.exports = {
     ...defaultConfig,
     entry: {
+        'blocks/header/index': path.resolve(__dirname, 'src/blocks/header/index.js'),
         'blocks/banner/index': path.resolve(__dirname, 'src/blocks/banner/index.js'),
         'blocks/overview/index': path.resolve(__dirname, 'src/blocks/overview/index.js'),
         'blocks/values/index': path.resolve(__dirname, 'src/blocks/values/index.js'),

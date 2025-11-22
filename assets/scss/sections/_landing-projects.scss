@@ -213,8 +213,8 @@
   @include respond-to('mobile') {
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
+    width: 100% !important;
     max-width: 100%;
-    position: relative;
+    position: relative !important;
   }
 }

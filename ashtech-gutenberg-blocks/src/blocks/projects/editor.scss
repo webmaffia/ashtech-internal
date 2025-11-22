@@ -1,8 +1,14 @@
-// Editor specific styles
-.landing-projects {
-    button {
-        cursor: default;
-        pointer-events: none;
+// Import frontend styles
+@import './style.scss';
+
+// Editor specific overrides
+.editor-styles-wrapper {
+    .landing-projects {
+        // Keep buttons non-functional in editor preview
+        button.wp-block-button__link {
+            cursor: default;
+            pointer-events: none;
+        }
     }
 }
 

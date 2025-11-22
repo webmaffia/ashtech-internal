@@ -1,2 +1,212 @@
-// Styles from _landing-projects.scss will be used
+// Projects Block Styles
+.landing-projects {
+  position: relative;
+  width: 100%;
+  min-height: 54.1666666667vw;
+  background-color: #F4EAD7;
+  padding: 5.2083333333vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+}
 
+.landing-projects__background {
+  position: absolute;
+  bottom: 0vw;
+  left: 0vw;
+  width: 100vw;
+  height: 54.1666666667vw;
+  // background-image handled via inline style in component
+  background-size: cover;
+  background-position: center;
+  transform: rotate(180deg) scaleY(-1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.landing-projects__content {
+  position: relative;
+  width: 100%;
+  max-width: 41.5625vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2.6041666667vw;
+  z-index: 2;
+}
+
+.landing-projects__header {
+  display: flex;
+  flex-direction: column;
+  gap: 2.34375vw;
+  width: 100%;
+  max-width: 35.9635416667vw;
+}
+
+.landing-projects__label {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9375vw;
+  font-weight: 600;
+  color: #720C10;
+  line-height: 1.5;
+}
+
+.landing-projects__title {
+  font-family: "Chronicle Display", Georgia, serif;
+  font-size: 3.0208333333vw;
+  line-height: 1.2;
+  color: #0C0D0D;
+  font-weight: 325;
+  margin: 0;
+}
+
+.landing-projects__description {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.0416666667vw;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #0C0D0D;
+  width: 100%;
+  max-width: 41.5625vw;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.landing-projects__buttons {
+  display: flex;
+  gap: 2.6041666667vw;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 31.1458333333vw;
+}
+
+// Building image (outside projects but related)
+.building {
+  position: absolute;
+  bottom: -2.6041666667vw;
+  left: 7.2916666667vw;
+  z-index: 9;
+  transition: bottom 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 41.8229166667vw;
+}
+
+// Responsive Styles
+@media (max-width: 1023px) {
+  .landing-projects {
+    min-height: 46.875vw;
+    padding: 4.1666666667vw 3.125vw;
+  }
+
+  .landing-projects__content {
+    max-width: 36.4583333333vw;
+  }
+
+  .landing-projects__title {
+    font-size: 2.5vw;
+  }
+
+  .landing-projects__description {
+    font-size: 0.9375vw;
+  }
+
+  .landing-projects__background {
+    bottom: -5.2083333333vw;
+    left: -62.5vw;
+    width: 145.8333333333vw;
+    height: 62.5vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .landing-projects {
+    min-height: 41.6666666667vw;
+    padding: 3.125vw 2.0833333333vw;
+    justify-content: center;
+  }
+
+  .landing-projects__content {
+    max-width: 31.25vw;
+  }
+
+  .landing-projects__header {
+    gap: 1.5625vw;
+  }
+
+  .landing-projects__title {
+    font-size: 1.9791666667vw;
+  }
+
+  .landing-projects__description {
+    font-size: 0.8333333333vw;
+  }
+
+  .landing-projects__buttons {
+    flex-direction: column;
+    gap: 1.0416666667vw;
+  }
+
+  .landing-projects__background {
+    bottom: -2.6041666667vw;
+    left: -41.6666666667vw;
+    width: 104.1666666667vw;
+    height: 46.875vw;
+  }
+}
+
+@media (max-width: 479px) {
+  .landing-projects {
+    min-height: 148.309178744vw;
+    padding: 9.6618357488vw 3.8647342995vw 0;
+    flex-direction: column-reverse;
+  }
+
+  .landing-projects__content {
+    gap: 7.2463768116vw;
+    max-width: 100%;
+  }
+
+  .landing-projects__header {
+    gap: 4.8309178744vw;
+    max-width: 100%;
+  }
+
+  .landing-projects__label {
+    font-size: 3.8647342995vw;
+  }
+
+  .landing-projects__title {
+    font-size: 6.7632850242vw;
+  }
+
+  .landing-projects__description {
+    font-size: 3.3816425121vw;
+    max-width: 100%;
+  }
+
+  .landing-projects__buttons {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: row;
+    margin-bottom: 9.6618357488vw;
+
+    .btn {
+      width: 50%;
+      height: 12.5603864734vw;
+      font-size: 3.3816425121vw;
+    }
+  }
+
+  .landing-projects__background {
+    opacity: 0.3;
+    bottom: 0;
+    top: 0;
+    left: -120.7729468599vw;
+    width: 289.8550724638vw;
+    height: 100%;
+  }
+
+  .building {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

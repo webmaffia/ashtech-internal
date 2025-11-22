@@ -1,8 +1,14 @@
-// Editor specific styles
-.landing-footer {
-    a {
-        cursor: default;
-        pointer-events: none;
+// Import frontend styles
+@import './style.scss';
+
+// Editor specific overrides
+.editor-styles-wrapper {
+    .landing-footer {
+        // Keep links non-functional in editor preview
+        a {
+            cursor: default;
+            pointer-events: none;
+        }
     }
 }
 

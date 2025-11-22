@@ -27,6 +27,7 @@ define('ASHTECH_BLOCKS_URL', plugin_dir_url(__FILE__));
 function ashtech_register_blocks() {
     // Array of all blocks
     $blocks = array(
+        'header',
         'banner',
         'overview',
         'values',
@@ -95,10 +96,34 @@ function ashtech_enqueue_block_editor_assets() {
         'before'
     );
     
+    // Load main frontend CSS in editor for accurate preview
+    wp_enqueue_style(
+        'ashtech-blocks-main-editor',
+        ASHTECH_BLOCKS_URL . 'assets/css/main.css',
+        array('wp-edit-blocks'),
+        ASHTECH_BLOCKS_VERSION
+    );
+    
+    // Load Slick Slider CSS in editor
+    wp_enqueue_style(
+        'slick-css-editor',
+        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
+        array(),
+        '1.8.1'
+    );
+    
+    wp_enqueue_style(
+        'slick-theme-css-editor',
+        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css',
+        array(),
+        '1.8.1'
+    );
+    
+    // Editor-specific adjustments
     wp_enqueue_style(
         'ashtech-blocks-editor',
         ASHTECH_BLOCKS_URL . 'assets/css/editor.css',
-        array('wp-edit-blocks'),
+        array('ashtech-blocks-main-editor'),
         ASHTECH_BLOCKS_VERSION
     );
 }

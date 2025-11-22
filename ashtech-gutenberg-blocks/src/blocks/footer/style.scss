@@ -1,2 +1,299 @@
-// Styles from _landing-footer.scss will be used
+// Footer Block Styles
+.landing-footer {
+  position: relative;
+  width: 100%;
+  min-height: 29.0104166667vw;
+  background-color: #F4EAD7;
+  overflow: hidden;
+}
 
+.landing-footer__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 36.09375vw;
+  // background-image handled via inline style in component
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.landing-footer__content {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 3.125vw 5.2083333333vw 0.6770833333vw 5.2083333333vw;
+  z-index: 2;
+}
+
+.landing-footer__main {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  margin-bottom: 2.6041666667vw;
+}
+
+.landing-footer__about {
+  flex: 1;
+  max-width: 21.875vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5625vw;
+}
+
+.landing-footer__logo {
+  width: 16.4583333333vw;
+  height: 2.5vw;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.landing-footer__description {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9375vw;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #0C0D0D;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.landing-footer__social {
+  display: flex;
+  gap: 0.15625vw;
+}
+
+.landing-footer__social-link {
+  width: 2.4129166667vw;
+  height: 2.4129166667vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.landing-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8229166667vw;
+}
+
+.landing-footer__links-title {
+  font-family: "Chronicle Display", Georgia, serif;
+  font-size: 1.5625vw;
+  line-height: 1.5;
+  color: #720C10;
+  font-weight: 325;
+  margin: 0;
+}
+
+.landing-footer__links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5208333333vw;
+
+  li {
+    margin: 0;
+  }
+
+  a {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.9375vw;
+    font-weight: 400;
+    line-height: 2;
+    color: #0C0D0D;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #720C10;
+    }
+  }
+}
+
+.landing-footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8229166667vw;
+}
+
+.landing-footer__contact-title {
+  font-family: "Chronicle Display", Georgia, serif;
+  font-size: 1.5625vw;
+  line-height: 1.5;
+  color: #720C10;
+  font-weight: 325;
+  margin: 0;
+}
+
+.landing-footer__contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.0416666667vw;
+}
+
+.landing-footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7291666667vw;
+
+  p {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.9375vw;
+    font-weight: 400;
+    line-height: 2;
+    color: #0C0D0D;
+    margin: 0;
+  }
+}
+
+.landing-footer__contact-icon {
+  width: 2.0171875vw;
+  height: 2.0171875vw;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.landing-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.0416666667vw;
+  padding-top: 1.5625vw;
+  border-top: 1px solid rgba(114, 12, 16, 0.2);
+}
+
+.landing-footer__copyright,
+.landing-footer__legal {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9375vw;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #720C10;
+  margin: 0;
+}
+
+// Responsive Styles
+@media (max-width: 1023px) {
+  .landing-footer__content {
+    padding: 2.6041666667vw 3.125vw 0.6770833333vw 3.125vw;
+  }
+
+  .landing-footer__main {
+    gap: 3.125vw;
+  }
+
+  .landing-footer__about {
+    max-width: 18.2291666667vw;
+  }
+
+  .landing-footer__logo {
+    width: 13.5416666667vw;
+    height: 2.0833333333vw;
+  }
+
+  .landing-footer__description,
+  .landing-footer__links-list a,
+  .landing-footer__contact-item p,
+  .landing-footer__copyright,
+  .landing-footer__legal {
+    font-size: 0.8333333333vw;
+  }
+
+  .landing-footer__links-title,
+  .landing-footer__contact-title {
+    font-size: 1.3541666667vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .landing-footer__content {
+    padding: 2.0833333333vw;
+  }
+
+  .landing-footer__main {
+    flex-direction: column;
+    gap: 2.0833333333vw;
+  }
+
+  .landing-footer__about {
+    max-width: 100%;
+  }
+
+  .landing-footer__bottom {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 479px) {
+  .landing-footer {
+    min-height: 157.856763285vw;
+  }
+
+  .landing-footer__content {
+    padding: 6.038647343vw 3.8647342995vw 3.1400966184vw 3.8647342995vw;
+  }
+
+  .landing-footer__main {
+    gap: 7.2463768116vw;
+  }
+
+  .landing-footer__logo {
+    width: 51.1379227053vw;
+    height: 7.729468599vw;
+  }
+
+  .landing-footer__description {
+    font-size: 3.3816425121vw;
+  }
+
+  .landing-footer__social-link {
+    width: 7.729468599vw;
+    height: 7.729468599vw;
+  }
+
+  .landing-footer__links-title,
+  .landing-footer__contact-title {
+    font-size: 4.8309178744vw;
+  }
+
+  .landing-footer__links-list a,
+  .landing-footer__contact-item p {
+    font-size: 3.3816425121vw;
+  }
+
+  .landing-footer__contact-icon {
+    width: 4.347826087vw;
+    height: 4.347826087vw;
+  }
+
+  .landing-footer__copyright,
+  .landing-footer__legal {
+    font-size: 3.3816425121vw;
+  }
+
+  .landing-footer__background {
+    height: 96.6183574879vw;
+  }
+}
