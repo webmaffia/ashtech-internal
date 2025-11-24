@@ -386,19 +386,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('.header');
     const submenu = document.querySelector('.project-submenu');
     
-    window.addEventListener('scroll', function() {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // window.addEventListener('scroll', function() {
+    //     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            // Scrolling up
-            header.style.transform = 'translateY(0)';
-        }
+    //     if (scrollTop > lastScrollTop && scrollTop > 100) {
+    //         // Scrolling down
+    //         header.style.transform = 'translateY(-100%)';
+    //     } else {
+    //         // Scrolling up
+    //         header.style.transform = 'translateY(0)';
+    //     }
         
-        lastScrollTop = scrollTop;
-    });
+    //     lastScrollTop = scrollTop;
+    // });
     
 });
 
