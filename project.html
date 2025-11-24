@@ -47,7 +47,7 @@
     <section class="project-submenu" id="project-submenu">
         <div class="project-submenu__container">
             <div class="project-submenu__logo">
-                <img src="/assets/images/poject/project_logo.png" alt="Ashtech Presidential Logo">
+                <img src="assets/images/poject/project_logo.png" alt="Ashtech Presidential Logo">
             </div>
             <nav class="project-submenu__nav">
                 <a href="#overview" class="project-submenu__link">Overview</a>
@@ -191,51 +191,200 @@
         
         <div class="experiences__tabs">
             <div class="experiences__tab-list">
-                <button class="experiences__tab-button experiences__tab-button--active">
+                <button class="experiences__tab-button experiences__tab-button--active" data-tab="wellness">
                     <div class="experiences__tab-icon">
                         <img src="https://www.figma.com/api/mcp/asset/0b6fb6aa-7b13-47b6-81c2-462f0c44d052" alt="">
                     </div>
                     <span class="experiences__tab-text">Wellness & Rejuvenation</span>
                 </button>
-                <button class="experiences__tab-button">
+                <button class="experiences__tab-button" data-tab="movement">
                     <span class="experiences__tab-text">Movement & Play</span>
                 </button>
-                <button class="experiences__tab-button">
+                <button class="experiences__tab-button" data-tab="culture">
                     <span class="experiences__tab-text">Culture & Gathering</span>
                 </button>
-                <button class="experiences__tab-button">
+                <button class="experiences__tab-button" data-tab="ease">
                     <span class="experiences__tab-text">Ease & Arrival</span>
                 </button>
             </div>
             
-            <div class="experiences__tab-content">
+            <!-- Wellness & Rejuvenation Content -->
+            <div class="experiences__tab-content experiences__tab-content--active" data-content="wellness">
                 <div class="experiences__features">
                     <div class="feature-card">
                         <div class="feature-card__icon">
-                            <img src="https://www.figma.com/api/mcp/asset/43992b64-30a1-4b0e-be86-33c207a03cb2" alt="Pool icon">
+                            <img src="https://www.figma.com/api/mcp/asset/affc6fd7-b7c0-4385-8efd-ac3fba38de06" alt="Pool icon">
                         </div>
                         <p class="feature-card__text">Temperature-controlled pool for every season</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-card__icon">
-                            <img src="https://www.figma.com/api/mcp/asset/90dbfe5f-f378-4e61-b0cb-ea69d0de7023" alt="Spa icon">
+                            <img src="https://www.figma.com/api/mcp/asset/dd9ece0d-61d6-4ac3-b34a-1683471a8658" alt="Spa icon">
                         </div>
                         <p class="feature-card__text">International-inspired spa with hot pool and therapy suites</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-card__icon">
-                            <img src="https://www.figma.com/api/mcp/asset/e2957f0e-50e8-46eb-b668-88daa5558db2" alt="Steam icon">
+                            <img src="https://www.figma.com/api/mcp/asset/5a9101b1-b8d1-4cf6-b28e-fd2471c93a93" alt="Steam icon">
                         </div>
                         <p class="feature-card__text">Steam and sauna retreats</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-card__icon">
-                            <img src="https://www.figma.com/api/mcp/asset/f93c1f22-0d07-4c42-8c68-cb675458fbc0" alt="Yoga icon">
+                            <img src="https://www.figma.com/api/mcp/asset/55ec0ef2-0801-4014-a445-72afa6bc77ae" alt="Yoga icon">
                         </div>
                         <p class="feature-card__text">Yoga and meditation studios</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Movement & Play Content -->
+            <div class="experiences__tab-content" data-content="movement">
+                <div class="experiences__features">
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/6024880c-b5ba-4fec-b3dc-7e9f7049ab95" alt="Gym icon">
+                        </div>
+                        <p class="feature-card__text">High-performance gym</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/7dc03155-53b3-4d52-8212-0e53dcf9954e" alt="Training icon">
+                        </div>
+                        <p class="feature-card__text">Functional training zones</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/491ba63b-0079-44a5-8915-5618ed4afde1" alt="Sports Bar icon">
+                        </div>
+                        <p class="feature-card__text">Sports Bar</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/4230534d-61e4-40c9-ba50-759623c668f9" alt="Zumba icon">
+                        </div>
+                        <p class="feature-card__text">Zumba & yoga zones</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/1a906ac4-262a-4ba4-84e3-b381cdc3e65a" alt="Bowling icon">
+                        </div>
+                        <p class="feature-card__text">Bowling Alley</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/5e6a6087-9d69-4f06-a8e0-6e4393d8348a" alt="Golf icon">
+                        </div>
+                        <p class="feature-card__text">Golf Simulator</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/41b452f3-8c37-4613-8beb-20360fd1e303" alt="Sports arena icon">
+                        </div>
+                        <p class="feature-card__text">Indoor sports arena</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Culture & Gathering Content -->
+            <div class="experiences__tab-content" data-content="culture">
+                <div class="experiences__features">
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/de01416b-fbe1-407a-874d-77f7ab60cce6" alt="Community Hall icon">
+                        </div>
+                        <p class="feature-card__text">Community Hall</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/049f7cb4-b751-4f72-a9c8-d94d19527818" alt="Theatre icon">
+                        </div>
+                        <p class="feature-card__text">Mini Theatre</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/b8311862-5354-4aad-ada0-30ec1824dca2" alt="Library icon">
+                        </div>
+                        <p class="feature-card__text">Library Lounges</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/e3730c14-a4b2-4c24-b848-d9baef0b8cbd" alt="Podcast icon">
+                        </div>
+                        <p class="feature-card__text">Podcast Room</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/de38d5d4-2880-4055-9d67-14cd552c4fbf" alt="Business icon">
+                        </div>
+                        <p class="feature-card__text">Business Centre</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/1a99b41e-ce48-4f37-bf53-0094f4c75d69" alt="Meeting icon">
+                        </div>
+                        <p class="feature-card__text">Private Meeting Room</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/e6ae58ed-40ce-46a3-a8bf-0bb9cbc5b946" alt="Dining icon">
+                        </div>
+                        <p class="feature-card__text">Alfesco Dining</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/ad066755-587c-4bf1-8738-05ab46a622af" alt="Restaurant icon">
+                        </div>
+                        <p class="feature-card__text">Restaurant & Bar</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ease & Arrival Content -->
+            <div class="experiences__tab-content" data-content="ease">
+                <div class="experiences__features">
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/9dd8ecb7-675f-4f0c-9287-9618443e5e3d" alt="Vehicular icon">
+                        </div>
+                        <p class="feature-card__text">Zero vehicular movement<br>at ground level</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/0fc6361b-775c-4710-ad1c-3fc582e80aa0" alt="Lift lobby icon">
+                        </div>
+                        <p class="feature-card__text">Fully air-conditioned,<br>triple-height grand lift lobby</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/92d5317c-5a7e-41a7-8615-38c07b5cb5f9" alt="Private lift icon">
+                        </div>
+                        <p class="feature-card__text">Private lift foyers for every<br>home in Gold Towers with 2 apartment per core</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-card__icon">
+                            <img src="https://www.figma.com/api/mcp/asset/9977886d-aaa2-4d49-8b70-695a4e66502c" alt="Parking icon">
+                        </div>
+                        <p class="feature-card__text">2-levels of basement parking</p>
                     </div>
                 </div>
             </div>

@@ -237,6 +237,11 @@
   @include flex-center;
   flex-wrap: wrap;
   gap: $spacing-2xl 0;
+  display: none;
+
+  &--active {
+    display: flex;
+  }
 
   @include respond-to('laptop') {
     padding: 40px 20px;
@@ -252,10 +257,9 @@
   @include flex-center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0;
-
+row-gap: vw(60);
   @include respond-to('tablet') {
-    gap: $spacing-lg;
+    row-gap: vw(20,414);
   }
 }
 

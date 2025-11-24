@@ -84,27 +84,61 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Experiences Tabs Functionality
     function initExperiencesTabs() {
+        // Handle new experiences tabs structure
+        const experienceTabButtons = document.querySelectorAll('.experiences__tab-button');
+        const experienceTabContents = document.querySelectorAll('.experiences__tab-content');
+        
+        if (experienceTabButtons.length > 0) {
+            experienceTabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons
+                    experienceTabButtons.forEach(btn => {
+                        btn.classList.remove('experiences__tab-button--active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('experiences__tab-button--active');
+                    
+                    // Hide all content panels
+                    experienceTabContents.forEach(content => {
+                        content.classList.remove('experiences__tab-content--active');
+                    });
+                    
+                    // Show corresponding content panel
+                    const activeContent = document.querySelector(`.experiences__tab-content[data-content="${tabName}"]`);
+                    if (activeContent) {
+                        activeContent.classList.add('experiences__tab-content--active');
+                    }
+                });
+            });
+        }
+        
+        // Handle old project-experiences tabs structure (if exists)
         const tabs = document.querySelectorAll('.project-experiences__tab');
         const panels = document.querySelectorAll('.project-experiences__panel');
         
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                const tabName = this.getAttribute('data-tab');
-                
-                // Remove active class from all tabs and panels
-                tabs.forEach(t => t.classList.remove('active'));
-                panels.forEach(p => p.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                this.classList.add('active');
-                
-                // Show corresponding panel
-                const activePanel = document.querySelector(`.project-experiences__panel[data-panel="${tabName}"]`);
-                if (activePanel) {
-                    activePanel.classList.add('active');
-                }
+        if (tabs.length > 0) {
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and panels
+                    tabs.forEach(t => t.classList.remove('active'));
+                    panels.forEach(p => p.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding panel
+                    const activePanel = document.querySelector(`.project-experiences__panel[data-panel="${tabName}"]`);
+                    if (activePanel) {
+                        activePanel.classList.add('active');
+                    }
+                });
             });
-        });
+        }
     }
     
     // Architecture Tabs Functionality
