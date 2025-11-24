@@ -161,7 +161,7 @@
     width: vw(2);
     height: 100%;
     background: $color-brand-primary;
-    animation: progressBar 5s linear infinite;
+    // Animation is controlled via JavaScript to restart on each tab change
   }
 
   @keyframes progressBar {

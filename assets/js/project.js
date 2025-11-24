@@ -186,10 +186,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Reset progress bar animation
             if (progressBar) {
+                // Force reflow to ensure animation restarts properly
                 progressBar.style.animation = 'none';
-                setTimeout(() => {
+                progressBar.style.width = '0';
+                // Trigger reflow
+                void progressBar.offsetWidth;
+                // Restart animation (runs once per element, matching 5s auto-play interval)
+                requestAnimationFrame(() => {
                     progressBar.style.animation = 'progressBar 5s linear';
-                }, 10);
+                });
             }
         }
         
@@ -218,11 +223,19 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Initialize with first element's background image
+        // Initialize with first element's background image and start progress bar
         if (elements.length > 0) {
             const firstElementType = elements[0].getAttribute('data-element');
             if (firstElementType) {
                 changeBackgroundImage(firstElementType);
+            }
+            // Ensure progress bar starts on initial load
+            if (progressBar) {
+                progressBar.style.width = '0';
+                void progressBar.offsetWidth; // Trigger reflow
+                requestAnimationFrame(() => {
+                    progressBar.style.animation = 'progressBar 5s linear';
+                });
             }
         }
         
