@@ -193,6 +193,7 @@ if (!prefersReducedMotion) {
 
   // Different observer options for mobile vs desktop
   const isMobileView = window.innerWidth <= 767;
+  const isMobileDevice = isMobileView; // Use this to check if reverse animations should be disabled
   
   const observerOptions = {
     root: null,
@@ -201,12 +202,14 @@ if (!prefersReducedMotion) {
   };
   
   console.log('Observer options:', observerOptions);
+  console.log('Mobile device (no reverse animations):', isMobileDevice);
 
   const overviewObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting && svgAnimationComplete) {
         entry.target.classList.add('animate');
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         entry.target.classList.remove('animate');
       }
     });
@@ -222,7 +225,8 @@ if (!prefersReducedMotion) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         entry.target.classList.remove('animate');
       }
     });
@@ -275,7 +279,8 @@ if (!prefersReducedMotion) {
             });
           }, pairIndex * 300);
         });
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         const valueItems = document.querySelectorAll('.landing-values__item');
         const pairs = [
           [valueItems[0], valueItems[3]],
@@ -330,7 +335,8 @@ if (!prefersReducedMotion) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         entry.target.classList.remove('animate');
       }
     });
@@ -348,7 +354,8 @@ if (!prefersReducedMotion) {
       if (buildingImg) {
         if (entry.isIntersecting) {
           buildingImg.style.bottom = '0';
-        } else {
+        } else if (!isMobileDevice) {
+          // Only apply reverse animation on desktop
           buildingImg.style.bottom = '-50vw';
         }
       }
@@ -385,7 +392,8 @@ if (!prefersReducedMotion) {
             feature.style.transform = 'translateX(0)';
           }, 500 + (index * 150));
         });
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         const nriContent = entry.target.querySelector('.landing-nri__info');
         const nriFeatures = entry.target.querySelectorAll('.landing-nri__feature');
         const nriImage = entry.target.querySelector('.landing-nri__image');
@@ -458,7 +466,8 @@ if (!prefersReducedMotion) {
             item.style.transform = 'translateY(0)';
           }, 400 + (index * 150));
         });
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         const header = entry.target.querySelector('.landing-awards__header');
         const items = entry.target.querySelectorAll('.landing-awards__item');
         
@@ -518,7 +527,8 @@ if (!prefersReducedMotion) {
             content.style.transform = 'translateX(0)';
           }, 400);
         }
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         const header = entry.target.querySelector('.landing-testimonials__header');
         const content = entry.target.querySelector('.landing-testimonials__content');
         
@@ -561,7 +571,8 @@ if (!prefersReducedMotion) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         entry.target.classList.remove('animate');
       }
     });
@@ -578,7 +589,8 @@ if (!prefersReducedMotion) {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         entry.target.style.opacity = '0';
         entry.target.style.transform = 'translateY(40px)';
       }
@@ -590,7 +602,8 @@ if (!prefersReducedMotion) {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateX(0)';
-      } else {
+      } else if (!isMobileDevice) {
+        // Only apply reverse animation on desktop
         entry.target.style.opacity = '0';
         entry.target.style.transform = 'translateX(100px)';
       }
