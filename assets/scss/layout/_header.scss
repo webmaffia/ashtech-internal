@@ -9,3 +9,12 @@
 
 // This is imported from navbar component
 
+.hero-2__menu-icon {
+  width: 46px;
+  height: 10px;
+
+  @include respond-to('mobile') {
+    width: 36px;
+    height: 8px;
+  }
+}
