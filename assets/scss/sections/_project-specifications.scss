@@ -1,0 +1,248 @@
+// ===========================================
+// PROJECT PAGE - SPECIFICATIONS SECTION
+// ===========================================
+
+.project-specifications {
+  background: $color-bg-primary;
+  padding: vw(50) vw(100) vw(100);
+
+  &__container {
+    max-width: vw(1720);
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: vw(35);
+    margin-bottom: vw(10);
+    text-align: center;
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: vw(18);
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-medium;
+    color: $color-brand-primary;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(58);
+    line-height: $line-height-tight;
+    color: $color-brand-black;
+    font-weight: $font-weight-regular;
+    margin: 0 auto;
+    max-width: vw(756);
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: center;
+    gap: vw(30);
+    align-items: flex-start;
+  }
+
+  &__card {
+    width: vw(550);
+    display: flex;
+    flex-direction: column;
+    gap: vw(40);
+    padding-top: vw(500);
+    position: relative;
+    transition: all 0.5s ease;
+
+    &--offset-1 {
+      padding-top: vw(280);
+    }
+
+    &--offset-2 {
+      padding-top: vw(400);
+    }
+
+    &:hover {
+      .project-specifications__card-image {
+        transform: translateX(-50%) translateY(vw(-10));
+      }
+
+      .project-specifications__card-image img {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__card-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: vw(550);
+    height: vw(480);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &__card-content {
+    display: flex;
+    flex-direction: column;
+    gap: vw(30);
+    width: vw(476);
+    margin: 0 auto;
+  }
+
+  &__card-title {
+    font-family: $font-primary;
+    font-size: vw(36);
+    line-height: $line-height-medium;
+    color: $color-brand-primary;
+    font-weight: $font-weight-regular;
+    margin: 0;
+  }
+
+  &__card-list {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-medium;
+    color: $color-body;
+    margin: 0;
+    padding-left: vw(30);
+    list-style: disc;
+
+    li {
+      margin-bottom: vw(8);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    padding: 40px 40px 80px;
+
+    &__header {
+      gap: 30px;
+    }
+
+    &__label {
+      font-size: 16px;
+    }
+
+    &__title {
+      font-size: 42px;
+      max-width: 600px;
+    }
+
+    &__cards {
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+
+    &__card {
+      width: 100%;
+      max-width: 550px;
+      padding-top: 500px;
+
+      &--offset-1,
+      &--offset-2 {
+        padding-top: 500px;
+      }
+
+      &:hover {
+        transform: translateY(-20px);
+      }
+    }
+
+    &__card-image {
+      height: 480px;
+      border-radius: 8px;
+    }
+
+    &__card-content {
+      gap: 30px;
+      max-width: 476px;
+    }
+
+    &__card-title {
+      font-size: 32px;
+    }
+
+    &__card-list {
+      font-size: 18px;
+      padding-left: 30px;
+
+      li {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    padding: 30px 20px 60px;
+
+    &__header {
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    &__label {
+      font-size: 14px;
+    }
+
+    &__title {
+      font-size: 32px;
+      max-width: 100%;
+    }
+
+    &__cards {
+      gap: 40px;
+    }
+
+    &__card {
+      padding-top: 360px;
+
+      &--offset-1,
+      &--offset-2 {
+        padding-top: 360px;
+      }
+
+      &:hover {
+        transform: translateY(-10px);
+      }
+    }
+
+    &__card-image {
+      height: 340px;
+    }
+
+    &__card-content {
+      gap: 20px;
+      max-width: 100%;
+    }
+
+    &__card-title {
+      font-size: 28px;
+    }
+
+    &__card-list {
+      font-size: 16px;
+      padding-left: 25px;
+
+      li {
+        margin-bottom: 6px;
+      }
+    }
+  }
+}

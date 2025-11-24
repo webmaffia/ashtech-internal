@@ -1,0 +1,294 @@
+// ===========================================
+// PROJECT PAGE - ARCHITECTURE SECTION
+// ===========================================
+
+.project-architecture {
+  position: relative;
+  width: 100%;
+  min-height: 800px;
+  background-image: url('https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: vw(50) vw(100);
+  overflow: hidden;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 74.9%);
+    pointer-events: none;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1720);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: vw(50);
+    flex: 1;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: vw(45);
+    max-width: vw(1050);
+    padding: vw(30);
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: vw(18);
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-medium;
+    color: $color-white;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(72);
+    line-height: $line-height-tight;
+    color: $color-white;
+    font-weight: $font-weight-regular;
+    max-width: vw(707);
+  }
+
+  &__description {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-medium;
+    color: $color-white;
+    max-width: vw(1050);
+  }
+
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  &__card {
+    background: $color-bg-primary;
+    max-width: vw(814);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__element {
+    padding: vw(30);
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__element-content {
+    display: flex;
+    gap: vw(60);
+    align-items: flex-start;
+  }
+
+  &__element-title {
+    font-family: $font-primary;
+    font-size: vw(44);
+    line-height: $line-height-normal;
+    color: $color-brand-black;
+    font-weight: $font-weight-regular;
+    min-width: vw(175);
+    margin: 0;
+  }
+
+  &__element-text {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-relaxed;
+    color: $color-brand-black;
+    flex: 1;
+    margin: 0;
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 vw(30) vw(30);
+    gap: vw(20);
+  }
+
+  &__tab {
+    font-family: $font-secondary;
+    font-size: vw(14);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-medium;
+    color: $color-brand-black;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity $transition-base;
+    padding: 0;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__progress {
+    width: 100%;
+    height: vw(5);
+    background: $color-bg-primary;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(2);
+    height: 100%;
+    background: $color-brand-primary;
+    animation: progressBar 5s linear infinite;
+  }
+
+  @keyframes progressBar {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    min-height: 600px;
+    padding: 40px 40px;
+
+    &__header {
+      max-width: 100%;
+      padding: 20px;
+    }
+
+    &__label {
+      font-size: 16px;
+    }
+
+    &__title {
+      font-size: 48px;
+      max-width: 100%;
+    }
+
+    &__description {
+      font-size: 18px;
+      max-width: 100%;
+    }
+
+    &__card {
+      max-width: 100%;
+    }
+
+    &__element {
+      padding: 25px;
+    }
+
+    &__element-content {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    &__element-title {
+      font-size: 36px;
+      min-width: auto;
+    }
+
+    &__element-text {
+      font-size: 18px;
+    }
+
+    &__tabs {
+      padding: 0 25px 25px;
+      gap: 15px;
+    }
+
+    &__tab {
+      font-size: 13px;
+    }
+
+    &__progress {
+      height: 4px;
+    }
+
+    &__progress-bar {
+      width: 2px;
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    min-height: 500px;
+    padding: 30px 20px;
+
+    &__header {
+      gap: 25px;
+      padding: 15px;
+    }
+
+    &__label {
+      font-size: 14px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 16px;
+    }
+
+    &__element {
+      padding: 20px;
+    }
+
+    &__element-content {
+      gap: 20px;
+    }
+
+    &__element-title {
+      font-size: 28px;
+    }
+
+    &__element-text {
+      font-size: 16px;
+    }
+
+    &__tabs {
+      padding: 0 20px 20px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    &__tab {
+      font-size: 12px;
+      flex: 1;
+      min-width: calc(50% - 5px);
+      text-align: center;
+    }
+
+    &__progress {
+      height: 3px;
+    }
+  }
+}

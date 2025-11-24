@@ -31,6 +31,16 @@
 @import 'sections/landing-testimonials';
 @import 'sections/landing-footer';
 
+// Project Page Sections
+@import 'sections/project-hero';
+@import 'sections/project-submenu';
+@import 'sections/project-overview';
+@import 'sections/project-architecture';
+@import 'sections/project-experiences';
+@import 'sections/project-location';
+@import 'sections/project-specifications';
+@import 'sections/project-about';
+
 
 html {
     overflow-x: hidden;

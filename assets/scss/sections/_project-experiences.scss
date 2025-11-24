@@ -1,0 +1,262 @@
+// Project Experiences Section
+.project-experiences {
+  position: relative;
+  background: $color-bg-primary;
+  padding: 120px $container-padding-desktop;
+
+  &__decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 960px;
+    height: 502px;
+    background-image: url('https://www.figma.com/api/mcp/asset/5e1a5043-9967-4e47-8cf6-c4adfa15719e');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  &__container {
+    position: relative;
+    max-width: 1720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 169px;
+  }
+
+  &__header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-medium;
+    color: $color-brand-primary;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: 58px;
+    line-height: $line-height-tight;
+    color: $color-brand-black;
+    font-weight: $font-weight-regular;
+  }
+
+  &__header-right {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: flex-start;
+  }
+
+  &__description {
+    font-family: $font-secondary;
+    font-size: 20px;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-relaxed;
+    color: $color-brand-black;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 643px 1fr;
+    gap: 0;
+  }
+
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tab {
+    background: transparent;
+    border: none;
+    padding: 30px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    cursor: pointer;
+    transition: all $transition-base;
+    border-bottom: 1px solid rgba($color-brand-primary, 0.1);
+
+    span {
+      font-family: $font-primary;
+      font-size: 30px;
+      line-height: $line-height-medium;
+      color: $color-brand-primary;
+      font-weight: $font-weight-regular;
+      text-align: left;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: $color-white;
+      opacity: 0;
+      transition: all $transition-base;
+    }
+
+    &.active,
+    &:hover {
+      background: $color-brand-primary;
+
+      span {
+        color: $color-white;
+      }
+
+      svg {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__panels {
+    background: $color-bg-red;
+    padding: 50px 30px;
+  }
+
+  &__panel {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+  }
+
+  &__feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 243.5px;
+  }
+
+  &__feature-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__feature-text {
+    font-family: $font-secondary;
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-medium;
+    color: $color-body;
+    text-align: center;
+    margin: 0;
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    padding: 80px 40px;
+
+    &__header {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+
+    &__title {
+      font-size: 42px;
+    }
+
+    &__description {
+      font-size: 18px;
+    }
+
+    &__content {
+      grid-template-columns: 1fr;
+    }
+
+    &__tab span {
+      font-size: 24px;
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+
+    &__decoration {
+      width: 100%;
+      height: 300px;
+    }
+
+    &__header-left {
+      gap: 25px;
+    }
+
+    &__label {
+      font-size: 16px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__header-right {
+      gap: 30px;
+    }
+
+    &__description {
+      font-size: 16px;
+    }
+
+    &__tab {
+      padding: 20px 12px;
+
+      span {
+        font-size: 20px;
+      }
+    }
+
+    &__panels {
+      padding: 30px 20px;
+    }
+
+    &__features {
+      gap: 30px;
+    }
+
+    &__feature {
+      width: calc(50% - 15px);
+    }
+
+    &__feature-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    &__feature-text {
+      font-size: 12px;
+    }
+  }
+}

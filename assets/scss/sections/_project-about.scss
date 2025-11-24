@@ -1,0 +1,113 @@
+// Project About Section
+.project-about {
+  position: relative;
+  background: $color-bg-primary;
+  padding: 120px $container-padding-desktop;
+
+  &__decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 960px;
+    height: 502px;
+    background-image: url('https://www.figma.com/api/mcp/asset/5e1a5043-9967-4e47-8cf6-c4adfa15719e');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  &__container {
+    position: relative;
+    max-width: 1720px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 169px;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-medium;
+    color: $color-brand-primary;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: 58px;
+    line-height: $line-height-tight;
+    color: $color-brand-black;
+    font-weight: $font-weight-regular;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: flex-start;
+  }
+
+  &__description {
+    font-family: $font-secondary;
+    font-size: 20px;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-relaxed;
+    color: $color-brand-black;
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    padding: 80px 40px;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+
+    &__title {
+      font-size: 42px;
+    }
+
+    &__description {
+      font-size: 18px;
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+
+    &__decoration {
+      width: 100%;
+      height: 300px;
+    }
+
+    &__left {
+      gap: 25px;
+    }
+
+    &__label {
+      font-size: 16px;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__right {
+      gap: 30px;
+    }
+
+    &__description {
+      font-size: 16px;
+    }
+  }
+}

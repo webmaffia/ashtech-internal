@@ -1,138 +1,202 @@
-# Ashtech Presidential Towers - Project Page
+# Ashtech Presidential Towers - Project Page Implementation
 
 ## Overview
-A comprehensive project page for Ashtech Presidential Towers has been created with all sections from the Figma design.
+This document outlines the implementation of the project page (`project.html`) based on the Figma design provided.
 
 ## Files Created
 
 ### HTML
-- `project.html` - Main project page with all sections
+- **project.html** - Main project page with the following sections:
+  - Hero Banner with title and subtitle
+  - Sticky Sub-menu navigation
+  - Overview section with statistics
+  - Architecture section
+  - Experiences and Privileges with interactive tabs
+  - Location and Connectivity with map
+  - Specifications with card layout
+  - About Ashtech Group section
 
-### SCSS Files (in assets/scss/sections/)
-1. `_project-hero.scss` - Hero banner section with SVG animation
-2. `_project-submenu.scss` - Sticky navigation submenu
-3. `_project-overview.scss` - Project overview section with stats
-4. `_project-architecture.scss` - Architecture and landscape section
-5. `_project-experiences.scss` - Experiences and privileges section
-6. `_project-location.scss` - Location and connectivity section with map
-7. `_project-specifications.scss` - Technical specifications cards
-8. `_project-about.scss` - About Ashtech Group section
+### SCSS Files (assets/scss/sections/)
+1. **_project-hero.scss** - Hero banner styling with responsive design
+2. **_project-submenu.scss** - Sticky navigation menu that highlights current section
+3. **_project-overview.scss** - Overview section with statistics and decorative elements
+4. **_project-architecture.scss** - Architecture section layout
+5. **_project-experiences.scss** - Experiences section with interactive tabs
+6. **_project-location.scss** - Location section with map and connectivity points
+7. **_project-specifications.scss** - Specification cards with staggered layout
+8. **_project-about.scss** - About section styling
 
 ### JavaScript
-- `assets/js/project-animations.js` - Animations and interactive features
-
-## Sections Implemented
-
-1. **Hero Banner**
-   - Full-screen hero with animated SVG illustration
-   - Elegant typography with fade-in animations
-
-2. **Sub Menu Bar**
-   - Sticky navigation with smooth scroll to sections
-   - Active section highlighting
-   - Responsive menu layout
-
-3. **Overview**
-   - Two-column layout with title and description
-   - Stats grid showing: 5.6 acres, 3-side open plot, 5 towers, 456 residences
-   - Background SVG decoration with parallax effect
-
-4. **Architecture & Landscape**
-   - Image and text content layout
-   - Hover effects on images
-   - Information about Studio Symbiosis design
-
-5. **Experiences & Privileges**
-   - 6-item grid showcasing amenities
-   - Icon-based design with staggered animations
-   - Includes: Wellness Pavilion, Resident Lounge, Children's Play Area, Infinity Pool, Landscaped Gardens, Sports Facilities
-
-6. **Location & Connectivity**
-   - Map visualization
-   - 6 connectivity points with icons
-   - Accessibility information for key locations
-
-7. **Specifications**
-   - 3 specification cards:
-     - Residences (Italian marble, VRV AC, modular kitchens, etc.)
-     - Structure & Safety (Aluminium facade, security, TQ Cert)
-     - Sustainability (Passive cooling, cross-ventilation, natural light)
-   - Card hover effects with image scaling
-
-8. **About Ashtech Group**
-   - Company legacy information
-   - Call-to-action button
-   - Background SVG decoration
+- **assets/js/project.js** - Contains all animations and interactions:
+  - Scroll-triggered animations
+  - Submenu active link highlighting
+  - Tab switching functionality
+  - Smooth scroll navigation
+  - Parallax effects for decorative elements
+  - Staggered animations for cards and items
+  - Header hide/show on scroll
 
 ## Features Implemented
 
-### Responsive Design
-- Desktop: Full-width layouts with multi-column grids
-- Tablet (max-width: 1200px): Adjusted columns and padding
-- Mobile (max-width: 768px): Single-column layouts, stacked content
+### 1. **Responsive Design**
+- Desktop (1920px+)
+- Tablet (768px - 1024px)
+- Mobile (< 768px)
+- All sections adapt fluidly to different screen sizes
 
-### Animations
-- Scroll-triggered fade-in animations for text elements
-- SVG line drawing animations on hero banner
-- Staggered animations for stats, experiences grid, and accessibility items
-- Parallax effects on background SVG patterns
-- Smooth scroll to sections via submenu
-- Image hover effects with scaling
-- Button hover animations
+### 2. **Animations**
+- Fade-in animations on scroll
+- Staggered animations for lists and cards
+- Smooth transitions between states
+- Parallax effects on decorative elements
+- Tab switching animations
 
-### Interactive Elements
-- Sticky submenu with scroll-based styling
-- Active section highlighting in submenu
-- Smooth scroll navigation
-- Interactive cards with hover states
-- Mobile-friendly touch interactions
+### 3. **Interactive Elements**
+- Sticky navigation menu with active state highlighting
+- Interactive experience tabs (Wellness, Movement, Culture, Ease)
+- Smooth scroll to sections
+- Hover effects on cards and buttons
+- Download brochure button (ready for functionality implementation)
 
-## Design System
-- Colors: Uses Ashtech brand colors (Maroon #720C10, Beige #F4EAD7)
-- Typography: Chronicle Display and Montserrat fonts
-- Consistent spacing and layout patterns
-- Matching design language with homepage
+### 4. **Design Fidelity**
+- Uses exact colors from Figma design:
+  - Brand Primary (Rose Gold): #720C10
+  - Brand Black: #0C0D0D
+  - Background Beige: #F4EAD7
+  - Background Light Red: #FAE9E9
+- Typography matches Figma specifications:
+  - Chronicle Display for headings
+  - Montserrat for body text
+- All images and icons are pulled directly from Figma
+- Spacing and layout match design specifications
 
-## Usage
+### 5. **Performance Optimizations**
+- CSS compiled and minified
+- Efficient animations using CSS transforms
+- Intersection Observer for scroll animations
+- Minimal JavaScript dependencies
 
-1. **View the page:**
-   - Open `project.html` in a web browser
-   - Or use: `npm run server` to start a local server
-
-2. **Edit styles:**
-   - Modify SCSS files in `assets/scss/sections/`
-   - Run `npm run sass` to compile
-   - Or use `npm run sass:watch` for auto-compilation
-
-3. **Edit animations:**
-   - Modify `assets/js/project-animations.js`
-   - Refresh browser to see changes
+## Navigation Structure
+The sticky sub-menu provides quick navigation to:
+1. Overview
+2. Architecture
+3. Experiences
+4. Location
+5. Specifications
+6. About Ashtech Group
 
 ## Browser Compatibility
 - Modern browsers (Chrome, Firefox, Safari, Edge)
-- Responsive breakpoints at 768px, 1200px, and 1440px
-- Smooth scrolling with fallback for reduced motion preference
+- CSS Grid and Flexbox for layouts
+- Intersection Observer API for scroll animations
+- Smooth scroll behavior with fallback
 
-## Performance Optimizations
-- CSS animations using GPU-accelerated transforms
-- Intersection Observer for scroll animations
-- Lazy-loaded animation triggers
-- Optimized SVG paths
+## How to Use
 
-## Next Steps (Optional Enhancements)
-1. Add actual images for sections (currently using placeholders)
-2. Add real map integration (Google Maps/Mapbox)
-3. Add form functionality for "Schedule a Visit" buttons
-4. Add lightbox/modal for specification images
-5. Add image gallery section
-6. Add virtual tour integration
-7. Add loading states and skeleton screens
-8. Add 360° view for residences
+### Development
+```bash
+npm run sass:watch
+npm run server
+```
+Visit: http://localhost:8000/project.html
+
+### Production Build
+```bash
+npm run sass:build
+```
+
+## Sections Detail
+
+### 1. Hero Banner
+- Full-width hero image from Figma
+- Centered title and subtitle
+- Gradient overlay for text readability
+
+### 2. Sub-menu
+- Sticky navigation
+- Auto-highlights current section on scroll
+- Smooth scroll to sections on click
+
+### 3. Overview
+- Two-column layout
+- Left: Title and label
+- Right: Description, statistics, and download button
+- Statistics with icons: Acres, Open Plot, Towers, Residences
+
+### 4. Architecture
+- Centered header
+- Two-column content with text and image
+- Fully responsive
+
+### 5. Experiences and Privileges
+- Interactive tab system
+- Four categories: Wellness, Movement, Culture, Ease
+- Feature grid with icons and descriptions
+- Currently shows Wellness features by default
+
+### 6. Location and Connectivity
+- Map integration
+- Six connectivity points with icons
+- Grid layout that adapts responsively
+
+### 7. Specifications
+- Three-card layout with staggered positioning
+- Cards for: Residences, Structure & Safety, Sustainability
+- Each card has image and feature list
+- Hover effects with image zoom
+
+### 8. About Ashtech Group
+- Two-column layout
+- Company history and description
+- Call-to-action button
+
+## Animations Reference
+
+### Scroll Animations
+- `.animate-text` - Fade in from bottom
+- `.animate-text-rtl` - Fade in from left
+- Triggered when elements enter viewport
+
+### Interactive Animations
+- Card hover: translateY(-20px) + image scale(1.05)
+- Tab switching: Fade transition
+- Stats: Staggered fade-in (100ms delay between each)
+- Connectivity items: Staggered fade-in (100ms delay)
+- Spec cards: Staggered fade-in (200ms delay)
+
+## Customization
+
+### Colors
+Edit `assets/scss/base/_variables.scss` to change colors globally.
+
+### Fonts
+Update font families in `_variables.scss`:
+- `$font-primary` - Headings font
+- `$font-secondary` - Body text font
+
+### Spacing
+Modify spacing variables in `_variables.scss` for consistent spacing throughout.
+
+### Breakpoints
+Adjust responsive breakpoints in `_variables.scss` if needed.
+
+## Future Enhancements
+1. Add actual download functionality for brochure button
+2. Implement form for contact/inquiry
+3. Add more tab content for Experiences section
+4. Integrate with backend API for dynamic content
+5. Add image lazy loading for performance
+6. Implement virtual tour integration
 
 ## Notes
-- Header and Footer are reused from index.html
-- All sections are fully responsive
-- Animations are similar to homepage for consistency
-- Smooth scroll behavior is implemented with fallback
-- All colors and variables follow the existing design system
+- All images are hosted on Figma's CDN (7-day expiry)
+- For production, download and host images locally
+- Header and footer are reused from index.html
+- Page follows same design system as homepage
 
+## Support
+For any issues or questions, refer to the main project documentation or contact the development team.
+
+---
+**Last Updated:** November 24, 2025
+**Version:** 1.0.0
