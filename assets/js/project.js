@@ -146,8 +146,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const tabs = document.querySelectorAll('.project-architecture__tab');
         const elements = document.querySelectorAll('.project-architecture__element');
         const progressBar = document.querySelector('.project-architecture__progress-bar');
+        const architectureSection = document.querySelector('.project-architecture');
         let currentIndex = 0;
         let autoPlayInterval;
+        
+        // Background images for each element
+        const backgroundImages = {
+            sun: 'https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9',
+            air: 'https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9', // Replace with air image URL
+            water: 'https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9', // Replace with water image URL
+            earth: 'https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9' // Replace with earth image URL
+        };
+        
+        function changeBackgroundImage(elementType) {
+            if (architectureSection && backgroundImages[elementType]) {
+                architectureSection.style.backgroundImage = `url(${backgroundImages[elementType]})`;
+            }
+        }
         
         function showElement(index) {
             // Remove active class from all tabs and elements
@@ -161,6 +176,13 @@ document.addEventListener('DOMContentLoaded', function() {
             tabs[index].classList.add('active');
             elements[index].classList.add('active');
             elements[index].style.display = 'block';
+            
+            // Get the element type and change background image
+            const activeElement = elements[index];
+            const elementType = activeElement.getAttribute('data-element');
+            if (elementType) {
+                changeBackgroundImage(elementType);
+            }
             
             // Reset progress bar animation
             if (progressBar) {
@@ -196,11 +218,18 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
+        // Initialize with first element's background image
+        if (elements.length > 0) {
+            const firstElementType = elements[0].getAttribute('data-element');
+            if (firstElementType) {
+                changeBackgroundImage(firstElementType);
+            }
+        }
+        
         // Start auto-play
         startAutoPlay();
         
         // Pause on hover
-        const architectureSection = document.querySelector('.project-architecture');
         if (architectureSection) {
             architectureSection.addEventListener('mouseenter', stopAutoPlay);
             architectureSection.addEventListener('mouseleave', startAutoPlay);

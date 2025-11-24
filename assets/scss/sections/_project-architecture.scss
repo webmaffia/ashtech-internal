@@ -6,9 +6,10 @@
   position: relative;
   width: 100%;
   min-height: 800px;
-  background-image: url('https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.8s ease-in-out;
   display: flex;
   align-items: flex-end;
   padding: vw(50) vw(100);
