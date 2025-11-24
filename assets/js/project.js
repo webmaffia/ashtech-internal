@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize animations
     initScrollAnimations();
     initSubmenuHighlight();
+    initSubmenuSticky();
     initExperiencesTabs();
     initArchitectureTabs();
-    initSmoothScroll();
+
     
     // Scroll Animations
     function initScrollAnimations() {
@@ -30,6 +31,27 @@ document.addEventListener('DOMContentLoaded', function() {
         animateElements.forEach(element => {
             observer.observe(element);
         });
+    }
+    
+    // Submenu Sticky/Fixed on Scroll
+    function initSubmenuSticky() {
+        const submenu = document.querySelector('.project-submenu');
+        if (!submenu) return;
+        
+        const submenuOffset = submenu.offsetTop;
+        
+        function handleScroll() {
+            const scrollPosition = window.scrollY;
+            
+            if (scrollPosition >= submenuOffset) {
+                submenu.classList.add('project-submenu--fixed');
+            } else {
+                submenu.classList.remove('project-submenu--fixed');
+            }
+        }
+        
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial call
     }
     
     // Submenu Active Link Highlight on Scroll
@@ -151,29 +173,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Smooth Scroll for Menu Links
-    function initSmoothScroll() {
-        const menuLinks = document.querySelectorAll('.project-submenu__link');
+    // // Smooth Scroll for Menu Links
+    // function initSmoothScroll() {
+    //     const menuLinks = document.querySelectorAll('.project-submenu__link');
         
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
+    //     menuLinks.forEach(link => {
+    //         link.addEventListener('click', function(e) {
+    //             e.preventDefault();
+    //             const targetId = this.getAttribute('href');
+    //             const targetSection = document.querySelector(targetId);
                 
-                if (targetSection) {
-                    const headerOffset = 100;
-                    const elementPosition = targetSection.offsetTop;
-                    const offsetPosition = elementPosition - headerOffset;
+    //             if (targetSection) {
+    //                 const headerOffset = 100;
+    //                 const elementPosition = targetSection.offsetTop;
+    //                 const offsetPosition = elementPosition - headerOffset;
                     
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    }
+    //                 window.scrollTo({
+    //                     top: offsetPosition,
+    //                     behavior: 'smooth'
+    //                 });
+    //             }
+    //         });
+    //     });
+    // }
     
     // Card Hover Effects for Specifications
     function initCardHoverEffects() {

@@ -126,36 +126,6 @@
         architectureTabs[currentTabIndex].click();
     }, 5000);
 
-    // ===========================================
-    // EXPERIENCES TABS
-    // ===========================================
-    const experienceButtons = document.querySelectorAll('.experiences__tab-button');
-    const experienceContents = {
-        'Wellness & Rejuvenation': [
-            { icon: 'https://www.figma.com/api/mcp/asset/43992b64-30a1-4b0e-be86-33c207a03cb2', text: 'Temperature-controlled pool for every season' },
-            { icon: 'https://www.figma.com/api/mcp/asset/90dbfe5f-f378-4e61-b0cb-ea69d0de7023', text: 'International-inspired spa with hot pool and therapy suites' },
-            { icon: 'https://www.figma.com/api/mcp/asset/e2957f0e-50e8-46eb-b668-88daa5558db2', text: 'Steam and sauna retreats' },
-            { icon: 'https://www.figma.com/api/mcp/asset/f93c1f22-0d07-4c42-8c68-cb675458fbc0', text: 'Yoga and meditation studios' }
-        ],
-        'Movement & Play': [
-            { icon: 'https://www.figma.com/api/mcp/asset/43992b64-30a1-4b0e-be86-33c207a03cb2', text: 'Multi-sport courts and jogging tracks' },
-            { icon: 'https://www.figma.com/api/mcp/asset/90dbfe5f-f378-4e61-b0cb-ea69d0de7023', text: 'Children\'s adventure zones' },
-            { icon: 'https://www.figma.com/api/mcp/asset/e2957f0e-50e8-46eb-b668-88daa5558db2', text: 'Indoor games room' },
-            { icon: 'https://www.figma.com/api/mcp/asset/f93c1f22-0d07-4c42-8c68-cb675458fbc0', text: 'Fitness center with latest equipment' }
-        ],
-        'Culture & Gathering': [
-            { icon: 'https://www.figma.com/api/mcp/asset/43992b64-30a1-4b0e-be86-33c207a03cb2', text: 'Multi-purpose community hall' },
-            { icon: 'https://www.figma.com/api/mcp/asset/90dbfe5f-f378-4e61-b0cb-ea69d0de7023', text: 'Amphitheater for events' },
-            { icon: 'https://www.figma.com/api/mcp/asset/e2957f0e-50e8-46eb-b668-88daa5558db2', text: 'Private dining spaces' },
-            { icon: 'https://www.figma.com/api/mcp/asset/f93c1f22-0d07-4c42-8c68-cb675458fbc0', text: 'Library and reading lounges' }
-        ],
-        'Ease & Arrival': [
-            { icon: 'https://www.figma.com/api/mcp/asset/43992b64-30a1-4b0e-be86-33c207a03cb2', text: 'Grand entrance lobby with concierge' },
-            { icon: 'https://www.figma.com/api/mcp/asset/90dbfe5f-f378-4e61-b0cb-ea69d0de7023', text: 'Multi-level parking with EV charging' },
-            { icon: 'https://www.figma.com/api/mcp/asset/e2957f0e-50e8-46eb-b668-88daa5558db2', text: 'High-speed elevators' },
-            { icon: 'https://www.figma.com/api/mcp/asset/f93c1f22-0d07-4c42-8c68-cb675458fbc0', text: 'Smart access control systems' }
-        ]
-    };
 
     experienceButtons.forEach(button => {
         button.addEventListener('click', function() {

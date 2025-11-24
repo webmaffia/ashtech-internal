@@ -1,16 +1,21 @@
 // Project Sub Menu Section
 .project-submenu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   width: 100%;
   background: $color-white;
   border-bottom: 1px solid rgba($color-brand-primary, 0.1);
-  z-index: $z-index-fixed;
+  z-index: $z-index-sticky;
   padding: vw(20) 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    z-index: $z-index-fixed;
+  }
 
   &__container {
     max-width: vw(1720);
