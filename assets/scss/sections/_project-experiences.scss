@@ -263,6 +263,9 @@
   @include respond-to('mobile') {
     width: vw(20, 414);
     height: vw(20, 414);
+    & > img {
+     display: none;
+    }
   }
 
   img {

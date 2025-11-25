@@ -108,6 +108,10 @@
     @include respond-to('laptop') {
       padding-top: 0;
     }
+    @include respond-to('mobile') {
+     
+      margin-bottom: vw(30,414);
+    }
   }
 
   &:nth-child(3) {

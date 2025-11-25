@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   height: vw(800);
-  background-image: url('https://www.figma.com/api/mcp/asset/5e160ef2-cd85-45ef-92db-1ddff6d55e43');
+  background-image: url('../images/landing/banner-bg.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -87,11 +87,12 @@
 
   // Mobile styles
   @media (max-width: 768px) {
-    height: vw(500, 414);
+    height: vw(665, 414);
     padding: vw(30, 414) vw(20, 414) vw(40, 414);
 
     &__content {
       gap: vw(30, 414);
+      max-width: 100%;
     }
 
     &__title {
