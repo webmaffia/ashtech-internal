@@ -87,11 +87,46 @@ document.addEventListener('DOMContentLoaded', function() {
         // Handle new experiences tabs structure
         const experienceTabButtons = document.querySelectorAll('.experiences__tab-button');
         const experienceTabContents = document.querySelectorAll('.experiences__tab-content');
+        const tabList = document.querySelector('.experiences__tab-list');
+        let isMobile = window.innerWidth <= 479;
+        let isDropdownOpen = false;
+        
+        // Check if mobile on resize
+        function checkMobile() {
+            isMobile = window.innerWidth <= 479;
+            if (!isMobile && tabList) {
+                tabList.classList.remove('experiences__tab-list--open');
+                isDropdownOpen = false;
+            }
+        }
+        
+        window.addEventListener('resize', checkMobile);
         
         if (experienceTabButtons.length > 0) {
             experienceTabButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function(e) {
                     const tabName = this.getAttribute('data-tab');
+                    const activeButton = document.querySelector('.experiences__tab-button--active');
+                    
+                    // On mobile, handle dropdown behavior
+                    if (isMobile && tabList) {
+                        // If clicking the active button, toggle dropdown
+                        if (this === activeButton) {
+                            e.stopPropagation();
+                            isDropdownOpen = !isDropdownOpen;
+                            
+                            if (isDropdownOpen) {
+                                tabList.classList.add('experiences__tab-list--open');
+                            } else {
+                                tabList.classList.remove('experiences__tab-list--open');
+                            }
+                            return;
+                        }
+                        
+                        // If clicking a non-active button, select it and close dropdown
+                        isDropdownOpen = false;
+                        tabList.classList.remove('experiences__tab-list--open');
+                    }
                     
                     // Remove active class from all buttons
                     experienceTabButtons.forEach(btn => {
@@ -113,6 +148,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             });
+            
+            // Close dropdown when clicking outside on mobile
+            if (isMobile) {
+                document.addEventListener('click', function(e) {
+                    if (isMobile && tabList && isDropdownOpen) {
+                        if (!tabList.contains(e.target)) {
+                            tabList.classList.remove('experiences__tab-list--open');
+                            isDropdownOpen = false;
+                        }
+                    }
+                });
+            }
         }
         
         // Handle old project-experiences tabs structure (if exists)

@@ -15,7 +15,7 @@
   }
 
   @include respond-to('tablet') {
-    padding: $spacing-2xl $container-padding-mobile;
+    padding: vw(60,414) vw(20,414);
     gap: vw(40);
   }
 }
@@ -34,7 +34,8 @@
   }
 
   @include respond-to('tablet') {
-    display: none;
+   height: vw(300,414) !important;
+   width:100% !important
   }
 
   img {
@@ -78,7 +79,7 @@
   text-align: center;
 
   @include respond-to('tablet') {
-    font-size: vw(16);
+    font-size: vw(16,414);
   }
 }
 
@@ -123,7 +124,7 @@
     gap: $spacing-lg;
      .btn {
     width: vw(220,414);
-    margin: 0 auto;
+    margin: vw(20,414) auto;
   }
   }
 }
@@ -157,9 +158,24 @@
   @include flex-column;
   width: vw(643);
   flex-shrink: 0;
+  position: relative;
 
   @include respond-to('laptop') {
     width: 100%;
+  }
+
+  @include respond-to('mobile') {
+    position: relative;
+    
+    // Dropdown styling when open
+    &--open {
+      background-color: $color-white;
+      border: 1px solid rgba($color-brand-primary, 0.2);
+      border-radius: vw(4, 414);
+      box-shadow: 0 vw(4, 414) vw(12, 414) rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      z-index: 10;
+    }
   }
 }
 
@@ -173,6 +189,7 @@
   height: vw(84);
   cursor: pointer;
   transition: background-color $transition-base;
+  position: relative;
 
   &:hover {
     background-color: rgba($color-brand-primary, 0.05);
@@ -180,6 +197,9 @@
 
   &--active {
     background-color: $color-brand-primary;
+    &:hover {
+      background-color: $color-brand-primary;
+    }
     
     .experiences__tab-text {
       color: $color-white;
@@ -197,7 +217,41 @@
 
   @include respond-to('mobile') {
     height: vw(60, 414);
-    padding: vw(15, 414) vw(12, 414);
+    padding: vw(15, 414) vw(40, 414) vw(15, 414) vw(12, 414);
+    
+    // Hide non-active buttons on mobile by default
+    &:not(.experiences__tab-button--active) {
+      display: none;
+    }
+    
+    // Show all buttons when dropdown is open
+    .experiences__tab-list--open & {
+      display: flex;
+    }
+    
+    // Add dropdown arrow to active button on mobile
+    &.experiences__tab-button--active {
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        right: vw(12, 414);
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: vw(5, 414) solid transparent;
+        border-right: vw(5, 414) solid transparent;
+        border-top: vw(6, 414) solid $color-white;
+        transition: transform $transition-base;
+      }
+    }
+    
+    // Rotate arrow when dropdown is open
+    .experiences__tab-list--open &.experiences__tab-button--active::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
   }
 }
 
