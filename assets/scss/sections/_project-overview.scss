@@ -2,14 +2,14 @@
 .project-overview {
   position: relative;
   background: $color-bg-primary;
-  padding: 120px $container-padding-desktop;
+  padding: vw(120) $container-padding-desktop;
 
   &__decoration {
     position: absolute;
     top: 0;
     left: 0;
-    width: 960px;
-    height: 502px;
+    width: vw(960);
+    height: vw(502);
     background-image: url('https://www.figma.com/api/mcp/asset/1b2d34f7-a9c4-4321-b7db-6140b839ab20');
     background-size: cover;
     background-position: center;
@@ -19,28 +19,28 @@
 
   &__container {
     position: relative;
-    max-width: 1720px;
+    max-width: vw(1720);
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 70px;
+    gap: vw(70);
     align-items: start;
   }
 
   &__left {
     position: sticky;
-    top: 140px;
+    top: vw(140);
   }
 
   &__header {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: vw(35);
   }
 
   &__label {
     font-family: $font-secondary;
-    font-size: 18px;
+    font-size: vw(18);
     font-weight: $font-weight-semibold;
     line-height: $line-height-medium;
     color: $color-brand-primary;
@@ -49,7 +49,7 @@
 
   &__title {
     font-family: $font-primary;
-    font-size: 58px;
+    font-size: vw(58);
     line-height: $line-height-tight;
     color: $color-brand-black;
     font-weight: $font-weight-regular;
@@ -58,18 +58,18 @@
   &__right {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: vw(50);
   }
 
   &__description {
     font-family: $font-secondary;
-    font-size: 20px;
+    font-size: vw(20);
     font-weight: $font-weight-medium;
     line-height: $line-height-relaxed;
     color: $color-brand-black;
 
     p {
-      margin-bottom: 20px;
+      margin-bottom: vw(20);
 
       &:last-child {
         margin-bottom: 0;
@@ -79,7 +79,7 @@
 
   &__stats {
     display: flex;
-    gap: 60px;
+    gap: vw(60);
     flex-wrap: wrap;
   }
 
@@ -87,12 +87,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: vw(12);
   }
 
   &__stat-icon {
-    width: 50px;
-    height: 50px;
+    width: vw(50);
+    height: vw(50);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,7 +106,7 @@
 
   &__stat-text {
     font-family: $font-secondary;
-    font-size: 14px;
+    font-size: vw(14);
     font-weight: $font-weight-medium;
     line-height: $line-height-medium;
     color: $color-body;
@@ -115,16 +115,16 @@
   }
 
   &__button {
-    margin-top: 20px;
+    margin-top: vw(20);
   }
 
   // Tablet styles
   @media (max-width: 1024px) {
-    padding: 80px 40px;
+    padding: vw(80) vw(40);
 
     &__container {
       grid-template-columns: 1fr;
-      gap: 50px;
+      gap: vw(50);
     }
 
     &__left {
@@ -133,64 +133,64 @@
     }
 
     &__title {
-      font-size: 42px;
+      font-size: vw(42);
     }
 
     &__description {
-      font-size: 18px;
+      font-size: vw(18);
     }
 
     &__stats {
-      gap: 40px;
+      gap: vw(40);
     }
   }
 
   // Mobile styles
   @media (max-width: 768px) {
-    padding: 60px 20px;
+    padding: vw(60, 414) vw(20, 414);
 
     &__decoration {
       width: 100%;
-      height: 300px;
+      height: vw(300, 414);
     }
 
     &__header {
-      gap: 25px;
+      gap: vw(25, 414);
     }
 
     &__label {
-      font-size: 16px;
+      font-size: vw(16, 414);
     }
 
     &__title {
-      font-size: 32px;
+      font-size: vw(32, 414);
     }
 
     &__right {
-      gap: 30px;
+      gap: vw(30, 414);
     }
 
     &__description {
-      font-size: 16px;
+      font-size: vw(16, 414);
     }
 
     &__stats {
-      gap: 30px;
+      gap: vw(30, 414);
       justify-content: center;
     }
 
     &__stat {
-      flex-basis: calc(50% - 15px);
+      flex-basis: calc(50% - #{vw(15, 414)});
       min-width: 0;
     }
 
     &__stat-icon {
-      width: 40px;
-      height: 40px;
+      width: vw(40, 414);
+      height: vw(40, 414);
     }
 
     &__stat-text {
-      font-size: 12px;
+      font-size: vw(12, 414);
     }
   }
 }

@@ -11,12 +11,12 @@
   overflow: hidden;
 
   @include respond-to('desktop') {
-    padding: 80px $container-padding-tablet;
+    padding: vw(80) $container-padding-tablet;
   }
 
   @include respond-to('tablet') {
     padding: $spacing-2xl $container-padding-mobile;
-    gap: 40px;
+    gap: vw(40);
   }
 }
 
@@ -24,13 +24,13 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 960px;
-  height: 502px;
+  width: vw(960);
+  height: vw(502);
   z-index: 0;
 
   @include respond-to('laptop') {
-    width: 600px;
-    height: 300px;
+    width: vw(600);
+    height: vw(300);
   }
 
   @include respond-to('tablet') {
@@ -46,18 +46,18 @@
 
 .experiences__header {
   display: flex;
-  gap: 169px;
+  gap: vw(169);
   align-items: flex-start;
   width: 100%;
   z-index: 2;
 
   @include respond-to('laptop') {
-    gap: 80px;
+    gap: vw(80);
   }
 
   @include respond-to('tablet') {
     flex-direction: column;
-    gap: 40px;
+    gap: vw(40);
   }
 }
 
@@ -67,7 +67,7 @@
   flex: 1;
 
   @include respond-to('tablet') {
-    gap: 25px;
+    gap: vw(25);
   }
 }
 
@@ -78,7 +78,7 @@
   text-align: center;
 
   @include respond-to('tablet') {
-    font-size: 16px;
+    font-size: vw(16);
   }
 }
 
@@ -89,35 +89,41 @@
   color: $color-text-primary;
 
   @include respond-to('desktop') {
-    font-size: 52px;
+    font-size: vw(52);
   }
 
   @include respond-to('laptop') {
-    font-size: 46px;
+    font-size: vw(46);
   }
 
   @include respond-to('tablet') {
-    font-size: 36px;
+    font-size: vw(36);
   }
 
   @include respond-to('mobile') {
-    font-size: 28px;
+    font-size: vw(28, 414);
   }
 }
 
 .experiences__header-right {
+  .btn {
+    width: vw(300);
+  }
   @include flex-column;
   gap: $spacing-2xl;
-  width: 974px;
+  width: vw(974);
   flex-shrink: 0;
 
   @include respond-to('laptop') {
-    width: 600px;
+    width: vw(600);
   }
 
   @include respond-to('tablet') {
     width: 100%;
     gap: $spacing-lg;
+     .btn {
+    width: 100%;
+  }
   }
 }
 
@@ -127,17 +133,17 @@
   color: $color-text-primary;
 
   @include respond-to('laptop') {
-    font-size: 18px;
+    font-size: vw(18);
   }
 
   @include respond-to('tablet') {
-    font-size: 16px;
+    font-size: vw(16);
   }
 }
 
 .experiences__tabs {
   display: flex;
-  width: 1720px;
+  width: vw(1720);
   max-width: 100%;
   z-index: 2;
 
@@ -148,7 +154,7 @@
 
 .experiences__tab-list {
   @include flex-column;
-  width: 643px;
+  width: vw(643);
   flex-shrink: 0;
 
   @include respond-to('laptop') {
@@ -159,10 +165,11 @@
 .experiences__tab-button {
   @include button-reset;
   @include flex-center;
+  justify-content: left !important;
   gap: $spacing-xs;
-  padding: $spacing-lg 16px;
+  padding: $spacing-lg vw(16);
   width: 100%;
-  height: 84px;
+  height: vw(84);
   cursor: pointer;
   transition: background-color $transition-base;
 
@@ -183,24 +190,24 @@
   }
 
   @include respond-to('tablet') {
-    height: 70px;
-    padding: 20px 16px;
+    height: vw(70);
+    padding: vw(20) vw(16);
   }
 
   @include respond-to('mobile') {
-    height: 60px;
-    padding: 15px 12px;
+    height: vw(60, 414);
+    padding: vw(15, 414) vw(12, 414);
   }
 }
 
 .experiences__tab-icon {
-  width: 24px;
-  height: 24px;
+  width: vw(24);
+  height: vw(24);
   display: none;
 
   @include respond-to('mobile') {
-    width: 20px;
-    height: 20px;
+    width: vw(20, 414);
+    height: vw(20, 414);
   }
 
   img {
@@ -218,15 +225,15 @@
   flex-shrink: 0;
 
   @include respond-to('laptop') {
-    font-size: 26px;
+    font-size: vw(26);
   }
 
   @include respond-to('tablet') {
-    font-size: 22px;
+    font-size: vw(22);
   }
 
   @include respond-to('mobile') {
-    font-size: 18px;
+    font-size: vw(18, 414);
   }
 }
 
@@ -244,11 +251,11 @@
   }
 
   @include respond-to('laptop') {
-    padding: 40px 20px;
+    padding: vw(40) vw(20);
   }
 
   @include respond-to('tablet') {
-    padding: $spacing-lg 16px;
+    padding: $spacing-lg vw(16);
     gap: $spacing-lg;
   }
 }

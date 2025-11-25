@@ -5,7 +5,7 @@
 .project-architecture {
   position: relative;
   width: 100%;
-  min-height: 800px;
+  min-height: vw(800);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -175,25 +175,25 @@
 
   // Tablet styles
   @media (max-width: 1024px) {
-    min-height: 600px;
-    padding: 40px 40px;
+    min-height: vw(600);
+    padding: vw(40) vw(40);
 
     &__header {
       max-width: 100%;
-      padding: 20px;
+      padding: vw(20);
     }
 
     &__label {
-      font-size: 16px;
+      font-size: vw(16);
     }
 
     &__title {
-      font-size: 48px;
+      font-size: vw(48);
       max-width: 100%;
     }
 
     &__description {
-      font-size: 18px;
+      font-size: vw(18);
       max-width: 100%;
     }
 
@@ -202,94 +202,94 @@
     }
 
     &__element {
-      padding: 25px;
+      padding: vw(25);
     }
 
     &__element-content {
       flex-direction: column;
-      gap: 30px;
+      gap: vw(30);
     }
 
     &__element-title {
-      font-size: 36px;
+      font-size: vw(36);
       min-width: auto;
     }
 
     &__element-text {
-      font-size: 18px;
+      font-size: vw(18);
     }
 
     &__tabs {
-      padding: 0 25px 25px;
-      gap: 15px;
+      padding: 0 vw(25) vw(25);
+      gap: vw(15);
     }
 
     &__tab {
-      font-size: 13px;
+      font-size: vw(13);
     }
 
     &__progress {
-      height: 4px;
+      height: vw(4);
     }
 
     &__progress-bar {
-      width: 2px;
+      width: vw(2);
     }
   }
 
   // Mobile styles
   @media (max-width: 768px) {
-    min-height: 500px;
-    padding: 30px 20px;
+    min-height: vw(500, 414);
+    padding: vw(30, 414) vw(20, 414);
 
     &__header {
-      gap: 25px;
-      padding: 15px;
+      gap: vw(25, 414);
+      padding: vw(15, 414);
     }
 
     &__label {
-      font-size: 14px;
+      font-size: vw(14, 414);
     }
 
     &__title {
-      font-size: 32px;
+      font-size: vw(32, 414);
     }
 
     &__description {
-      font-size: 16px;
+      font-size: vw(16, 414);
     }
 
     &__element {
-      padding: 20px;
+      padding: vw(20, 414);
     }
 
     &__element-content {
-      gap: 20px;
+      gap: vw(20, 414);
     }
 
     &__element-title {
-      font-size: 28px;
+      font-size: vw(28, 414);
     }
 
     &__element-text {
-      font-size: 16px;
+      font-size: vw(16, 414);
     }
 
     &__tabs {
-      padding: 0 20px 20px;
-      gap: 10px;
+      padding: 0 vw(20, 414) vw(20, 414);
+      gap: vw(10, 414);
       flex-wrap: wrap;
     }
 
     &__tab {
-      font-size: 12px;
+      font-size: vw(12, 414);
       flex: 1;
-      min-width: calc(50% - 5px);
+      min-width: calc(50% - #{vw(5, 414)});
       text-align: center;
     }
 
     &__progress {
-      height: 3px;
+      height: vw(3, 414);
     }
   }
 }

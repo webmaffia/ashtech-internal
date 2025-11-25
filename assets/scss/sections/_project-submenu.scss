@@ -44,7 +44,7 @@
 
   &__link {
     font-family: $font-secondary;
-    font-size: vw(14);
+    font-size: vw(18);
     font-weight: $font-weight-semibold;
     line-height: $line-height-medium;
     color: $color-brand-primary;
@@ -77,36 +77,36 @@
   // Tablet styles
   @media (max-width: 1024px) {
     &__container {
-      padding: 0 40px;
+      padding: 0 vw(40);
     }
 
     &__nav {
-      gap: 30px;
+      gap: vw(30);
     }
 
     &__link {
-      font-size: 13px;
+      font-size: vw(13);
     }
   }
 
   // Mobile styles
   @media (max-width: 768px) {
-    padding: 15px 0;
+    padding: vw(15, 414) 0;
 
     &__container {
-      padding: 0 20px;
+      padding: 0 vw(20, 414);
       flex-direction: column;
-      gap: 15px;
+      gap: vw(15, 414);
     }
 
     &__nav {
       flex-wrap: wrap;
       justify-content: center;
-      gap: 15px 20px;
+      gap: vw(15, 414) vw(20, 414);
     }
 
     &__link {
-      font-size: 12px;
+      font-size: vw(12, 414);
     }
   }
 }

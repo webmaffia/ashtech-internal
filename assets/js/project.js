@@ -153,9 +153,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Background images for each element
         const backgroundImages = {
             sun: 'https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9',
-            air: 'https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9', // Replace with air image URL
-            water: 'https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9', // Replace with water image URL
-            earth: 'https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9' // Replace with earth image URL
+            air: 'assets/images/poject/air.png', // Replace with air image URL
+            water: 'assets/images/poject/water.png', // Replace with water image URL
+            earth: 'assets/images/poject/earth.png' // Replace with earth image URL
         };
         
         function changeBackgroundImage(elementType) {
