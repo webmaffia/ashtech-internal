@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Card Hover Effects for Specifications
     function initCardHoverEffects() {
-        const cards = document.querySelectorAll('.project-specifications__card');
+        const cards = document.querySelectorAll('.spec-card');
         
         cards.forEach(card => {
             card.addEventListener('mouseenter', function() {
@@ -350,9 +350,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize connectivity items animation
     animateConnectivityItems();
     
-    // Fade in animation for specification cards
+    // Fade in animation for specification cards (bottom to top)
     function animateSpecCards() {
-        const cards = document.querySelectorAll('.project-specifications__card');
+        const cardsContainer = document.querySelector('.specifications__cards');
+        const cards = document.querySelectorAll('.spec-card');
+        
+        // Animate cards container margin-top
+        if (cardsContainer) {
+            cardsContainer.style.marginTop = '0';
+            cardsContainer.style.transition = 'margin-top 0.8s ease';
+            
+            const containerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.marginTop = '-125px';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            containerObserver.observe(cardsContainer);
+        }
         
         const cardsObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
@@ -369,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         cards.forEach(card => {
             card.style.opacity = '0';
-            card.style.transform = 'translateY(40px)';
+            card.style.transform = 'translateY(60px)';
             card.style.transition = 'all 0.8s ease';
             cardsObserver.observe(card);
         });

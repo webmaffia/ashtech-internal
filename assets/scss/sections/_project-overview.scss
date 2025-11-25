@@ -23,7 +23,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: vw(70);
+   
     align-items: start;
   }
 
@@ -69,7 +69,7 @@
     color: $color-brand-black;
 
     p {
-      margin-bottom: vw(20);
+      margin-bottom: vw(10);
 
       &:last-child {
         margin-bottom: 0;
