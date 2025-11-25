@@ -284,8 +284,9 @@
     &__tab {
       font-size: vw(12, 414);
       flex: 1;
-      min-width: calc(50% - #{vw(5, 414)});
+ 
       text-align: center;
+      min-width: vw(65, 414);
     }
 
     &__progress {

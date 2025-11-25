@@ -147,6 +147,9 @@
 
   // Mobile styles
   @media (max-width: 768px) {
+    &__button {
+      margin: vw(20) auto;
+    }
     padding: vw(60, 414) vw(20, 414);
 
     &__decoration {

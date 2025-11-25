@@ -122,7 +122,8 @@
     width: 100%;
     gap: $spacing-lg;
      .btn {
-    width: 100%;
+    width: vw(220,414);
+    margin: 0 auto;
   }
   }
 }
@@ -137,7 +138,7 @@
   }
 
   @include respond-to('tablet') {
-    font-size: vw(16);
+    font-size: vw(16,414);
   }
 }
 
@@ -255,7 +256,7 @@
   }
 
   @include respond-to('tablet') {
-    padding: $spacing-lg vw(16);
+    padding: vw(30,414) 0;
     gap: $spacing-lg;
   }
 }
@@ -266,7 +267,11 @@
   flex-wrap: wrap;
 row-gap: vw(60);
   @include respond-to('tablet') {
-    row-gap: vw(20,414);
+    gap: vw(20,414);
+
+    .feature-card {
+      max-width: vw(125,414);
+    }
   }
 }
 

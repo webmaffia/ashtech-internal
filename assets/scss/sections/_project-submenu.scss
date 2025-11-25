@@ -91,6 +91,11 @@
 
   // Mobile styles
   @media (max-width: 768px) {
+    &__logo {
+      height: vw(40,414);
+  
+   
+    }
     padding: vw(15, 414) 0;
 
     &__container {
