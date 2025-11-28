@@ -445,9 +445,9 @@
   &__image {
     flex: 0 0 vw(629.496);
     width: vw(629.496);
-    height: vw(440);
-    min-height: vw(440);
-    max-height: vw(440);
+    height: vw(840);
+    min-height: vw(840);
+    max-height: vw(840);
     overflow: hidden;
     align-self: flex-start;
 
@@ -537,8 +537,8 @@
     flex-direction: column;
     gap: vw(12);
     align-items: center;
-    width: calc(50% - vw(10));
-    flex: 0 0 calc(50% - vw(10));
+    width: 23%;
+   
     max-width: calc(50% - vw(10));
   }
 
@@ -871,7 +871,31 @@
     width: 100%;
     max-width: vw(1797.21);
     margin-top: vw(50);
-    
+    overflow: hidden;
+    position: relative;
+
+    .tm-item {
+      outline: none;
+    }
+
+    .slick-list {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .slick-track {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .slick-slide {
+      height: auto;
+      
+      > div {
+        height: 100%;
+        display: flex;
+      }
+    }
   }
 
   &__card {
@@ -1141,7 +1165,18 @@ backdrop-filter: blur(14.471158981323242px);
 
   .nri-testimonials {
     &__cards {
-      flex-direction: column;
+      overflow: visible;
+      
+      .slick-list {
+        overflow: visible;
+      }
+
+      .slick-slide {
+        > div {
+          display: flex;
+          height: 100%;
+        }
+      }
     }
 
     &__card {
@@ -1481,6 +1516,10 @@ backdrop-filter: blur(14.471158981323242px);
   .nri-testimonials {
     padding: vw(40, 414) 0 vw(60, 414);
 
+    &__container {
+      padding: 0 vw(16, 414);
+    }
+
     &__label {
       font-size: vw(14, 414);
     }
@@ -1488,10 +1527,42 @@ backdrop-filter: blur(14.471158981323242px);
     &__title {
       font-size: vw(28, 414);
     }
+    &__footer-text {
+      font-size: vw(14, 414);
+    }
+
+    &__cards {
+      width: 100%;
+      max-width: 100%;
+      margin-top: vw(30, 414);
+      
+      .slick-list {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
+      .slick-slide {
+        padding: 0;
+        
+        > div {
+          padding: vw(20, 414);
+          height: vw(265,414);
+        }
+      }
+    }
 
     &__card {
       height: auto;
       padding: vw(20, 414);
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    &__card-quote {
+      width: vw(60, 414);
+      height: vw(45, 414);
     }
 
     &__card-text {
@@ -1501,6 +1572,22 @@ backdrop-filter: blur(14.471158981323242px);
     &__card-name {
       font-size: vw(18, 414);
     }
+
+    &__card-avatar {
+      width: vw(45, 414);
+      height: vw(45, 414);
+    }
+
+    &__dots {
+      margin-top: vw(20, 414);
+      gap: vw(8, 414);
+      
+      .nri-testimonials__dot {
+        width: vw(8, 414);
+        height: vw(8, 414);
+      }
+    }
+    
   }
 
   .nri-cta {
