@@ -386,6 +386,14 @@
     opacity: 0.4;
     flex-shrink: 0;
     margin-right: vw(-25);
+ 
+      color: #F4EAD7;
+      text-shadow:
+        -1px -1px 0 #E0BD75,
+        1px -1px 0 #E0BD75,
+        -1px 1px 0 #E0BD75,
+        1px 1px 0 #E0BD75;  
+    
   }
 
   &__item-content {
@@ -663,7 +671,7 @@
   }
 
   &__content {
-    flex: 0 0 vw(836);
+    flex: 0 0 vw(875);
     display: flex;
     flex-direction: column;
     gap: vw(30);
@@ -846,7 +854,7 @@
     color: $color-brand-black;
     font-weight: 325;
     margin: 0;
-    max-width: vw(1158.68);
+   
   }
 
   &__cards {
@@ -997,7 +1005,7 @@ backdrop-filter: blur(14.471158981323242px);
   }
 
   &__left {
-    flex: 0 0 vw(695);
+    flex: 0 0 vw(730);
     display: flex;
     flex-direction: column;
     gap: vw(35);
@@ -1158,10 +1166,23 @@ backdrop-filter: blur(14.471158981323242px);
 
     &__item-number {
       font-size: vw(72);
+
+
+
+    }
+    &__header {
+    text-align: center;
+    align-items: center;
     }
 
     &__item-text {
       font-size: vw(20);
+    }
+    &__label {
+      width: 100%;
+    }
+    &__header-right{
+      max-width: 100%;
     }
   }
 
@@ -1202,6 +1223,7 @@ backdrop-filter: blur(14.471158981323242px);
 }
 
 @include respond-to('mobile') {
+
   .nri-overview {
     padding: vw(40, 414) vw(16, 414);
 
@@ -1215,6 +1237,14 @@ backdrop-filter: blur(14.471158981323242px);
 
     &__description {
       font-size: vw(14, 414);
+    }
+    &__container{
+      flex-direction: column;
+      text-align: center;
+    }
+    &__button .btn{
+      margin: 0 auto;
+     
     }
   }
 
@@ -1234,10 +1264,26 @@ backdrop-filter: blur(14.471158981323242px);
     &__feature-text {
       font-size: vw(16, 414);
     }
+    &__feature-item {
+
+      max-width: 100%;
+    }
+    &__feature-icon {
+      width: vw(20, 414);
+      height: vw(20, 414);
+    }
+    &__footer-text {
+      font-size: vw(14, 414);
+      max-width: 80%;
+    }
+ 
   }
 
   .nri-why-choose {
     padding: vw(40, 414) vw(16, 414);
+    &__items {
+     align-items: center;
+    }
 
     &__label {
       font-size: vw(14, 414);
@@ -1252,11 +1298,15 @@ backdrop-filter: blur(14.471158981323242px);
     }
 
     &__item-number {
-      font-size: vw(48, 414);
+      font-size: vw(90, 414);
     }
 
     &__item-text {
-      font-size: vw(16, 414);
+      font-size: vw(20, 414);
+      width: vw(200,414) !important;
+    }
+    &__header {
+    height: auto;
     }
   }
 
@@ -1282,6 +1332,8 @@ backdrop-filter: blur(14.471158981323242px);
 
     &__description {
       font-size: vw(14, 414);
+      max-width: 100%;
+      text-align: center;
     }
 
     &__grid-item {
@@ -1292,6 +1344,10 @@ backdrop-filter: blur(14.471158981323242px);
     &__grid-text {
       font-size: vw(12, 414);
     }
+    &__header-inner{
+      align-items: center;
+      text-align: center;
+    }
   }
 
   .nri-director {
@@ -1300,12 +1356,22 @@ backdrop-filter: blur(14.471158981323242px);
       flex-direction: column;
     }
 
+    &__description {
+      max-width: 100%;
+    }
+
     &__label {
       font-size: vw(14, 414);
     }
 
+    &__service-icon {
+      width: vw(20, 414);
+      height: vw(20, 414);
+    }
+
     &__title {
       font-size: vw(28, 414);
+      max-width: 100%;
     }
 
     &__description {
@@ -1314,6 +1380,20 @@ backdrop-filter: blur(14.471158981323242px);
 
     &__service-text {
       font-size: vw(16, 414);
+    }
+    &__header-inner{
+      align-items: center;
+      text-align: center;
+    }
+    &__service-item{
+     margin-bottom: vw(10, 414);
+      gap: vw(10, 414);
+    }
+    &__footer-text {
+      font-size: vw(14, 414);
+      padding-left: 0;
+      max-width: 100%;
+      margin-bottom: vw(20, 414);
     }
   }
 
@@ -1356,10 +1436,42 @@ backdrop-filter: blur(14.471158981323242px);
     &__description {
       font-size: vw(14, 414);
     }
+    &__right{
+      max-width: 100%;
+      text-align: center;
+      p {
+        br{
+          display: none;
+        }
+      }
+    }
+    &__left{
+      flex: 0 0 vw(65, 414);
+      
+    }
   }
 }
 
 
 .downloadCta{
   width: vw(300);
+  @include respond-to('mobile') {
+    width: vw(220,414);
+    margin: 0 auto;
+  }
+}
+
+.nri-testimonials__dot {
+  display:inline-block;
+
+  border-radius:50%;
+  background: #E0BD75;
+  
+  transition: transform .18s, background .18s;
+  cursor:pointer;
+  opacity: 1;
+}
+.nri-testimonials__dot.active {
+  background: #720C10;
+  transform: scale(1.25);
 }

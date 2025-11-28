@@ -196,5 +196,50 @@ if (!prefersReducedMotion) {
 
 console.log('NRI page animations initialized');
 
+$(function(){
+  const $cards = $('.nri-testimonials__cards');
+
+  // Generate dots
+  const slideCount = $('.nri-testimonials__cards .tm-item').length;
+  const $dotsContainer = $('.nri-testimonials__dots');
+  for (let i = 0; i < slideCount; i++) {
+    $dotsContainer.append('<span class="nri-testimonials__dot"></span>');
+  }
+
+  $cards.slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    pauseOnFocus: false,
+    variableWidth: false,
+    touchThreshold: 10,
+  });
+
+  const $dots = $('.nri-testimonials__dot');
+
+  // Initially activate first dot
+  $dots.removeClass('active').eq(0).addClass('active');
+
+  // Dot click → go to slide (modulo safe)
+  $dots.each(function(i){
+      $(this).on('click', function(){
+          $cards.slick('slickGoTo', i);
+          $cards.slick('slickPlay');
+      });
+  });
+
+  // After slide change (IMPORTANT: modulo fixes infinite loop)
+  $cards.on('afterChange', function(event, slick, current){
+      const realIndex = current % slideCount; // <-- THIS FIXES LOOP
+      $dots.removeClass('active').eq(realIndex).addClass('active');
+      $cards.slick('slickPlay');
+  });
+
+});
 
 
