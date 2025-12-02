@@ -1,6 +1,7 @@
 // Resources Page - Tabs Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.resources-tabs__link');
+    const tabContents = document.querySelectorAll('.resources-content__tab');
     
     tabButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -17,13 +18,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get the tab data
             const tabName = this.getAttribute('data-tab');
             
-            // You can add logic here to show/hide different content based on tab
-            console.log('Active tab:', tabName);
+            // Hide all tab contents
+            tabContents.forEach(content => {
+                content.style.display = 'none';
+                content.classList.remove('resources-content__tab--active');
+            });
             
-            // Smooth scroll to news section
-            const newsSection = document.querySelector('.resources-news');
-            if (newsSection) {
-                newsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Show the selected tab content
+            const activeContent = document.querySelector(`.resources-content__tab[data-content="${tabName}"]`);
+            if (activeContent) {
+                activeContent.style.display = 'block';
+                activeContent.classList.add('resources-content__tab--active');
+                
+                // Smooth scroll to content section
+                setTimeout(() => {
+                    activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
             }
         });
     });

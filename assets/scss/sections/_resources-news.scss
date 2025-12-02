@@ -44,6 +44,10 @@
     display: flex;
     flex-direction: column;
     gap: vw(30);
+    .btn {
+      width: vw(203);
+      margin: 0;
+    }
   }
 
   &__date {
@@ -73,6 +77,8 @@
     display: flex;
     flex-direction: column;
     gap: vw(10);
+
+   
 
     p {
       margin: 0;
@@ -167,6 +173,7 @@
     &__featured {
       gap: vw(30, 414);
       padding: vw(30, 414) 0;
+     
     }
 
     &__title {
@@ -175,10 +182,15 @@
 
     &__featured-content {
       gap: vw(30, 414);
+      flex-direction: column-reverse;
     }
 
     &__featured-text {
       gap: vw(20, 414);
+      .btn {
+        width: vw(146, 414);
+        margin: 0;
+      }
     }
 
     &__date {
@@ -192,6 +204,7 @@
 
     &__featured-desc {
       font-size: vw(16, 414);
+    
     }
 
     &__featured-image {

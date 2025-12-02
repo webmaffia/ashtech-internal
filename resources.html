@@ -53,11 +53,99 @@
         </div>
     </section>
 
-    <!-- News Section -->
-    <section class="resources-news">
-        <div class="resources-news__container">
-            <!-- Featured News -->
-            <div class="resources-news__featured">
+    <!-- Content Sections -->
+    <section class="resources-content">
+        <!-- Highlights Tab Content -->
+        <div class="resources-content__tab" data-content="highlights" style="display: none;">
+            <div class="resources-news__container">
+                <div class="resources-news__featured">
+                    <h2 class="resources-news__title">Highlights</h2>
+                    <div class="resources-news__featured-content">
+                        <div class="resources-news__featured-text">
+                            <p class="resources-news__date">December 1, 2025</p>
+                            <h3 class="resources-news__featured-title">Ashtech Presidential Towers - A New Era of Luxury Living</h3>
+                            <div class="resources-news__featured-desc">
+                                <p>Discover the epitome of luxury living at Ashtech Presidential Towers in Greater Noida West. With over 80% open greens and world-class amenities, this project redefines residential excellence.</p>
+                                <p>Experience presidential living with 456 meticulously designed residences across 5.6 acres of prime land.</p>
+                            </div>
+                          
+
+                            <button class="btn btn--primary downloadCta">
+                                <span>Read More</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
+                                    <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="resources-news__featured-image">
+                            <img src="assets/images/resources/featured-news.jpg" alt="Featured Highlight">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blogs Tab Content -->
+        <div class="resources-content__tab" data-content="blogs" style="display: none;">
+            <div class="resources-news__container">
+                <div class="resources-news__featured">
+                    <h2 class="resources-news__title">Latest Blogs</h2>
+                    <div class="resources-news__featured-content">
+                        <div class="resources-news__featured-text">
+                            <p class="resources-news__date">November 25, 2025</p>
+                            <h3 class="resources-news__featured-title">The Future of Sustainable Living in NCR</h3>
+                            <div class="resources-news__featured-desc">
+                                <p>Explore how Ashtech Group is pioneering sustainable construction practices in the Delhi-NCR region. From fly ash bricks to green building certifications, we're setting new standards.</p>
+                                <p>Learn about our commitment to environmental responsibility and how it shapes every project we undertake.</p>
+                            </div>
+                            <button class="btn btn--primary downloadCta">
+                                <span>Read More</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
+                                    <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="resources-news__featured-image">
+                            <img src="assets/images/resources/news-6.jpg" alt="Featured Blog">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Gallery Tab Content -->
+        <div class="resources-content__tab" data-content="video" style="display: none;">
+            <div class="resources-news__container">
+                <div class="resources-news__featured">
+                    <h2 class="resources-news__title">Video Gallery</h2>
+                    <div class="resources-news__featured-content">
+                        <div class="resources-news__featured-text">
+                            <p class="resources-news__date">December 2, 2025</p>
+                            <h3 class="resources-news__featured-title">Virtual Tour of Ashtech Presidential Towers</h3>
+                            <div class="resources-news__featured-desc">
+                                <p>Take a virtual walkthrough of our flagship project. Experience the architecture, amenities, and lifestyle that awaits you at Ashtech Presidential Towers.</p>
+                                <p>Watch exclusive interviews with our architects and design team as they explain the vision behind this landmark project.</p>
+                            </div>
+                            <button class="btn btn--primary downloadCta">
+                                <span>Read More</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
+                                    <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="resources-news__featured-image">
+                            <img src="assets/images/resources/news-3.jpg" alt="Video Thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Press & Media Tab Content -->
+        <div class="resources-content__tab resources-content__tab--active" data-content="press">
+            <div class="resources-news__container">
+                <!-- Featured News -->
+                <div class="resources-news__featured">
                 <h2 class="resources-news__title">News & Press Releases</h2>
                 
                 <div class="resources-news__featured-content">
@@ -68,11 +156,11 @@
                             <p>Marking its entry into real estate development, Delhi-NCR–based Ashtech Group will invest about ₹1,800 crore to build a luxury housing project in Greater Noida. The project will come up on a fully paid 5.6-acre parcel the company recently acquired for roughly ₹300 crore.</p>
                             <p>Sumit Agarwal, Director of Ashtech Group, said the company has been in allied sectors such as fly ash bricks, AAC Blocks, Ready-mix concrete (RMC), Pre-Engineered Building, large-scale infrastructure, and power infrastructure, news agency PTI reported.</p>
                         </div>
-                        <button class="btn btn--primary">
+                        <button class="btn btn--primary downloadCta">
                             <span>Read More</span>
-                            <div class="btn__icon">
-                                <img src="assets/images/contact/icon-arrow.svg" alt="Arrow">
-                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
+                                <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </button>
                     </div>
                     <div class="resources-news__featured-image">
@@ -236,6 +324,7 @@
                     </div>
                 </button>
             </div>
+        </div>
         </div>
     </section>
 
