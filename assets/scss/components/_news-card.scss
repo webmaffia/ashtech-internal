@@ -1,0 +1,143 @@
+// News Card Component
+.news-card {
+  background-color: $color-white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: transform $transition-base, box-shadow $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(vw(-5));
+    box-shadow: 0 vw(10) vw(30) rgba(0, 0, 0, 0.1);
+  }
+
+  &__image {
+    width: 100%;
+    height: vw(350);
+    overflow: hidden;
+    background-color: #c4c4c4;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform $transition-slow;
+    }
+  }
+
+  &:hover &__image img {
+    transform: scale(1.05);
+  }
+
+  &__content {
+    padding: vw(30) vw(20);
+    display: flex;
+    flex-direction: column;
+    gap: vw(30);
+    flex: 1;
+  }
+
+  &__date {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: $color-brand-primary;
+    font-weight: $font-weight-medium;
+    margin: 0;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(30);
+    line-height: vw(36);
+    color: $color-text-primary;
+    font-weight: $font-weight-regular;
+    margin: 0;
+  }
+
+  &__desc {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__link {
+    font-family: $font-secondary;
+    font-size: vw(18);
+    line-height: 1.5;
+    color: $color-brand-primary;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    text-align: left;
+    transition: color $transition-base;
+
+    &:hover {
+      color: darken($color-brand-primary, 10%);
+    }
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    &__image {
+      height: vw(300, 1024);
+    }
+
+    &__content {
+      padding: vw(25, 1024) vw(18, 1024);
+      gap: vw(25, 1024);
+    }
+
+    &__date {
+      font-size: vw(18, 1024);
+    }
+
+    &__title {
+      font-size: vw(26, 1024);
+      line-height: 1.3;
+    }
+
+    &__desc {
+      font-size: vw(18, 1024);
+    }
+
+    &__link {
+      font-size: vw(16, 1024);
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    &__image {
+      height: vw(250, 414);
+    }
+
+    &__content {
+      padding: vw(20, 414) vw(15, 414);
+      gap: vw(20, 414);
+    }
+
+    &__date {
+      font-size: vw(16, 414);
+    }
+
+    &__title {
+      font-size: vw(22, 414);
+      line-height: 1.3;
+    }
+
+    &__desc {
+      font-size: vw(16, 414);
+    }
+
+    &__link {
+      font-size: vw(14, 414);
+    }
+  }
+}
+
