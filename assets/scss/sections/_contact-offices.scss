@@ -1,0 +1,319 @@
+// Contact Offices Section
+.contact-offices {
+  position: relative;
+  width: 100%;
+  background-color: $color-bg-primary;
+  padding: vw(60) 0;
+  overflow: hidden;
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: vw(1720);
+    width: 100%;
+    margin: 0 auto;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: vw(107);
+  }
+
+  &__header {
+    text-align: center;
+    width: 100%;
+    height: vw(92);
+    display: flex;
+    flex-direction: column;
+    gap: vw(35);
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(58);
+    line-height: 1.2;
+    color: $color-text-primary;
+    font-weight: $font-weight-regular;
+    margin: 0;
+    white-space: pre-wrap;
+  }
+
+  &__content {
+    display: flex;
+    gap: vw(90);
+    width: 100%;
+    align-items: center;
+    height: vw(380);
+  }
+
+  &__card {
+    display: flex;
+    gap: vw(40);
+    height: vw(380);
+    flex: 0 0 auto;
+    align-items: center;
+
+    &:last-child {
+      gap: vw(50);
+    }
+  }
+
+  &__image {
+    width: vw(330);
+    height: vw(380);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    &--site {
+      overflow: hidden;
+      position: relative;
+
+      img {
+        position: absolute;
+        height: 100%;
+        width: 201.45%;
+        left: 0;
+        top: 0;
+        object-fit: cover;
+        object-position: left center;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: vw(50);
+    flex: 0 0 auto;
+    width: vw(407);
+  }
+
+  &__card-title {
+    font-family: $font-primary;
+    font-size: vw(36);
+    line-height: 1.5;
+    color: $color-text-primary;
+    font-weight: $font-weight-regular;
+    margin: 0;
+    white-space: pre-wrap;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: vw(15);
+    width: 100%;
+  }
+
+  &__detail-item {
+    display: flex;
+    align-items: center;
+    gap: vw(18);
+    width: 100%;
+
+    // Location items align to start for multi-line text
+    &:first-child {
+      align-items: flex-start;
+    }
+  }
+
+  &__icon {
+    width: vw(28);
+    height: vw(28);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__detail-item:first-child &__icon {
+    margin-top: vw(2);
+  }
+
+  &__text-wrapper {
+    flex: 1;
+    
+    // Location text wrapper
+    .contact-offices__detail-item:first-child & {
+      width: vw(446);
+    }
+
+    // Phone and email text wrapper
+    .contact-offices__detail-item:not(:first-child) & {
+      width: vw(404);
+    }
+
+    // Site office location text wrapper
+    .contact-offices__card:last-child .contact-offices__detail-item:first-child & {
+      width: vw(341);
+    }
+  }
+
+  &__text {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+    white-space: pre-wrap;
+    transition: color $transition-base;
+    margin: 0;
+    display: block;
+
+    &:hover {
+      color: $color-brand-primary;
+    }
+  }
+
+  &__button {
+    align-self: flex-start;
+  }
+
+  // Site office specific adjustments
+  &__card:last-child {
+    .contact-offices__info {
+      width: vw(406);
+    }
+
+    .contact-offices__details {
+      gap: vw(25);
+    }
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    padding: vw(50, 1024) 0 vw(60, 1024);
+
+    &__container {
+      padding: 0 vw(60, 1024);
+      gap: vw(30, 1024);
+    }
+
+    &__title {
+      font-size: vw(48, 1024);
+    }
+
+    &__content {
+      flex-direction: column;
+      gap: vw(60, 1024);
+    }
+
+    &__card {
+      flex-direction: column;
+      height: auto;
+      gap: vw(30, 1024);
+      width: 100%;
+    }
+
+    &__image {
+      width: 100%;
+      height: vw(300, 1024);
+      max-width: vw(500, 1024);
+    }
+
+    &__info {
+      max-width: 100%;
+      gap: vw(40, 1024);
+    }
+
+    &__card-title {
+      font-size: vw(30, 1024);
+    }
+
+    &__icon {
+      width: vw(24, 1024);
+      height: vw(24, 1024);
+    }
+
+    &__text {
+      font-size: vw(18, 1024);
+    }
+
+    &__image--site {
+      img {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    padding: vw(40, 414) 0 vw(50, 414);
+
+    &__container {
+      padding: 0 ;
+      gap: vw(25, 414);
+    }
+
+    &__title {
+      font-size: vw(36, 414);
+    }
+
+    &__content {
+      gap: vw(40, 414);
+      height: auto;
+    }
+
+    &__card {
+      gap: vw(25, 414);
+    }
+
+    &__image {
+      height: vw(250, 414);
+      max-width: 100%;
+    }
+
+    &__info {
+      gap: vw(30, 414);
+      width: 100% !important;
+    }
+
+    &__card-title {
+      font-size: vw(28, 414);
+    }
+
+    &__details {
+      gap: vw(20, 414);
+    }
+
+    &__detail-item {
+      gap: vw(15, 414);
+    }
+
+    &__icon {
+      width: vw(24, 414);
+      height: vw(24, 414);
+    }
+
+    &__text {
+      font-size: vw(16, 414);
+    }
+
+    &__image--site {
+      img {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
