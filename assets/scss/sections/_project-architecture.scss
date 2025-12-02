@@ -158,7 +158,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: vw(2);
+    width: 0;
     height: 100%;
     background: $color-brand-primary;
     // Animation is controlled via JavaScript to restart on each tab change
@@ -230,10 +230,6 @@
 
     &__progress {
       height: vw(4);
-    }
-
-    &__progress-bar {
-      width: vw(2);
     }
   }
 

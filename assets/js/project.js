@@ -194,24 +194,60 @@ document.addEventListener('DOMContentLoaded', function() {
         const elements = document.querySelectorAll('.project-architecture__element');
         const progressBar = document.querySelector('.project-architecture__progress-bar');
         const architectureSection = document.querySelector('.project-architecture');
+        
+        // Exit if required elements don't exist
+        if (!tabs.length || !elements.length || !progressBar) {
+            return;
+        }
+        
         let currentIndex = 0;
-        let autoPlayInterval;
+        let isHovered = false;
+        let isAnimationPaused = false;
         
         // Background images for each element
         const backgroundImages = {
-            sun: 'https://www.figma.com/api/mcp/asset/89b6ac4b-79dd-4652-9189-10e5eae22aa9',
-            air: 'assets/images/poject/air.png', // Replace with air image URL
-            water: 'assets/images/poject/water.png', // Replace with water image URL
-            earth: 'assets/images/poject/earth.png' // Replace with earth image URL
+            sun: 'assets/images/poject/sun.png',
+            air: 'assets/images/poject/air.png',
+            water: 'assets/images/poject/water.png',
+            earth: 'assets/images/poject/earth.png'
         };
         
         function changeBackgroundImage(elementType) {
-            if (architectureSection && backgroundImages[elementType]) {
-                architectureSection.style.backgroundImage = `url(${backgroundImages[elementType]})`;
+            if (architectureSection && elementType in backgroundImages) {
+                const imageUrl = backgroundImages[elementType];
+                if (imageUrl) {
+                    architectureSection.style.backgroundImage = `url(${imageUrl})`;
+                } else {
+                    architectureSection.style.backgroundImage = '';
+                }
             }
         }
         
-        function showElement(index) {
+        function startProgressBar() {
+            if (progressBar) {
+                // Remove any existing animation
+                progressBar.style.animation = 'none';
+                progressBar.style.removeProperty('width');
+                // Trigger reflow
+                void progressBar.offsetWidth;
+                // Start animation
+                progressBar.style.animation = 'progressBar 5s linear forwards';
+            }
+        }
+        
+        function pauseProgressBar() {
+            if (progressBar) {
+                progressBar.style.animationPlayState = 'paused';
+            }
+        }
+        
+        function resumeProgressBar() {
+            if (progressBar) {
+                progressBar.style.animationPlayState = 'running';
+            }
+        }
+        
+        function showElement(index, restartAnimation = true) {
             // Remove active class from all tabs and elements
             tabs.forEach(t => t.classList.remove('active'));
             elements.forEach(e => {
@@ -231,68 +267,53 @@ document.addEventListener('DOMContentLoaded', function() {
                 changeBackgroundImage(elementType);
             }
             
-            // Reset progress bar animation
-            if (progressBar) {
-                // Force reflow to ensure animation restarts properly
-                progressBar.style.animation = 'none';
-                progressBar.style.width = '0';
-                // Trigger reflow
-                void progressBar.offsetWidth;
-                // Restart animation (runs once per element, matching 5s auto-play interval)
-                requestAnimationFrame(() => {
-                    progressBar.style.animation = 'progressBar 5s linear';
-                });
+            // Start progress bar animation
+            if (restartAnimation) {
+                startProgressBar();
             }
         }
         
-        function nextElement() {
-            currentIndex = (currentIndex + 1) % tabs.length;
-            showElement(currentIndex);
-        }
-        
-        function startAutoPlay() {
-            stopAutoPlay();
-            autoPlayInterval = setInterval(nextElement, 5000);
-        }
-        
-        function stopAutoPlay() {
-            if (autoPlayInterval) {
-                clearInterval(autoPlayInterval);
+        function goToNextTab() {
+            if (!isHovered) {
+                currentIndex = (currentIndex + 1) % tabs.length;
+                showElement(currentIndex);
             }
         }
         
+        // Listen for animation end event on progress bar
+        progressBar.addEventListener('animationend', function(e) {
+            // Only trigger on the progressBar animation, not other animations
+            if (e.animationName === 'progressBar') {
+                goToNextTab();
+            }
+        });
+        
+        // Handle hover pause/resume
+        function handleMouseEnter() {
+            isHovered = true;
+            pauseProgressBar();
+        }
+        
+        function handleMouseLeave() {
+            isHovered = false;
+            resumeProgressBar();
+        }
+        
+        // Tab click handlers
         tabs.forEach((tab, index) => {
             tab.addEventListener('click', function() {
                 currentIndex = index;
                 showElement(currentIndex);
-                stopAutoPlay();
-                startAutoPlay();
             });
         });
         
-        // Initialize with first element's background image and start progress bar
-        if (elements.length > 0) {
-            const firstElementType = elements[0].getAttribute('data-element');
-            if (firstElementType) {
-                changeBackgroundImage(firstElementType);
-            }
-            // Ensure progress bar starts on initial load
-            if (progressBar) {
-                progressBar.style.width = '0';
-                void progressBar.offsetWidth; // Trigger reflow
-                requestAnimationFrame(() => {
-                    progressBar.style.animation = 'progressBar 5s linear';
-                });
-            }
-        }
+        // Initialize - show first element and start progress bar
+        showElement(0);
         
-        // Start auto-play
-        startAutoPlay();
-        
-        // Pause on hover
+        // Pause on hover, resume on leave
         if (architectureSection) {
-            architectureSection.addEventListener('mouseenter', stopAutoPlay);
-            architectureSection.addEventListener('mouseleave', startAutoPlay);
+            architectureSection.addEventListener('mouseenter', handleMouseEnter);
+            architectureSection.addEventListener('mouseleave', handleMouseLeave);
         }
     }
     
