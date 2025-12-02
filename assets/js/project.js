@@ -201,8 +201,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         let currentIndex = 0;
-        let isHovered = false;
-        let isAnimationPaused = false;
         
         // Background images for each element
         const backgroundImages = {
@@ -235,19 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        function pauseProgressBar() {
-            if (progressBar) {
-                progressBar.style.animationPlayState = 'paused';
-            }
-        }
-        
-        function resumeProgressBar() {
-            if (progressBar) {
-                progressBar.style.animationPlayState = 'running';
-            }
-        }
-        
-        function showElement(index, restartAnimation = true) {
+        function showElement(index) {
             // Remove active class from all tabs and elements
             tabs.forEach(t => t.classList.remove('active'));
             elements.forEach(e => {
@@ -268,16 +254,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Start progress bar animation
-            if (restartAnimation) {
-                startProgressBar();
-            }
+            startProgressBar();
         }
         
         function goToNextTab() {
-            if (!isHovered) {
-                currentIndex = (currentIndex + 1) % tabs.length;
-                showElement(currentIndex);
-            }
+            currentIndex = (currentIndex + 1) % tabs.length;
+            showElement(currentIndex);
         }
         
         // Listen for animation end event on progress bar
@@ -287,17 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 goToNextTab();
             }
         });
-        
-        // Handle hover pause/resume
-        function handleMouseEnter() {
-            isHovered = true;
-            pauseProgressBar();
-        }
-        
-        function handleMouseLeave() {
-            isHovered = false;
-            resumeProgressBar();
-        }
         
         // Tab click handlers
         tabs.forEach((tab, index) => {
@@ -309,12 +280,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Initialize - show first element and start progress bar
         showElement(0);
-        
-        // Pause on hover, resume on leave
-        if (architectureSection) {
-            architectureSection.addEventListener('mouseenter', handleMouseEnter);
-            architectureSection.addEventListener('mouseleave', handleMouseLeave);
-        }
     }
     
     // // Smooth Scroll for Menu Links
