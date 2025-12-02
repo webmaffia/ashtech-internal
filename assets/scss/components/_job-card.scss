@@ -9,6 +9,10 @@
   gap: vw(115);
   transition: all $transition-base;
 
+  .btn{
+    background-color: #F4EAD7 !important;
+  }
+
   &:hover {
     box-shadow: 0 vw(5) vw(15) rgba(0, 0, 0, 0.1);
   }

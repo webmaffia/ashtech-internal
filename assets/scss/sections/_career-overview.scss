@@ -1,22 +1,21 @@
-// Career Openings Section
-.career-openings {
+// Career Overview Section
+.career-overview {
   position: relative;
   width: 100%;
   background-color: $color-bg-primary;
-  padding: vw(50) 0 vw(70);
+  padding: vw(120) 0;
   overflow: hidden;
 
   &__background {
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     width: vw(960);
     height: vw(502);
-    background-image: url('../images/career/background-pattern.png');
+    background-image: url('../images/career/overview-pattern.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: left top;
     opacity: 0.3;
     pointer-events: none;
   }
@@ -29,16 +28,16 @@
     margin: 0 auto;
     padding: 0 vw(100);
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: vw(70);
+    align-items: flex-start;
   }
 
-  &__header {
-    text-align: center;
+  &__left {
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
     gap: vw(35);
+    width: vw(556);
   }
 
   &__label {
@@ -59,59 +58,39 @@
     margin: 0;
   }
 
-  &__list {
-    width: 100%;
-    max-width: vw(1072);
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+  &__right {
+    flex: 1;
+    max-width: vw(974);
   }
 
-  &__apply {
-    flex-shrink: 0;
-  }
-
-  &__how-to-apply {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: vw(35);
-    max-width: vw(756);
-  }
-
-  &__apply-title {
-    font-family: $font-primary;
-    font-size: vw(36);
-    line-height: 1.5;
-    color: $color-text-primary;
-    font-weight: $font-weight-regular;
-    margin: 0;
-  }
-
-  &__apply-text {
+  &__text {
     font-family: $font-secondary;
     font-size: vw(20);
-    line-height: 1.5;
+    line-height: 1.7;
     color: $color-text-primary;
     font-weight: $font-weight-medium;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: vw(10);
 
-    strong {
-      font-weight: $font-weight-bold;
+    p {
+      margin: 0;
     }
   }
 
   // Tablet styles
   @media (max-width: 1024px) {
-    padding: vw(40, 1024) 0 vw(60, 1024);
+    padding: vw(80, 1024) 0;
 
     &__container {
       padding: 0 vw(60, 1024);
-      gap: vw(50, 1024);
+      flex-direction: column;
+      gap: vw(40, 1024);
     }
 
-    &__header {
-      gap: vw(25, 1024);
+    &__left {
+      width: 100%;
+      gap: vw(30, 1024);
     }
 
     &__label {
@@ -122,55 +101,42 @@
       font-size: vw(48, 1024);
     }
 
-    &__how-to-apply {
-      gap: vw(25, 1024);
+    &__right {
+      max-width: 100%;
     }
 
-    &__apply-title {
-      font-size: vw(30, 1024);
-    }
-
-    &__apply-text {
+    &__text {
       font-size: vw(18, 1024);
     }
   }
 
   // Mobile styles
   @media (max-width: 768px) {
-    padding: vw(30, 414) 0 vw(50, 414);
+    padding: vw(60, 414) 0;
 
     &__container {
       padding: 0 vw(20, 414);
-      gap: vw(40, 414);
+      gap: vw(30, 414);
     }
 
-    &__header {
-      gap: vw(20, 414);
+    &__left {
+      gap: vw(25, 414);
+      align-items: center;
+      text-align: center;
+
     }
 
     &__label {
       font-size: vw(14, 414);
     }
 
-    &__list {
-      max-width: 100%;
-      }
-
     &__title {
       font-size: vw(36, 414);
     }
 
-    &__how-to-apply {
-      gap: vw(20, 414);
-      max-width: 100%;
-    }
-
-    &__apply-title {
-      font-size: vw(24, 414);
-    }
-
-    &__apply-text {
+    &__text {
       font-size: vw(16, 414);
+      text-align: center;
     }
   }
 }

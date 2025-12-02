@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   background-color: $color-bg-primary;
-  padding: vw(50) 0;
+  padding: vw(120) 0;
   overflow: hidden;
 
   &__background {
@@ -11,8 +11,8 @@
     top: 0;
     left: 0;
     width: vw(777);
-    height: vw(328);
-    background-image: url('../images/career/background-pattern.png');
+    height: vw(406);
+    background-image: url('../images/career/overview-pattern.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left top;
@@ -27,23 +27,43 @@
     width: 100%;
     margin: 0 auto;
     padding: 0 vw(100);
-  }
-
-  &__content {
     display: flex;
     gap: vw(70);
     align-items: flex-start;
   }
 
+  &__left {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: vw(35);
+    width: vw(706);
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: vw(18);
+    line-height: 1.5;
+    color: $color-brand-primary;
+    font-weight: $font-weight-semibold;
+    margin: 0;
+  }
+
   &__title {
     font-family: $font-primary;
-    font-size: vw(36);
-    line-height: 1.5;
+    font-size: vw(58);
+    line-height: 1.2;
     color: $color-text-primary;
     font-weight: $font-weight-regular;
     margin: 0;
-    flex: 0 0 auto;
-    max-width: vw(706);
+  }
+
+  &__right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: vw(40);
+    max-width: vw(915);
   }
 
   &__text {
@@ -53,48 +73,66 @@
     color: $color-text-primary;
     font-weight: $font-weight-medium;
     margin: 0;
-    flex: 1;
-    max-width: vw(915);
   }
 
   // Tablet styles
   @media (max-width: 1024px) {
-    padding: vw(40, 1024) 0;
+    padding: vw(80, 1024) 0;
 
     &__container {
       padding: 0 vw(60, 1024);
+      flex-direction: column;
+      gap: vw(40, 1024);
     }
 
-    &__content {
-      flex-direction: column;
+    &__left {
+      width: 100%;
       gap: vw(30, 1024);
     }
 
+    &__label {
+      font-size: vw(16, 1024);
+    }
+
     &__title {
-      font-size: vw(30, 1024);
+      font-size: vw(48, 1024);
+    }
+
+    &__right {
       max-width: 100%;
+      gap: vw(30, 1024);
     }
 
     &__text {
       font-size: vw(18, 1024);
-      max-width: 100%;
     }
   }
 
   // Mobile styles
   @media (max-width: 768px) {
-    padding: vw(30, 414) 0;
+    padding: vw(60, 414) 0;
 
     &__container {
       padding: 0 vw(20, 414);
+      flex-direction: column;
+      gap: vw(30, 414);
     }
 
-    &__content {
+    &__left {
+      width: 100%;
       gap: vw(25, 414);
     }
 
+    &__label {
+      font-size: vw(14, 414);
+    }
+
     &__title {
-      font-size: vw(24, 414);
+      font-size: vw(36, 414);
+    }
+
+    &__right {
+      gap: vw(25, 414);
     }
 
     &__text {
