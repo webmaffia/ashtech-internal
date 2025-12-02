@@ -55,6 +55,14 @@
 @import 'sections/resources-news';
 @import 'components/news-card';
 
+// Career Page Sections
+@import 'sections/career-why';
+@import 'sections/career-life';
+@import 'sections/career-openings';
+@import 'sections/career-form';
+@import 'sections/career-assurance';
+@import 'components/job-card';
+
 
 html {
     overflow-x: hidden;

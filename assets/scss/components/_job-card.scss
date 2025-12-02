@@ -1,0 +1,118 @@
+// Job Card Component
+.job-card {
+  background-color: $color-white;
+  border: 1px solid rgba(35, 31, 32, 0.1);
+  padding: vw(30);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vw(115);
+  transition: all $transition-base;
+
+  &:hover {
+    box-shadow: 0 vw(5) vw(15) rgba(0, 0, 0, 0.1);
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: vw(20);
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(30);
+    line-height: 1.5;
+    color: #1e1e1e;
+    font-weight: $font-weight-regular;
+    margin: 0;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vw(10);
+    align-items: center;
+  }
+
+  &__tag {
+    background-color: $color-bg-primary;
+    padding: vw(10) vw(15);
+    display: flex;
+    align-items: center;
+    gap: vw(9);
+    font-family: $font-secondary;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+
+    img {
+      width: vw(18);
+      height: vw(18);
+      object-fit: contain;
+    }
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    padding: vw(25, 1024);
+    gap: vw(30, 1024);
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__info {
+      gap: vw(18, 1024);
+    }
+
+    &__title {
+      font-size: vw(26, 1024);
+    }
+
+    &__tags {
+      gap: vw(8, 1024);
+    }
+
+    &__tag {
+      padding: vw(8, 1024) vw(12, 1024);
+      gap: vw(7, 1024);
+      font-size: vw(18, 1024);
+
+      img {
+        width: vw(16, 1024);
+        height: vw(16, 1024);
+      }
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    padding: vw(20, 414);
+    gap: vw(20, 414);
+
+    &__info {
+      gap: vw(15, 414);
+    }
+
+    &__title {
+      font-size: vw(22, 414);
+    }
+
+    &__tags {
+      gap: vw(8, 414);
+    }
+
+    &__tag {
+      padding: vw(8, 414) vw(12, 414);
+      gap: vw(6, 414);
+      font-size: vw(14, 414);
+
+      img {
+        width: vw(14, 414);
+        height: vw(14, 414);
+      }
+    }
+  }
+}
+

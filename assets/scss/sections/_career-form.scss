@@ -1,0 +1,293 @@
+// Career Form Section
+.career-form {
+  position: relative;
+  width: 100%;
+  background-color: $color-bg-primary;
+  padding: vw(60) 0 vw(120);
+  overflow: hidden;
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    background-image: url('../images/career/form-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: vw(984);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: vw(35);
+  }
+
+  &__header {
+    text-align: center;
+    width: 100%;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(58);
+    line-height: 1.2;
+    color: $color-text-primary;
+    font-weight: $font-weight-regular;
+    margin: 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: vw(30);
+    width: 100%;
+    max-width: vw(984);
+    align-items: flex-start;
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: vw(12);
+    width: 100%;
+  }
+
+  &__field {
+    width: 100%;
+    max-width: vw(982);
+
+    &--country {
+      flex: 0 0 auto;
+      width: auto;
+      min-width: vw(140);
+    }
+
+    &--phone {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &--upload {
+      position: relative;
+    }
+  }
+
+  &__field-group {
+    display: flex;
+    gap: vw(8);
+    width: 100%;
+    max-width: vw(982);
+    align-items: stretch;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: vw(20);
+    background-color: $color-white;
+    border: none;
+    font-family: $font-secondary;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: $color-text-primary;
+    font-weight: $font-weight-medium;
+    box-sizing: border-box;
+    transition: all $transition-base;
+
+    &::placeholder {
+      color: rgba($color-text-primary, 0.6);
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 vw(2) $color-brand-primary;
+    }
+
+    &:read-only {
+      cursor: default;
+      background-color: $color-white;
+    }
+  }
+
+  &__file-input {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  &__file-label {
+    width: 100%;
+    padding: vw(20);
+    background-color: $color-white;
+    border: none;
+    font-family: $font-secondary;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: rgba($color-text-primary, 0.6);
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: vw(10);
+    transition: all $transition-base;
+
+    img {
+      width: vw(24);
+      height: vw(24);
+      object-fit: contain;
+    }
+
+    &:hover {
+      background-color: #f8f8f8;
+    }
+  }
+
+  &__textarea {
+    height: vw(147);
+    resize: vertical;
+    font-family: $font-secondary;
+  }
+
+  &__submit {
+    align-self: flex-start;
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    padding: vw(50, 1024) 0 vw(80, 1024);
+
+    &__container {
+      padding: 0;
+      gap: vw(30, 1024);
+    }
+
+    &__title {
+      font-size: vw(48, 1024);
+    }
+
+    &__form {
+      gap: vw(25, 1024);
+    }
+
+    &__fields {
+      gap: vw(10, 1024);
+    }
+
+    &__field-group {
+      gap: vw(6, 1024);
+      width: 100%;
+    }
+
+    &__field {
+      width: 100%;
+
+      &--country {
+        min-width: auto;
+        width: auto;
+      }
+
+      &--phone {
+        width: 100%;
+        flex: 1;
+      }
+    }
+
+    &__input,
+    &__textarea {
+      padding: vw(18, 1024);
+      font-size: vw(18, 1024);
+    }
+
+    &__file-label {
+      padding: vw(18, 1024);
+      font-size: vw(18, 1024);
+
+      img {
+        width: vw(20, 1024);
+        height: vw(20, 1024);
+      }
+    }
+
+    &__textarea {
+      height: vw(120, 1024);
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    padding: vw(40, 414) 0 vw(60, 414);
+
+    &__container {
+      padding: 0 vw(20, 414);
+      gap: vw(25, 414);
+      max-width: 100%;
+    }
+
+    &__title {
+      font-size: vw(36, 414);
+    }
+
+    &__form {
+      gap: vw(20, 414);
+      max-width: 100%;
+    }
+
+    &__fields {
+      gap: vw(10, 414);
+    }
+
+    &__field-group {
+      flex-direction: row;
+      gap: vw(8, 414);
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &__field {
+      width: auto;
+      max-width: 100%;
+
+      &--country {
+        flex: 0 0 auto;
+        min-width: vw(140, 414);
+      }
+
+      &--phone {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+
+    &__input,
+    &__textarea {
+      padding: vw(15, 414);
+      font-size: vw(16, 414);
+    }
+
+    &__file-label {
+      padding: vw(15, 414);
+      font-size: vw(16, 414);
+
+      img {
+        width: vw(18, 414);
+        height: vw(18, 414);
+      }
+    }
+
+    &__textarea {
+      height: vw(100, 414);
+    }
+  }
+}
+
