@@ -65,7 +65,7 @@
         gap: vw(20);
         align-items: flex-end;
         width: 100%;
-        max-width: vw(1720);
+        max-width: vw(1420);
         margin: 0 auto;
     }
 
@@ -73,7 +73,7 @@
         width: vw(336);
         height: vw(413);
         background: $color-white;
-        padding: vw(40) vw(40) 0;
+       
         flex-shrink: 0;
         overflow: hidden;
         position: relative;
@@ -119,7 +119,7 @@
     &__main-info {
         display: flex;
         flex-direction: column;
-        gap: vw(20);
+        gap: 0;
         line-height: 1.5;
     }
 

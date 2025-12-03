@@ -118,14 +118,17 @@
 
         &__label {
             font-size: vw(14, 414);
+            text-align: center;
         }
 
         &__title {
-            font-size: vw(32, 414);
+            font-size: vw(24, 414);
+            text-align: center;
         }
 
         &__text {
             font-size: vw(16, 414);
+            text-align: center;
 
             p {
                 margin-bottom: vw(10, 414);

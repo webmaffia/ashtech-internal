@@ -275,13 +275,18 @@
         }
 
         &__title {
-            font-size: vw(28, 414);
+            font-size: vw(24, 414);
             padding: 0 vw(10, 414);
         }
 
         &__intro {
             font-size: vw(14, 414);
             width: 100%;
+            p{
+                br{
+                    display: none !important;
+                }
+            }
         }
 
         &__graphic {

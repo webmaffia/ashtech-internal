@@ -3,6 +3,7 @@
 }
 .aboutbg {
   background-image: url('../images/about/banner.png') !important;
+
 }
 .careerbg {
   background-image: url('../images/career/banner.png') !important;
@@ -59,7 +60,7 @@
   &__subtitle {
     display: flex;
     flex-direction: column;
-    gap: vw(30);
+    gap: vw(10);
   }
 
   &__subtitle-main {
@@ -102,6 +103,13 @@
 
   // Mobile styles
   @media (max-width: 768px) {
+    .aboutbg{
+        .project-hero__title {
+          br {
+            display: none !important;
+          }
+        }
+    }
     height: vw(665, 414);
     padding: vw(30, 414) vw(20, 414) vw(40, 414);
 
@@ -125,5 +133,16 @@
     &__subtitle-text {
       font-size: vw(16, 414);
     }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .aboutbg{
+      .project-hero__title {
+        br {
+          display: none !important;
+        }
+      }
   }
 }
