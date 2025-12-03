@@ -16,21 +16,21 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: vw(35);
+        gap: vw(0);
     }
 
     &__mission {
-        padding-top: vw(200);
+        padding-top: vw(177);
     }
 
-    &__title-image {
-        width: auto;
-        height: vw(86);
-
-        img {
-            height: 100%;
-            width: auto;
-        }
+    &__title {
+        font-family: $font-primary;
+        font-size: vw(120);
+        font-style: normal;
+        font-weight: 325;
+        line-height: 1.2; // 120%
+        color: #E0BD75;
+        margin: 0;
     }
 
     &__content {
@@ -84,8 +84,8 @@
             padding-top: 0;
         }
 
-        &__title-image {
-            height: vw(60, 1024);
+        &__title {
+            font-size: vw(42, 1024);
         }
 
         &__content {
@@ -114,11 +114,11 @@
 
         &__vision,
         &__mission {
-            gap: vw(20, 414);
+            gap: vw(10, 414);
         }
 
-        &__title-image {
-            height: vw(44, 414);
+        &__title {
+            font-size: vw(50, 414);
         }
 
         &__content {
