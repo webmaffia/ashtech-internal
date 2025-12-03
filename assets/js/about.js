@@ -272,7 +272,7 @@
             element: item
         }));
 
-        let currentIndex = 2; // Start at 2006 (index 2)
+        let currentIndex = 0; // Start at 1992 (index 0)
         let autoPlayInterval;
 
         // Function to update content
@@ -314,15 +314,15 @@
                 const itemLeft = itemElement.offsetLeft;
                 const itemWidth = itemElement.offsetWidth;
                 const itemCenter = itemLeft + (itemWidth / 2);
-                const wrapperWidth = timelineWrapper.offsetWidth;
-                const progressWidth = (itemCenter / wrapperWidth) * 100;
-                timelineProgress.style.width = progressWidth + '%';
+                
+                timelineProgress.style.left = '0';
+                timelineProgress.style.width = itemCenter + 'px';
 
-                // Auto-scroll to center the active item
+                // Auto-scroll to keep active item visible
                 if (timelineWrapperContainer) {
                     const scrollLeft = itemLeft - (timelineWrapperContainer.offsetWidth / 2) + (itemWidth / 2);
                     timelineWrapperContainer.scrollTo({
-                        left: scrollLeft,
+                        left: Math.max(0, scrollLeft),
                         behavior: 'smooth'
                     });
                 }
@@ -353,17 +353,18 @@
             }
         }
 
-        // Initialize progress bar to reach the active item's dot
+        // Initialize progress bar to reach the active item's dot (2006)
         setTimeout(() => {
             const activeItem = timelineData[currentIndex].element;
             const timelineWrapper = document.querySelector('.about-history__timeline');
+            
             if (timelineWrapper && activeItem) {
                 const itemLeft = activeItem.offsetLeft;
                 const itemWidth = activeItem.offsetWidth;
                 const itemCenter = itemLeft + (itemWidth / 2);
-                const wrapperWidth = timelineWrapper.offsetWidth;
-                const progressWidth = (itemCenter / wrapperWidth) * 100;
-                timelineProgress.style.width = progressWidth + '%';
+                
+                timelineProgress.style.left = '0';
+                timelineProgress.style.width = itemCenter + 'px';
             }
         }, 100);
 
