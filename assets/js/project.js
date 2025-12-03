@@ -204,10 +204,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Background images for each element
         const backgroundImages = {
-            sun: 'assets/images/poject/sun.png',
-            air: 'assets/images/poject/air.png',
-            water: 'assets/images/poject/water.png',
-            earth: 'assets/images/poject/earth.png'
+            sun: 'assets/images/project/sun.png',
+            air: 'assets/images/project/air.png',
+            water: 'assets/images/project/water.png',
+            earth: 'assets/images/project/earth.png'
         };
         
         function changeBackgroundImage(elementType) {
