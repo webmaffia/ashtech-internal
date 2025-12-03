@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ashtech/nri",
+  "title": "Ashtech NRI Desk",
+  "category": "ashtech",
+  "icon": "admin-users",
+  "description": "NRI Desk section with features",
+  "keywords": ["nri", "desk", "features"],
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "NRI Desk"
+    },
+    "title": {
+      "type": "string",
+      "default": "Seamless Access to Signature Residences"
+    },
+    "description": {
+      "type": "string",
+      "default": "Ashtech Presidential Towers ensures global clients can acquire Ashtech luxury apartments and properties in Greater Noida with confidence and peace of mind."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Connect with Our NRI Desk"
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number",
+      "default": 0
+    },
+    "features": {
+      "type": "array",
+      "default": [
+        {
+          "icon": "icon-virtual-tour.svg",
+          "text": "Virtual Tours Across Time Zones"
+        },
+        {
+          "icon": "icon-support.svg",
+          "text": "Dedicated NRI Support"
+        },
+        {
+          "icon": "icon-residences.svg",
+          "text": "Residences Designed for Generations"
+        },
+        {
+          "icon": "icon-documentation.svg",
+          "text": "Documentation Assistance"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "className": false,
+    "customClassName": false
+  }
+}
+

@@ -1,0 +1,283 @@
+ASHTECH GUTENBERG BLOCKS - DIRECTORY STRUCTURE
+==============================================
+
+ashtech-gutenberg-blocks/
+│
+├── 📄 Main Plugin Files
+│   ├── ashtech-gutenberg-blocks.php    ← Main plugin file (PHP)
+│   ├── package.json                     ← npm configuration
+│   ├── webpack.config.js                ← Build configuration
+│   └── .gitignore                       ← Git ignore rules
+│
+├── 📁 src/ (SOURCE FILES - YOU EDIT THESE)
+│   └── blocks/
+│       │
+│       ├── 📦 banner/
+│       │   ├── block.json               ← Block metadata
+│       │   ├── index.js                 ← Block registration
+│       │   ├── edit.js                  ← Editor (React)
+│       │   ├── save.js                  ← Frontend (React)
+│       │   ├── style.scss               ← Frontend styles
+│       │   └── editor.scss              ← Editor styles
+│       │
+│       ├── 📦 overview/
+│       │   ├── block.json
+│       │   ├── index.js
+│       │   ├── edit.js
+│       │   ├── save.js
+│       │   ├── style.scss
+│       │   └── editor.scss
+│       │
+│       ├── 📦 values/
+│       │   ├── block.json
+│       │   ├── index.js
+│       │   ├── edit.js
+│       │   ├── save.js
+│       │   ├── style.scss
+│       │   └── editor.scss
+│       │
+│       ├── 📦 projects/
+│       │   ├── block.json
+│       │   ├── index.js
+│       │   ├── edit.js
+│       │   ├── save.js
+│       │   ├── style.scss
+│       │   └── editor.scss
+│       │
+│       ├── 📦 nri/
+│       │   ├── block.json
+│       │   ├── index.js
+│       │   ├── edit.js
+│       │   ├── save.js
+│       │   ├── style.scss
+│       │   └── editor.scss
+│       │
+│       ├── 📦 awards/
+│       │   ├── block.json
+│       │   ├── index.js
+│       │   ├── edit.js
+│       │   ├── save.js
+│       │   ├── style.scss
+│       │   └── editor.scss
+│       │
+│       ├── 📦 testimonials/
+│       │   ├── block.json
+│       │   ├── index.js
+│       │   ├── edit.js
+│       │   ├── save.js
+│       │   ├── style.scss
+│       │   └── editor.scss
+│       │
+│       └── 📦 footer/
+│           ├── block.json
+│           ├── index.js
+│           ├── edit.js
+│           ├── save.js
+│           ├── style.scss
+│           └── editor.scss
+│
+├── 📁 build/ (AUTO-GENERATED - DON'T EDIT)
+│   └── blocks/
+│       ├── banner/
+│       │   ├── index.js                 ← Compiled JS
+│       │   ├── index.asset.php          ← Asset dependencies
+│       │   └── style-index.css          ← Compiled CSS
+│       ├── overview/
+│       ├── values/
+│       ├── projects/
+│       ├── nri/
+│       ├── awards/
+│       ├── testimonials/
+│       └── footer/
+│
+├── 📁 assets/ (YOU NEED TO COPY FROM ORIGINAL PROJECT)
+│   │
+│   ├── 📁 css/
+│   │   └── main.css                     ← Main stylesheet
+│   │
+│   ├── 📁 images/
+│   │   └── landing/
+│   │       ├── logo.svg                 ← Header logo
+│   │       ├── footer-logo.svg          ← Footer logo
+│   │       ├── values-graphic.svg       ← Values section graphic
+│   │       ├── building.png             ← Projects building image
+│   │       ├── nri.png                  ← NRI section image
+│   │       ├── testimonial-bg.jpg       ← Testimonials background
+│   │       │
+│   │       ├── 🏆 Awards
+│   │       ├── award-laurel-left.svg
+│   │       ├── award-laurel-right.svg
+│   │       │
+│   │       ├── 🔷 NRI Icons
+│   │       ├── icon-virtual-tour.svg
+│   │       ├── icon-support.svg
+│   │       ├── icon-residences.svg
+│   │       ├── icon-documentation.svg
+│   │       │
+│   │       ├── 📞 Contact Icons
+│   │       ├── icon-location.svg
+│   │       ├── icon-phone.svg
+│   │       ├── icon-email.svg
+│   │       │
+│   │       └── 📱 Social Icons
+│   │           ├── social-facebook.svg
+│   │           ├── social-twitter.svg
+│   │           ├── social-instagram.svg
+│   │           ├── social-linkedin.svg
+│   │           └── social-youtube.svg
+│   │
+│   └── 📁 js/
+│       └── landing-animations.js        ← Animation scripts
+│
+├── 📁 node_modules/ (AUTO-GENERATED AFTER npm install)
+│   └── ... (thousands of dependency files)
+│
+└── 📚 Documentation/
+    ├── README.md                        ← Plugin overview
+    ├── INSTALLATION.md                  ← Setup guide
+    ├── BLOCKS-DOCUMENTATION.md          ← Block details
+    ├── QUICK-START.md                   ← Quick reference
+    ├── PROJECT-SUMMARY.md               ← This summary
+    ├── STRUCTURE.txt                    ← This file
+    ├── setup.bat                        ← Windows setup script
+    └── copy-assets.bat                  ← Windows asset copy script
+
+
+FILE COUNTS:
+============
+- 8 Blocks
+- 48 Source files (6 files per block)
+- 24 Build output files (3 files per block)
+- Multiple asset files (images, CSS, JS)
+- 9 Documentation files
+
+
+WORKFLOW:
+=========
+
+1. DEVELOPMENT
+   src/blocks/[name]/edit.js
+        ↓ (you edit)
+   npm start or npm run build
+        ↓ (compiles)
+   build/blocks/[name]/index.js
+        ↓ (WordPress loads)
+   Block appears in editor
+
+2. FRONTEND
+   src/blocks/[name]/save.js
+        ↓ (you edit)
+   npm run build
+        ↓ (compiles)
+   build/blocks/[name]/index.js
+        ↓ (WordPress loads)
+   Block appears on website
+
+
+IMPORTANT PATHS:
+================
+
+Plugin Directory:
+wp-content/plugins/ashtech-gutenberg-blocks/
+
+Assets Directory:
+wp-content/plugins/ashtech-gutenberg-blocks/assets/
+
+WordPress uploads assets via:
+ASHTECH_BLOCKS_URL constant (defined in PHP)
+
+Block images load from:
+/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/[filename]
+
+
+COMMANDS:
+=========
+
+Install:          npm install
+Build:            npm run build
+Development:      npm start
+Setup (Windows):  setup.bat
+Copy Assets:      copy-assets.bat
+
+
+SIZE ESTIMATES:
+===============
+
+src/ folder:          ~500 KB
+build/ folder:        ~1 MB (after build)
+node_modules/:        ~200 MB (after npm install)
+assets/:              Depends on your images
+Total (with node_modules): ~201 MB
+Total (without node_modules): ~2 MB
+
+
+AFTER DEPLOYMENT:
+=================
+
+Production server only needs:
+- Plugin PHP file
+- build/ folder
+- assets/ folder
+- block.json files
+
+You DON'T need to upload:
+- src/ folder (source code)
+- node_modules/
+- package.json
+- webpack.config.js
+
+(Though keeping them allows future updates)
+
+
+BLOCK LOADING ORDER:
+====================
+
+WordPress loads blocks in this sequence:
+
+1. ashtech-gutenberg-blocks.php registers all blocks
+2. Each block's build/blocks/[name]/index.js loads
+3. Block appears in "Ashtech Blocks" category
+4. User adds block to page
+5. edit.js renders in editor
+6. save.js renders on frontend
+7. styles from build/blocks/[name]/style-index.css apply
+8. Global assets from assets/ folder load
+
+
+CUSTOMIZATION POINTS:
+=====================
+
+Easy:
+- Block content (via WordPress editor)
+- Block attributes (in Inspector Controls)
+- Asset files (images, CSS)
+
+Medium:
+- Block edit.js (editor interface)
+- Block save.js (frontend output)
+- Block styles (SCSS files)
+
+Advanced:
+- New blocks (create new folder in src/blocks/)
+- New attributes (modify block.json)
+- PHP functionality (modify main plugin file)
+
+
+BACKUP RECOMMENDATIONS:
+=======================
+
+Essential files to backup:
+- src/ folder (all source code)
+- assets/ folder (all media files)
+- Documentation files
+- package.json
+- webpack.config.js
+- Main PHP file
+
+Can regenerate:
+- build/ folder (via npm run build)
+- node_modules/ (via npm install)
+
+
+That's the complete structure! 🎉
+

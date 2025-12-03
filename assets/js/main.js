@@ -120,36 +120,13 @@
     });
 
     // Auto-advance architecture tabs
-    let currentTabIndex = 0;
-    setInterval(() => {
-        currentTabIndex = (currentTabIndex + 1) % architectureTabs.length;
-        architectureTabs[currentTabIndex].click();
-    }, 5000);
-
-
-    experienceButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Update active state
-            experienceButtons.forEach(btn => btn.classList.remove('experiences__tab-button--active'));
-            this.classList.add('experiences__tab-button--active');
-            
-            // Update content
-            const tabName = this.querySelector('.experiences__tab-text').textContent.trim();
-            const content = experienceContents[tabName];
-            
-            if (content) {
-                const featuresContainer = document.querySelector('.experiences__features');
-                featuresContainer.innerHTML = content.map(item => `
-                    <div class="feature-card">
-                        <div class="feature-card__icon">
-                            <img src="${item.icon}" alt="">
-                        </div>
-                        <p class="feature-card__text">${item.text}</p>
-                    </div>
-                `).join('');
-            }
-        });
-    });
+    if (architectureTabs.length > 0) {
+        let currentTabIndex = 0;
+        setInterval(() => {
+            currentTabIndex = (currentTabIndex + 1) % architectureTabs.length;
+            architectureTabs[currentTabIndex].click();
+        }, 5000);
+    }
 
     // ===========================================
     // LAZY LOADING IMAGES
@@ -172,15 +149,44 @@
     }
 
     // ===========================================
-    // MOBILE MENU TOGGLE (if needed)
+    // SLIDING MENU FUNCTIONALITY
     // ===========================================
-    const menuToggle = document.querySelector('.hero-menu__toggle');
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            // Add mobile menu functionality here
-            console.log('Menu toggle clicked');
-        });
+    const menuToggle = document.getElementById('menuToggle');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuClose = document.getElementById('menuClose');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    // Function to open menu
+    function openMenu() {
+        sideMenu.classList.add('side-menu--active');
+        document.body.style.overflow = 'hidden'; // Prevent body scroll when menu is open
     }
+
+    // Function to close menu
+    function closeMenu() {
+        sideMenu.classList.remove('side-menu--active');
+        document.body.style.overflow = ''; // Restore body scroll
+    }
+
+    // Event listeners for menu
+    if (menuToggle) {
+        menuToggle.addEventListener('click', openMenu);
+    }
+
+    if (menuClose) {
+        menuClose.addEventListener('click', closeMenu);
+    }
+
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMenu);
+    }
+
+    // Close menu on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sideMenu && sideMenu.classList.contains('side-menu--active')) {
+            closeMenu();
+        }
+    });
 
     // ===========================================
     // FORM VALIDATION (for contact forms if added)

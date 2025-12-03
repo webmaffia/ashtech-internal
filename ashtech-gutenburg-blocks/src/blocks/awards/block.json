@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ashtech/awards",
+  "title": "Ashtech Awards",
+  "category": "ashtech",
+  "icon": "awards",
+  "description": "Awards and recognition section",
+  "keywords": ["awards", "recognition", "achievements"],
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Awards & Recognition"
+    },
+    "title": {
+      "type": "string",
+      "default": "Honoured for Distinction"
+    },
+    "description": {
+      "type": "string",
+      "default": "Ashtech's pursuit of excellence has earned recognition through landmark infrastructure projects. With visionary planning and granular execution, each endeavour contributes to a legacy defined by enduring impact and distinguished achievement."
+    },
+    "awards": {
+      "type": "array",
+      "default": [
+        {
+          "text": "National Infrastructure Excellence Award 2023"
+        },
+        {
+          "text": "Engineering Visionary Award 2022"
+        },
+        {
+          "text": "Structural Innovation Leadership Award 2021"
+        },
+        {
+          "text": "Sustainable Development in Infrastructure 2020"
+        }
+      ]
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  }
+}
+

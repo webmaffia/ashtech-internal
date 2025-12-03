@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ashtech/testimonials",
+  "title": "Ashtech Testimonials",
+  "category": "ashtech",
+  "icon": "format-quote",
+  "description": "Testimonials slider section",
+  "keywords": ["testimonials", "reviews", "slider"],
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Testimonials"
+    },
+    "title": {
+      "type": "string",
+      "default": "Trusted by Those Who<br>Value Mastery"
+    },
+    "testimonials": {
+      "type": "array",
+      "default": [
+        {
+          "quote": "Working with Ashtech Group has been exceptional. Their attention to detail and commitment to quality sets them apart in every project.",
+          "name": "K. Mehta",
+          "role": "Corporate Partner"
+        },
+        {
+          "quote": "The professionalism and expertise displayed by Ashtech are truly remarkable. Every aspect of our project was handled with utmost care and precision.",
+          "name": "R. Sharma",
+          "role": "Property Investor"
+        },
+        {
+          "quote": "Ashtech has redefined luxury living. Their vision and execution are unparalleled, making every project a masterpiece of architectural excellence.",
+          "name": "A. Gupta",
+          "role": "Business Executive"
+        }
+      ]
+    },
+    "backgroundImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundImageId": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  }
+}
+

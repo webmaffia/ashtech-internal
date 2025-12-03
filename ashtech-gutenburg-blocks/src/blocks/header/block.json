@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ashtech/header",
+  "version": "1.0.0",
+  "title": "Ashtech Header",
+  "category": "ashtech-blocks",
+  "icon": "align-center",
+  "description": "Fixed header with logo and menu",
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "className": false,
+    "customClassName": false
+  },
+  "attributes": {
+    "logoUrl": {
+      "type": "string",
+      "default": "/wp-content/plugins/ashtech-gutenberg-blocks/assets/images/landing/logo.svg"
+    },
+    "logoId": {
+      "type": "number"
+    },
+    "menuIconUrl": {
+      "type": "string",
+      "default": "https://www.figma.com/api/mcp/asset/eb5ffefb-fe44-49be-8323-93812f2e589d"
+    },
+    "menuIconId": {
+      "type": "number"
+    },
+    "menuText": {
+      "type": "string",
+      "default": "Menu"
+    }
+  },
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
+

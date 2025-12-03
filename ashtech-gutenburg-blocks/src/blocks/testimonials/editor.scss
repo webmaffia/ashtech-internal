@@ -1,0 +1,15 @@
+// Import frontend styles
+@import './style.scss';
+
+// Editor specific overrides
+.editor-styles-wrapper {
+    .landing-testimonials {
+        // Navigation buttons should be visible but not functional for preview
+        .landing-testimonials__nav-btn {
+            cursor: default;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+    }
+}
+

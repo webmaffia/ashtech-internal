@@ -1,0 +1,283 @@
+// NRI Block Styles
+.landing-nri {
+  position: relative;
+  width: 100%;
+  min-height: 50.9375vw;
+  background-color: #F4EAD7;
+  display: flex;
+  align-items: center;
+}
+
+.landing-nri__image {
+  position: absolute;
+  top: -6.5625vw;
+  left: 31.7708333333vw;
+  width: 68.2291666667vw;
+  height: 57.5vw;
+  overflow: hidden;
+  z-index: 4;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.landing-nri__content {
+  position: absolute;
+  left: 3.59375vw;
+  top: 3.3333333333vw;
+  width: 43.5416666667vw;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.landing-nri__info {
+  background-color: transparent;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.6041666667vw;
+}
+
+.landing-nri__header {
+  display: flex;
+  flex-direction: column;
+  gap: 2.34375vw;
+  width: 100%;
+  max-width: 35.9635416667vw;
+}
+
+.landing-nri__label {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9375vw;
+  font-weight: 600;
+  color: #720C10;
+  line-height: 1.5;
+}
+
+.landing-nri__title {
+  font-family: "Chronicle Display", Georgia, serif;
+  font-size: 3.75vw;
+  line-height: 1.2;
+  color: #0C0D0D;
+  font-weight: 325;
+  margin: 0;
+}
+
+.landing-nri__description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8229166667vw;
+  width: 100%;
+  max-width: 38.5416666667vw;
+
+  .btn {
+    width: 19.5833333333vw;
+    font-size: 1.1458333333vw;
+  }
+}
+
+.landing-nri__description {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.0416666667vw;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #0C0D0D;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.landing-nri__features {
+  padding: 1.5625vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9895833333vw;
+}
+
+.landing-nri__feature {
+  display: flex;
+  align-items: center;
+  gap: 1.0416666667vw;
+}
+
+.landing-nri__feature-icon {
+  width: 2.0833333333vw;
+  height: 2.0833333333vw;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.landing-nri__feature-text {
+  font-family: "Chronicle Display", Georgia, serif;
+  font-size: 1.25vw;
+  line-height: 1.3;
+  color: #19191A;
+  font-weight: 325;
+  margin: 0;
+}
+
+.landing-nri__accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.1979166667vw;
+  background-color: #720C10;
+  z-index: 3;
+}
+
+// Responsive Styles
+@media (max-width: 1023px) {
+  .landing-nri {
+    min-height: 44.2708333333vw;
+  }
+
+  .landing-nri__image {
+    top: -5.2083333333vw;
+    left: 26.0416666667vw;
+    width: 57.2916666667vw;
+    height: 46.875vw;
+  }
+
+  .landing-nri__content {
+    left: 2.6041666667vw;
+    width: 36.4583333333vw;
+  }
+
+  .landing-nri__title {
+    font-size: 3.0208333333vw;
+  }
+
+  .landing-nri__description {
+    font-size: 0.9375vw;
+  }
+
+  .landing-nri__feature-text {
+    font-size: 1.0416666667vw;
+  }
+}
+
+@media (max-width: 767px) {
+  .landing-nri {
+    min-height: 36.4583333333vw;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .landing-nri__image {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20.8333333333vw;
+  }
+
+  .landing-nri__content {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 2.0833333333vw;
+  }
+
+  .landing-nri__info {
+    padding: 0;
+  }
+
+  .landing-nri__header {
+    gap: 1.5625vw;
+  }
+
+  .landing-nri__title {
+    font-size: 2.5vw;
+  }
+
+  .landing-nri__description {
+    font-size: 0.8333333333vw;
+  }
+
+  .landing-nri__features {
+    padding: 0;
+    padding-top: 1.5625vw;
+  }
+
+  .landing-nri__feature-text {
+    font-size: 0.9375vw;
+  }
+}
+
+@media (max-width: 479px) {
+  .landing-nri {
+    min-height: 190.8212560386vw;
+    flex-direction: column-reverse;
+  }
+
+  .landing-nri__image {
+    height: 79.1859903382vw;
+  }
+
+  .landing-nri__content {
+    padding: 9.6618357488vw 3.8647342995vw 3.8647342995vw 3.8647342995vw;
+  }
+
+  .landing-nri__header {
+    gap: 4.8309178744vw;
+    max-width: 100%;
+  }
+
+  .landing-nri__label {
+    font-size: 3.8647342995vw;
+    text-align: center;
+  }
+
+  .landing-nri__title {
+    font-size: 7.729468599vw;
+    text-align: center;
+  }
+
+  .landing-nri__description-container {
+    gap: 6.038647343vw;
+    max-width: 100%;
+
+    .btn {
+      width: 65% !important;
+      margin: 0 auto;
+      font-size: 3.3816425121vw !important;
+      margin-bottom: 9.6618357488vw !important;
+    }
+  }
+
+  .landing-nri__description {
+    font-size: 3.3816425121vw;
+    text-align: center;
+  }
+
+  .landing-nri__features {
+    gap: 2.8985507246vw;
+  }
+
+  .landing-nri__feature {
+    gap: 2.8985507246vw;
+  }
+
+  .landing-nri__feature-icon {
+    width: 4.8309178744vw;
+    height: 4.8309178744vw;
+  }
+
+  .landing-nri__feature-text {
+    font-size: 3.3816425121vw;
+  }
+
+  .landing-nri__accent {
+    height: 0.9375vw;
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ashtech/values",
+  "title": "Ashtech Values",
+  "category": "ashtech",
+  "icon": "star-filled",
+  "description": "Core values section with animated graphic",
+  "keywords": ["values", "core", "principles"],
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Core Values"
+    },
+    "title": {
+      "type": "string",
+      "default": "30 Years of Excellence"
+    },
+    "values": {
+      "type": "array",
+      "default": [
+        {
+          "title": "जुनून (Passion)",
+          "description": "Commitment to perfection in every detail."
+        },
+        {
+          "title": "संकल्प (Resolution)",
+          "description": "Delivering with precision at every step."
+        },
+        {
+          "title": "लगन (Commitment)",
+          "description": "A relentless pursuit of elevated standards."
+        },
+        {
+          "title": "विश्वास (Trust)",
+          "description": "Dependability and integrity, embedded in execution."
+        },
+        {
+          "title": "निष्ठा (Dedication)",
+          "description": "Every element executed with painstaking care."
+        },
+        {
+          "title": "दृढता (Strength)",
+          "description": "Structures and finishes designed to last."
+        }
+      ]
+    },
+    "graphicImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "graphicImageId": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "className": false,
+    "customClassName": false
+  }
+}
+

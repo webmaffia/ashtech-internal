@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ashtech/footer",
+  "title": "Ashtech Footer",
+  "category": "ashtech",
+  "icon": "admin-site",
+  "description": "Site footer with links and contact information",
+  "keywords": ["footer", "contact", "links"],
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "description": {
+      "type": "string",
+      "default": "A pioneer in sustainable construction, Ashtech Industries Pvt. Ltd. (AIPL) drives innovation across infrastructure, flyash solutions, and civil engineering."
+    },
+    "address": {
+      "type": "string",
+      "default": "Ashtech Industries Pvt Ltd.<br>C-50, RDC, Rajnagar Ghaziabad"
+    },
+    "phone": {
+      "type": "string",
+      "default": "+91 92 7813 3133"
+    },
+    "email": {
+      "type": "string",
+      "default": "info@ashtechgroup.in"
+    },
+    "copyright": {
+      "type": "string",
+      "default": "© 2025 Ashtech Industries Pvt. Ltd. All Rights Reserved."
+    },
+    "legal": {
+      "type": "string",
+      "default": "Privacy Policy | Terms & Conditions"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  }
+}
+
