@@ -307,6 +307,8 @@
 
             // Update progress bar - calculate position to reach center of active dot
             const timelineWrapper = document.querySelector('.about-history__timeline');
+            const timelineWrapperContainer = document.querySelector('.about-history__timeline-wrapper');
+            
             if (timelineWrapper) {
                 const itemElement = data.element;
                 const itemLeft = itemElement.offsetLeft;
@@ -315,6 +317,15 @@
                 const wrapperWidth = timelineWrapper.offsetWidth;
                 const progressWidth = (itemCenter / wrapperWidth) * 100;
                 timelineProgress.style.width = progressWidth + '%';
+
+                // Auto-scroll to center the active item
+                if (timelineWrapperContainer) {
+                    const scrollLeft = itemLeft - (timelineWrapperContainer.offsetWidth / 2) + (itemWidth / 2);
+                    timelineWrapperContainer.scrollTo({
+                        left: scrollLeft,
+                        behavior: 'smooth'
+                    });
+                }
             }
 
             currentIndex = index;

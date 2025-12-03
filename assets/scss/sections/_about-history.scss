@@ -65,16 +65,26 @@
         top: vw(730);
         width: vw(1870);
         z-index: 2;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        
+        // Hide scrollbar but keep functionality
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     &__timeline {
         position: relative;
         display: flex;
-        justify-content: space-between;
+        gap: vw(30);
         align-items: flex-end;
-        width: 100%;
         height: vw(134);
         padding: 0 vw(50);
+        min-width: max-content;
     }
 
     &__timeline-line {
@@ -107,6 +117,8 @@
         cursor: pointer;
         transition: all 0.3s ease;
         opacity: 0.5;
+        flex-shrink: 0;
+        min-width: vw(200);
 
         &.active {
             opacity: 1;
@@ -180,14 +192,19 @@
         }
 
         &__timeline-wrapper {
-            left: vw(40, 1024);
-            bottom: vw(80, 1024);
-            width: calc(100% - vw(80, 1024));
+            left: vw(20, 1024);
+            top: vw(580, 1024);
+            width: calc(100% - vw(40, 1024));
             overflow-x: auto;
         }
 
         &__timeline {
-            min-width: vw(1400, 1024);
+            gap: vw(25, 1024);
+            padding: 0 vw(30, 1024);
+        }
+
+        &__timeline-item {
+            min-width: vw(150, 1024);
         }
 
         &__timeline-dot {
@@ -236,14 +253,19 @@
         }
 
         &__timeline-wrapper {
-            left: vw(20, 414);
-            bottom: vw(60, 414);
-            width: calc(100% - vw(40, 414));
+            left: vw(15, 414);
+            top: vw(480, 414);
+            width: calc(100% - vw(30, 414));
             overflow-x: auto;
         }
 
         &__timeline {
-            min-width: vw(1200, 414);
+            gap: vw(20, 414);
+            padding: 0 vw(20, 414);
+        }
+
+        &__timeline-item {
+            min-width: vw(140, 414);
         }
 
         &__timeline-dot {
