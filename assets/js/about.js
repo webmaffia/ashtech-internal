@@ -253,5 +253,142 @@
         img.style.opacity = '1';
     });
 
+    // ===========================================
+    // HISTORY TIMELINE - INTERACTIVE
+    // ===========================================
+    const timelineItems = document.querySelectorAll('.about-history__timeline-item');
+    const historyTitle = document.getElementById('historyTitle');
+    const historyDescription = document.getElementById('historyDescription');
+    const historyImage = document.getElementById('historyImage');
+    const timelineProgress = document.getElementById('timelineProgress');
+
+    if (timelineItems.length > 0 && historyTitle && historyDescription && timelineProgress) {
+        // Timeline data
+        const timelineData = Array.from(timelineItems).map(item => ({
+            year: item.getAttribute('data-year'),
+            title: item.getAttribute('data-title'),
+            description: item.getAttribute('data-description'),
+            image: item.getAttribute('data-image'),
+            element: item
+        }));
+
+        let currentIndex = 2; // Start at 2006 (index 2)
+        let autoPlayInterval;
+
+        // Function to update content
+        function updateContent(index) {
+            const data = timelineData[index];
+            
+            // Fade out
+            historyTitle.style.opacity = '0';
+            historyDescription.style.opacity = '0';
+            if (historyImage) {
+                historyImage.style.opacity = '0';
+            }
+            
+            setTimeout(() => {
+                historyTitle.textContent = data.title;
+                historyDescription.textContent = data.description;
+                if (historyImage && data.image) {
+                    historyImage.src = data.image;
+                }
+                
+                // Fade in
+                historyTitle.style.opacity = '1';
+                historyDescription.style.opacity = '1';
+                if (historyImage) {
+                    historyImage.style.opacity = '1';
+                }
+            }, 300);
+
+            // Update active state
+            timelineItems.forEach(item => item.classList.remove('active'));
+            data.element.classList.add('active');
+
+            // Update progress bar - calculate position to reach center of active dot
+            const timelineWrapper = document.querySelector('.about-history__timeline');
+            if (timelineWrapper) {
+                const itemElement = data.element;
+                const itemLeft = itemElement.offsetLeft;
+                const itemWidth = itemElement.offsetWidth;
+                const itemCenter = itemLeft + (itemWidth / 2);
+                const wrapperWidth = timelineWrapper.offsetWidth;
+                const progressWidth = (itemCenter / wrapperWidth) * 100;
+                timelineProgress.style.width = progressWidth + '%';
+            }
+
+            currentIndex = index;
+        }
+
+        // Click handlers
+        timelineItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateContent(index);
+                stopAutoPlay();
+            });
+        });
+
+        // Auto-play functionality
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % timelineData.length;
+                updateContent(currentIndex);
+            }, 5000); // Change every 5 seconds
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+            }
+        }
+
+        // Initialize progress bar to reach the active item's dot
+        setTimeout(() => {
+            const activeItem = timelineData[currentIndex].element;
+            const timelineWrapper = document.querySelector('.about-history__timeline');
+            if (timelineWrapper && activeItem) {
+                const itemLeft = activeItem.offsetLeft;
+                const itemWidth = activeItem.offsetWidth;
+                const itemCenter = itemLeft + (itemWidth / 2);
+                const wrapperWidth = timelineWrapper.offsetWidth;
+                const progressWidth = (itemCenter / wrapperWidth) * 100;
+                timelineProgress.style.width = progressWidth + '%';
+            }
+        }, 100);
+
+        // Start auto-play when section is visible
+        const historySection = document.querySelector('.about-history');
+        if (historySection) {
+            const historyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startAutoPlay();
+                    } else {
+                        stopAutoPlay();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            historyObserver.observe(historySection);
+        }
+
+        // Pause on hover
+        const timelineWrapper = document.querySelector('.about-history__timeline');
+        if (timelineWrapper) {
+            timelineWrapper.addEventListener('mouseenter', stopAutoPlay);
+            timelineWrapper.addEventListener('mouseleave', () => {
+                const historySection = document.querySelector('.about-history');
+                if (historySection) {
+                    const rect = historySection.getBoundingClientRect();
+                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                    if (isVisible) {
+                        startAutoPlay();
+                    }
+                }
+            });
+        }
+    }
+
 })();
+
 
