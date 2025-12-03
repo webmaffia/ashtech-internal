@@ -100,7 +100,7 @@
         &__image {
             width: 100%;
             height: vw(400, 1024);
-            order: -1;
+            
         }
     }
 
@@ -118,7 +118,7 @@
         }
 
         &__title-image {
-            height: vw(50, 414);
+            height: vw(44, 414);
         }
 
         &__content {
@@ -131,7 +131,12 @@
         }
 
         &__image {
-            height: vw(300, 414);
+            height: vw(341, 414);
+            img{
+                height: vw(341, 414);
+                width: vw(188, 414);
+                margin: 0 auto;
+            }
         }
     }
 }

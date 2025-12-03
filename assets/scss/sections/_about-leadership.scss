@@ -312,11 +312,16 @@
 
         &__main {
             gap: vw(20, 414);
+            max-width: 100%;
         }
 
         &__main-image {
-            height: vw(300, 414);
-            padding: vw(20, 414);
+            height: vw(400, 414);
+            padding: 0;
+            img{
+                position: relative;
+                top: 20%;
+            }
         }
 
         &__main-content {
@@ -346,21 +351,21 @@
         }
 
         &__team-member {
-            width: vw(160, 414);
+            width: vw(177, 414);
             height: vw(200, 414);
             padding: vw(15, 414);
         }
 
         &__team-info {
-            gap: vw(8, 414);
+            gap: 0;
         }
 
         &__team-name {
-            font-size: vw(16, 414);
+            font-size: vw(14, 414);
         }
 
         &__team-position {
-            font-size: vw(11, 414);
+            font-size: vw(10, 414);
         }
     }
 }

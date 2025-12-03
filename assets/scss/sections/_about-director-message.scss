@@ -9,7 +9,7 @@
         position: absolute;
         inset: 0;
         background-image: url('../images/about/director-message-bg-updated.jpg');
-        background-size: contain;
+        background-size: cover;
         background-position: center;
         
         pointer-events: none;
@@ -224,7 +224,7 @@
         padding: vw(30, 414) vw(20, 414) vw(60, 414);
 
         &__container {
-            gap: vw(40, 414);
+            gap: vw(20, 414);
         }
 
         &__header {
@@ -242,7 +242,8 @@
         }
 
         &__content {
-            gap: vw(20, 414);
+            gap: vw(0, 414);
+            flex-direction: column-reverse;
         }
 
         &__text-wrapper {
@@ -259,7 +260,7 @@
         }
 
         &__signature {
-            gap: vw(10, 414);
+            gap: 0;
         }
 
         &__name {
@@ -268,10 +269,13 @@
 
         &__position {
             font-size: vw(14, 414);
+            width: 100%;
         }
 
         &__image {
             height: vw(350, 414);
+            width: 81%;
+            margin: 0 auto;
         }
     }
 }

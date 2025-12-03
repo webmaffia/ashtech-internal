@@ -121,6 +121,7 @@
 
         &__container {
             gap: vw(30, 414);
+            text-align: center;
         }
 
         &__header {
@@ -141,6 +142,10 @@
 
         &__description {
             font-size: vw(14, 414);
+        }
+        &__button{
+           
+            margin: 0 auto;
         }
     }
 }

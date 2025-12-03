@@ -290,11 +290,13 @@
         }
 
         &__graphic {
-            height: vw(600, 414);
+            height: vw(390, 414);
         }
 
         &__graphic-image {
-            width: vw(200, 414);
+            width: vw(157, 414);
+            height: vw(178, 414);
+            top: 85%;
         }
 
         &__items {
@@ -310,38 +312,38 @@
             padding: 0 vw(15, 414);
 
             &--1 {
-                left: vw(20, 414);
-                top: vw(30, 414);
+                left: vw(-5, 414);
+                top: 0;
                 width: vw(180, 414);
             }
 
             &--2 {
-                left: vw(10, 414);
-                top: vw(150, 414);
+                left: vw(-5, 414);
+                top: vw(75, 414);
                 width: vw(180, 414);
             }
 
             &--3 {
-                left: 0;
-                top: vw(270, 414);
+                left:  vw(-5, 414);
+                top: vw(150, 414);
                 width: vw(180, 414);
             }
 
             &--4 {
-                right: vw(10, 414);
-                top: vw(90, 414);
+                right: vw(-5, 414);
+                top: 0;
                 width: vw(180, 414);
             }
 
             &--5 {
-                right: 0;
-                top: vw(210, 414);
+                right: vw(-5, 414);
+                top: vw(75, 414);
                 width: vw(180, 414);
             }
 
             &--6 {
-                right: vw(5, 414);
-                top: vw(330, 414);
+                right: vw(-5, 414);
+                top: vw(150, 414);
                 width: vw(180, 414);
             }
         }
@@ -349,6 +351,11 @@
         &__footer {
             font-size: vw(14, 414);
             width: 100%;
+            p{
+                br{
+                    display: none !important;
+                }
+            }
         }
     }
 }
