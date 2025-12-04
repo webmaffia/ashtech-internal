@@ -200,6 +200,17 @@
     line-height: 1.5;
     color: $color-brand-primary;
     margin: 0;
+
+    a {
+      color: $color-brand-primary;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-brand-gold;
+        text-decoration: underline;
+      }
+    }
   }
 
   // Responsive
