@@ -15,9 +15,9 @@
     &__image {
         position: absolute;
       
-        top: -61.8%;
-        width: 113.78%;
-        height: 169.96%;
+        top: 0;
+        width: 100%;
+        
         object-fit: cover;
         transition: opacity 0.5s ease;
     }

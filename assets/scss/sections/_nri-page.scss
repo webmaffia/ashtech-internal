@@ -107,7 +107,7 @@
   &__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 123.71%);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
   }
 
@@ -383,7 +383,7 @@
     font-style: normal;
     font-weight: normal;
     color: $color-brand-black;
-    opacity: 0.4;
+    opacity: 1;
     flex-shrink: 0;
     margin-right: vw(-25);
  
@@ -431,6 +431,7 @@
   position: relative;
   background: $color-bg-primary;
   padding: vw(100) 0;
+  padding-top: vw(60);
 
   &__container {
     max-width: vw(1652.965);
@@ -669,7 +670,7 @@
 
   &__container {
     position: relative;
-    padding: vw(50) vw(183.81);
+    padding: vw(0) vw(183.81) vw(50);
     display: flex;
     align-items: center;
     gap: vw(100);

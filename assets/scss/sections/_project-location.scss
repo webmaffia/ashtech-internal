@@ -92,11 +92,34 @@
   }
 
   &__connectivity {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    
+    &:hover .project-location__slider-track {
+      animation-play-state: paused;
+    }
+  }
+
+  &__slider {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__slider-track {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: vw(30);
-    flex-wrap: wrap;
+    gap: vw(50);
+    animation: slideLoop 40s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes slideLoop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   &__item {
@@ -104,7 +127,8 @@
     flex-direction: column;
     gap: vw(18);
     flex: 0 0 auto;
-    max-width: vw(245);
+    min-width: vw(280);
+    max-width: vw(280);
   }
 
   &__item-icon {
@@ -155,13 +179,23 @@
       height: vw(400);
     }
 
-    &__connectivity {
-      justify-content: flex-start;
-      gap: vw(40);
+    &__slider-track {
+      gap: vw(40, 1024);
+      animation: slideLoopTablet 40s linear infinite;
+    }
+
+    @keyframes slideLoopTablet {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     &__item {
-      flex-basis: calc(33.333% - #{vw(27)});
+      min-width: vw(240, 1024);
+      max-width: vw(240, 1024);
     }
 
     &__item-text {
@@ -203,12 +237,29 @@
     }
 
     &__connectivity {
+      overflow: visible;
+    }
+
+    &__slider {
+      overflow: visible;
+    }
+
+    &__slider-track {
+      display: flex;
+      flex-wrap: wrap;
       gap: vw(30, 414);
+      animation: none;
+      transform: none;
     }
 
     &__item {
-      flex-basis: calc(50% - #{vw(15, 414)});
-      max-width: none;
+      min-width: calc(50% - #{vw(15, 414)});
+      max-width: calc(50% - #{vw(15, 414)});
+      flex: 0 0 calc(50% - #{vw(15, 414)});
+
+      &:nth-child(n+7) {
+        display: none;
+      }
     }
 
     &__item-icon {
