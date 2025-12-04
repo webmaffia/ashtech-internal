@@ -1,34 +1,26 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { label, title, text1, text2 } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ Career Overview - Join legacy intro
+            <section className="career-overview">
+                <div className="project-about__decoration"></div>
+                <div className="career-overview__container">
+                    <div className="career-overview__left">
+                        <RichText tagName="p" className="career-overview__label animate-text" value={label} onChange={(value) => setAttributes({ label: value })} placeholder="Label..." />
+                        <RichText tagName="h2" className="career-overview__title animate-text" value={title} onChange={(value) => setAttributes({ title: value })} placeholder="Title..." />
+                    </div>
+                    <div className="career-overview__right">
+                        <div className="career-overview__text animate-text">
+                            <RichText tagName="p" value={text1} onChange={(value) => setAttributes({ text1: value })} placeholder="Paragraph 1..." />
+                            <RichText tagName="p" value={text2} onChange={(value) => setAttributes({ text2: value })} placeholder="Paragraph 2..." />
+                        </div>
+                    </div>
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

@@ -1,10 +1,14 @@
-export default function save() {
+import { RichText } from '@wordpress/block-editor';
+
+export default function save({ attributes }) {
+    const { title } = attributes;
+
     return (
         <section className="career-form">
             <div className="career-form__background"></div>
             <div className="career-form__container">
                 <div className="career-form__header">
-                    <h2 className="career-form__title animate-text">Career Detail Form</h2>
+                    <RichText.Content tagName="h2" className="career-form__title animate-text" value={title} />
                 </div>
                 
                 <form className="career-form__form" id="careerForm">
@@ -12,11 +16,9 @@ export default function save() {
                         <div className="career-form__field">
                             <input type="text" id="name" name="name" className="career-form__input" placeholder="Your Name" required />
                         </div>
-                        
                         <div className="career-form__field">
                             <input type="email" id="email" name="email" className="career-form__input" placeholder="Email" required />
                         </div>
-                        
                         <div className="career-form__field-group">
                             <div className="career-form__field career-form__field--country">
                                 <input type="text" id="countryCode" name="countryCode" className="career-form__input" value="+91 (India)" readOnly />
@@ -25,11 +27,9 @@ export default function save() {
                                 <input type="tel" id="phone" name="phone" className="career-form__input" placeholder="Your Phone Number" required />
                             </div>
                         </div>
-                        
                         <div className="career-form__field">
                             <input type="text" id="position" name="position" className="career-form__input" placeholder="Position Interested In" required />
                         </div>
-                        
                         <div className="career-form__field career-form__field--upload">
                             <input type="file" id="resume" name="resume" className="career-form__file-input" accept=".pdf,.doc,.docx" required />
                             <label htmlFor="resume" className="career-form__file-label">
@@ -37,7 +37,6 @@ export default function save() {
                                 <span>Upload Resume</span>
                             </label>
                         </div>
-                        
                         <div className="career-form__field">
                             <textarea id="message" name="message" className="career-form__textarea" placeholder="Message" rows="4"></textarea>
                         </div>

@@ -4,7 +4,17 @@
   "title": "Landing Banner",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Landing Banner block",
+  "description": "Ashtech Landing Banner block with editable title",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Nature and Architecture<br />in Perfect Sync"
+    },
+    "scrollText": {
+      "type": "string",
+      "default": "(SCROLL)"
+    }
+  },
   "supports": {
     "html": false
   },

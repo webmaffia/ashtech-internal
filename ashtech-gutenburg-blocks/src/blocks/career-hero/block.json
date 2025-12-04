@@ -4,7 +4,10 @@
   "title": "Career Hero",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Career Hero block",
+  "description": "Career page hero banner",
+  "attributes": {
+    "title": { "type": "string", "default": "Career" }
+  },
   "supports": {
     "html": false
   },

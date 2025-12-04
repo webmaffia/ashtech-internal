@@ -4,7 +4,13 @@
   "title": "Career Openings",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Career Openings block",
+  "description": "Career openings section with job listings",
+  "attributes": {
+    "label": { "type": "string", "default": "Current Openings" },
+    "title": { "type": "string", "default": "Job Offerings" },
+    "howToApplyTitle": { "type": "string", "default": "How to Apply" },
+    "howToApplyText": { "type": "string", "default": "If you're ready to build a career that builds the nation, fill out the form below or share your profile at <strong>careers@ashtechrealty.in.</strong>" }
+  },
   "supports": {
     "html": false
   },

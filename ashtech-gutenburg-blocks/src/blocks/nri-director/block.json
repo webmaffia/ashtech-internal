@@ -1,10 +1,23 @@
 {
   "apiVersion": 2,
   "name": "ashtech/nri-director",
-  "title": "Nri Director",
+  "title": "NRI Director",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Nri Director block",
+  "description": "NRI support and concierge services section",
+  "attributes": {
+    "label": { "type": "string", "default": "NRI Support & Concierge Services" },
+    "titleLine1": { "type": "string", "default": "At Your Service Always," },
+    "titleLine2": { "type": "string", "default": "Because Your Time Is Precious" },
+    "description": { "type": "string", "default": "Owning a home in India should be as effortless as living abroad. That's why we've designed an end-to-end support ecosystem for our global residents:" },
+    "footerText": { "type": "string", "default": "We make your investment journey transparent, secure, and globally<br /> accessible." },
+    "service1": { "type": "string", "default": "Virtual tours and personalised consultations from anywhere in the world." },
+    "service2": { "type": "string", "default": "Dedicated NRI relationship managers to guide you through every step." },
+    "service3": { "type": "string", "default": "Complete digital documentation and registration for remote completion." },
+    "service4": { "type": "string", "default": "Property management, leasing, and resale coordination via verified partners." },
+    "service5": { "type": "string", "default": "Regular updates on construction, possession, and performance reports." },
+    "directorImage": { "type": "string", "default": "assets/images/nri/nri-director.png" }
+  },
   "supports": {
     "html": false
   },

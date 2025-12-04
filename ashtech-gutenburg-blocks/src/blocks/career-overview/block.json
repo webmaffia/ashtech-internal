@@ -4,7 +4,13 @@
   "title": "Career Overview",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Career Overview block",
+  "description": "Career overview section",
+  "attributes": {
+    "label": { "type": "string", "default": "Overview" },
+    "title": { "type": "string", "default": "Join a Legacy of Excellence" },
+    "text1": { "type": "string", "default": "Ashtech Presidential Towers is a testament to the legacy of excellence, trust, and precision of Ashtech Group. From building landmark infrastructure to crafting premium properties, we believe in creating icons that define the future — for cities and for people." },
+    "text2": { "type": "string", "default": "If you're driven by purpose, inspired by challenges, and ready to make an impact, your journey begins here." }
+  },
   "supports": {
     "html": false
   },

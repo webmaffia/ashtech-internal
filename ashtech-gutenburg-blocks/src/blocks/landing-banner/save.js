@@ -1,10 +1,22 @@
-export default function save() {
+import { RichText } from '@wordpress/block-editor';
+
+export default function save({ attributes }) {
+    const { title, scrollText } = attributes;
+
     return (
         <section className="landing-banner">
             <div className="landing-banner__overlay"></div>
             <div className="landing-banner__content">
-                <h1 className="landing-banner__title">Nature and Architecture<br />in Perfect Sync</h1>
-                <p className="landing-banner__scroll">(SCROLL)</p>
+                <RichText.Content
+                    tagName="h1"
+                    className="landing-banner__title"
+                    value={title}
+                />
+                <RichText.Content
+                    tagName="p"
+                    className="landing-banner__scroll"
+                    value={scrollText}
+                />
             </div>
 
             <svg id="banner-svg-animation" className="landing-banner__svg" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1920 800">

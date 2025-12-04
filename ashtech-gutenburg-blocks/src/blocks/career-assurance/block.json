@@ -4,7 +4,12 @@
   "title": "Career Assurance",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Career Assurance block",
+  "description": "Career assurance note",
+  "attributes": {
+    "label": { "type": "string", "default": "Additional Info" },
+    "title": { "type": "string", "default": "A Note of Assurance" },
+    "text": { "type": "string", "default": "In the footsteps of Ashtech Group, Ashtech Presidential Towers follows a transparent and merit-based hiring process. We do not charge any fees for job applications or interviews. All official communication will be from our verified domains." }
+  },
   "supports": {
     "html": false
   },

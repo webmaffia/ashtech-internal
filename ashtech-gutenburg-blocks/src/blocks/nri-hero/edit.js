@@ -1,34 +1,17 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { title } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ NRI Hero - NRI Corner banner
+            <section className="nri-hero">
+                <div className="nri-hero__overlay"></div>
+                <div className="nri-hero__content">
+                    <RichText tagName="h1" className="nri-hero__title" value={title} onChange={(value) => setAttributes({ title: value })} placeholder="Enter hero title..." />
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

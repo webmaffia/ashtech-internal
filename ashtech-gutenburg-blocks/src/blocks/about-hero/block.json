@@ -4,7 +4,13 @@
   "title": "About Hero",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech About Hero block",
+  "description": "About page hero banner with editable title",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "About Ashtech Group"
+    }
+  },
   "supports": {
     "html": false
   },

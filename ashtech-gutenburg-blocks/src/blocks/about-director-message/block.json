@@ -4,7 +4,37 @@
   "title": "About Director Message",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech About Director Message block",
+  "description": "Director message section with editable quotes and signature",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "A Message from Our Director"
+    },
+    "quote1": {
+      "type": "string",
+      "default": "When we decided to enter real estate, we knew we had to bring the same principles that built our reputation in infrastructure: uncompromising quality, transparency, and a long-term vision."
+    },
+    "quote2": {
+      "type": "string",
+      "default": "Ashtech Presidential Towers is not just a building project. It's a statement that real estate development can be rooted in engineering rigor, audited construction, and genuine value creation."
+    },
+    "quote3": {
+      "type": "string",
+      "default": "Every residence here will carry the Ashtech seal of excellence—a promise that has endured for over three decades."
+    },
+    "signatureName": {
+      "type": "string",
+      "default": "Sumit Agarwal"
+    },
+    "signatureTitle": {
+      "type": "string",
+      "default": "Director, Ashtech Group"
+    },
+    "directorImage": {
+      "type": "string",
+      "default": "assets/images/about/director-message.jpg"
+    }
+  },
   "supports": {
     "html": false
   },

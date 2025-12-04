@@ -1,34 +1,49 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { label, title, text1, text2 } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ About Overview - Company introduction
+            <section className="about-overview">
+                <div className="project-about__decoration"></div>
+                <div className="about-overview__container">
+                    <div className="about-overview__left">
+                        <RichText
+                            tagName="p"
+                            className="about-overview__label animate-text"
+                            value={label}
+                            onChange={(value) => setAttributes({ label: value })}
+                            placeholder="Enter label..."
+                        />
+                        <RichText
+                            tagName="h2"
+                            className="about-overview__title animate-text"
+                            value={title}
+                            onChange={(value) => setAttributes({ title: value })}
+                            placeholder="Enter title..."
+                            allowedFormats={['core/bold', 'core/italic']}
+                        />
+                    </div>
+                    <div className="about-overview__right">
+                        <RichText
+                            tagName="p"
+                            className="about-overview__text animate-text"
+                            value={text1}
+                            onChange={(value) => setAttributes({ text1: value })}
+                            placeholder="Enter first paragraph..."
+                        />
+                        <RichText
+                            tagName="p"
+                            className="about-overview__text animate-text"
+                            value={text2}
+                            onChange={(value) => setAttributes({ text2: value })}
+                            placeholder="Enter second paragraph..."
+                        />
+                    </div>
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

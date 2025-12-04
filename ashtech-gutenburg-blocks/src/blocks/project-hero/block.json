@@ -4,7 +4,13 @@
   "title": "Project Hero",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Project Hero block",
+  "description": "Project page hero banner with editable title",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Presidential Towers"
+    }
+  },
   "supports": {
     "html": false
   },

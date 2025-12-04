@@ -1,10 +1,22 @@
-export default function save() {
+import { RichText } from '@wordpress/block-editor';
+
+export default function save({ attributes }) {
+    const { label, title, test1Text, test1Name, test1Location, test2Text, test2Name, test2Location, test3Text, test3Name, test3Location } = attributes;
+
     return (
         <section className="landing-testimonials">
             <div className="landing-testimonials__container">
                 <div className="landing-testimonials__header">
-                    <p className="landing-testimonials__label animate-text">What Residents Say</p>
-                    <h2 className="landing-testimonials__title animate-text">Stories of Trust & Confidence</h2>
+                    <RichText.Content
+                        tagName="p"
+                        className="landing-testimonials__label animate-text"
+                        value={label}
+                    />
+                    <RichText.Content
+                        tagName="h2"
+                        className="landing-testimonials__title animate-text"
+                        value={title}
+                    />
                 </div>
                 <div className="landing-testimonials__slider">
                     <div className="landing-testimonials__slide">
@@ -12,16 +24,26 @@ export default function save() {
                             <div className="landing-testimonials__quote">
                                 <img src="assets/images/landing/quote.svg" alt="Quote" />
                             </div>
-                            <p className="landing-testimonials__text">
-                                "We were drawn to the open greens and the club facilities. Ashtech's attention to detail and commitment to quality gave us the confidence to invest here."
-                            </p>
+                            <RichText.Content
+                                tagName="p"
+                                className="landing-testimonials__text"
+                                value={test1Text}
+                            />
                             <div className="landing-testimonials__author">
                                 <div className="landing-testimonials__author-avatar">
                                     <img src="assets/images/landing/avatar.png" alt="Avatar" />
                                 </div>
                                 <div className="landing-testimonials__author-info">
-                                    <p className="landing-testimonials__author-name">Priya & Rajesh M.</p>
-                                    <p className="landing-testimonials__author-location">Greater Noida</p>
+                                    <RichText.Content
+                                        tagName="p"
+                                        className="landing-testimonials__author-name"
+                                        value={test1Name}
+                                    />
+                                    <RichText.Content
+                                        tagName="p"
+                                        className="landing-testimonials__author-location"
+                                        value={test1Location}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -32,16 +54,26 @@ export default function save() {
                             <div className="landing-testimonials__quote">
                                 <img src="assets/images/landing/quote.svg" alt="Quote" />
                             </div>
-                            <p className="landing-testimonials__text">
-                                "As an NRI, I needed a developer I could trust. Ashtech's legacy in infrastructure and their transparent processes made this decision easy."
-                            </p>
+                            <RichText.Content
+                                tagName="p"
+                                className="landing-testimonials__text"
+                                value={test2Text}
+                            />
                             <div className="landing-testimonials__author">
                                 <div className="landing-testimonials__author-avatar">
                                     <img src="assets/images/landing/avatar.png" alt="Avatar" />
                                 </div>
                                 <div className="landing-testimonials__author-info">
-                                    <p className="landing-testimonials__author-name">Anil K.</p>
-                                    <p className="landing-testimonials__author-location">Dubai</p>
+                                    <RichText.Content
+                                        tagName="p"
+                                        className="landing-testimonials__author-name"
+                                        value={test2Name}
+                                    />
+                                    <RichText.Content
+                                        tagName="p"
+                                        className="landing-testimonials__author-location"
+                                        value={test2Location}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -52,16 +84,26 @@ export default function save() {
                             <div className="landing-testimonials__quote">
                                 <img src="assets/images/landing/quote.svg" alt="Quote" />
                             </div>
-                            <p className="landing-testimonials__text">
-                                "The zero ground-level traffic and private lift lobbies sealed the deal for us. It's a level of planning you rarely see in NCR projects."
-                            </p>
+                            <RichText.Content
+                                tagName="p"
+                                className="landing-testimonials__text"
+                                value={test3Text}
+                            />
                             <div className="landing-testimonials__author">
                                 <div className="landing-testimonials__author-avatar">
                                     <img src="assets/images/landing/avatar.png" alt="Avatar" />
                                 </div>
                                 <div className="landing-testimonials__author-info">
-                                    <p className="landing-testimonials__author-name">Simran & Vikram S.</p>
-                                    <p className="landing-testimonials__author-location">Noida</p>
+                                    <RichText.Content
+                                        tagName="p"
+                                        className="landing-testimonials__author-name"
+                                        value={test3Name}
+                                    />
+                                    <RichText.Content
+                                        tagName="p"
+                                        className="landing-testimonials__author-location"
+                                        value={test3Location}
+                                    />
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,17 @@
   "title": "Specifications",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Specifications block",
+  "description": "Specifications section with 3 spec cards",
+  "attributes": {
+    "label": { "type": "string", "default": "Specifications" },
+    "title": { "type": "string", "default": "Design That Reflects the<br />Art of Perfection" },
+    "spec1Title": { "type": "string", "default": "Residences" },
+    "spec1Image": { "type": "string", "default": "assets/images/project/spec-residences.jpg" },
+    "spec2Title": { "type": "string", "default": "Structure & Safety" },
+    "spec2Image": { "type": "string", "default": "assets/images/project/spec-structure.jpg" },
+    "spec3Title": { "type": "string", "default": "Sustainability" },
+    "spec3Image": { "type": "string", "default": "assets/images/project/spec-sustainability.jpg" }
+  },
   "supports": {
     "html": false
   },

@@ -1,34 +1,30 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { tab1, tab2, tab3, tab4 } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ Resources Tabs - 4 tab navigation
+            <section className="resources-tabs">
+                <div className="resources-tabs__container">
+                    <div className="resources-tabs__nav">
+                        <button className="resources-tabs__link" data-tab="highlights">
+                            <RichText tagName="span" value={tab1} onChange={(value) => setAttributes({ tab1: value })} placeholder="Tab 1..." />
+                        </button>
+                        <button className="resources-tabs__link" data-tab="blogs">
+                            <RichText tagName="span" value={tab2} onChange={(value) => setAttributes({ tab2: value })} placeholder="Tab 2..." />
+                        </button>
+                        <button className="resources-tabs__link" data-tab="video">
+                            <RichText tagName="span" value={tab3} onChange={(value) => setAttributes({ tab3: value })} placeholder="Tab 3..." />
+                        </button>
+                        <button className="resources-tabs__link resources-tabs__link--active" data-tab="press">
+                            <RichText tagName="span" value={tab4} onChange={(value) => setAttributes({ tab4: value })} placeholder="Tab 4..." />
+                        </button>
+                    </div>
+                    <div className="resources-tabs__line"></div>
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

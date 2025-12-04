@@ -4,7 +4,21 @@
   "title": "Project Submenu",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Project Submenu block",
+  "description": "Project submenu navigation with 6 editable links",
+  "attributes": {
+    "link1Text": { "type": "string", "default": "Overview" },
+    "link1Href": { "type": "string", "default": "#overview" },
+    "link2Text": { "type": "string", "default": "Architecture" },
+    "link2Href": { "type": "string", "default": "#architecture" },
+    "link3Text": { "type": "string", "default": "Experiences" },
+    "link3Href": { "type": "string", "default": "#experiences" },
+    "link4Text": { "type": "string", "default": "Location" },
+    "link4Href": { "type": "string", "default": "#location" },
+    "link5Text": { "type": "string", "default": "Specifications" },
+    "link5Href": { "type": "string", "default": "#specifications" },
+    "link6Text": { "type": "string", "default": "About" },
+    "link6Href": { "type": "string", "default": "#about" }
+  },
   "supports": {
     "html": false
   },

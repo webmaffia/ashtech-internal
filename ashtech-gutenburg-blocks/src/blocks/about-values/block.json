@@ -4,7 +4,69 @@
   "title": "About Values",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech About Values block",
+  "description": "About values section with 6 editable value cards and graphic",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Values"
+    },
+    "title": {
+      "type": "string",
+      "default": "The Foundation of Our Legacy"
+    },
+    "value1Title": {
+      "type": "string",
+      "default": "Excellence"
+    },
+    "value1Desc": {
+      "type": "string",
+      "default": "Uncompromising standards in every project, every time."
+    },
+    "value2Title": {
+      "type": "string",
+      "default": "Innovation"
+    },
+    "value2Desc": {
+      "type": "string",
+      "default": "Pioneering sustainable construction technologies."
+    },
+    "value3Title": {
+      "type": "string",
+      "default": "Integrity"
+    },
+    "value3Desc": {
+      "type": "string",
+      "default": "Transparent processes, ethical practices, always."
+    },
+    "value4Title": {
+      "type": "string",
+      "default": "Trust"
+    },
+    "value4Desc": {
+      "type": "string",
+      "default": "Building relationships that last generations."
+    },
+    "value5Title": {
+      "type": "string",
+      "default": "Sustainability"
+    },
+    "value5Desc": {
+      "type": "string",
+      "default": "Environmental responsibility in every decision."
+    },
+    "value6Title": {
+      "type": "string",
+      "default": "Quality"
+    },
+    "value6Desc": {
+      "type": "string",
+      "default": "TQ Cert audited, engineered for permanence."
+    },
+    "graphicUrl": {
+      "type": "string",
+      "default": "assets/images/about/values-graphic.svg"
+    }
+  },
   "supports": {
     "html": false
   },

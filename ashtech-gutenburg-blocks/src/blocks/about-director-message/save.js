@@ -1,23 +1,39 @@
-export default function save() {
+import { RichText } from '@wordpress/block-editor';
+
+export default function save({ attributes }) {
+    const { title, quote1, quote2, quote3, signatureName, signatureTitle, directorImage } = attributes;
+
     return (
         <section className="about-director-message">
             <div className="about-director-message__background"></div>
             <div className="about-director-message__container">
                 <div className="about-director-message__content">
-                    <h2 className="about-director-message__title animate-text">A Message from Our Director</h2>
+                    <RichText.Content
+                        tagName="h2"
+                        className="about-director-message__title animate-text"
+                        value={title}
+                    />
                     <div className="about-director-message__text animate-text">
-                        <p>"When we decided to enter real estate, we knew we had to bring the same principles that built our reputation in infrastructure: uncompromising quality, transparency, and a long-term vision."</p>
-                        <p>"Ashtech Presidential Towers is not just a building project. It's a statement that real estate development can be rooted in engineering rigor, audited construction, and genuine value creation."</p>
-                        <p>"Every residence here will carry the Ashtech seal of excellence—a promise that has endured for over three decades."</p>
+                        <RichText.Content tagName="p" value={quote1} />
+                        <RichText.Content tagName="p" value={quote2} />
+                        <RichText.Content tagName="p" value={quote3} />
                     </div>
                     <div className="about-director-message__signature animate-text">
                         <div className="about-director-message__signature-line"></div>
-                        <p className="about-director-message__signature-name">Sumit Agarwal</p>
-                        <p className="about-director-message__signature-title">Director, Ashtech Group</p>
+                        <RichText.Content
+                            tagName="p"
+                            className="about-director-message__signature-name"
+                            value={signatureName}
+                        />
+                        <RichText.Content
+                            tagName="p"
+                            className="about-director-message__signature-title"
+                            value={signatureTitle}
+                        />
                     </div>
                 </div>
                 <div className="about-director-message__image">
-                    <img src="assets/images/about/director-message.jpg" alt="Director" />
+                    <img src={directorImage} alt="Director" />
                 </div>
             </div>
         </section>

@@ -1,101 +1,89 @@
-export default function save() {
+import { RichText } from '@wordpress/block-editor';
+
+export default function save({ attributes }) {
+    const { label, title, event1Year, event1Title, event1Desc, event2Year, event2Title, event2Desc, event3Year, event3Title, event3Desc, event4Year, event4Title, event4Desc, event5Year, event5Title, event5Desc, event6Year, event6Title, event6Desc, event7Year, event7Title, event7Desc, event8Year, event8Title, event8Desc } = attributes;
+
     return (
         <section className="about-history">
             <div className="about-history__background"></div>
             <div className="about-history__container">
                 <div className="about-history__header">
-                    <p className="about-history__label animate-text">Our Journey</p>
-                    <h2 className="about-history__title animate-text">30+ Years of Building India</h2>
+                    <RichText.Content tagName="p" className="about-history__label animate-text" value={label} />
+                    <RichText.Content tagName="h2" className="about-history__title animate-text" value={title} />
                 </div>
 
                 <div className="about-history__timeline">
                     <div className="about-history__line"></div>
 
                     <div className="about-history__item about-history__item--left">
-                        <div className="about-history__marker">
-                            <div className="about-history__marker-dot"></div>
-                        </div>
+                        <div className="about-history__marker"><div className="about-history__marker-dot"></div></div>
                         <div className="about-history__content animate-text">
-                            <span className="about-history__year">1990</span>
-                            <h3 className="about-history__event-title">Foundation</h3>
-                            <p className="about-history__event-desc">Ashtech Group established with a vision to transform India's construction materials industry.</p>
+                            <RichText.Content tagName="span" className="about-history__year" value={event1Year} />
+                            <RichText.Content tagName="h3" className="about-history__event-title" value={event1Title} />
+                            <RichText.Content tagName="p" className="about-history__event-desc" value={event1Desc} />
                         </div>
                     </div>
 
                     <div className="about-history__item about-history__item--right">
-                        <div className="about-history__marker">
-                            <div className="about-history__marker-dot"></div>
-                        </div>
+                        <div className="about-history__marker"><div className="about-history__marker-dot"></div></div>
                         <div className="about-history__content animate-text">
-                            <span className="about-history__year">1995</span>
-                            <h3 className="about-history__event-title">Fly Ash Innovation</h3>
-                            <p className="about-history__event-desc">Pioneered fly ash brick manufacturing, setting new benchmarks in sustainable construction.</p>
+                            <RichText.Content tagName="span" className="about-history__year" value={event2Year} />
+                            <RichText.Content tagName="h3" className="about-history__event-title" value={event2Title} />
+                            <RichText.Content tagName="p" className="about-history__event-desc" value={event2Desc} />
                         </div>
                     </div>
 
                     <div className="about-history__item about-history__item--left">
-                        <div className="about-history__marker">
-                            <div className="about-history__marker-dot"></div>
-                        </div>
+                        <div className="about-history__marker"><div className="about-history__marker-dot"></div></div>
                         <div className="about-history__content animate-text">
-                            <span className="about-history__year">2002</span>
-                            <h3 className="about-history__event-title">Infrastructure Expansion</h3>
-                            <p className="about-history__event-desc">Entered large-scale infrastructure projects including power transmission systems.</p>
+                            <RichText.Content tagName="span" className="about-history__year" value={event3Year} />
+                            <RichText.Content tagName="h3" className="about-history__event-title" value={event3Title} />
+                            <RichText.Content tagName="p" className="about-history__event-desc" value={event3Desc} />
                         </div>
                     </div>
 
                     <div className="about-history__item about-history__item--right">
-                        <div className="about-history__marker">
-                            <div className="about-history__marker-dot"></div>
-                        </div>
+                        <div className="about-history__marker"><div className="about-history__marker-dot"></div></div>
                         <div className="about-history__content animate-text">
-                            <span className="about-history__year">2008</span>
-                            <h3 className="about-history__event-title">National Recognition</h3>
-                            <p className="about-history__event-desc">Awarded for excellence in sustainable construction practices and quality management.</p>
+                            <RichText.Content tagName="span" className="about-history__year" value={event4Year} />
+                            <RichText.Content tagName="h3" className="about-history__event-title" value={event4Title} />
+                            <RichText.Content tagName="p" className="about-history__event-desc" value={event4Desc} />
                         </div>
                     </div>
 
                     <div className="about-history__item about-history__item--left">
-                        <div className="about-history__marker">
-                            <div className="about-history__marker-dot"></div>
-                        </div>
+                        <div className="about-history__marker"><div className="about-history__marker-dot"></div></div>
                         <div className="about-history__content animate-text">
-                            <span className="about-history__year">2015</span>
-                            <h3 className="about-history__event-title">ISO Certification</h3>
-                            <p className="about-history__event-desc">Achieved ISO 9001:2015 certification, reinforcing our commitment to global standards.</p>
+                            <RichText.Content tagName="span" className="about-history__year" value={event5Year} />
+                            <RichText.Content tagName="h3" className="about-history__event-title" value={event5Title} />
+                            <RichText.Content tagName="p" className="about-history__event-desc" value={event5Desc} />
                         </div>
                     </div>
 
                     <div className="about-history__item about-history__item--right">
-                        <div className="about-history__marker">
-                            <div className="about-history__marker-dot"></div>
-                        </div>
+                        <div className="about-history__marker"><div className="about-history__marker-dot"></div></div>
                         <div className="about-history__content animate-text">
-                            <span className="about-history__year">2018</span>
-                            <h3 className="about-history__event-title">Renewable Energy</h3>
-                            <p className="about-history__event-desc">Diversified into renewable energy solutions and green building technologies.</p>
+                            <RichText.Content tagName="span" className="about-history__year" value={event6Year} />
+                            <RichText.Content tagName="h3" className="about-history__event-title" value={event6Title} />
+                            <RichText.Content tagName="p" className="about-history__event-desc" value={event6Desc} />
                         </div>
                     </div>
 
                     <div className="about-history__item about-history__item--left">
-                        <div className="about-history__marker">
-                            <div className="about-history__marker-dot"></div>
-                        </div>
+                        <div className="about-history__marker"><div className="about-history__marker-dot"></div></div>
                         <div className="about-history__content animate-text">
-                            <span className="about-history__year">2022</span>
-                            <h3 className="about-history__event-title">Real Estate Debut</h3>
-                            <p className="about-history__event-desc">Announced entry into luxury residential real estate with Ashtech Presidential Towers.</p>
+                            <RichText.Content tagName="span" className="about-history__year" value={event7Year} />
+                            <RichText.Content tagName="h3" className="about-history__event-title" value={event7Title} />
+                            <RichText.Content tagName="p" className="about-history__event-desc" value={event7Desc} />
                         </div>
                     </div>
 
                     <div className="about-history__item about-history__item--right">
-                        <div className="about-history__marker">
-                            <div className="about-history__marker-dot"></div>
-                        </div>
+                        <div className="about-history__marker"><div className="about-history__marker-dot"></div></div>
                         <div className="about-history__content animate-text">
-                            <span className="about-history__year">2025</span>
-                            <h3 className="about-history__event-title">Presidential Towers Launch</h3>
-                            <p className="about-history__event-desc">Officially unveiled our flagship residential project in Greater Noida West.</p>
+                            <RichText.Content tagName="span" className="about-history__year" value={event8Year} />
+                            <RichText.Content tagName="h3" className="about-history__event-title" value={event8Title} />
+                            <RichText.Content tagName="p" className="about-history__event-desc" value={event8Desc} />
                         </div>
                     </div>
                 </div>

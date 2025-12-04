@@ -1,34 +1,42 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { title, scrollText } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ Landing Banner Section - Hero with animated SVG
+            <section className="landing-banner" style={{ background: '#1a1a1a', padding: '60px 20px', position: 'relative' }}>
+                <div className="landing-banner__overlay"></div>
+                <div className="landing-banner__content" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
+                    <RichText
+                        tagName="h1"
+                        className="landing-banner__title"
+                        value={title}
+                        onChange={(newTitle) => setAttributes({ title: newTitle })}
+                        placeholder="Enter banner title..."
+                        style={{ color: 'white', fontSize: '48px', marginBottom: '20px' }}
+                    />
+                    <RichText
+                        tagName="p"
+                        className="landing-banner__scroll"
+                        value={scrollText}
+                        onChange={(newScroll) => setAttributes({ scrollText: newScroll })}
+                        placeholder="Enter scroll text..."
+                        style={{ color: 'white', fontSize: '14px' }}
+                    />
+                    <p style={{ 
+                        marginTop: '30px', 
+                        padding: '15px', 
+                        background: 'rgba(255,255,255,0.1)', 
+                        borderRadius: '4px',
+                        color: 'white',
+                        fontSize: '12px'
+                    }}>
+                        ℹ️ Click text above to edit. SVG animation will show on frontend.
+                    </p>
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

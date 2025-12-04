@@ -4,7 +4,10 @@
   "title": "Contact Offices",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Contact Offices block",
+  "description": "Contact office addresses section",
+  "attributes": {
+    "title": { "type": "string", "default": "Office Addresses" }
+  },
   "supports": {
     "html": false
   },

@@ -4,7 +4,25 @@
   "title": "About Projects",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech About Projects block",
+  "description": "About projects CTA section with editable content",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Explore Ashtech<br />Presidential Towers"
+    },
+    "text": {
+      "type": "string",
+      "default": "Discover 456 residences set across 5.6 acres with 80% open greens, a 70,000 sq.ft. clubhouse, and construction quality audited by TQ Cert. This is what legacy looks like."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "View Project"
+    },
+    "buttonLink": {
+      "type": "string",
+      "default": "project.html"
+    }
+  },
   "supports": {
     "html": false
   },

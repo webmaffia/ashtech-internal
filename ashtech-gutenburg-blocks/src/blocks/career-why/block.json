@@ -4,7 +4,20 @@
   "title": "Career Why",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Career Why block",
+  "description": "Career why choose section with 3 cards",
+  "attributes": {
+    "label": { "type": "string", "default": "Why choose us" },
+    "title": { "type": "string", "default": "Why Choose Ashtech Presidential Towers?" },
+    "card1Title": { "type": "string", "default": "Real Projects. Real Impact." },
+    "card1Desc": { "type": "string", "default": "From powering rural India to building metro infrastructure, every project we have taken on shapes lives, communities, and cities. Backed by this legacy at Ashtech Group, we are now redefining skylines. Our work speaks for itself." },
+    "card1Image": { "type": "string", "default": "assets/images/career/why-3.jpg" },
+    "card2Title": { "type": "string", "default": "Grow With Confidence." },
+    "card2Desc": { "type": "string", "default": "Growth thrives in an environment of trust and opportunity. Here, you'll find mentorship, accountability, and the freedom to lead. Because when you progress, we all do. Together, we succeed!" },
+    "card2Image": { "type": "string", "default": "assets/images/career/why-2.jpg" },
+    "card3Title": { "type": "string", "default": "Culture of Trust." },
+    "card3Desc": { "type": "string", "default": "Our people-first philosophy drives everything we do. With ethics at the core and open-door leadership across all levels, we foster collaboration, integrity, and mutual respect in every interaction." },
+    "card3Image": { "type": "string", "default": "assets/images/career/why-1.jpg" }
+  },
   "supports": {
     "html": false
   },

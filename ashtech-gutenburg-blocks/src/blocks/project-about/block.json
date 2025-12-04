@@ -4,7 +4,13 @@
   "title": "Project About",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Project About block",
+  "description": "Project about Ashtech Group section",
+  "attributes": {
+    "label": { "type": "string", "default": "About Ashtech Group" },
+    "title": { "type": "string", "default": "A Legacy Etched in Precision and Purpose" },
+    "description": { "type": "string", "default": "For over thirty years, the Ashtech Group has embodied engineering excellence and enduring quality, standing as a diversified force within India's construction and infrastructure landscape. Each milestone reflects a pursuit of perfection and a belief that true strength lies in detail. Every element of Ashtech Presidential Towers bears the imprint of that ethos audited by TQ Cert, executed by master craftsmen, and envisioned to remain timeless through generations." },
+    "buttonText": { "type": "string", "default": "Know More" }
+  },
   "supports": {
     "html": false
   },

@@ -4,7 +4,33 @@
   "title": "About Vision Mission",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech About Vision Mission block",
+  "description": "About vision and mission sections with editable content",
+  "attributes": {
+    "visionTitle": {
+      "type": "string",
+      "default": "Our Vision"
+    },
+    "visionText": {
+      "type": "string",
+      "default": "To redefine urban living in India by creating spaces that seamlessly blend architecture, nature, and technology. We envision a future where our developments stand as timeless landmarks of engineering excellence and human-centric design."
+    },
+    "visionImage": {
+      "type": "string",
+      "default": "assets/images/about/vision.jpg"
+    },
+    "missionTitle": {
+      "type": "string",
+      "default": "Our Mission"
+    },
+    "missionText": {
+      "type": "string",
+      "default": "To build residential and commercial projects that exceed industry standards through third-party audits, sustainable construction practices, and uncompromising attention to detail. Every project we undertake is a commitment to quality, transparency, and long-term value."
+    },
+    "missionImage": {
+      "type": "string",
+      "default": "assets/images/about/mission.jpg"
+    }
+  },
   "supports": {
     "html": false
   },

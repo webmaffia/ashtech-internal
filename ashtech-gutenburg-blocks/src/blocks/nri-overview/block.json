@@ -1,10 +1,16 @@
 {
   "apiVersion": 2,
   "name": "ashtech/nri-overview",
-  "title": "Nri Overview",
+  "title": "NRI Overview",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Nri Overview block",
+  "description": "NRI overview section with editable content",
+  "attributes": {
+    "label": { "type": "string", "default": "Overview" },
+    "title": { "type": "string", "default": "An Investment Opportunity<br />Like None Other!" },
+    "description": { "type": "string", "default": "Discover a home that brings you closer to where it all began and yet keeps pace with your global aspirations.<br /><br />At Ashtech Presidential Towers, Greater Noida, we invite you to own an address that stands as a symbol of success, stability, and pride. Designed for a select few, this 5.6-acre landmark blends precision engineering with timeless luxury, a legacy investment that grows in value and meaning." },
+    "buttonText": { "type": "string", "default": "Book a Virtual Tour" }
+  },
   "supports": {
     "html": false
   },

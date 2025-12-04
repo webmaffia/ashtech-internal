@@ -4,7 +4,29 @@
   "title": "Landing Overview",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Landing Overview block",
+  "description": "Landing overview section with editable content",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Ashtech Presidential Towers"
+    },
+    "title": {
+      "type": "string",
+      "default": "456 Residences. One Iconic Address."
+    },
+    "text1": {
+      "type": "string",
+      "default": "A 5.6-acre landmark in Greater Noida - West where architecture meets aspiration. Envisioned for those who value space, silence, and uncompromising quality, Ashtech Presidential Towers offers 456 residences framed by 80% open greens."
+    },
+    "text2": {
+      "type": "string",
+      "default": "This is not just vertical living—it's living elevated by legacy, refined by detail, and rooted in engineering excellence that has powered India's infrastructure for decades."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Download Brochure"
+    }
+  },
   "supports": {
     "html": false
   },

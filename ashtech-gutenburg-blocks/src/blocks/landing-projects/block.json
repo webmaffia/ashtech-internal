@@ -4,7 +4,25 @@
   "title": "Landing Projects",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Landing Projects block",
+  "description": "Landing projects section with building image and CTA buttons",
+  "attributes": {
+    "backgroundImage": {
+      "type": "string",
+      "default": "assets/images/landing/building-render.jpg"
+    },
+    "button1Text": {
+      "type": "string",
+      "default": "View Project"
+    },
+    "button1Link": {
+      "type": "string",
+      "default": "project.html"
+    },
+    "button2Text": {
+      "type": "string",
+      "default": "Schedule a Site Visit"
+    }
+  },
   "supports": {
     "html": false
   },

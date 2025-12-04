@@ -4,7 +4,11 @@
   "title": "Contact Form",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Contact Form block",
+  "description": "Contact form section",
+  "attributes": {
+    "title": { "type": "string", "default": "Let's get in touch" },
+    "subtitle": { "type": "string", "default": "Please share your details, and our team will be in touch with you at the earliest." }
+  },
   "supports": {
     "html": false
   },

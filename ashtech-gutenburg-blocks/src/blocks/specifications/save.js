@@ -1,19 +1,21 @@
-export default function save() {
+import { RichText } from '@wordpress/block-editor';
+
+export default function save({ attributes }) {
+    const { label, title, spec1Title, spec1Image, spec2Title, spec2Image, spec3Title, spec3Image } = attributes;
+
     return (
         <section className="specifications" id="specifications">
             <div className="specifications__header">
-                <p className="specifications__label">Specifications</p>
-                <h2 className="specifications__title">Design That Reflects the<br />Art of Perfection</h2>
+                <RichText.Content tagName="p" className="specifications__label" value={label} />
+                <RichText.Content tagName="h2" className="specifications__title" value={title} />
             </div>
             
             <div className="specifications__cards">
                 <div className="specifications__card-wrapper">
                     <div className="spec-card">
-                        <div className="spec-card__image">
-                            <img src="assets/images/project/spec-residences.jpg" alt="Luxurious residence interior" />
-                        </div>
+                        <div className="spec-card__image"><img src={spec1Image} alt="Luxurious residence interior" /></div>
                         <div className="spec-card__content">
-                            <h3 className="spec-card__title">Residences</h3>
+                            <RichText.Content tagName="h3" className="spec-card__title" value={spec1Title} />
                             <ul className="spec-card__list">
                                 <li>Italian marble flooring in the living, dining, and kitchen</li>
                                 <li>Hot and cold VRV air-conditioning</li>
@@ -29,11 +31,9 @@ export default function save() {
                 
                 <div className="specifications__card-wrapper">
                     <div className="spec-card">
-                        <div className="spec-card__image">
-                            <img src="assets/images/project/spec-structure.jpg" alt="Building structure and safety features" />
-                        </div>
+                        <div className="spec-card__image"><img src={spec2Image} alt="Building structure and safety features" /></div>
                         <div className="spec-card__content">
-                            <h3 className="spec-card__title">Structure & Safety</h3>
+                            <RichText.Content tagName="h3" className="spec-card__title" value={spec2Title} />
                             <ul className="spec-card__list">
                                 <li>Aluminium crown facade system</li>
                                 <li>Ground-level free of vehicular movement</li>
@@ -46,11 +46,9 @@ export default function save() {
                 
                 <div className="specifications__card-wrapper">
                     <div className="spec-card">
-                        <div className="spec-card__image">
-                            <img src="assets/images/project/spec-sustainability.jpg" alt="Sustainable green spaces" />
-                        </div>
+                        <div className="spec-card__image"><img src={spec3Image} alt="Sustainable green spaces" /></div>
                         <div className="spec-card__content">
-                            <h3 className="spec-card__title">Sustainability</h3>
+                            <RichText.Content tagName="h3" className="spec-card__title" value={spec3Title} />
                             <ul className="spec-card__list">
                                 <li>Passive cooling strategies</li>
                                 <li>Cross-ventilation in every residence</li>

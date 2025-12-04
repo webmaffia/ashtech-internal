@@ -1,34 +1,45 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { label, title, card1Title, card1Desc, card1Image, card2Title, card2Desc, card2Image, card3Title, card3Desc, card3Image } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ Career Why - 3 why choose cards
+            <section className="career-why">
+                <div className="career-why__container">
+                    <div className="career-why__header">
+                        <RichText tagName="p" className="career-why__label animate-text" value={label} onChange={(value) => setAttributes({ label: value })} placeholder="Label..." />
+                        <RichText tagName="h2" className="career-why__title animate-text" value={title} onChange={(value) => setAttributes({ title: value })} placeholder="Title..." />
+                    </div>
+                    
+                    <div className="career-why__cards">
+                        <div className="career-why__card career-why__card--offset-1">
+                            <div className="career-why__image"><img src={card1Image} alt="Card 1" /></div>
+                            <div className="career-why__content">
+                                <RichText tagName="h3" className="career-why__card-title animate-text" value={card1Title} onChange={(value) => setAttributes({ card1Title: value })} placeholder="Card 1 title..." />
+                                <RichText tagName="p" className="career-why__card-desc animate-text" value={card1Desc} onChange={(value) => setAttributes({ card1Desc: value })} placeholder="Card 1 description..." />
+                            </div>
+                        </div>
+                        
+                        <div className="career-why__card career-why__card--offset-2">
+                            <div className="career-why__image"><img src={card2Image} alt="Card 2" /></div>
+                            <div className="career-why__content">
+                                <RichText tagName="h3" className="career-why__card-title animate-text" value={card2Title} onChange={(value) => setAttributes({ card2Title: value })} placeholder="Card 2 title..." />
+                                <RichText tagName="p" className="career-why__card-desc animate-text" value={card2Desc} onChange={(value) => setAttributes({ card2Desc: value })} placeholder="Card 2 description..." />
+                            </div>
+                        </div>
+                        
+                        <div className="career-why__card career-why__card--offset-3">
+                            <div className="career-why__image"><img src={card3Image} alt="Card 3" /></div>
+                            <div className="career-why__content">
+                                <RichText tagName="h3" className="career-why__card-title animate-text" value={card3Title} onChange={(value) => setAttributes({ card3Title: value })} placeholder="Card 3 title..." />
+                                <RichText tagName="p" className="career-why__card-desc animate-text" value={card3Desc} onChange={(value) => setAttributes({ card3Desc: value })} placeholder="Card 3 description..." />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

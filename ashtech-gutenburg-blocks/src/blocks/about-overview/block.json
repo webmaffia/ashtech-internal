@@ -4,7 +4,25 @@
   "title": "About Overview",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech About Overview block",
+  "description": "About overview section with editable text content",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Overview"
+    },
+    "title": {
+      "type": "string",
+      "default": "Three Decades of Engineering<br />Excellence, One Vision"
+    },
+    "text1": {
+      "type": "string",
+      "default": "Ashtech Group has spent over thirty years building India's infrastructure backbone, from fly ash-based construction materials to renewable energy, large-scale industrial projects, and power transmission systems. Our name represents precision, compliance, and trust."
+    },
+    "text2": {
+      "type": "string",
+      "default": "Today, we bring that same commitment to real estate with Ashtech Presidential Towers, where every design decision, material choice, and construction phase is held to the highest standards. This is our first residential landmark—and a statement of what enduring quality truly means."
+    }
+  },
   "supports": {
     "html": false
   },

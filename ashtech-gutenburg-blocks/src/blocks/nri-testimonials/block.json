@@ -1,10 +1,21 @@
 {
   "apiVersion": 2,
   "name": "ashtech/nri-testimonials",
-  "title": "Nri Testimonials",
+  "title": "NRI Testimonials",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Nri Testimonials block",
+  "description": "NRI testimonials section with 3 editable testimonials",
+  "attributes": {
+    "label": { "type": "string", "default": "Global Homeowners" },
+    "title": { "type": "string", "default": "Stories of Confidence, Trust, and Commitment<br />from Our Global Residents" },
+    "test1Text": { "type": "string", "default": "I booked my residence at Ashtech Presidential Towers from Dubai without a single site visit. The process was completely digital, and the team kept me updated throughout." },
+    "test1Name": { "type": "string", "default": "Rohan S.,<br />Dubai" },
+    "test2Text": { "type": "string", "default": "The combination of quality, trust, and location made this an easy decision. Ashtech's NRI team handled everything seamlessly." },
+    "test2Name": { "type": "string", "default": "Ananya P.,<br />Singapore" },
+    "test3Text": { "type": "string", "default": "It's reassuring to invest with a developer that understands both luxury and long-term value." },
+    "test3Name": { "type": "string", "default": "Vivek M.,<br />London" },
+    "footerText": { "type": "string", "default": "Each story is a testament to the trust our global community places in Ashtech." }
+  },
   "supports": {
     "html": false
   },

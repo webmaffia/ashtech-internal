@@ -4,7 +4,10 @@
   "title": "Contact Hero",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Contact Hero block",
+  "description": "Contact page hero banner",
+  "attributes": {
+    "title": { "type": "string", "default": "Contact Us" }
+  },
   "supports": {
     "html": false
   },

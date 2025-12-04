@@ -1,34 +1,43 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { backgroundImage, button1Text, button1Link, button2Text } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ Landing Projects - Building render with CTA buttons
+            <section className="landing-projects">
+                <div className="landing-projects__background">
+                    <img src={backgroundImage} alt="Ashtech Presidential Towers" className="landing-projects__image" />
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
+                <div className="landing-projects__overlay"></div>
+                <div className="landing-projects__content">
+                    <div className="landing-projects__buttons">
+                        <a href={button1Link} className="btn btn--secondary">
+                            <RichText
+                                tagName="span"
+                                value={button1Text}
+                                onChange={(value) => setAttributes({ button1Text: value })}
+                                placeholder="Button 1 text..."
+                            />
+                            <div className="btn__icon">
+                                <img src="assets/images/arrow-right.svg" alt="Arrow" />
+                            </div>
+                        </a>
+                        <button className="btn btn--secondary downloadCta">
+                            <RichText
+                                tagName="span"
+                                value={button2Text}
+                                onChange={(value) => setAttributes({ button2Text: value })}
+                                placeholder="Button 2 text..."
+                            />
+                            <div className="btn__icon">
+                                <img src="assets/images/arrow-right.svg" alt="Arrow" />
+                            </div>
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </section>
         </div>
     );
 }

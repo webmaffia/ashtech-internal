@@ -4,7 +4,10 @@
   "title": "Career Form",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Career Form block",
+  "description": "Career application form",
+  "attributes": {
+    "title": { "type": "string", "default": "Career Detail Form" }
+  },
   "supports": {
     "html": false
   },

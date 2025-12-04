@@ -1,34 +1,75 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { title, subtitle } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ Contact Enquiry - 4 enquiry cards
+            <section className="contact-enquiry">
+                <div className="contact-enquiry__background"></div>
+                <div className="contact-enquiry__container">
+                    <div className="contact-enquiry__header">
+                        <RichText tagName="h2" className="contact-enquiry__title" value={title} onChange={(value) => setAttributes({ title: value })} placeholder="Title..." />
+                        <RichText tagName="p" className="contact-enquiry__subtitle" value={subtitle} onChange={(value) => setAttributes({ subtitle: value })} placeholder="Subtitle..." />
+                    </div>
+                    
+                    <div className="contact-enquiry__content">
+                        <div className="contact-enquiry__row">
+                            <div className="contact-enquiry__card">
+                                <h3 className="contact-enquiry__card-title">Sales Enquiry</h3>
+                                <div className="contact-enquiry__details">
+                                    <div className="contact-enquiry__detail-item">
+                                        <div className="contact-enquiry__icon"><img src="assets/images/contact/icon-phone.svg" alt="Phone" /></div>
+                                        <a href="tel:9278333333" className="contact-enquiry__text">9278 333 333</a>
+                                    </div>
+                                    <div className="contact-enquiry__detail-item contact-enquiry__detail-item--email">
+                                        <div className="contact-enquiry__icon"><img src="assets/images/contact/icon-email.svg" alt="Email" /></div>
+                                        <a href="mailto:care@ashtechgroup.in" className="contact-enquiry__text">care@ashtechgroup.in</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="contact-enquiry__card">
+                                <h3 className="contact-enquiry__card-title">Customer Enquiry</h3>
+                                <div className="contact-enquiry__details">
+                                    <div className="contact-enquiry__detail-item">
+                                        <div className="contact-enquiry__icon"><img src="assets/images/contact/icon-phone.svg" alt="Phone" /></div>
+                                        <a href="tel:9278333333" className="contact-enquiry__text">9278 333 333</a>
+                                    </div>
+                                    <div className="contact-enquiry__detail-item contact-enquiry__detail-item--email">
+                                        <div className="contact-enquiry__icon"><img src="assets/images/contact/icon-email.svg" alt="Email" /></div>
+                                        <a href="mailto:care@ashtechgroup.in" className="contact-enquiry__text">care@ashtechgroup.in</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="contact-enquiry__card">
+                                <h3 className="contact-enquiry__card-title">Investor Relations</h3>
+                                <div className="contact-enquiry__details">
+                                    <div className="contact-enquiry__detail-item">
+                                        <div className="contact-enquiry__icon"><img src="assets/images/contact/icon-phone.svg" alt="Phone" /></div>
+                                        <a href="tel:9278333333" className="contact-enquiry__text">9278 333 333</a>
+                                    </div>
+                                    <div className="contact-enquiry__detail-item contact-enquiry__detail-item--email">
+                                        <div className="contact-enquiry__icon"><img src="assets/images/contact/icon-email.svg" alt="Email" /></div>
+                                        <a href="mailto:care@ashtechgroup.in" className="contact-enquiry__text">care@ashtechgroup.in</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="contact-enquiry__row contact-enquiry__row--center">
+                            <div className="contact-enquiry__card">
+                                <h3 className="contact-enquiry__card-title">Career Enquiry</h3>
+                                <div className="contact-enquiry__details">
+                                    <div className="contact-enquiry__detail-item contact-enquiry__detail-item--email">
+                                        <div className="contact-enquiry__icon"><img src="assets/images/contact/icon-email.svg" alt="Email" /></div>
+                                        <a href="mailto:care@ashtechgroup.in" className="contact-enquiry__text">care@ashtechgroup.in</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

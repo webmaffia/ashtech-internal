@@ -1,10 +1,15 @@
 {
   "apiVersion": 2,
   "name": "ashtech/nri-cta",
-  "title": "Nri Cta",
+  "title": "NRI CTA",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Nri Cta block",
+  "description": "NRI closing call to action",
+  "attributes": {
+    "title": { "type": "string", "default": "Own an Iconic Address That<br />Mirrors Your Global Vision" },
+    "description": { "type": "string", "default": "At Ashtech Presidential Towers, every residence is a statement of legacy,<br /> One that carries the confidence of engineering precision and the<br /> comfort of world-class living." },
+    "buttonText": { "type": "string", "default": "Connect with Us" }
+  },
   "supports": {
     "html": false
   },

@@ -1,34 +1,23 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { label, title, text } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ Career Assurance - Hiring process note
+            <section className="career-assurance">
+                <div className="project-about__decoration"></div>
+                <div className="career-assurance__container">
+                    <div className="career-assurance__left">
+                        <RichText tagName="p" className="career-assurance__label animate-text" value={label} onChange={(value) => setAttributes({ label: value })} placeholder="Label..." />
+                        <RichText tagName="h3" className="career-assurance__title animate-text" value={title} onChange={(value) => setAttributes({ title: value })} placeholder="Title..." />
+                    </div>
+                    <div className="career-assurance__right">
+                        <RichText tagName="p" className="career-assurance__text animate-text" value={text} onChange={(value) => setAttributes({ text: value })} placeholder="Text..." />
+                    </div>
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

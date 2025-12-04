@@ -1,46 +1,106 @@
-export default function save() {
+import { RichText } from '@wordpress/block-editor';
+
+export default function save({ attributes }) {
+    const { label, title, value1Title, value1Desc, value2Title, value2Desc, value3Title, value3Desc, value4Title, value4Desc, value5Title, value5Desc, value6Title, value6Desc, graphicUrl } = attributes;
+
     return (
         <section className="landing-values">
             <div className="landing-values__container">
                 <div className="landing-values__text-content">
-                    <p className="landing-values__label animate-text">What Defines This Address</p>
-                    <h2 className="landing-values__title animate-text">Precision in Every Promise</h2>
+                    <RichText.Content
+                        tagName="p"
+                        className="landing-values__label animate-text"
+                        value={label}
+                    />
+                    <RichText.Content
+                        tagName="h2"
+                        className="landing-values__title animate-text"
+                        value={title}
+                    />
 
                     <div className="landing-values__grid">
                         <div className="landing-values__item animate-text">
-                            <h3 className="landing-values__item-title">80% Open Greens</h3>
-                            <p className="landing-values__item-desc">Because space is the ultimate luxury</p>
+                            <RichText.Content
+                                tagName="h3"
+                                className="landing-values__item-title"
+                                value={value1Title}
+                            />
+                            <RichText.Content
+                                tagName="p"
+                                className="landing-values__item-desc"
+                                value={value1Desc}
+                            />
                         </div>
 
                         <div className="landing-values__item animate-text">
-                            <h3 className="landing-values__item-title">70,000 Sq.Ft. Club</h3>
-                            <p className="landing-values__item-desc">World-class amenities, private access</p>
+                            <RichText.Content
+                                tagName="h3"
+                                className="landing-values__item-title"
+                                value={value2Title}
+                            />
+                            <RichText.Content
+                                tagName="p"
+                                className="landing-values__item-desc"
+                                value={value2Desc}
+                            />
                         </div>
 
                         <div className="landing-values__item animate-text">
-                            <h3 className="landing-values__item-title">Zero Ground-Level Traffic</h3>
-                            <p className="landing-values__item-desc">Elevated arrival experience, assured safety</p>
+                            <RichText.Content
+                                tagName="h3"
+                                className="landing-values__item-title"
+                                value={value3Title}
+                            />
+                            <RichText.Content
+                                tagName="p"
+                                className="landing-values__item-desc"
+                                value={value3Desc}
+                            />
                         </div>
 
                         <div className="landing-values__item animate-text">
-                            <h3 className="landing-values__item-title">TQ Cert Quality</h3>
-                            <p className="landing-values__item-desc">Audit-backed construction at every phase</p>
+                            <RichText.Content
+                                tagName="h3"
+                                className="landing-values__item-title"
+                                value={value4Title}
+                            />
+                            <RichText.Content
+                                tagName="p"
+                                className="landing-values__item-desc"
+                                value={value4Desc}
+                            />
                         </div>
 
                         <div className="landing-values__item animate-text">
-                            <h3 className="landing-values__item-title">Ashtech Legacy</h3>
-                            <p className="landing-values__item-desc">30+ years of engineering excellence</p>
+                            <RichText.Content
+                                tagName="h3"
+                                className="landing-values__item-title"
+                                value={value5Title}
+                            />
+                            <RichText.Content
+                                tagName="p"
+                                className="landing-values__item-desc"
+                                value={value5Desc}
+                            />
                         </div>
 
                         <div className="landing-values__item animate-text">
-                            <h3 className="landing-values__item-title">Greater Noida West</h3>
-                            <p className="landing-values__item-desc">Connected, yet quietly removed</p>
+                            <RichText.Content
+                                tagName="h3"
+                                className="landing-values__item-title"
+                                value={value6Title}
+                            />
+                            <RichText.Content
+                                tagName="p"
+                                className="landing-values__item-desc"
+                                value={value6Desc}
+                            />
                         </div>
                     </div>
                 </div>
 
                 <div className="landing-values__graphic">
-                    <img src="assets/images/landing/values-graphic.svg" alt="Building illustration" className="landing-values__image" />
+                    <img src={graphicUrl} alt="Building illustration" className="landing-values__image" />
                 </div>
             </div>
         </section>

@@ -1,34 +1,58 @@
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function Edit() {
-    const blockProps = useBlockProps({
-        className: 'ashtech-block-editor-placeholder'
-    });
+export default function Edit({ attributes, setAttributes }) {
+    const blockProps = useBlockProps();
+    const { visionTitle, visionText, visionImage, missionTitle, missionText, missionImage } = attributes;
 
     return (
         <div {...blockProps}>
-            <div style={{
-                padding: '30px',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                color: 'white',
-                borderRadius: '8px',
-                textAlign: 'center',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-            }}>
-                <div style={{
-                    fontSize: '24px',
-                    fontWeight: 'bold',
-                    marginBottom: '10px'
-                }}>
-                    ✓ About Vision & Mission - Two sections
+            <section className="about-vision-mission">
+                <div className="about-vision-mission__container">
+                    <div className="about-vision-mission__section about-vision-mission__vision">
+                        <div className="about-vision-mission__image">
+                            <img src={visionImage} alt="Vision" />
+                        </div>
+                        <div className="about-vision-mission__content">
+                            <RichText
+                                tagName="h2"
+                                className="about-vision-mission__title animate-text"
+                                value={visionTitle}
+                                onChange={(value) => setAttributes({ visionTitle: value })}
+                                placeholder="Vision title..."
+                            />
+                            <RichText
+                                tagName="p"
+                                className="about-vision-mission__text animate-text"
+                                value={visionText}
+                                onChange={(value) => setAttributes({ visionText: value })}
+                                placeholder="Vision text..."
+                            />
+                        </div>
+                    </div>
+
+                    <div className="about-vision-mission__section about-vision-mission__mission">
+                        <div className="about-vision-mission__image about-vision-mission__image--right">
+                            <img src={missionImage} alt="Mission" />
+                        </div>
+                        <div className="about-vision-mission__content about-vision-mission__content--right">
+                            <RichText
+                                tagName="h2"
+                                className="about-vision-mission__title animate-text"
+                                value={missionTitle}
+                                onChange={(value) => setAttributes({ missionTitle: value })}
+                                placeholder="Mission title..."
+                            />
+                            <RichText
+                                tagName="p"
+                                className="about-vision-mission__text animate-text"
+                                value={missionText}
+                                onChange={(value) => setAttributes({ missionText: value })}
+                                placeholder="Mission text..."
+                            />
+                        </div>
+                    </div>
                 </div>
-                <div style={{
-                    fontSize: '14px',
-                    opacity: 0.9
-                }}>
-                    Content will render perfectly on frontend with full styling
-                </div>
-            </div>
+            </section>
         </div>
     );
 }

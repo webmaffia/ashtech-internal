@@ -1,10 +1,22 @@
 {
   "apiVersion": 2,
   "name": "ashtech/nri-architecture",
-  "title": "Nri Architecture",
+  "title": "NRI Architecture",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Nri Architecture block",
+  "description": "NRI investment features section",
+  "attributes": {
+    "label": { "type": "string", "default": "Why Invest in India's Greater Noida" },
+    "title": { "type": "string", "default": "Smartest Investment Opportunity<br />in Fastest-Growing Urban Corridor" },
+    "description": { "type": "string", "default": "Greater Noida has emerged as one of India's most promising investment corridors, attracting <br /> professionals, global enterprises, and infrastructure growth on an unprecedented scale." },
+    "feature1": { "type": "string", "default": "Strong rental demand from corporate professionals and new-age entrepreneurs." },
+    "feature2": { "type": "string", "default": "Robust economic growth is supported by India's steady GDP expansion." },
+    "feature3": { "type": "string", "default": "Investor-friendly reforms such as RERA and FEMA ensure transparency and compliance." },
+    "feature4": { "type": "string", "default": "Exceptional connectivity via the Metro network, the upcoming Noida International (Jewar) Airport, and the FNG Expressway." },
+    "feature5": { "type": "string", "default": "Rapidly evolving IT, industrial, and business hubs along the Noida–Yamuna Expressway belt." },
+    "feature6": { "type": "string", "default": "World-class schools, universities, hospitals and malls, enhancing the quality of life and tenant appeal." },
+    "footerText": { "type": "string", "default": "Whether you're seeking consistent ROI or long-term appreciation, Greater Noida stands out as a secure, high-growth investment destination." }
+  },
   "supports": {
     "html": false
   },

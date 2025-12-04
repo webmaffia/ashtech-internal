@@ -4,7 +4,11 @@
   "title": "Contact Enquiry",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Contact Enquiry block",
+  "description": "Contact enquiry directory",
+  "attributes": {
+    "title": { "type": "string", "default": "Enquiry Directory" },
+    "subtitle": { "type": "string", "default": "Connect With Ashtech" }
+  },
   "supports": {
     "html": false
   },

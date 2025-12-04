@@ -4,7 +4,13 @@
   "title": "Resources Tabs",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Resources Tabs block",
+  "description": "Resources tab navigation with 4 tabs",
+  "attributes": {
+    "tab1": { "type": "string", "default": "Highlights" },
+    "tab2": { "type": "string", "default": "Blogs" },
+    "tab3": { "type": "string", "default": "Video Gallery" },
+    "tab4": { "type": "string", "default": "Press & Media" }
+  },
   "supports": {
     "html": false
   },

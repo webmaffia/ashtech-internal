@@ -4,7 +4,53 @@
   "title": "Landing Testimonials",
   "category": "ashtech-blocks",
   "icon": "admin-customizer",
-  "description": "Ashtech Landing Testimonials block",
+  "description": "Landing testimonials slider with 3 editable testimonials",
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "What Residents Say"
+    },
+    "title": {
+      "type": "string",
+      "default": "Stories of Trust & Confidence"
+    },
+    "test1Text": {
+      "type": "string",
+      "default": "We were drawn to the open greens and the club facilities. Ashtech's attention to detail and commitment to quality gave us the confidence to invest here."
+    },
+    "test1Name": {
+      "type": "string",
+      "default": "Priya & Rajesh M."
+    },
+    "test1Location": {
+      "type": "string",
+      "default": "Greater Noida"
+    },
+    "test2Text": {
+      "type": "string",
+      "default": "As an NRI, I needed a developer I could trust. Ashtech's legacy in infrastructure and their transparent processes made this decision easy."
+    },
+    "test2Name": {
+      "type": "string",
+      "default": "Anil K."
+    },
+    "test2Location": {
+      "type": "string",
+      "default": "Dubai"
+    },
+    "test3Text": {
+      "type": "string",
+      "default": "The zero ground-level traffic and private lift lobbies sealed the deal for us. It's a level of planning you rarely see in NCR projects."
+    },
+    "test3Name": {
+      "type": "string",
+      "default": "Simran & Vikram S."
+    },
+    "test3Location": {
+      "type": "string",
+      "default": "Noida"
+    }
+  },
   "supports": {
     "html": false
   },
