@@ -1,0 +1,268 @@
+// ===========================================
+// MIXINS - Ashtech Presidential Towers
+// ===========================================
+
+// Responsive Breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'mobile' {
+    @media (max-width: #{$breakpoint-mobile - 1}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'tablet' {
+    @media (max-width: #{$breakpoint-tablet - 1}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'laptop' {
+    @media (max-width: #{$breakpoint-laptop - 1}) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'desktop' {
+    @media (max-width: #{$breakpoint-desktop - 1}) {
+      @content;
+    }
+  }
+}
+
+// Min-width media queries
+@mixin respond-from($breakpoint) {
+  @if $breakpoint == 'mobile' {
+    @media (min-width: $breakpoint-mobile) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'tablet' {
+    @media (min-width: $breakpoint-tablet) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'laptop' {
+    @media (min-width: $breakpoint-laptop) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'desktop' {
+    @media (min-width: $breakpoint-desktop) {
+      @content;
+    }
+  }
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Typography mixins
+@mixin heading-primary {
+  font-family: $font-primary;
+  font-weight: 400;
+  font-style: normal;
+  line-height: $line-height-tight;
+}
+
+@mixin heading-secondary {
+  font-family: $font-secondary;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-medium;
+}
+
+@mixin body-text {
+  font-family: $font-secondary;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-medium;
+}
+
+@mixin body-paragraph {
+  font-family: $font-secondary;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-relaxed;
+}
+
+// Position absolute center
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Aspect Ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: calc(($height / $width) * 100%);
+  }
+}
+
+// Cover Image
+@mixin cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// Overlay
+@mixin overlay($color: rgba(0, 0, 0, 0.5)) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $color;
+    z-index: 1;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Truncate text
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Multi-line truncate
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Hover transition
+@mixin hover-transition($property: all) {
+  transition: $property $transition-base;
+  
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// Button reset
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+// Link reset
+@mixin link-reset {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-left: $container-padding-desktop;
+  padding-right: $container-padding-desktop;
+  
+  @include respond-to('desktop') {
+    padding-left: $container-padding-tablet;
+    padding-right: $container-padding-tablet;
+  }
+  
+  @include respond-to('tablet') {
+    padding-left: $container-padding-mobile;
+    padding-right: $container-padding-mobile;
+  }
+}
+
+// Section spacing
+@mixin section-spacing {
+  padding: $spacing-6xl $container-padding-desktop;
+  
+  @include respond-to('desktop') {
+    padding: 80px $container-padding-tablet;
+  }
+  
+  @include respond-to('tablet') {
+    padding: $spacing-2xl $container-padding-mobile;
+  }
+}
+
+// Visually hidden (for accessibility)
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Responsive font size
+@mixin responsive-font($desktop-size, $mobile-size) {
+  font-size: $desktop-size;
+  
+  @include respond-to('tablet') {
+    font-size: calc(#{$mobile-size} + (#{strip-unit($desktop-size)} - #{strip-unit($mobile-size)}) * ((100vw - 320px) / (768 - 320)));
+  }
+  
+  @include respond-to('mobile') {
+    font-size: $mobile-size;
+  }
+}
+
+// Helper function to strip units
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+

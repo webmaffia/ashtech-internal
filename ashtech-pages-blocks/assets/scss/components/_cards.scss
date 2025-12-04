@@ -1,0 +1,246 @@
+// ===========================================
+// CARDS
+// ===========================================
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+// Specification Card
+.spec-card {
+  @include flex-column;
+  gap: 40px;
+  width: 100%;
+  max-width: 550px;
+
+  @include respond-to('laptop') {
+    max-width: 100%;
+  }
+
+  @include respond-to('tablet') {
+    gap: $spacing-lg;
+  }
+}
+
+.spec-card__image {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+
+  @include respond-to('laptop') {
+    height: 400px;
+  }
+
+  @include respond-to('tablet') {
+    height: 300px;
+  }
+
+  @include respond-to('mobile') {
+    height: 240px;
+  }
+
+  img {
+    @include cover-image;
+    transition: transform $transition-slow;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.spec-card__content {
+  @include flex-column;
+  gap: $spacing-lg;
+  width: 100%;
+  max-width: 476px;
+
+  @include respond-to('tablet') {
+    max-width: 100%;
+    gap: 20px;
+  }
+}
+
+.spec-card__title {
+  @include heading-primary;
+  font-size: $font-size-h4;
+  line-height: $line-height-medium;
+  color: $color-brand-primary;
+
+  @include respond-to('tablet') {
+    font-size: 30px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 24px;
+  }
+}
+
+.spec-card__list {
+  @include body-text;
+  font-size: $font-size-body;
+  color: $color-body;
+  
+  li {
+    margin-left: 30px;
+    margin-bottom: 0;
+    list-style: disc;
+    line-height: $line-height-medium;
+
+    &:not(:last-child) {
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  @include respond-to('tablet') {
+    font-size: 18px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 16px;
+    
+    li {
+      margin-left: 20px;
+    }
+  }
+}
+
+// Icon Card (for overview section)
+.icon-card {
+  @include flex-column-center;
+  gap: $spacing-sm;
+  text-align: center;
+
+  @include respond-to('tablet') {
+    gap: 10px;
+  }
+}
+
+.icon-card__icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+
+  @include respond-to('tablet') {
+    width: 28px;
+    height: 28px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.icon-card__text {
+  @include body-text;
+  font-size: $font-size-caption;
+  color: $color-body;
+  line-height: $line-height-medium;
+
+  @include respond-to('tablet') {
+    font-size: 12px;
+  }
+}
+
+// Feature Card (for experiences section)
+.feature-card {
+  @include flex-column-center;
+  gap: $spacing-sm;
+  text-align: center;
+  width: vw(243.5);
+
+  @include respond-to('laptop') {
+    
+  }
+
+  @include respond-to('tablet') {
+    width: vw(150,1023);
+  }
+
+  @include respond-to('mobile') {
+    width: 100%;
+    max-width: vw(180,414);
+  }
+}
+
+.feature-card__icon {
+  width: vw(42);
+  height: vw(42);
+  flex-shrink: 0;
+
+  @include respond-to('mobile') {
+    width: vw(36,414);
+    height: vw(36,414);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.feature-card__text {
+  @include body-text;
+  font-size: $font-size-caption;
+  color: $color-body;
+  line-height: $line-height-medium;
+  text-align: center;
+
+  @include respond-to('tablet') {
+    font-size: vw(12,1023);
+  }
+}
+
+// Location Card
+.location-card {
+  @include flex-column;
+  gap: $spacing-md;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  @include respond-to('tablet') {
+    gap: $spacing-sm;
+  }
+}
+
+.location-card__icon {
+  width: vw(42);
+  height: vw(42);
+  flex-shrink: 0;
+
+  @include respond-to('mobile') {
+    width: vw(32,414);
+    height: vw(32,414);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.location-card__text {
+  @include body-text;
+  font-size: $font-size-body;
+  color: $color-body;
+  line-height: $line-height-medium;
+
+ 
+
+  @include respond-to('tablet') {
+    font-size: vw(16,1023);
+  }
+
+  @include respond-to('mobile') {
+    font-size: vw(14,414);
+  }
+}
+

@@ -1,0 +1,135 @@
+// ===========================================
+// BUTTONS
+// ===========================================
+
+.btn {
+  @include button-reset;
+  @include flex-center;
+  gap: vw(14.5);
+  padding: $spacing-lg;
+  background-color: $color-bg-white;
+  font-family: $font-primary;
+  font-size: $font-size-h6;
+  line-height: $line-height-normal;
+  color: $color-brand-black;
+  text-align: center;
+  transition: all $transition-base;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  height: vw(77);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(3);
+    height: 100%;
+    background-color: $color-brand-primary;
+    transition: width $transition-base;
+  }
+
+  &:hover {
+    background-color: #f2f2f2; // Slightly darker white
+    
+    &::before {
+      width: 100%;
+    }
+  }
+
+  &:focus {
+    outline: vw(2) solid $color-brand-primary;
+    outline-offset: vw(2);
+  }
+
+  @include respond-to('tablet') {
+    padding: vw(20);
+    font-size: vw(20);
+  }
+
+  @include respond-to('mobile') {
+    padding: vw(15, 414) vw(20, 414);
+    font-size: vw(18, 414);
+    gap: vw(10, 414);
+    height: auto;
+  }
+}
+
+.btn__text {
+  flex-shrink: 0;
+}
+
+.btn__icon {
+  width: vw(11);
+  height: vw(11);
+  transform: rotate(-45deg);
+  transition: transform $transition-base;
+  
+  .btn:hover & {
+    transform: rotate(-45deg) translate(2px, -2px);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// Button variants
+.btn--primary {
+  background-color: #fff;
+  color: $color-brand-black;
+
+  &::before {
+    background-color: $color-brand-primary;
+  }
+
+ 
+}
+
+.btn--primary:hover {
+  span,svg{
+    position: relative;
+    z-index: 1;
+  }
+  svg{
+   filter: invert(1);
+  }
+  color: $color-white;
+  .btn--primary::before{
+    width: 100% !important;
+  }
+}
+
+.btn--secondary {
+  background-color: transparent;
+  border: 2px solid $color-brand-primary;
+  color: $color-brand-primary;
+
+  
+}
+.btn--secondary:hover {
+  span,svg{
+    position: relative;
+    z-index: 1;
+  }
+  svg{
+   filter: invert(1);
+  }
+  color: $color-white;
+  .btn--primary::before{
+    width: 100% !important;
+  }
+}
+// Download brochure button (specific)
+.btn--brochure {
+  gap: vw(14.5);
+  
+  .btn__icon {
+    width: vw(15.5);
+    height: vw(15.5);
+  }
+}
+

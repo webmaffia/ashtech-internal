@@ -1,0 +1,104 @@
+// ===========================================
+// DESIGN TOKENS - Ashtech Presidential Towers
+// ===========================================
+
+// Primary Colors
+$color-brand-primary: #720C10;      // Rose Gold/Maroon
+$color-brand-gold: #E0BD75;         // Gold accent
+$color-brand-black: #0C0D0D;        // Primary black
+$color-body: #19191A;               // Body text color
+$color-white: #FFFFFF;              // Pure white
+
+// Background Colors
+$color-bg-primary: #F4EAD7;         // Beige/Cream
+$color-bg-red: #FAE9E9;             // Light red background
+$color-bg-white: #FFFFFF;           // White background
+
+// Typography Colors
+$color-text-primary: $color-brand-black;
+$color-text-body: $color-body;
+$color-text-accent: $color-brand-primary;
+$color-text-white: $color-white;
+
+// Font Families
+$font-primary: 'Chronicle Display', Georgia, serif;
+$font-secondary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Font Sizes - Desktop
+$font-size-h1: vw(72);                // Hero titles
+$font-size-h2: vw(58);                // Section titles
+$font-size-h3: vw(44);                // Sub-section titles
+$font-size-h4: vw(36);                // Card titles
+$font-size-h5: vw(30);                // Footer headings
+$font-size-h6: vw(24);                // Button text
+$font-size-body: vw(20);              // Body text
+$font-size-small: vw(18);             // Overhead/menu text
+$font-size-caption: vw(14);           // Caption text
+
+// Line Heights
+$line-height-tight: 1.2;            // For headings
+$line-height-normal: 1.3;           // For button text
+$line-height-medium: 1.5;           // For body text
+$line-height-relaxed: 1.7;          // For paragraphs
+$line-height-loose: 1.8;            // For footer text
+
+// Spacing Scale
+$spacing-xs: vw(10);
+$spacing-sm: vw(12);
+$spacing-md: vw(18);
+$spacing-lg: vw(30);
+$spacing-xl: vw(35);
+$spacing-2xl: vw(50);
+$spacing-3xl: vw(60);
+$spacing-4xl: vw(70);
+$spacing-5xl: vw(100);
+$spacing-6xl: vw(120);
+
+// Container & Layout
+$container-max-width: 1920px;
+$container-padding-desktop: 100px;
+$container-padding-tablet: 60px;
+$container-padding-mobile: 16px;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1440px;
+$breakpoint-wide: 1920px;
+
+// Z-Index Scale
+$z-index-dropdown: 10;
+$z-index-sticky: 100;
+$z-index-fixed: 1000;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Transitions
+$transition-fast: 0.15s ease-in-out;
+$transition-base: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+// Border Radius
+$border-radius-sm: vw(2);
+$border-radius-md: vw(4);
+$border-radius-lg: vw(8);
+
+// Shadows
+$shadow-sm: 0 vw(1) vw(2) 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 vw(4) vw(6) vw(-1) rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 vw(10) vw(15) vw(-3) rgba(0, 0, 0, 0.1);
+
+// Gradients
+$gradient-dark-overlay: linear-gradient(179.99999999999972deg, rgba(25, 29, 47, 0) 47.25%, rgba(8, 9, 15, 0.8) 87.128%),
+                        linear-gradient(-0.000006254413250417201deg, rgba(0, 0, 0, 0) 64.815%, rgba(0, 0, 0, 0.7) 110.65%);
+$gradient-top-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 74.9%);
+

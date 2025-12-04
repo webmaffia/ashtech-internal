@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Ashtech Pages Blocks
- * Description: Full-page Gutenberg blocks for Ashtech website pages
+ * Description: Full-page Gutenberg blocks for Ashtech website pages - Using your exact HTML
  * Version: 1.0.0
  * Author: Ashtech
  * Text Domain: ashtech-pages-blocks
@@ -10,52 +10,192 @@
  */
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+    exit;
 }
 
+define('ASHTECH_BLOCKS_VERSION', '1.0.0');
+define('ASHTECH_BLOCKS_DIR', plugin_dir_path(__FILE__));
+define('ASHTECH_BLOCKS_URL', plugin_dir_url(__FILE__));
+
 /**
- * Auto-register all blocks by scanning subfolders for block.json
+ * Register all blocks
  */
-function ashtech_pages_blocks_register_blocks() {
-    $plugin_dir = plugin_dir_path(__FILE__);
-    
-    // Scan all directories in the plugin folder
-    $directories = glob($plugin_dir . '*', GLOB_ONLYDIR);
-    
-    foreach ($directories as $directory) {
-        $block_json_path = $directory . '/block.json';
+function ashtech_register_blocks() {
+    $blocks = array(
+        'home-page',
+        'project-page',
+        'nri-page',
+        'about-page',
+        'resources-page',
+        'career-page',
+        'contact-page',
+        'terms-page',
+        'privacy-page'
+    );
+
+    foreach ($blocks as $block_name) {
+        $block_folder = ASHTECH_BLOCKS_DIR . $block_name;
         
-        // If block.json exists in the directory, register it
-        if (file_exists($block_json_path)) {
-            register_block_type($directory);
+        if (file_exists($block_folder . '/block.json')) {
+            register_block_type($block_folder, array(
+                'render_callback' => 'ashtech_render_block_' . str_replace('-', '_', $block_name)
+            ));
         }
     }
 }
-add_action('init', 'ashtech_pages_blocks_register_blocks');
+add_action('init', 'ashtech_register_blocks');
 
 /**
- * Enqueue block editor assets
+ * Enqueue block assets
  */
-function ashtech_pages_blocks_enqueue_editor_assets() {
+function ashtech_enqueue_block_assets() {
+    // Enqueue editor script
+    wp_enqueue_script(
+        'ashtech-blocks-editor',
+        ASHTECH_BLOCKS_URL . 'blocks-editor.js',
+        array('wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
+
+    // Enqueue editor styles
     wp_enqueue_style(
-        'ashtech-pages-blocks-editor',
-        plugin_dir_url(__FILE__) . 'editor.css',
+        'ashtech-blocks-editor',
+        ASHTECH_BLOCKS_URL . 'editor.css',
         array('wp-edit-blocks'),
-        filemtime(plugin_dir_path(__FILE__) . 'editor.css')
+        ASHTECH_BLOCKS_VERSION
     );
+
+    // Localize script with plugin data
+    wp_localize_script('ashtech-blocks-editor', 'ashtechBlocksData', array(
+        'pluginUrl' => ASHTECH_BLOCKS_URL,
+        'assetsUrl' => ASHTECH_BLOCKS_URL . 'assets/'
+    ));
 }
-add_action('enqueue_block_editor_assets', 'ashtech_pages_blocks_enqueue_editor_assets');
+add_action('enqueue_block_editor_assets', 'ashtech_enqueue_block_assets');
 
 /**
- * Enqueue frontend assets
+ * Enqueue frontend styles
  */
-function ashtech_pages_blocks_enqueue_frontend_assets() {
+function ashtech_enqueue_frontend_assets() {
     wp_enqueue_style(
-        'ashtech-pages-blocks-frontend',
-        plugin_dir_url(__FILE__) . 'style.css',
+        'ashtech-blocks-frontend',
+        ASHTECH_BLOCKS_URL . 'style.css',
         array(),
-        filemtime(plugin_dir_path(__FILE__) . 'style.css')
+        ASHTECH_BLOCKS_VERSION
+    );
+
+    // Enqueue your main.css
+    wp_enqueue_style(
+        'ashtech-main-css',
+        ASHTECH_BLOCKS_URL . 'assets/css/main.css',
+        array(),
+        ASHTECH_BLOCKS_VERSION
     );
 }
-add_action('enqueue_block_assets', 'ashtech_pages_blocks_enqueue_frontend_assets');
+add_action('wp_enqueue_scripts', 'ashtech_enqueue_frontend_assets');
 
+/**
+ * Render Home Page Block
+ */
+function ashtech_render_block_home_page($attributes) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : 'Nature and Architecture<br>in Perfect Sync';
+    $mainContent = isset($attributes['mainContent']) ? $attributes['mainContent'] : '';
+    
+    ob_start();
+    include ASHTECH_BLOCKS_DIR . 'home-page/template.php';
+    return ob_get_clean();
+}
+
+/**
+ * Render Project Page Block
+ */
+function ashtech_render_block_project_page($attributes) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : '';
+    
+    ob_start();
+    include ASHTECH_BLOCKS_DIR . 'project-page/template.php';
+    return ob_get_clean();
+}
+
+/**
+ * Render NRI Page Block
+ */
+function ashtech_render_block_nri_page($attributes) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : '';
+    
+    ob_start();
+    include ASHTECH_BLOCKS_DIR . 'nri-page/template.php';
+    return ob_get_clean();
+}
+
+/**
+ * Render About Page Block
+ */
+function ashtech_render_block_about_page($attributes) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    
+    ob_start();
+    include ASHTECH_BLOCKS_DIR . 'about-page/template.php';
+    return ob_get_clean();
+}
+
+/**
+ * Render Resources Page Block
+ */
+function ashtech_render_block_resources_page($attributes) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    
+    ob_start();
+    include ASHTECH_BLOCKS_DIR . 'resources-page/template.php';
+    return ob_get_clean();
+}
+
+/**
+ * Render Career Page Block
+ */
+function ashtech_render_block_career_page($attributes) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    
+    ob_start();
+    include ASHTECH_BLOCKS_DIR . 'career-page/template.php';
+    return ob_get_clean();
+}
+
+/**
+ * Render Contact Page Block
+ */
+function ashtech_render_block_contact_page($attributes) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : '';
+    $salesPhone = isset($attributes['salesPhone']) ? $attributes['salesPhone'] : '';
+    $salesEmail = isset($attributes['salesEmail']) ? $attributes['salesEmail'] : '';
+    
+    ob_start();
+    include ASHTECH_BLOCKS_DIR . 'contact-page/template.php';
+    return ob_get_clean();
+}
+
+/**
+ * Render Terms Page Block
+ */
+function ashtech_render_block_terms_page($attributes) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    
+    ob_start();
+    include ASHTECH_BLOCKS_DIR . 'terms-page/template.php';
+    return ob_get_clean();
+}
+
+/**
+ * Render Privacy Page Block
+ */
+function ashtech_render_block_privacy_page($attributes) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    
+    ob_start();
+    include ASHTECH_BLOCKS_DIR . 'privacy-page/template.php';
+    return ob_get_clean();
+}

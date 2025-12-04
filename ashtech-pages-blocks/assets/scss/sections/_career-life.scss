@@ -1,0 +1,179 @@
+// Career Life at Ashtech Section
+.career-life {
+  position: relative;
+  width: 100%;
+  background-color: $color-bg-primary;
+  padding: vw(60) 0 vw(36);
+  overflow: hidden;
+
+  &__container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(100);
+    display: flex;
+    gap: vw(30);
+    align-items: flex-start;
+  }
+
+  &__left,
+  &__right {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: vw(35);
+  }
+
+  &__left {
+    width: vw(578);
+  }
+
+  &__right {
+    width: vw(627);
+    padding-top: vw(190);
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(100);
+    line-height: 1.2;
+    color: $color-brand-gold;
+    font-weight: 325;
+    margin: 0;
+  }
+
+  &__text-box {
+    background-color: $color-white;
+    padding: vw(40) vw(50) vw(40) vw(50);
+    box-shadow: inset vw(8) 0 0 0 $color-brand-primary;
+    display: flex;
+    flex-direction: column;
+    gap: vw(10);
+
+    p {
+      font-family: $font-secondary;
+      font-size: vw(20);
+      line-height: 1.7;
+      color: $color-text-primary;
+      font-weight: $font-weight-medium;
+      margin: 0;
+    }
+  }
+
+  &__image {
+    flex: 0 0 vw(455);
+    height: vw(685);
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__footer-text {
+    text-align: center;
+    padding: vw(50) vw(100) 0;
+
+    p {
+      font-family: $font-secondary;
+      font-size: vw(20);
+      line-height: 1.7;
+      color: $color-text-primary;
+      font-weight: $font-weight-medium;
+      margin: 0;
+
+      strong {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    padding: vw(50, 1024) 0 vw(30, 1024);
+
+    &__container {
+      padding: 0 vw(60, 1024);
+      flex-direction: column;
+      gap: vw(40, 1024);
+    }
+
+    &__left,
+    &__right {
+      width: 100%;
+      gap: vw(30, 1024);
+    }
+
+    &__right {
+      padding-top: 0;
+    }
+
+    &__title {
+      font-size: vw(80, 1024);
+    }
+
+    &__text-box {
+      padding: vw(30, 1024) vw(40, 1024);
+      box-shadow: inset vw(6, 1024) 0 0 0 $color-brand-primary;
+    }
+
+    &__image {
+      flex: 1;
+      width: 100%;
+      height: vw(500, 1024);
+    }
+
+    &__footer-text {
+      padding: vw(40, 1024) vw(60, 1024) 0;
+
+      p {
+        font-size: vw(18, 1024);
+      }
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    padding: vw(40, 414) 0 vw(25, 414);
+
+    &__container {
+      padding: 0 vw(20, 414);
+      gap: vw(30, 414);
+    }
+
+    &__left,
+    &__right {
+      gap: vw(25, 414);
+    }
+
+    &__title {
+      font-size: vw(60, 414);
+    }
+
+    &__text-box {
+      padding: vw(25, 414) vw(30, 414);
+      box-shadow: inset vw(4, 414) 0 0 0 $color-brand-primary;
+
+      p {
+        font-size: vw(16, 414);
+      }
+    }
+
+    &__image {
+      height: vw(400, 414);
+    }
+
+    &__footer-text {
+      padding: vw(30, 414) vw(20, 414) 0;
+
+      p {
+        font-size: vw(16, 414);
+      }
+    }
+  }
+}
+

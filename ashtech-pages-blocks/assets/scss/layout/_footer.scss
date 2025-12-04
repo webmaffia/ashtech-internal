@@ -1,0 +1,293 @@
+// ===========================================
+// FOOTER
+// ===========================================
+
+.footer {
+  position: relative;
+  width: 100%;
+  background-color: $color-bg-primary;
+  overflow: hidden;
+}
+
+.footer__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 693px;
+  pointer-events: none;
+
+  @include respond-to('tablet') {
+    height: 500px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right top;
+  }
+}
+
+.footer__container {
+  position: relative;
+  padding: $spacing-3xl $container-padding-desktop 85px;
+  max-width: $container-max-width;
+  margin: 0 auto;
+
+  @include respond-to('desktop') {
+    padding: $spacing-2xl $container-padding-tablet 60px;
+  }
+
+  @include respond-to('tablet') {
+    padding: 40px $container-padding-mobile 40px;
+  }
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-4xl;
+
+  @include respond-to('laptop') {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  @include respond-to('tablet') {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+.footer__about {
+  @include flex-column;
+  gap: $spacing-2xl;
+
+  @include respond-to('tablet') {
+    gap: $spacing-lg;
+  }
+}
+
+.footer__logo {
+  height: 42px;
+  width: auto;
+  max-width: 312px;
+
+  @include respond-to('tablet') {
+    height: 32px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+}
+
+.footer__description {
+  @include body-text;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-small;
+  line-height: $line-height-loose;
+  color: $color-brand-black;
+  max-width: 420px;
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+    max-width: 100%;
+  }
+}
+
+.footer__social {
+  display: flex;
+  gap: 3px;
+
+  @include respond-to('mobile') {
+    gap: 8px;
+  }
+}
+
+.footer__social-link {
+  display: block;
+  width: 46.328px;
+  height: 46.328px;
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  @include respond-to('mobile') {
+    width: 36px;
+    height: 36px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.footer__links {
+  @include flex-column;
+  gap: 34px;
+
+  @include respond-to('tablet') {
+    gap: 25px;
+  }
+}
+
+.footer__heading {
+  @include heading-primary;
+  font-size: $font-size-h5;
+  line-height: $line-height-medium;
+  color: $color-brand-primary;
+
+  @include respond-to('tablet') {
+    font-size: 24px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 20px;
+  }
+}
+
+.footer__nav {
+  @include flex-column;
+  gap: 22px;
+
+  @include respond-to('tablet') {
+    gap: 15px;
+  }
+}
+
+.footer__nav-item {
+  @include body-text;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-small;
+  line-height: 2;
+  color: $color-brand-black;
+  transition: color $transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-brand-primary;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 14px;
+  }
+}
+
+.footer__contact {
+  @include flex-column;
+  gap: 34px;
+
+  @include respond-to('tablet') {
+    gap: 25px;
+  }
+}
+
+.footer__contact-list {
+  @include flex-column;
+  gap: 20px;
+
+  @include respond-to('tablet') {
+    gap: 15px;
+  }
+}
+
+.footer__contact-item {
+  display: grid;
+  grid-template-columns: 38.73px 1fr;
+  gap: 7.27px;
+  align-items: flex-start;
+
+  @include respond-to('mobile') {
+    grid-template-columns: 32px 1fr;
+    gap: 10px;
+  }
+}
+
+.footer__contact-icon {
+  width: 38.73px;
+  height: 38.73px;
+
+  @include respond-to('mobile') {
+    width: 32px;
+    height: 32px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.footer__contact-text {
+  @include body-text;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-small;
+  line-height: 2;
+  color: $color-brand-black;
+  padding-top: 13px;
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 14px;
+    padding-top: 8px;
+  }
+}
+
+.footer__bottom {
+  @include flex-between;
+  padding-top: 40px;
+  border-top: 1px solid rgba($color-brand-primary, 0.2);
+  gap: $spacing-lg;
+
+  @include respond-to('tablet') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-top: $spacing-lg;
+  }
+}
+
+.footer__copyright,
+.footer__legal {
+  @include body-text;
+  font-weight: $font-weight-regular;
+  font-size: $font-size-small;
+  line-height: $line-height-medium;
+  color: $color-brand-primary;
+
+  @include respond-to('tablet') {
+    font-size: 14px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 12px;
+  }
+}
+
+.footer__legal {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
