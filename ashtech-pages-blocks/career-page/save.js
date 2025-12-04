@@ -249,7 +249,7 @@ export default function Save({ attributes }) {
                             </div>
                             
                             <div className="career-form__field career-form__field--upload">
-                                <input type="file" id="resume" name="resume" className="career-form__file-input" accept=".pdf,.doc,.docx" required />
+                                <input type="file" id="resume" name="resume" className="career-form__file-input" accept=".pdf,.doc,.docx" />
                                 <label htmlFor="resume" className="career-form__file-label">
                                     <img src={`${assetsUrl}images/career/icon-upload.svg`} alt="Upload" />
                                     <span>Upload Resume</span>
@@ -257,7 +257,7 @@ export default function Save({ attributes }) {
                             </div>
                             
                             <div className="career-form__field">
-                                <textarea id="message" name="message" className="career-form__textarea" placeholder="Message" rows="4"></textarea>
+                                <textarea id="coverLetter" name="coverLetter" className="career-form__textarea" placeholder="Cover Letter / Message" rows="4"></textarea>
                             </div>
                         </div>
                         

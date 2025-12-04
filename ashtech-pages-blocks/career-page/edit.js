@@ -178,13 +178,31 @@ export default function Edit({ attributes, setAttributes }) {
             <section className="career-form">
                 <div className="career-form__container">
                     <h2 className="career-form__title">Apply Now</h2>
-                    <form className="career-form__form">
-                        <input type="text" placeholder="Full Name" className="career-form__input" />
-                        <input type="email" placeholder="Email" className="career-form__input" />
-                        <input type="tel" placeholder="Phone" className="career-form__input" />
-                        <input type="text" placeholder="Position" className="career-form__input" />
-                        <textarea placeholder="Cover Letter" className="career-form__textarea" rows="5"></textarea>
-                        <input type="file" className="career-form__file" />
+                    <form className="career-form__form" id="careerForm">
+                        <div className="career-form__fields">
+                            <div className="career-form__field">
+                                <input type="text" id="name" name="name" placeholder="Full Name" className="career-form__input" required />
+                            </div>
+                            <div className="career-form__field">
+                                <input type="email" id="email" name="email" placeholder="Email" className="career-form__input" required />
+                            </div>
+                            <div className="career-form__field">
+                                <input type="tel" id="phone" name="phone" placeholder="Phone" className="career-form__input" required />
+                            </div>
+                            <div className="career-form__field">
+                                <input type="text" id="position" name="position" placeholder="Position" className="career-form__input" required />
+                            </div>
+                            <div className="career-form__field">
+                                <textarea id="coverLetter" name="coverLetter" placeholder="Cover Letter" className="career-form__textarea" rows="5"></textarea>
+                            </div>
+                            <div className="career-form__field career-form__field--upload">
+                                <input type="file" id="resume" name="resume" className="career-form__file-input" accept=".pdf,.doc,.docx" />
+                                <label htmlFor="resume" className="career-form__file-label">
+                                    <img src={`${assetsUrl}images/career/icon-upload.svg`} alt="Upload" />
+                                    <span>Upload Resume</span>
+                                </label>
+                            </div>
+                        </div>
                         <button type="submit" className="btn btn--primary">
                             <span>Submit Application</span>
                             <div className="btn__icon">
