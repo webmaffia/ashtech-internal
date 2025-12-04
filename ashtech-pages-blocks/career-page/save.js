@@ -58,7 +58,7 @@ export default function Save({ attributes }) {
                     <div className="career-why__cards">
                         <div className="career-why__card career-why__card--offset-1">
                             <div className="career-why__image">
-                                <img src="assets/images/career/why-3.jpg" alt="Culture of Trust" />
+                                <img src={`${assetsUrl}images/career/why-3.jpg`} alt="Culture of Trust" />
                             </div>
                             <div className="career-why__content">
                                 <h3 className="career-why__card-title animate-text">Real Projects. Real Impact.</h3>
@@ -68,7 +68,7 @@ export default function Save({ attributes }) {
                         
                         <div className="career-why__card career-why__card--offset-2">
                             <div className="career-why__image">
-                                <img src="assets/images/career/why-2.jpg" alt="Grow With Confidence" />
+                                <img src={`${assetsUrl}images/career/why-2.jpg`} alt="Grow With Confidence" />
                             </div>
                             <div className="career-why__content">
                                 <h3 className="career-why__card-title animate-text">Grow With Confidence.</h3>
@@ -78,7 +78,7 @@ export default function Save({ attributes }) {
                         
                         <div className="career-why__card career-why__card--offset-3">
                             <div className="career-why__image">
-                                <img src="assets/images/career/why-1.jpg" alt="Real Projects" />
+                                <img src={`${assetsUrl}images/career/why-1.jpg`} alt="Real Projects" />
                             </div>
                             <div className="career-why__content">
                                 <h3 className="career-why__card-title animate-text">Culture of Trust.</h3>
@@ -101,7 +101,7 @@ export default function Save({ attributes }) {
                     </div>
                     
                     <div className="career-life__image">
-                        <img src="assets/images/career/life-at-ashtech.jpg" alt="Life at Ashtech" />
+                        <img src={`${assetsUrl}images/career/life-at-ashtech.jpg`} alt="Life at Ashtech" />
                     </div>
                     
                     <div className="career-life__right">
@@ -133,15 +133,15 @@ export default function Save({ attributes }) {
                                 <h3 className="job-card__title">Site Engineer</h3>
                                 <div className="job-card__tags">
                                     <span className="job-card__tag">
-                                        <img src="assets/images/career/icon-category.svg" alt="" />
+                                        <img src={`${assetsUrl}images/career/icon-category.svg`} alt="" />
                                         Construction
                                     </span>
                                     <span className="job-card__tag">
-                                        <img src="assets/images/career/icon-location.svg" alt="" />
+                                        <img src={`${assetsUrl}images/career/icon-location.svg`} alt="" />
                                         Pune
                                     </span>
                                     <span className="job-card__tag">
-                                        <img src="assets/images/career/icon-clock.svg" alt="" />
+                                        <img src={`${assetsUrl}images/career/icon-clock.svg`} alt="" />
                                         10 Oct 2025
                                     </span>
                                 </div>
@@ -160,15 +160,15 @@ export default function Save({ attributes }) {
                                 <h3 className="job-card__title">Project Manager</h3>
                                 <div className="job-card__tags">
                                     <span className="job-card__tag">
-                                        <img src="assets/images/career/icon-category.svg" alt="" />
+                                        <img src={`${assetsUrl}images/career/icon-category.svg`} alt="" />
                                         Infrastructure
                                     </span>
                                     <span className="job-card__tag">
-                                        <img src="assets/images/career/icon-location.svg" alt="" />
+                                        <img src={`${assetsUrl}images/career/icon-location.svg`} alt="" />
                                         Mumbai
                                     </span>
                                     <span className="job-card__tag">
-                                        <img src="assets/images/career/icon-clock.svg" alt="" />
+                                        <img src={`${assetsUrl}images/career/icon-clock.svg`} alt="" />
                                         08 Oct 2025
                                     </span>
                                 </div>
@@ -187,15 +187,15 @@ export default function Save({ attributes }) {
                                 <h3 className="job-card__title">Marketing Executive</h3>
                                 <div className="job-card__tags">
                                     <span className="job-card__tag">
-                                        <img src="assets/images/career/icon-category.svg" alt="" />
+                                        <img src={`${assetsUrl}images/career/icon-category.svg`} alt="" />
                                         Sales & Marketing
                                     </span>
                                     <span className="job-card__tag">
-                                        <img src="assets/images/career/icon-location.svg" alt="" />
+                                        <img src={`${assetsUrl}images/career/icon-location.svg`} alt="" />
                                         Pune
                                     </span>
                                     <span className="job-card__tag">
-                                        <img src="assets/images/career/icon-clock.svg" alt="" />
+                                        <img src={`${assetsUrl}images/career/icon-clock.svg`} alt="" />
                                         05 Oct 2025
                                     </span>
                                 </div>
@@ -250,7 +250,7 @@ export default function Save({ attributes }) {
                             <div className="career-form__field career-form__field--upload">
                                 <input type="file" id="resume" name="resume" className="career-form__file-input" accept=".pdf,.doc,.docx" required />
                                 <label htmlFor="resume" className="career-form__file-label">
-                                    <img src="assets/images/career/icon-upload.svg" alt="Upload" />
+                                    <img src={`${assetsUrl}images/career/icon-upload.svg`} alt="Upload" />
                                     <span>Upload Resume</span>
                                 </label>
                             </div>

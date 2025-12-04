@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Edit({ attributes, setAttributes }) {
     const { heroTitle, heroSubtitle, overviewTitle, overviewContent } = attributes;
+    const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
         <div {...useBlockProps()}>
@@ -55,17 +56,17 @@ export default function Edit({ attributes, setAttributes }) {
                     <h2 className="career-why__title">Why Choose Ashtech?</h2>
                     <div className="career-why__grid">
                         <div className="career-why__card">
-                            <img src="assets/images/career/growth.jpg" alt="Growth" />
+                            <img src={`${assetsUrl}images/career/growth.jpg`} alt="Growth" />
                             <h3>Career Growth</h3>
                             <p>Opportunities to grow and advance</p>
                         </div>
                         <div className="career-why__card">
-                            <img src="assets/images/career/culture.jpg" alt="Culture" />
+                            <img src={`${assetsUrl}images/career/culture.jpg`} alt="Culture" />
                             <h3>Work Culture</h3>
                             <p>Positive and collaborative environment</p>
                         </div>
                         <div className="career-why__card">
-                            <img src="assets/images/career/benefits.jpg" alt="Benefits" />
+                            <img src={`${assetsUrl}images/career/benefits.jpg`} alt="Benefits" />
                             <h3>Benefits</h3>
                             <p>Competitive compensation package</p>
                         </div>
@@ -85,7 +86,7 @@ export default function Edit({ attributes, setAttributes }) {
                             <button className="btn btn--primary">
                                 <span>Apply Now</span>
                                 <div className="btn__icon">
-                                    <img src="assets/images/career/icon-arrow.svg" alt="Arrow" />
+                                    <img src={`${assetsUrl}images/career/icon-arrow.svg`} alt="Arrow" />
                                 </div>
                             </button>
                         </div>
@@ -96,7 +97,7 @@ export default function Edit({ attributes, setAttributes }) {
                             <button className="btn btn--primary">
                                 <span>Apply Now</span>
                                 <div className="btn__icon">
-                                    <img src="assets/images/career/icon-arrow.svg" alt="Arrow" />
+                                    <img src={`${assetsUrl}images/career/icon-arrow.svg`} alt="Arrow" />
                                 </div>
                             </button>
                         </div>
@@ -107,7 +108,7 @@ export default function Edit({ attributes, setAttributes }) {
                             <button className="btn btn--primary">
                                 <span>Apply Now</span>
                                 <div className="btn__icon">
-                                    <img src="assets/images/career/icon-arrow.svg" alt="Arrow" />
+                                    <img src={`${assetsUrl}images/career/icon-arrow.svg`} alt="Arrow" />
                                 </div>
                             </button>
                         </div>
@@ -129,7 +130,7 @@ export default function Edit({ attributes, setAttributes }) {
                         <button type="submit" className="btn btn--primary">
                             <span>Submit Application</span>
                             <div className="btn__icon">
-                                <img src="assets/images/career/icon-submit.svg" alt="Submit" />
+                                <img src={`${assetsUrl}images/career/icon-submit.svg`} alt="Submit" />
                             </div>
                         </button>
                     </form>

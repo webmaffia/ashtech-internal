@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Edit({ attributes, setAttributes }) {
     const { heroTitle, heroSubtitle } = attributes;
+    const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
         <div {...useBlockProps()}>
@@ -51,28 +52,28 @@ export default function Edit({ attributes, setAttributes }) {
                     </div>
                     <div className="project-overview__stats">
                         <div className="project-overview__stat">
-                            <img src="assets/images/project/icon-towers.svg" alt="Towers" />
+                            <img src={`${assetsUrl}images/project/icon-towers.svg`} alt="Towers" />
                             <div className="project-overview__stat-info">
                                 <span className="project-overview__stat-number">4</span>
                                 <span className="project-overview__stat-label">Towers</span>
                             </div>
                         </div>
                         <div className="project-overview__stat">
-                            <img src="assets/images/project/icon-units.svg" alt="Units" />
+                            <img src={`${assetsUrl}images/project/icon-units.svg`} alt="Units" />
                             <div className="project-overview__stat-info">
                                 <span className="project-overview__stat-number">300+</span>
                                 <span className="project-overview__stat-label">Units</span>
                             </div>
                         </div>
                         <div className="project-overview__stat">
-                            <img src="assets/images/project/icon-floors.svg" alt="Floors" />
+                            <img src={`${assetsUrl}images/project/icon-floors.svg`} alt="Floors" />
                             <div className="project-overview__stat-info">
                                 <span className="project-overview__stat-number">29</span>
                                 <span className="project-overview__stat-label">Floors</span>
                             </div>
                         </div>
                         <div className="project-overview__stat">
-                            <img src="assets/images/project/icon-area.svg" alt="Area" />
+                            <img src={`${assetsUrl}images/project/icon-area.svg`} alt="Area" />
                             <div className="project-overview__stat-info">
                                 <span className="project-overview__stat-number">15 Acres</span>
                                 <span className="project-overview__stat-label">Total Area</span>
@@ -84,7 +85,7 @@ export default function Edit({ attributes, setAttributes }) {
                         <button className="btn btn--primary">
                             <span>Download Brochure</span>
                             <div className="btn__icon">
-                                <img src="assets/images/project/icon-download.svg" alt="Download" />
+                                <img src={`${assetsUrl}images/project/icon-download.svg`} alt="Download" />
                             </div>
                         </button>
                     </div>
@@ -105,7 +106,7 @@ export default function Edit({ attributes, setAttributes }) {
                     </div>
                     <div className="project-architecture__content">
                         <div className="project-architecture__image">
-                            <img src="assets/images/project/facade.jpg" alt="Facade" />
+                            <img src={`${assetsUrl}images/project/facade.jpg`} alt="Facade" />
                         </div>
                         <div className="project-architecture__description">
                             <p>Modern architectural design with attention to detail</p>
@@ -140,17 +141,17 @@ export default function Edit({ attributes, setAttributes }) {
                     <h2 className="project-specifications__title">Specifications</h2>
                     <div className="project-specifications__grid">
                         <div className="project-specifications__card">
-                            <img src="assets/images/project/spec-structure.jpg" alt="Structure" />
+                            <img src={`${assetsUrl}images/project/spec-structure.jpg`} alt="Structure" />
                             <h3>Structure</h3>
                             <p>RCC Framed Structure</p>
                         </div>
                         <div className="project-specifications__card">
-                            <img src="assets/images/project/spec-flooring.jpg" alt="Flooring" />
+                            <img src={`${assetsUrl}images/project/spec-flooring.jpg`} alt="Flooring" />
                             <h3>Flooring</h3>
                             <p>Vitrified Tiles</p>
                         </div>
                         <div className="project-specifications__card">
-                            <img src="assets/images/project/spec-kitchen.jpg" alt="Kitchen" />
+                            <img src={`${assetsUrl}images/project/spec-kitchen.jpg`} alt="Kitchen" />
                             <h3>Kitchen</h3>
                             <p>Modular Kitchen</p>
                         </div>

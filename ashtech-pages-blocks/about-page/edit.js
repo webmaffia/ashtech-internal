@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Edit({ attributes, setAttributes }) {
     const { heroTitle, overviewTitle, overviewContent, visionTitle, visionContent, missionTitle, missionContent } = attributes;
+    const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
         <div {...useBlockProps()}>
@@ -45,19 +46,19 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="about-values__container">
                     <h2 className="about-values__title">Our Legacy & Core Values</h2>
                     <div className="about-values__graphic">
-                        <img src="assets/images/about/values-graphic.svg" alt="Core Values" />
+                        <img src={`${assetsUrl}images/about/values-graphic.svg`} alt="Core Values" />
                     </div>
                     <div className="about-values__grid">
                         <div className="about-values__item">
-                            <img src="assets/images/about/value-integrity.svg" alt="Integrity" />
+                            <img src={`${assetsUrl}images/about/value-integrity.svg`} alt="Integrity" />
                             <h3>Integrity</h3>
                         </div>
                         <div className="about-values__item">
-                            <img src="assets/images/about/value-excellence.svg" alt="Excellence" />
+                            <img src={`${assetsUrl}images/about/value-excellence.svg`} alt="Excellence" />
                             <h3>Excellence</h3>
                         </div>
                         <div className="about-values__item">
-                            <img src="assets/images/about/value-innovation.svg" alt="Innovation" />
+                            <img src={`${assetsUrl}images/about/value-innovation.svg`} alt="Innovation" />
                             <h3>Innovation</h3>
                         </div>
                     </div>
@@ -145,12 +146,12 @@ export default function Edit({ attributes, setAttributes }) {
                     <h2 className="about-team__title">Leadership Team</h2>
                     <div className="about-team__grid">
                         <div className="about-team__member">
-                            <img src="assets/images/about/team-1.jpg" alt="Team Member" />
+                            <img src={`${assetsUrl}images/about/team-1.jpg`} alt="Team Member" />
                             <h3>Director Name</h3>
                             <p>Managing Director</p>
                         </div>
                         <div className="about-team__member">
-                            <img src="assets/images/about/team-2.jpg" alt="Team Member" />
+                            <img src={`${assetsUrl}images/about/team-2.jpg`} alt="Team Member" />
                             <h3>Executive Name</h3>
                             <p>Executive Director</p>
                         </div>
@@ -162,7 +163,7 @@ export default function Edit({ attributes, setAttributes }) {
             <section className="about-message">
                 <div className="about-message__container">
                     <div className="about-message__image">
-                        <img src="assets/images/about/director.jpg" alt="Director" />
+                        <img src={`${assetsUrl}images/about/director.jpg`} alt="Director" />
                     </div>
                     <div className="about-message__content">
                         <h2 className="about-message__title">Director's Message</h2>

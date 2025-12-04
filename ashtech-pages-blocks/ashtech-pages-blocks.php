@@ -55,14 +55,26 @@ function ashtech_enqueue_block_editor_assets() {
         array('wp-edit-blocks'),
         ASHTECH_BLOCKS_VERSION
     );
-    
-    // Localize script with plugin data for use in blocks
-    wp_localize_script('wp-blocks', 'ashtechBlocksData', array(
-        'pluginUrl' => ASHTECH_BLOCKS_URL,
-        'assetsUrl' => ASHTECH_BLOCKS_URL . 'assets/'
-    ));
 }
 add_action('enqueue_block_editor_assets', 'ashtech_enqueue_block_editor_assets');
+
+/**
+ * Pass plugin data to JavaScript (both editor and frontend)
+ */
+function ashtech_localize_scripts() {
+    // Create inline script to set global variable
+    $script = sprintf(
+        'window.ashtechBlocksData = %s;',
+        json_encode(array(
+            'pluginUrl' => ASHTECH_BLOCKS_URL,
+            'assetsUrl' => ASHTECH_BLOCKS_URL . 'assets/'
+        ))
+    );
+    
+    wp_add_inline_script('wp-blocks', $script, 'before');
+}
+add_action('enqueue_block_editor_assets', 'ashtech_localize_scripts');
+add_action('wp_enqueue_scripts', 'ashtech_localize_scripts');
 
 /**
  * Enqueue frontend and editor styles

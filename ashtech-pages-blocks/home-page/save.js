@@ -2,8 +2,6 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
     const { heroTitle, mainContent, imageUrl } = attributes;
-    
-    // Get assets URL from WordPress
     const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
@@ -214,7 +212,7 @@ export default function Save({ attributes }) {
             {/* Ongoing Projects Section */}
             <section className="landing-projects">
                 <div className="landing-projects__background"></div>
-                <img src="assets/images/landing/building.png" alt="" className="building" />
+                <img src={`${assetsUrl}images/landing/building.png`} alt="" className="building" />
                 <div className="landing-projects__content">
                     <div className="landing-projects__header">
                         <div className="landing-projects__label animate-text">Ongoing Project</div>
@@ -241,7 +239,7 @@ export default function Save({ attributes }) {
             {/* NRI Desk Section */}
             <section className="landing-nri">
                 <div className="landing-nri__image">
-                    <img src="assets/images/landing/nri.png" alt="NRI Desk" />
+                    <img src={`${assetsUrl}images/landing/nri.png`} alt="NRI Desk" />
                 </div>
                 <div className="landing-nri__content">
                     <div className="landing-nri__info">
@@ -262,25 +260,25 @@ export default function Save({ attributes }) {
                     <div className="landing-nri__features">
                         <div className="landing-nri__feature">
                             <div className="landing-nri__feature-icon">
-                                <img src="assets/images/landing/icon-virtual-tour.svg" alt="Virtual Tours" />
+                                <img src={`${assetsUrl}images/landing/icon-virtual-tour.svg`} alt="Virtual Tours" />
                             </div>
                             <p className="landing-nri__feature-text animate-text">Virtual Tours Across Time Zones</p>
                         </div>
                         <div className="landing-nri__feature">
                             <div className="landing-nri__feature-icon">
-                                <img src="assets/images/landing/icon-support.svg" alt="Support" />
+                                <img src={`${assetsUrl}images/landing/icon-support.svg`} alt="Support" />
                             </div>
                             <p className="landing-nri__feature-text animate-text">Dedicated NRI Support</p>
                         </div>
                         <div className="landing-nri__feature">
                             <div className="landing-nri__feature-icon">
-                                <img src="assets/images/landing/icon-residences.svg" alt="Residences" />
+                                <img src={`${assetsUrl}images/landing/icon-residences.svg`} alt="Residences" />
                             </div>
                             <p className="landing-nri__feature-text animate-text">Residences Designed for Generations</p>
                         </div>
                         <div className="landing-nri__feature">
                             <div className="landing-nri__feature-icon">
-                                <img src="assets/images/landing/icon-documentation.svg" alt="Documentation" />
+                                <img src={`${assetsUrl}images/landing/icon-documentation.svg`} alt="Documentation" />
                             </div>
                             <p className="landing-nri__feature-text animate-text">Documentation Assistance</p>
                         </div>
@@ -300,29 +298,29 @@ export default function Save({ attributes }) {
                     <div className="landing-awards__grid">
                         <div className="landing-awards__item">
                             <div className="landing-awards__item-images">
-                                <img src="assets/images/landing/award-laurel-left.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
-                                <img src="assets/images/landing/award-laurel-right.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
+                                <img src={`${assetsUrl}images/landing/award-laurel-left.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
+                                <img src={`${assetsUrl}images/landing/award-laurel-right.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
                             </div>
                             <p className="landing-awards__item-text animate-text">National Infrastructure Excellence Award 2023</p>
                         </div>
                         <div className="landing-awards__item">
                             <div className="landing-awards__item-images">
-                                <img src="assets/images/landing/award-laurel-left.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
-                                <img src="assets/images/landing/award-laurel-right.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
+                                <img src={`${assetsUrl}images/landing/award-laurel-left.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
+                                <img src={`${assetsUrl}images/landing/award-laurel-right.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
                             </div>
                             <p className="landing-awards__item-text animate-text">Engineering Visionary Award 2022</p>
                         </div>
                         <div className="landing-awards__item">
                             <div className="landing-awards__item-images">
-                                <img src="assets/images/landing/award-laurel-left.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
-                                <img src="assets/images/landing/award-laurel-right.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
+                                <img src={`${assetsUrl}images/landing/award-laurel-left.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
+                                <img src={`${assetsUrl}images/landing/award-laurel-right.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
                             </div>
                             <p className="landing-awards__item-text animate-text">Structural Innovation Leadership Award 2021</p>
                         </div>
                         <div className="landing-awards__item">
                             <div className="landing-awards__item-images">
-                                <img src="assets/images/landing/award-laurel-left.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
-                                <img src="assets/images/landing/award-laurel-right.svg" alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
+                                <img src={`${assetsUrl}images/landing/award-laurel-left.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
+                                <img src={`${assetsUrl}images/landing/award-laurel-right.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
                             </div>
                             <p className="landing-awards__item-text animate-text">Sustainable Development in Infrastructure 2020</p>
                         </div>
@@ -342,7 +340,7 @@ export default function Save({ attributes }) {
                             <div className="landing-testimonials__slide">
                                 <div className="landing-testimonials__content animate-text-rtl">
                                     <div className="landing-testimonials__image">
-                                        <img src="assets/images/landing/testimonial-bg.jpg" alt="Testimonials Background" />
+                                        <img src={`${assetsUrl}images/landing/testimonial-bg.jpg`} alt="Testimonials Background" />
                                     </div>
                                     <div className="landing-testimonials__card">
                                         <div className="landing-testimonials__card-content">

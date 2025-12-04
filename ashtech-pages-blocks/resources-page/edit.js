@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Edit({ attributes, setAttributes }) {
     const { heroTitle, heroSubtitle } = attributes;
+    const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
         <div {...useBlockProps()}>
@@ -46,7 +47,7 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="resources-featured__container">
                     <div className="resources-featured__card">
                         <div className="resources-featured__image">
-                            <img src="assets/images/resources/news-featured.jpg" alt="Featured News" />
+                            <img src={`${assetsUrl}images/resources/news-featured.jpg`} alt="Featured News" />
                         </div>
                         <div className="resources-featured__content">
                             <span className="resources-featured__category">Press Release</span>
@@ -56,7 +57,7 @@ export default function Edit({ attributes, setAttributes }) {
                             <button className="btn btn--primary">
                                 <span>Read More</span>
                                 <div className="btn__icon">
-                                    <img src="assets/images/resources/icon-arrow.svg" alt="Arrow" />
+                                    <img src={`${assetsUrl}images/resources/icon-arrow.svg`} alt="Arrow" />
                                 </div>
                             </button>
                         </div>
@@ -69,7 +70,7 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="resources-grid__container">
                     <div className="resources-grid__items">
                         <div className="resources-grid__card">
-                            <img src="assets/images/resources/news-1.jpg" alt="News 1" />
+                            <img src={`${assetsUrl}images/resources/news-1.jpg`} alt="News 1" />
                             <div className="resources-grid__content">
                                 <span className="resources-grid__category">News</span>
                                 <h4 className="resources-grid__title">Presidential Towers Achieves 80% Sales</h4>
@@ -78,7 +79,7 @@ export default function Edit({ attributes, setAttributes }) {
                             </div>
                         </div>
                         <div className="resources-grid__card">
-                            <img src="assets/images/resources/news-2.jpg" alt="News 2" />
+                            <img src={`${assetsUrl}images/resources/news-2.jpg`} alt="News 2" />
                             <div className="resources-grid__content">
                                 <span className="resources-grid__category">Event</span>
                                 <h4 className="resources-grid__title">Annual Property Exhibition 2024</h4>
@@ -87,7 +88,7 @@ export default function Edit({ attributes, setAttributes }) {
                             </div>
                         </div>
                         <div className="resources-grid__card">
-                            <img src="assets/images/resources/news-3.jpg" alt="News 3" />
+                            <img src={`${assetsUrl}images/resources/news-3.jpg`} alt="News 3" />
                             <div className="resources-grid__content">
                                 <span className="resources-grid__category">Blog</span>
                                 <h4 className="resources-grid__title">5 Benefits of Investing in Real Estate</h4>
@@ -96,7 +97,7 @@ export default function Edit({ attributes, setAttributes }) {
                             </div>
                         </div>
                         <div className="resources-grid__card">
-                            <img src="assets/images/resources/news-4.jpg" alt="News 4" />
+                            <img src={`${assetsUrl}images/resources/news-4.jpg`} alt="News 4" />
                             <div className="resources-grid__content">
                                 <span className="resources-grid__category">News</span>
                                 <h4 className="resources-grid__title">Ashtech Wins Excellence Award</h4>
@@ -108,7 +109,7 @@ export default function Edit({ attributes, setAttributes }) {
                     <button className="btn btn--primary resources-grid__load-more">
                         <span>Load More</span>
                         <div className="btn__icon">
-                            <img src="assets/images/resources/icon-load.svg" alt="Load" />
+                            <img src={`${assetsUrl}images/resources/icon-load.svg`} alt="Load" />
                         </div>
                     </button>
                 </div>

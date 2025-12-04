@@ -16,6 +16,9 @@ export default function Edit({ attributes, setAttributes }) {
         siteAddress,
         siteEmail
     } = attributes;
+    
+    // Get assets URL
+    const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
         <div {...useBlockProps()}>
@@ -64,7 +67,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 <div className="contact-enquiry__details">
                                     <div className="contact-enquiry__detail-item">
                                         <div className="contact-enquiry__icon">
-                                            <img src="assets/images/contact/icon-phone.svg" alt="Phone" />
+                                            <img src={`${assetsUrl}images/contact/icon-phone.svg`} alt="Phone" />
                                         </div>
                                         <RichText
                                             tagName="a"
@@ -76,7 +79,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     </div>
                                     <div className="contact-enquiry__detail-item contact-enquiry__detail-item--email">
                                         <div className="contact-enquiry__icon">
-                                            <img src="assets/images/contact/icon-email.svg" alt="Email" />
+                                            <img src={`${assetsUrl}images/contact/icon-email.svg`} alt="Email" />
                                         </div>
                                         <RichText
                                             tagName="a"
@@ -94,7 +97,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 <div className="contact-enquiry__details">
                                     <div className="contact-enquiry__detail-item">
                                         <div className="contact-enquiry__icon">
-                                            <img src="assets/images/contact/icon-phone.svg" alt="Phone" />
+                                            <img src={`${assetsUrl}images/contact/icon-phone.svg`} alt="Phone" />
                                         </div>
                                         <RichText
                                             tagName="a"
@@ -106,13 +109,13 @@ export default function Edit({ attributes, setAttributes }) {
                                     </div>
                                     <div className="contact-enquiry__detail-item contact-enquiry__detail-item--email">
                                         <div className="contact-enquiry__icon">
-                                            <img src="assets/images/contact/icon-email.svg" alt="Email" />
+                                            <img src={`${assetsUrl}images/contact/icon-email.svg`} alt="Email" />
                                         </div>
                                         <RichText
                                             tagName="a"
                                             className="contact-enquiry__text"
                                             value={customerEmail}
-                                            onChange=(value) => setAttributes({ customerEmail: value })}
+                                            onChange={(value) => setAttributes({ customerEmail: value })}
                                             placeholder={__('Email...', 'ashtech-pages-blocks')}
                                         />
                                     </div>
@@ -124,13 +127,13 @@ export default function Edit({ attributes, setAttributes }) {
                                 <div className="contact-enquiry__details">
                                     <div className="contact-enquiry__detail-item">
                                         <div className="contact-enquiry__icon">
-                                            <img src="assets/images/contact/icon-phone.svg" alt="Phone" />
+                                            <img src={`${assetsUrl}images/contact/icon-phone.svg`} alt="Phone" />
                                         </div>
                                         <a href="tel:9278333333" className="contact-enquiry__text">9278 333 333</a>
                                     </div>
                                     <div className="contact-enquiry__detail-item contact-enquiry__detail-item--email">
                                         <div className="contact-enquiry__icon">
-                                            <img src="assets/images/contact/icon-email.svg" alt="Email" />
+                                            <img src={`${assetsUrl}images/contact/icon-email.svg`} alt="Email" />
                                         </div>
                                         <a href="mailto:care@ashtechgroup.in" className="contact-enquiry__text">care@ashtechgroup.in</a>
                                     </div>
@@ -144,7 +147,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 <div className="contact-enquiry__details">
                                     <div className="contact-enquiry__detail-item contact-enquiry__detail-item--email">
                                         <div className="contact-enquiry__icon">
-                                            <img src="assets/images/contact/icon-email.svg" alt="Email" />
+                                            <img src={`${assetsUrl}images/contact/icon-email.svg`} alt="Email" />
                                         </div>
                                         <a href="mailto:care@ashtechgroup.in" className="contact-enquiry__text">care@ashtechgroup.in</a>
                                     </div>
@@ -166,14 +169,14 @@ export default function Edit({ attributes, setAttributes }) {
                         {/* Corporate Office */}
                         <div className="contact-offices__card">
                             <div className="contact-offices__image">
-                                <img src="assets/images/contact/office-corporate.jpg" alt="Ashtech Corporate Office" />
+                                <img src={`${assetsUrl}images/contact/office-corporate.jpg`} alt="Ashtech Corporate Office" />
                             </div>
                             <div className="contact-offices__info">
                                 <h3 className="contact-offices__card-title">Ashtech Corporate Office</h3>
                                 <div className="contact-offices__details">
                                     <div className="contact-offices__detail-item">
                                         <div className="contact-offices__icon">
-                                            <img src="assets/images/contact/icon-location.svg" alt="Location" />
+                                            <img src={`${assetsUrl}images/contact/icon-location.svg`} alt="Location" />
                                         </div>
                                         <div className="contact-offices__text-wrapper">
                                             <RichText
@@ -187,7 +190,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     </div>
                                     <div className="contact-offices__detail-item">
                                         <div className="contact-offices__icon">
-                                            <img src="assets/images/contact/icon-phone-office.svg" alt="Phone" />
+                                            <img src={`${assetsUrl}images/contact/icon-phone-office.svg`} alt="Phone" />
                                         </div>
                                         <div className="contact-offices__text-wrapper">
                                             <RichText
@@ -201,7 +204,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     </div>
                                     <div className="contact-offices__detail-item">
                                         <div className="contact-offices__icon">
-                                            <img src="assets/images/contact/icon-email-office.svg" alt="Email" />
+                                            <img src={`${assetsUrl}images/contact/icon-email-office.svg`} alt="Email" />
                                         </div>
                                         <div className="contact-offices__text-wrapper">
                                             <RichText
@@ -217,7 +220,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 <button className="btn btn--primary contact-offices__button">
                                     <span>Get Directions</span>
                                     <div className="btn__icon">
-                                        <img src="assets/images/contact/icon-arrow.svg" alt="Arrow" />
+                                        <img src={`${assetsUrl}images/contact/icon-arrow.svg`} alt="Arrow" />
                                     </div>
                                 </button>
                             </div>
@@ -226,14 +229,14 @@ export default function Edit({ attributes, setAttributes }) {
                         {/* Site Office */}
                         <div className="contact-offices__card">
                             <div className="contact-offices__image contact-offices__image--site">
-                                <img src="assets/images/contact/office-site.jpg" alt="Ashtech Site Office" />
+                                <img src={`${assetsUrl}images/contact/office-site.jpg`} alt="Ashtech Site Office" />
                             </div>
                             <div className="contact-offices__info">
                                 <h3 className="contact-offices__card-title">Ashtech Site Office</h3>
                                 <div className="contact-offices__details">
                                     <div className="contact-offices__detail-item">
                                         <div className="contact-offices__icon">
-                                            <img src="assets/images/contact/icon-location.svg" alt="Location" />
+                                            <img src={`${assetsUrl}images/contact/icon-location.svg`} alt="Location" />
                                         </div>
                                         <div className="contact-offices__text-wrapper">
                                             <RichText
@@ -247,7 +250,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     </div>
                                     <div className="contact-offices__detail-item">
                                         <div className="contact-offices__icon">
-                                            <img src="assets/images/contact/icon-email-office.svg" alt="Email" />
+                                            <img src={`${assetsUrl}images/contact/icon-email-office.svg`} alt="Email" />
                                         </div>
                                         <div className="contact-offices__text-wrapper">
                                             <RichText
@@ -263,7 +266,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 <button className="btn btn--primary contact-offices__button">
                                     <span>Get Directions</span>
                                     <div className="btn__icon">
-                                        <img src="assets/images/contact/icon-arrow.svg" alt="Arrow" />
+                                        <img src={`${assetsUrl}images/contact/icon-arrow.svg`} alt="Arrow" />
                                     </div>
                                 </button>
                             </div>
@@ -315,7 +318,7 @@ export default function Edit({ attributes, setAttributes }) {
                         <button type="submit" className="btn btn--primary contact-form__submit">
                             <span>Submit</span>
                             <div className="btn__icon">
-                                <img src="assets/images/contact/icon-arrow-submit.svg" alt="Arrow" />
+                                <img src={`${assetsUrl}images/contact/icon-arrow-submit.svg`} alt="Arrow" />
                             </div>
                         </button>
                     </form>

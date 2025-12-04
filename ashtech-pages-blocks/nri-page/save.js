@@ -72,19 +72,19 @@ export default function Save({ attributes }) {
                         <div className="nri-architecture__feature-row">
                             <div className="nri-architecture__feature-item animate-text">
                                 <div className="nri-architecture__feature-icon">
-                                    <img src="assets/images/nri/tick.svg" alt="" />
+                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
                                 </div>
                                 <p className="nri-architecture__feature-text">Strong rental demand from corporate professionals and new-age entrepreneurs.</p>
                             </div>
                             <div className="nri-architecture__feature-item animate-text">
                                 <div className="nri-architecture__feature-icon">
-                                    <img src="assets/images/nri/tick.svg" alt="" />
+                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
                                 </div>
                                 <p className="nri-architecture__feature-text">Robust economic growth is supported by India's steady GDP expansion.</p>
                             </div>
                             <div className="nri-architecture__feature-item animate-text">
                                 <div className="nri-architecture__feature-icon">
-                                    <img src="assets/images/nri/tick.svg" alt="" />
+                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
                                 </div>
                                 <p className="nri-architecture__feature-text">Investor-friendly reforms such as RERA and FEMA ensure transparency and compliance.</p>
                             </div>
@@ -92,19 +92,19 @@ export default function Save({ attributes }) {
                         <div className="nri-architecture__feature-row">
                             <div className="nri-architecture__feature-item animate-text">
                                 <div className="nri-architecture__feature-icon">
-                                    <img src="assets/images/nri/tick.svg" alt="" />
+                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
                                 </div>
                                 <p className="nri-architecture__feature-text">Exceptional connectivity via the Metro network, the upcoming Noida International (Jewar) Airport, and the FNG Expressway.</p>
                             </div>
                             <div className="nri-architecture__feature-item animate-text">
                                 <div className="nri-architecture__feature-icon">
-                                    <img src="assets/images/nri/tick.svg" alt="" />
+                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
                                 </div>
                                 <p className="nri-architecture__feature-text">Rapidly evolving IT, industrial, and business hubs along the Noida–Yamuna Expressway belt.</p>
                             </div>
                             <div className="nri-architecture__feature-item animate-text">
                                 <div className="nri-architecture__feature-icon">
-                                    <img src="assets/images/nri/tick.svg" alt="" />
+                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
                                 </div>
                                 <p className="nri-architecture__feature-text">World-class schools, universities, hospitals and malls, enhancing the quality of life and tenant appeal.</p>
                             </div>
@@ -175,7 +175,7 @@ export default function Save({ attributes }) {
             <section className="nri-benefits">
                 <div className="nri-benefits__container">
                     <div className="nri-benefits__image">
-                        <img src="assets/images/nri/nri-benefits.jpg" alt="Investment Benefits" />
+                        <img src={`${assetsUrl}images/nri/nri-benefits.jpg`} alt="Investment Benefits" />
                     </div>
                     <div className="nri-benefits__content">
                         <div className="nri-benefits__header">
@@ -189,25 +189,25 @@ export default function Save({ attributes }) {
                             <div className="nri-benefits__grid-row nri-benefits__grid-row--first">
                                 <div className="nri-benefits__grid-item animate-text">
                                     <div className="nri-benefits__grid-icon">
-                                        <img src="assets/images/nri/nri-benefit-1.svg" alt="Icon" />
+                                        <img src={`${assetsUrl}images/nri/nri-benefit-1.svg`} alt="Icon" />
                                     </div>
                                     <p className="nri-benefits__grid-text">High ROI potential and rental yield driven by rapid urban expansion.</p>
                                 </div>
                                 <div className="nri-benefits__grid-item animate-text">
                                     <div className="nri-benefits__grid-icon">
-                                        <img src="assets/images/nri/nri-benefit-2.svg" alt="Icon" />
+                                        <img src={`${assetsUrl}images/nri/nri-benefit-2.svg`} alt="Icon" />
                                     </div>
                                     <p className="nri-benefits__grid-text">Regular property updates and performance reports for investors abroad.</p>
                                 </div>
                                 <div className="nri-benefits__grid-item animate-text">
                                     <div className="nri-benefits__grid-icon">
-                                        <img src="assets/images/nri/nri-benefit-3.svg" alt="Icon" />
+                                        <img src={`${assetsUrl}images/nri/nri-benefit-3.svg`} alt="Icon" />
                                     </div>
                                     <p className="nri-benefits__grid-text">Strong resale opportunities supported by infrastructure growth.</p>
                                 </div>
                                 <div className="nri-benefits__grid-item animate-text">
                                     <div className="nri-benefits__grid-icon">
-                                        <img src="assets/images/nri/nri-benefit-4.svg" alt="Icon" />
+                                        <img src={`${assetsUrl}images/nri/nri-benefit-4.svg`} alt="Icon" />
                                     </div>
                                     <p className="nri-benefits__grid-text">Attractive tax benefits are available for NRI investors.</p>
                                 </div>
@@ -215,19 +215,19 @@ export default function Save({ attributes }) {
                             <div className="nri-benefits__grid-row nri-benefits__grid-row--second">
                                 <div className="nri-benefits__grid-item animate-text">
                                     <div className="nri-benefits__grid-icon">
-                                        <img src="assets/images/nri/nri-benefit-5.svg" alt="Icon" />
+                                        <img src={`${assetsUrl}images/nri/nri-benefit-5.svg`} alt="Icon" />
                                     </div>
                                     <p className="nri-benefits__grid-text">Hassle-free repatriation support under FEMA guidelines.</p>
                                 </div>
                                 <div className="nri-benefits__grid-item animate-text">
                                     <div className="nri-benefits__grid-icon">
-                                        <img src="assets/images/nri/nri-benefit-6.svg" alt="Icon" />
+                                        <img src={`${assetsUrl}images/nri/nri-benefit-6.svg`} alt="Icon" />
                                     </div>
                                     <p className="nri-benefits__grid-text">Home loan partnerships with HDFC, ICICI, Axis, and SBI NRI Services.</p>
                                 </div>
                                 <div className="nri-benefits__grid-item animate-text">
                                     <div className="nri-benefits__grid-icon">
-                                        <img src="assets/images/nri/nri-benefit-7.svg" alt="Icon" />
+                                        <img src={`${assetsUrl}images/nri/nri-benefit-7.svg`} alt="Icon" />
                                     </div>
                                     <p className="nri-benefits__grid-text">Prime Greater Noida West location, strategically<br />connected to Delhi, Noida,<br />and Gurgaon.</p>
                                 </div>
@@ -269,38 +269,38 @@ export default function Save({ attributes }) {
                         <div className="nri-director__services">
                             <div className="nri-director__service-item animate-text">
                                 <div className="nri-director__service-icon">
-                                    <img src="assets/images/landing/icon-virtual-tour.svg" alt="Virtual Tours" />
+                                    <img src={`${assetsUrl}images/landing/icon-virtual-tour.svg`} alt="Virtual Tours" />
                                 </div>
                                 <p className="nri-director__service-text">Virtual tours and personalised consultations from anywhere in the world.</p>
                             </div>
                             <div className="nri-director__service-item animate-text">
                                 <div className="nri-director__service-icon">
-                                    <img src="assets/images/landing/icon-support.svg" alt="Support" />
+                                    <img src={`${assetsUrl}images/landing/icon-support.svg`} alt="Support" />
                                 </div>
                                 <p className="nri-director__service-text">Dedicated NRI relationship managers to guide you through every step.</p>
                             </div>
                             <div className="nri-director__service-item animate-text">
                                 <div className="nri-director__service-icon">
-                                    <img src="assets/images/landing/icon-residences.svg" alt="Residences" />
+                                    <img src={`${assetsUrl}images/landing/icon-residences.svg`} alt="Residences" />
                                 </div>
                                 <p className="nri-director__service-text">Complete digital documentation and registration for remote completion.</p>
                             </div>
                             <div className="nri-director__service-item animate-text">
                                 <div className="nri-director__service-icon">
-                                    <img src="assets/images/landing/icon-documentation.svg" alt="Documentation" />
+                                    <img src={`${assetsUrl}images/landing/icon-documentation.svg`} alt="Documentation" />
                                 </div>
                                 <p className="nri-director__service-text">Property management, leasing, and resale coordination via verified partners.</p>
                             </div>
                             <div className="nri-director__service-item animate-text">
                                 <div className="nri-director__service-icon">
-                                    <img src="assets/images/landing/icon-documentation.svg" alt="Updates" />
+                                    <img src={`${assetsUrl}images/landing/icon-documentation.svg`} alt="Updates" />
                                 </div>
                                 <p className="nri-director__service-text">Regular updates on construction, possession, and performance reports.</p>
                             </div>
                         </div>
                     </div>
                     <div className="nri-director__image">
-                        <img src="assets/images/nri/nri-director.png" alt="Director" />
+                        <img src={`${assetsUrl}images/nri/nri-director.png`} alt="Director" />
                     </div>
                 </div>
             </section>
@@ -317,14 +317,14 @@ export default function Save({ attributes }) {
                         <div className="tm-item">
                             <div className="nri-testimonials__card animate-text">
                                 <div className="nri-testimonials__card-quote">
-                                    <img src="assets/images/nri/nri-quote.svg" alt="Quote" />
+                                    <img src={`${assetsUrl}images/nri/nri-quote.svg`} alt="Quote" />
                                 </div>
                                 <p className="nri-testimonials__card-text">
                                     "I booked my residence at Ashtech Presidential Towers from Dubai without a single site visit. The process was completely digital, and the team kept me updated throughout."
                                 </p>
                                 <div className="nri-testimonials__card-author">
                                     <div className="nri-testimonials__card-avatar">
-                                        <img src="assets/images/nri/nri-avatar.png" alt="Avatar" />
+                                        <img src={`${assetsUrl}images/nri/nri-avatar.png`} alt="Avatar" />
                                     </div>
                                     <div className="nri-testimonials__card-info">
                                         <p className="nri-testimonials__card-name">Rohan S.,<br />Dubai</p>
@@ -335,14 +335,14 @@ export default function Save({ attributes }) {
                         <div className="tm-item">
                             <div className="nri-testimonials__card animate-text">
                                 <div className="nri-testimonials__card-quote">
-                                    <img src="assets/images/nri/nri-quote.svg" alt="Quote" />
+                                    <img src={`${assetsUrl}images/nri/nri-quote.svg`} alt="Quote" />
                                 </div>
                                 <p className="nri-testimonials__card-text">
                                     "The combination of quality, trust, and location made this an easy decision. Ashtech's NRI team handled everything seamlessly."
                                 </p>
                                 <div className="nri-testimonials__card-author">
                                     <div className="nri-testimonials__card-avatar">
-                                        <img src="assets/images/nri/nri-avatar.png" alt="Avatar" />
+                                        <img src={`${assetsUrl}images/nri/nri-avatar.png`} alt="Avatar" />
                                     </div>
                                     <div className="nri-testimonials__card-info">
                                         <p className="nri-testimonials__card-name">Ananya P.,<br />Singapore</p>
@@ -353,14 +353,14 @@ export default function Save({ attributes }) {
                         <div className="tm-item">
                             <div className="nri-testimonials__card animate-text">
                                 <div className="nri-testimonials__card-quote">
-                                    <img src="assets/images/nri/nri-quote.svg" alt="Quote" />
+                                    <img src={`${assetsUrl}images/nri/nri-quote.svg`} alt="Quote" />
                                 </div>
                                 <p className="nri-testimonials__card-text">
                                     "It's reassuring to invest with a developer that understands both luxury and long-term value."
                                 </p>
                                 <div className="nri-testimonials__card-author">
                                     <div className="nri-testimonials__card-avatar">
-                                        <img src="assets/images/nri/nri-avatar.png" alt="Avatar" />
+                                        <img src={`${assetsUrl}images/nri/nri-avatar.png`} alt="Avatar" />
                                     </div>
                                     <div className="nri-testimonials__card-info">
                                         <p className="nri-testimonials__card-name">Vivek M.,<br />London</p>

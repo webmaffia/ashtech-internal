@@ -69,7 +69,7 @@ export default function Save({ attributes }) {
                     </div>
                     
                     <div className="about-values__graphic">
-                        <img src="assets/images/about/values-graphic.svg" alt="Values Graphic" className="about-values__graphic-image" />
+                        <img src={`${assetsUrl}images/about/values-graphic.svg`} alt="Values Graphic" className="about-values__graphic-image" />
                         <div className="about-values__items">
                             <div className="about-values__item about-values__item--left about-values__item--1">
                                 <p className="about-values__item-text">जुनून (Passion)</p>
@@ -110,7 +110,7 @@ export default function Save({ attributes }) {
                     </div>
                     
                     <div className="about-vision-mission__image">
-                        <img src="assets/images/about/overview-pattern.png" alt="Building" />
+                        <img src={`${assetsUrl}images/about/overview-pattern.png`} alt="Building" />
                     </div>
                     
                     <div className="about-vision-mission__mission">
@@ -126,7 +126,7 @@ export default function Save({ attributes }) {
             {/* History Timeline Section */}
             <section className="about-history">
                 <div className="about-history__image-container">
-                    <img src="assets/images/about/history-1.jpg" alt="Ashtech Manufacturing" className="about-history__image" id="historyImage" />
+                    <img src={`${assetsUrl}images/about/history-1.jpg`} alt="Ashtech Manufacturing" className="about-history__image" id="historyImage" />
                 </div>
                 
                 <div className="about-history__content-box">
@@ -141,49 +141,49 @@ export default function Save({ attributes }) {
                         <div className="about-history__timeline-line"></div>
                         <div className="about-history__timeline-progress" id="timelineProgress"></div>
                         
-                        <div className="about-history__timeline-item active" data-year="1992" data-title="Fly Ash Supply" data-description="Combining innovation in materials and precision in delivery, Ashtech's Ready-Mix Concrete and Fly Ash Bricks manufacturing vertical delivers 10 million cubic metres of concrete and 100 million eco-friendly bricks and AAC blocks." data-image="assets/images/about/history-1.jpg">
+                        <div className="about-history__timeline-item active" data-year="1992" data-title="Fly Ash Supply" data-description="Combining innovation in materials and precision in delivery, Ashtech's Ready-Mix Concrete and Fly Ash Bricks manufacturing vertical delivers 10 million cubic metres of concrete and 100 million eco-friendly bricks and AAC blocks." data-image={`${assetsUrl}images/about/history-1.jpg`}>
                             <p className="about-history__timeline-year">1992</p>
                             <div className="about-history__timeline-dot"></div>
                             <p className="about-history__timeline-label">Fly Ash<br />Supply</p>
                         </div>
                         
-                        <div className="about-history__timeline-item" data-year="2004" data-title="Logistics" data-description="Ashtech's Logistics vertical ensures seamless transportation and supply chain management across all business divisions, maintaining efficiency and reliability in delivery." data-image="assets/images/about/history-2.jpg">
+                        <div className="about-history__timeline-item" data-year="2004" data-title="Logistics" data-description="Ashtech's Logistics vertical ensures seamless transportation and supply chain management across all business divisions, maintaining efficiency and reliability in delivery." data-image={`${assetsUrl}images/about/history-2.jpg`}>
                             <p className="about-history__timeline-year">2004</p>
                             <div className="about-history__timeline-dot"></div>
                             <p className="about-history__timeline-label">Logistics<br />&nbsp;</p>
                         </div>
                         
-                        <div className="about-history__timeline-item" data-year="2006" data-title="Ready-Mix Concrete & Bricks Manufacturing" data-description="Combining innovation in materials and precision in delivery, Ashtech's Ready-Mix Concrete and Fly Ash Bricks manufacturing vertical delivers 10 million cubic metres of concrete and 100 million eco-friendly bricks and AAC blocks." data-image="assets/images/about/history-3.jpg">
+                        <div className="about-history__timeline-item" data-year="2006" data-title="Ready-Mix Concrete & Bricks Manufacturing" data-description="Combining innovation in materials and precision in delivery, Ashtech's Ready-Mix Concrete and Fly Ash Bricks manufacturing vertical delivers 10 million cubic metres of concrete and 100 million eco-friendly bricks and AAC blocks." data-image={`${assetsUrl}images/about/history-3.jpg`}>
                             <p className="about-history__timeline-year">2006</p>
                             <div className="about-history__timeline-dot"></div>
                             <p className="about-history__timeline-label">Ready-Mix Concrete<br />& Bricks Manufacturing</p>
                         </div>
                         
-                        <div className="about-history__timeline-item" data-year="2012" data-title="Fly Ash Processing" data-description="Advanced fly ash processing facilities established to deliver high-quality processed fly ash for sustainable construction applications across India." data-image="assets/images/about/history-4.jpg">
+                        <div className="about-history__timeline-item" data-year="2012" data-title="Fly Ash Processing" data-description="Advanced fly ash processing facilities established to deliver high-quality processed fly ash for sustainable construction applications across India." data-image={`${assetsUrl}images/about/history-4.jpg`}>
                             <p className="about-history__timeline-year">2012</p>
                             <div className="about-history__timeline-dot"></div>
                             <p className="about-history__timeline-label">Fly Ash<br />Processing</p>
                         </div>
                         
-                        <div className="about-history__timeline-item" data-year="2020" data-title="Large Scale Infrastructure Projects" data-description="Expanded capabilities to undertake large-scale infrastructure projects, delivering world-class construction solutions for highways, bridges, and urban development." data-image="assets/images/about/history-5.jpg">
+                        <div className="about-history__timeline-item" data-year="2020" data-title="Large Scale Infrastructure Projects" data-description="Expanded capabilities to undertake large-scale infrastructure projects, delivering world-class construction solutions for highways, bridges, and urban development." data-image={`${assetsUrl}images/about/history-5.jpg`}>
                             <p className="about-history__timeline-year">2020</p>
                             <div className="about-history__timeline-dot"></div>
                             <p className="about-history__timeline-label">Large Scale<br />Infrastructure Projects</p>
                         </div>
                         
-                        <div className="about-history__timeline-item" data-year="2021" data-title="Pre-Engineered Buildings" data-description="Introduction of pre-engineered building solutions offering rapid construction, cost efficiency, and superior structural integrity for industrial and commercial spaces." data-image="assets/images/about/history-6.jpg">
+                        <div className="about-history__timeline-item" data-year="2021" data-title="Pre-Engineered Buildings" data-description="Introduction of pre-engineered building solutions offering rapid construction, cost efficiency, and superior structural integrity for industrial and commercial spaces." data-image={`${assetsUrl}images/about/history-6.jpg`}>
                             <p className="about-history__timeline-year">2021</p>
                             <div className="about-history__timeline-dot"></div>
                             <p className="about-history__timeline-label">Pre-Engineered<br />Buildings</p>
                         </div>
                         
-                        <div className="about-history__timeline-item" data-year="2021" data-title="Power Infrastructure" data-description="Venturing into power infrastructure development, providing comprehensive solutions for energy generation and distribution projects." data-image="assets/images/about/history-7.jpg">
+                        <div className="about-history__timeline-item" data-year="2021" data-title="Power Infrastructure" data-description="Venturing into power infrastructure development, providing comprehensive solutions for energy generation and distribution projects." data-image={`${assetsUrl}images/about/history-7.jpg`}>
                             <p className="about-history__timeline-year">2021</p>
                             <div className="about-history__timeline-dot"></div>
                             <p className="about-history__timeline-label">Power<br />Infrastructure</p>
                         </div>
                         
-                        <div className="about-history__timeline-item" data-year="2024" data-title="Management Consultancy" data-description="Launched management consultancy services leveraging decades of industry expertise to guide construction and infrastructure projects toward excellence." data-image="assets/images/about/history-8.jpg">
+                        <div className="about-history__timeline-item" data-year="2024" data-title="Management Consultancy" data-description="Launched management consultancy services leveraging decades of industry expertise to guide construction and infrastructure projects toward excellence." data-image={`${assetsUrl}images/about/history-8.jpg`}>
                             <p className="about-history__timeline-year">2024</p>
                             <div className="about-history__timeline-dot"></div>
                             <p className="about-history__timeline-label">Management<br />Consultancy</p>
@@ -204,7 +204,7 @@ export default function Save({ attributes }) {
                     {/* Main Director */}
                     <div className="about-leadership__main">
                         <div className="about-leadership__main-image">
-                            <img src="assets/images/about/director-sumit.jpg" alt="Mr. Sumit Agarwal" />
+                            <img src={`${assetsUrl}images/about/director-sumit.jpg`} alt="Mr. Sumit Agarwal" />
                         </div>
                         <div className="about-leadership__main-content">
                             <div className="about-leadership__main-text">
@@ -222,7 +222,7 @@ export default function Save({ attributes }) {
                     <div className="about-leadership__team">
                         <div className="about-leadership__team-member">
                             <div className="about-leadership__team-image">
-                                <img src="assets/images/about/team-1.jpg" alt="Sangeeta Tiwari" />
+                                <img src={`${assetsUrl}images/about/team-1.jpg`} alt="Sangeeta Tiwari" />
                             </div>
                             <div className="about-leadership__team-info">
                                 <p className="about-leadership__team-name">Sangeeta Tiwari</p>
@@ -231,7 +231,7 @@ export default function Save({ attributes }) {
                         </div>
                         <div className="about-leadership__team-member">
                             <div className="about-leadership__team-image">
-                                <img src="assets/images/about/team-2.jpg" alt="Mr. Sunny Chug" />
+                                <img src={`${assetsUrl}images/about/team-2.jpg`} alt="Mr. Sunny Chug" />
                             </div>
                             <div className="about-leadership__team-info">
                                 <p className="about-leadership__team-name">Mr. Sunny Chug</p>
@@ -240,7 +240,7 @@ export default function Save({ attributes }) {
                         </div>
                         <div className="about-leadership__team-member">
                             <div className="about-leadership__team-image">
-                                <img src="assets/images/about/team-3.jpg" alt="Mr. Rahul Bhargava" />
+                                <img src={`${assetsUrl}images/about/team-3.jpg`} alt="Mr. Rahul Bhargava" />
                             </div>
                             <div className="about-leadership__team-info">
                                 <p className="about-leadership__team-name">Mr. Rahul Bhargava</p>
@@ -249,7 +249,7 @@ export default function Save({ attributes }) {
                         </div>
                         <div className="about-leadership__team-member">
                             <div className="about-leadership__team-image">
-                                <img src="assets/images/about/team-4.jpg" alt="Mr. Shyam Bisht" />
+                                <img src={`${assetsUrl}images/about/team-4.jpg`} alt="Mr. Shyam Bisht" />
                             </div>
                             <div className="about-leadership__team-info">
                                 <p className="about-leadership__team-name">Mr. Shyam Bisht</p>
@@ -258,7 +258,7 @@ export default function Save({ attributes }) {
                         </div>
                         <div className="about-leadership__team-member">
                             <div className="about-leadership__team-image">
-                                <img src="assets/images/about/team-5.jpg" alt="Mr. Aditya Yadav" />
+                                <img src={`${assetsUrl}images/about/team-5.jpg`} alt="Mr. Aditya Yadav" />
                             </div>
                             <div className="about-leadership__team-info">
                                 <p className="about-leadership__team-name">Mr. Aditya Yadav</p>
@@ -267,7 +267,7 @@ export default function Save({ attributes }) {
                         </div>
                         <div className="about-leadership__team-member">
                             <div className="about-leadership__team-image">
-                                <img src="assets/images/about/team-6.jpg" alt="Mr. Dilip Kumar Jain" />
+                                <img src={`${assetsUrl}images/about/team-6.jpg`} alt="Mr. Dilip Kumar Jain" />
                             </div>
                             <div className="about-leadership__team-info">
                                 <p className="about-leadership__team-name">Mr. Dilip Kumar Jain</p>
@@ -301,7 +301,7 @@ export default function Save({ attributes }) {
                             </div>
                         </div>
                         <div className="about-director-message__image">
-                            <img src="assets/images/about/director-updated.jpg" alt="Mr. Sumit Agarwal" />
+                            <img src={`${assetsUrl}images/about/director-updated.jpg`} alt="Mr. Sumit Agarwal" />
                         </div>
                     </div>
                 </div>

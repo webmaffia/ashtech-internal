@@ -55,7 +55,7 @@ export default function Save({ attributes }) {
                                     </a>
                                 </div>
                                 <div className="resources-news__featured-image">
-                                    <img src="assets/images/resources/featured-news.jpg" alt="Featured News" />
+                                    <img src={`${assetsUrl}images/resources/featured-news.jpg`} alt="Featured News" />
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@ export default function Save({ attributes }) {
                             {/* News Card 1 */}
                             <article className="news-card">
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-1.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-1.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">November 17, 2025</p>
@@ -78,7 +78,7 @@ export default function Save({ attributes }) {
                             {/* News Card 2 */}
                             <article className="news-card">
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-2.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-2.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">November 13, 2025</p>
@@ -91,7 +91,7 @@ export default function Save({ attributes }) {
                             {/* News Card 3 */}
                             <article className="news-card">
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-3.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-3.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">November 17, 2025</p>
@@ -104,7 +104,7 @@ export default function Save({ attributes }) {
                             {/* News Card 4 */}
                             <article className="news-card">
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-4.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-4.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">November 13, 2025</p>
@@ -117,7 +117,7 @@ export default function Save({ attributes }) {
                             {/* News Card 5 */}
                             <article className="news-card">
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-5.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-5.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">November 13, 2025</p>
@@ -130,7 +130,7 @@ export default function Save({ attributes }) {
                             {/* News Card 6 */}
                             <article className="news-card">
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-6.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-6.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">November 13, 2025</p>
@@ -143,7 +143,7 @@ export default function Save({ attributes }) {
                             {/* News Card 7 */}
                             <article className="news-card">
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-7.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-7.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">October 7, 2025</p>
@@ -156,7 +156,7 @@ export default function Save({ attributes }) {
                             {/* News Card 8 */}
                             <article className="news-card">
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-8.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-8.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">October 7, 2025</p>
@@ -169,7 +169,7 @@ export default function Save({ attributes }) {
                             {/* News Card 9 */}
                             <article className="news-card">
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-9.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-9.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">November 18, 2025</p>
@@ -182,7 +182,7 @@ export default function Save({ attributes }) {
                             {/* News Card 10 */}
                             <article className="news-card news-card--hidden" data-load-more>
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-10.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-10.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">October 7, 2025</p>
@@ -195,7 +195,7 @@ export default function Save({ attributes }) {
                             {/* News Card 11 */}
                             <article className="news-card news-card--hidden" data-load-more>
                                 <div className="news-card__image">
-                                    <img src="assets/images/resources/news-11.jpg" alt="News" />
+                                    <img src={`${assetsUrl}images/resources/news-11.jpg`} alt="News" />
                                 </div>
                                 <div className="news-card__content">
                                     <p className="news-card__date">October 8, 2025</p>
@@ -211,7 +211,7 @@ export default function Save({ attributes }) {
                             <button className="btn btn--primary" id="loadMoreBtn">
                                 <span>Load More</span>
                                 <div className="btn__icon">
-                                    <img src="assets/images/contact/icon-arrow.svg" alt="Arrow" />
+                                    <img src={`${assetsUrl}images/contact/icon-arrow.svg`} alt="Arrow" />
                                 </div>
                             </button>
                         </div>

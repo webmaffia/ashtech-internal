@@ -29,7 +29,7 @@ export default function Save({ attributes }) {
             <section className="project-submenu" id="project-submenu">
                 <div className="project-submenu__container">
                     <div className="project-submenu__logo">
-                        <img src="assets/images/project/project_logo.png" alt="Ashtech Presidential Logo" />
+                        <img src={`${assetsUrl}images/project/project_logo.png`} alt="Ashtech Presidential Logo" />
                     </div>
                     <nav className="project-submenu__nav">
                         <a href="#overview" className="project-submenu__link">Overview</a>
@@ -66,25 +66,25 @@ export default function Save({ attributes }) {
                         <div className="project-overview__stats">
                             <div className="project-overview__stat">
                                 <div className="project-overview__stat-icon">
-                                    <img src="assets/images/project/ease-vehicular.svg" alt="Acres" />
+                                    <img src={`${assetsUrl}images/project/ease-vehicular.svg`} alt="Acres" />
                                 </div>
                                 <p className="project-overview__stat-text">5.6 ACRES</p>
                             </div>
                             <div className="project-overview__stat">
                                 <div className="project-overview__stat-icon">
-                                    <img src="assets/images/project/overview-open-plot.svg" alt="Open Plot" />
+                                    <img src={`${assetsUrl}images/project/overview-open-plot.svg`} alt="Open Plot" />
                                 </div>
                                 <p className="project-overview__stat-text">3-SIDE OPEN PLOT</p>
                             </div>
                             <div className="project-overview__stat">
                                 <div className="project-overview__stat-icon">
-                                    <img src="assets/images/project/overview-towers.svg" alt="Towers" />
+                                    <img src={`${assetsUrl}images/project/overview-towers.svg`} alt="Towers" />
                                 </div>
                                 <p className="project-overview__stat-text">5 TOWERS</p>
                             </div>
                             <div className="project-overview__stat">
                                 <div className="project-overview__stat-icon">
-                                    <img src="assets/images/project/overview-residences.svg" alt="Residences" />
+                                    <img src={`${assetsUrl}images/project/overview-residences.svg`} alt="Residences" />
                                 </div>
                                 <p className="project-overview__stat-text">456 RESIDENCES</p>
                             </div>
@@ -177,25 +177,25 @@ export default function Save({ attributes }) {
                     <div className="experiences__tab-list">
                         <button className="experiences__tab-button experiences__tab-button--active" data-tab="wellness">
                             <div className="experiences__tab-icon">
-                                <img src="assets/images/project/arrow-right.svg" alt="" />
+                                <img src={`${assetsUrl}images/project/arrow-right.svg`} alt="" />
                             </div>
                             <span className="experiences__tab-text">Wellness & Rejuvenation</span>
                         </button>
                         <button className="experiences__tab-button" data-tab="movement">
                             <div className="experiences__tab-icon">
-                                <img src="assets/images/project/arrow-right.svg" alt="" />
+                                <img src={`${assetsUrl}images/project/arrow-right.svg`} alt="" />
                             </div>
                             <span className="experiences__tab-text">Movement & Play</span>
                         </button>
                         <button className="experiences__tab-button" data-tab="culture">
                             <div className="experiences__tab-icon">
-                                <img src="assets/images/project/arrow-right.svg" alt="" />
+                                <img src={`${assetsUrl}images/project/arrow-right.svg`} alt="" />
                             </div>
                             <span className="experiences__tab-text">Culture & Gathering</span>
                         </button>
                         <button className="experiences__tab-button" data-tab="ease">
                             <div className="experiences__tab-icon">
-                                <img src="assets/images/project/arrow-right.svg" alt="" />
+                                <img src={`${assetsUrl}images/project/arrow-right.svg`} alt="" />
                             </div>
                             <span className="experiences__tab-text">Ease & Arrival</span>
                         </button>
@@ -206,25 +206,25 @@ export default function Save({ attributes }) {
                         <div className="experiences__features">
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/wellness-pool.svg" alt="Pool icon" />
+                                    <img src={`${assetsUrl}images/project/wellness-pool.svg`} alt="Pool icon" />
                                 </div>
                                 <p className="feature-card__text">Temperature-controlled <br />pool for every season</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/wellness-spa-1.svg" alt="Spa icon" />
+                                    <img src={`${assetsUrl}images/project/wellness-spa-1.svg`} alt="Spa icon" />
                                 </div>
                                 <p className="feature-card__text">International-inspired <br />spa with hot pool and <br />therapy suites</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/wellness-steam.svg" alt="Steam icon" />
+                                    <img src={`${assetsUrl}images/project/wellness-steam.svg`} alt="Steam icon" />
                                 </div>
                                 <p className="feature-card__text">Steam and sauna retreats</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/wellness-yoga.svg" alt="Yoga icon" />
+                                    <img src={`${assetsUrl}images/project/wellness-yoga.svg`} alt="Yoga icon" />
                                 </div>
                                 <p className="feature-card__text">Yoga and meditation studios</p>
                             </div>
@@ -236,43 +236,43 @@ export default function Save({ attributes }) {
                         <div className="experiences__features">
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/movement-gym.svg" alt="Gym icon" />
+                                    <img src={`${assetsUrl}images/project/movement-gym.svg`} alt="Gym icon" />
                                 </div>
                                 <p className="feature-card__text">High-performance gym</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/movement-training.svg" alt="Training icon" />
+                                    <img src={`${assetsUrl}images/project/movement-training.svg`} alt="Training icon" />
                                 </div>
                                 <p className="feature-card__text">Functional training zones</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/movement-sports-bar.svg" alt="Sports Bar icon" />
+                                    <img src={`${assetsUrl}images/project/movement-sports-bar.svg`} alt="Sports Bar icon" />
                                 </div>
                                 <p className="feature-card__text">Sports Bar</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/movement-zumba.svg" alt="Zumba icon" />
+                                    <img src={`${assetsUrl}images/project/movement-zumba.svg`} alt="Zumba icon" />
                                 </div>
                                 <p className="feature-card__text">Zumba & yoga zones</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/movement-bowling.svg" alt="Bowling icon" />
+                                    <img src={`${assetsUrl}images/project/movement-bowling.svg`} alt="Bowling icon" />
                                 </div>
                                 <p className="feature-card__text">Bowling Alley</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/movement-golf.svg" alt="Golf icon" />
+                                    <img src={`${assetsUrl}images/project/movement-golf.svg`} alt="Golf icon" />
                                 </div>
                                 <p className="feature-card__text">Golf Simulator</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/movement-arena.svg" alt="Sports arena icon" />
+                                    <img src={`${assetsUrl}images/project/movement-arena.svg`} alt="Sports arena icon" />
                                 </div>
                                 <p className="feature-card__text">Indoor sports arena</p>
                             </div>
@@ -284,49 +284,49 @@ export default function Save({ attributes }) {
                         <div className="experiences__features">
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/culture-community.svg" alt="Community Hall icon" />
+                                    <img src={`${assetsUrl}images/project/culture-community.svg`} alt="Community Hall icon" />
                                 </div>
                                 <p className="feature-card__text">Community Hall</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/culture-theatre.svg" alt="Theatre icon" />
+                                    <img src={`${assetsUrl}images/project/culture-theatre.svg`} alt="Theatre icon" />
                                 </div>
                                 <p className="feature-card__text">Mini Theatre</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/culture-library.svg" alt="Library icon" />
+                                    <img src={`${assetsUrl}images/project/culture-library.svg`} alt="Library icon" />
                                 </div>
                                 <p className="feature-card__text">Library Lounges</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/culture-podcast.svg" alt="Podcast icon" />
+                                    <img src={`${assetsUrl}images/project/culture-podcast.svg`} alt="Podcast icon" />
                                 </div>
                                 <p className="feature-card__text">Podcast Room</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/culture-business.svg" alt="Business icon" />
+                                    <img src={`${assetsUrl}images/project/culture-business.svg`} alt="Business icon" />
                                 </div>
                                 <p className="feature-card__text">Business Centre</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/culture-meeting.svg" alt="Meeting icon" />
+                                    <img src={`${assetsUrl}images/project/culture-meeting.svg`} alt="Meeting icon" />
                                 </div>
                                 <p className="feature-card__text">Private Meeting Room</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/culture-dining.svg" alt="Dining icon" />
+                                    <img src={`${assetsUrl}images/project/culture-dining.svg`} alt="Dining icon" />
                                 </div>
                                 <p className="feature-card__text">Alfesco Dining</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/culture-restaurant.svg" alt="Restaurant icon" />
+                                    <img src={`${assetsUrl}images/project/culture-restaurant.svg`} alt="Restaurant icon" />
                                 </div>
                                 <p className="feature-card__text">Restaurant & Bar</p>
                             </div>
@@ -338,25 +338,25 @@ export default function Save({ attributes }) {
                         <div className="experiences__features">
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/ease-vehicular.svg" alt="Vehicular icon" />
+                                    <img src={`${assetsUrl}images/project/ease-vehicular.svg`} alt="Vehicular icon" />
                                 </div>
                                 <p className="feature-card__text">Zero vehicular movement<br />at ground level</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/ease-lift-lobby.svg" alt="Lift lobby icon" />
+                                    <img src={`${assetsUrl}images/project/ease-lift-lobby.svg`} alt="Lift lobby icon" />
                                 </div>
                                 <p className="feature-card__text">Fully air-conditioned,<br />triple-height grand lift lobby</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/ease-private-lift.svg" alt="Private lift icon" />
+                                    <img src={`${assetsUrl}images/project/ease-private-lift.svg`} alt="Private lift icon" />
                                 </div>
                                 <p className="feature-card__text">Private lift foyers for every<br />home in Gold Towers with 2 <br />apartment per core</p>
                             </div>
                             <div className="feature-card">
                                 <div className="feature-card__icon">
-                                    <img src="assets/images/project/ease-parking.svg" alt="Parking icon" />
+                                    <img src={`${assetsUrl}images/project/ease-parking.svg`} alt="Parking icon" />
                                 </div>
                                 <p className="feature-card__text">2-levels of basement parking</p>
                             </div>
@@ -391,37 +391,37 @@ export default function Save({ attributes }) {
                             <div className="project-location__slider-track">
                                 <div className="project-location__item">
                                     <div className="project-location__item-icon">
-                                        <img src="assets/images/project/location-expressway.svg" alt="Expressway" />
+                                        <img src={`${assetsUrl}images/project/location-expressway.svg`} alt="Expressway" />
                                     </div>
                                     <p className="project-location__item-text">20 minutes from NH 24 Expressway</p>
                                 </div>
                                 <div className="project-location__item">
                                     <div className="project-location__item-icon">
-                                        <img src="assets/images/project/location-schools.svg" alt="Schools" />
+                                        <img src={`${assetsUrl}images/project/location-schools.svg`} alt="Schools" />
                                     </div>
                                     <p className="project-location__item-text">Close to leading schools and hospitals</p>
                                 </div>
                                 <div className="project-location__item">
                                     <div className="project-location__item-icon">
-                                        <img src="assets/images/project/location-noida.svg" alt="Noida" />
+                                        <img src={`${assetsUrl}images/project/location-noida.svg`} alt="Noida" />
                                     </div>
                                     <p className="project-location__item-text">20 minutes from Sector 18, Greater Noida</p>
                                 </div>
                                 <div className="project-location__item">
                                     <div className="project-location__item-icon">
-                                        <img src="assets/images/project/location-corporate.svg" alt="Corporate" />
+                                        <img src={`${assetsUrl}images/project/location-corporate.svg`} alt="Corporate" />
                                     </div>
                                     <p className="project-location__item-text">Well-connected to IT, corporate & retail hubs</p>
                                 </div>
                                 <div className="project-location__item">
                                     <div className="project-location__item-icon">
-                                        <img src="assets/images/project/location-airport.svg" alt="Airport" />
+                                        <img src={`${assetsUrl}images/project/location-airport.svg`} alt="Airport" />
                                     </div>
                                     <p className="project-location__item-text">25 minutes from Noida International Airport</p>
                                 </div>
                                 <div className="project-location__item">
                                     <div className="project-location__item-icon">
-                                        <img src="assets/images/project/location-airport.svg" alt="Airport" />
+                                        <img src={`${assetsUrl}images/project/location-airport.svg`} alt="Airport" />
                                     </div>
                                     <p className="project-location__item-text">25 minutes from Hindon Airport</p>
                                 </div>
@@ -442,7 +442,7 @@ export default function Save({ attributes }) {
                     <div className="specifications__card-wrapper">
                         <div className="spec-card">
                             <div className="spec-card__image">
-                                <img src="assets/images/project/spec-residences.jpg" alt="Luxurious residence interior" />
+                                <img src={`${assetsUrl}images/project/spec-residences.jpg`} alt="Luxurious residence interior" />
                             </div>
                             <div className="spec-card__content">
                                 <h3 className="spec-card__title">Residences</h3>
@@ -462,7 +462,7 @@ export default function Save({ attributes }) {
                     <div className="specifications__card-wrapper">
                         <div className="spec-card">
                             <div className="spec-card__image">
-                                <img src="assets/images/project/spec-structure.jpg" alt="Building structure and safety features" />
+                                <img src={`${assetsUrl}images/project/spec-structure.jpg`} alt="Building structure and safety features" />
                             </div>
                             <div className="spec-card__content">
                                 <h3 className="spec-card__title">Structure & Safety</h3>
@@ -479,7 +479,7 @@ export default function Save({ attributes }) {
                     <div className="specifications__card-wrapper">
                         <div className="spec-card">
                             <div className="spec-card__image">
-                                <img src="assets/images/project/spec-sustainability.jpg" alt="Sustainable green spaces" />
+                                <img src={`${assetsUrl}images/project/spec-sustainability.jpg`} alt="Sustainable green spaces" />
                             </div>
                             <div className="spec-card__content">
                                 <h3 className="spec-card__title">Sustainability</h3>

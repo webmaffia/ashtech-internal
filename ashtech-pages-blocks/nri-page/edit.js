@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Edit({ attributes, setAttributes }) {
     const { heroTitle, heroSubtitle } = attributes;
+    const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
         <div {...useBlockProps()}>
@@ -37,7 +38,7 @@ export default function Edit({ attributes, setAttributes }) {
                     <button className="btn btn--primary">
                         <span>Book a Virtual Tour</span>
                         <div className="btn__icon">
-                            <img src="assets/images/nri/icon-video.svg" alt="Video" />
+                            <img src={`${assetsUrl}images/nri/icon-video.svg`} alt="Video" />
                         </div>
                     </button>
                 </div>
@@ -49,17 +50,17 @@ export default function Edit({ attributes, setAttributes }) {
                     <h2 className="nri-invest__title">Why Invest in India?</h2>
                     <div className="nri-invest__grid">
                         <div className="nri-invest__feature">
-                            <img src="assets/images/nri/icon-growth.svg" alt="Growth" />
+                            <img src={`${assetsUrl}images/nri/icon-growth.svg`} alt="Growth" />
                             <h3>High Growth Potential</h3>
                             <p>Real estate market with strong returns</p>
                         </div>
                         <div className="nri-invest__feature">
-                            <img src="assets/images/nri/icon-repatriation.svg" alt="Repatriation" />
+                            <img src={`${assetsUrl}images/nri/icon-repatriation.svg`} alt="Repatriation" />
                             <h3>Easy Repatriation</h3>
                             <p>Simple fund transfer process</p>
                         </div>
                         <div className="nri-invest__feature">
-                            <img src="assets/images/nri/icon-tax.svg" alt="Tax" />
+                            <img src={`${assetsUrl}images/nri/icon-tax.svg`} alt="Tax" />
                             <h3>Tax Benefits</h3>
                             <p>Various tax exemptions available</p>
                         </div>
@@ -73,26 +74,26 @@ export default function Edit({ attributes, setAttributes }) {
                     <h2 className="nri-support__title">NRI Support Services</h2>
                     <div className="nri-support__list">
                         <div className="nri-support__item">
-                            <img src="assets/images/nri/icon-documentation.svg" alt="Documentation" />
+                            <img src={`${assetsUrl}images/nri/icon-documentation.svg`} alt="Documentation" />
                             <span>Documentation Assistance</span>
                         </div>
                         <div className="nri-support__item">
-                            <img src="assets/images/nri/icon-legal.svg" alt="Legal" />
+                            <img src={`${assetsUrl}images/nri/icon-legal.svg`} alt="Legal" />
                             <span>Legal Support</span>
                         </div>
                         <div className="nri-support__item">
-                            <img src="assets/images/nri/icon-payment.svg" alt="Payment" />
+                            <img src={`${assetsUrl}images/nri/icon-payment.svg`} alt="Payment" />
                             <span>Payment Plans</span>
                         </div>
                         <div className="nri-support__item">
-                            <img src="assets/images/nri/icon-support.svg" alt="Support" />
+                            <img src={`${assetsUrl}images/nri/icon-support.svg`} alt="Support" />
                             <span>24/7 Customer Support</span>
                         </div>
                     </div>
                     <button className="btn btn--primary">
                         <span>Schedule a Call</span>
                         <div className="btn__icon">
-                            <img src="assets/images/nri/icon-phone.svg" alt="Phone" />
+                            <img src={`${assetsUrl}images/nri/icon-phone.svg`} alt="Phone" />
                         </div>
                     </button>
                 </div>
@@ -111,7 +112,7 @@ export default function Edit({ attributes, setAttributes }) {
                     <button className="btn btn--primary">
                         <span>Connect with Us</span>
                         <div className="btn__icon">
-                            <img src="assets/images/nri/icon-connect.svg" alt="Connect" />
+                            <img src={`${assetsUrl}images/nri/icon-connect.svg`} alt="Connect" />
                         </div>
                     </button>
                 </div>

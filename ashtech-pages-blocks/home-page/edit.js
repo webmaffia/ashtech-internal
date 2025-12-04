@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Edit({ attributes, setAttributes }) {
     const { heroTitle, mainContent } = attributes;
+    const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
         <div {...useBlockProps()}>
@@ -43,12 +44,12 @@ export default function Edit({ attributes, setAttributes }) {
                             <button className="btn btn--primary">
                                 <span>Discover More</span>
                                 <div className="btn__icon">
-                                    <img src="assets/images/landing/icon-arrow.svg" alt="Arrow" />
+                                    <img src={`${assetsUrl}images/landing/icon-arrow.svg`} alt="Arrow" />
                                 </div>
                             </button>
                         </div>
                         <div className="landing-overview__image">
-                            <img src="assets/images/landing/overview-image.jpg" alt="Ashtech Overview" />
+                            <img src={`${assetsUrl}images/landing/overview-image.jpg`} alt="Ashtech Overview" />
                         </div>
                     </div>
                 </div>
@@ -61,7 +62,7 @@ export default function Edit({ attributes, setAttributes }) {
                         <h2 className="landing-values__title">Core Values We're Built On</h2>
                     </div>
                     <div className="landing-values__graphic">
-                        <img src="assets/images/landing/values-graphic.svg" alt="Core Values" />
+                        <img src={`${assetsUrl}images/landing/values-graphic.svg`} alt="Core Values" />
                     </div>
                 </div>
             </section>
@@ -76,7 +77,7 @@ export default function Edit({ attributes, setAttributes }) {
                     <div className="landing-projects__content">
                         <div className="landing-projects__card">
                             <div className="landing-projects__image">
-                                <img src="assets/images/landing/project-presidential.jpg" alt="Presidential Towers" />
+                                <img src={`${assetsUrl}images/landing/project-presidential.jpg`} alt="Presidential Towers" />
                             </div>
                             <div className="landing-projects__info">
                                 <h3 className="landing-projects__card-title">Ashtech Presidential Towers</h3>
@@ -84,14 +85,14 @@ export default function Edit({ attributes, setAttributes }) {
                                 <button className="btn btn--secondary">
                                     <span>Explore More</span>
                                     <div className="btn__icon">
-                                        <img src="assets/images/landing/icon-arrow-white.svg" alt="Arrow" />
+                                        <img src={`${assetsUrl}images/landing/icon-arrow-white.svg`} alt="Arrow" />
                                     </div>
                                 </button>
                             </div>
                         </div>
                         <div className="landing-projects__card">
                             <div className="landing-projects__image">
-                                <img src="assets/images/landing/project-grand.jpg" alt="Grand View" />
+                                <img src={`${assetsUrl}images/landing/project-grand.jpg`} alt="Grand View" />
                             </div>
                             <div className="landing-projects__info">
                                 <h3 className="landing-projects__card-title">Ashtech Grand View</h3>
@@ -99,7 +100,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 <button className="btn btn--secondary">
                                     <span>Book a Private Tour</span>
                                     <div className="btn__icon">
-                                        <img src="assets/images/landing/icon-arrow-white.svg" alt="Arrow" />
+                                        <img src={`${assetsUrl}images/landing/icon-arrow-white.svg`} alt="Arrow" />
                                     </div>
                                 </button>
                             </div>
@@ -117,31 +118,31 @@ export default function Edit({ attributes, setAttributes }) {
                             <p className="landing-nri__description">Special services for our NRI customers</p>
                             <div className="landing-nri__features">
                                 <div className="landing-nri__feature">
-                                    <img src="assets/images/landing/icon-repatriation.svg" alt="Repatriation" />
+                                    <img src={`${assetsUrl}images/landing/icon-repatriation.svg`} alt="Repatriation" />
                                     <span>Easy Repatriation</span>
                                 </div>
                                 <div className="landing-nri__feature">
-                                    <img src="assets/images/landing/icon-support.svg" alt="Support" />
+                                    <img src={`${assetsUrl}images/landing/icon-support.svg`} alt="Support" />
                                     <span>24/7 Support</span>
                                 </div>
                                 <div className="landing-nri__feature">
-                                    <img src="assets/images/landing/icon-investment.svg" alt="Investment" />
+                                    <img src={`${assetsUrl}images/landing/icon-investment.svg`} alt="Investment" />
                                     <span>Safe Investment</span>
                                 </div>
                                 <div className="landing-nri__feature">
-                                    <img src="assets/images/landing/icon-documentation.svg" alt="Documentation" />
+                                    <img src={`${assetsUrl}images/landing/icon-documentation.svg`} alt="Documentation" />
                                     <span>Easy Documentation</span>
                                 </div>
                             </div>
                             <button className="btn btn--primary">
                                 <span>Connect with NRI Desk</span>
                                 <div className="btn__icon">
-                                    <img src="assets/images/landing/icon-arrow.svg" alt="Arrow" />
+                                    <img src={`${assetsUrl}images/landing/icon-arrow.svg`} alt="Arrow" />
                                 </div>
                             </button>
                         </div>
                         <div className="landing-nri__image">
-                            <img src="assets/images/landing/nri-desk.jpg" alt="NRI Desk" />
+                            <img src={`${assetsUrl}images/landing/nri-desk.jpg`} alt="NRI Desk" />
                         </div>
                     </div>
                 </div>
@@ -155,13 +156,13 @@ export default function Edit({ attributes, setAttributes }) {
                     </div>
                     <div className="landing-awards__content">
                         <div className="landing-awards__item">
-                            <img src="assets/images/landing/award-1.png" alt="Award 1" />
+                            <img src={`${assetsUrl}images/landing/award-1.png`} alt="Award 1" />
                         </div>
                         <div className="landing-awards__item">
-                            <img src="assets/images/landing/award-2.png" alt="Award 2" />
+                            <img src={`${assetsUrl}images/landing/award-2.png`} alt="Award 2" />
                         </div>
                         <div className="landing-awards__item">
-                            <img src="assets/images/landing/award-3.png" alt="Award 3" />
+                            <img src={`${assetsUrl}images/landing/award-3.png`} alt="Award 3" />
                         </div>
                     </div>
                 </div>
