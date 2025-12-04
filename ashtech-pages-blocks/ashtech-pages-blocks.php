@@ -199,3 +199,34 @@ function ashtech_render_block_privacy_page($attributes) {
     include ASHTECH_BLOCKS_DIR . 'privacy-page/template.php';
     return ob_get_clean();
 }
+
+/**
+ * Add custom page templates
+ */
+function ashtech_add_page_templates($templates) {
+    $templates['templates/template-fullwidth.php'] = 'Ashtech Full Width (No Header/Footer)';
+    $templates['templates/template-fullwidth-with-menu.php'] = 'Ashtech Full Width with Menu';
+    $templates['templates/template-fullwidth-with-header-footer.php'] = 'Ashtech Full Width with Header & Footer';
+    return $templates;
+}
+add_filter('theme_page_templates', 'ashtech_add_page_templates');
+
+/**
+ * Load custom page templates from plugin
+ */
+function ashtech_load_page_templates($template) {
+    if (is_page()) {
+        $custom_template = get_post_meta(get_the_ID(), '_wp_page_template', true);
+        
+        if ($custom_template && strpos($custom_template, 'templates/') === 0) {
+            $plugin_template = ASHTECH_BLOCKS_DIR . $custom_template;
+            
+            if (file_exists($plugin_template)) {
+                return $plugin_template;
+            }
+        }
+    }
+    
+    return $template;
+}
+add_filter('template_include', 'ashtech_load_page_templates', 99);
