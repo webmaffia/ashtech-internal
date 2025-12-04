@@ -5,9 +5,20 @@ export default function Edit() {
 
     return (
         <div {...blockProps}>
-            <p style={{padding: '20px', background: '#f0f0f0', border: '2px dashed #999'}}>
-                Career Assurance Block - Editor View
-            </p>
+            <div style={{
+                padding: '20px',
+                background: '#f9f9f9',
+                border: '1px solid #ddd',
+                borderRadius: '4px'
+            }}>
+                <p style={{
+                    margin: 0,
+                    fontSize: '14px',
+                    color: '#666'
+                }}>
+                    ✓ Block Preview - Content will render on frontend
+                </p>
+            </div>
         </div>
     );
 }
