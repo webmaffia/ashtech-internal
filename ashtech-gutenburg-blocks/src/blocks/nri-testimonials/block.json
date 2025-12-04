@@ -1,0 +1,15 @@
+{
+  "apiVersion": 2,
+  "name": "ashtech/nri-testimonials",
+  "title": "Nri Testimonials",
+  "category": "ashtech-blocks",
+  "icon": "admin-customizer",
+  "description": "Ashtech Nri Testimonials block",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

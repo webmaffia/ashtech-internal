@@ -1,0 +1,15 @@
+{
+  "apiVersion": 2,
+  "name": "ashtech/about-values",
+  "title": "About Values",
+  "category": "ashtech-blocks",
+  "icon": "admin-customizer",
+  "description": "Ashtech About Values block",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

@@ -1,0 +1,15 @@
+{
+  "apiVersion": 2,
+  "name": "ashtech/nri-benefits",
+  "title": "Nri Benefits",
+  "category": "ashtech-blocks",
+  "icon": "admin-customizer",
+  "description": "Ashtech Nri Benefits block",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

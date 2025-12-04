@@ -1,0 +1,15 @@
+{
+  "apiVersion": 2,
+  "name": "ashtech/landing-projects",
+  "title": "Landing Projects",
+  "category": "ashtech-blocks",
+  "icon": "admin-customizer",
+  "description": "Ashtech Landing Projects block",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

@@ -1,0 +1,15 @@
+{
+  "apiVersion": 2,
+  "name": "ashtech/landing-testimonials",
+  "title": "Landing Testimonials",
+  "category": "ashtech-blocks",
+  "icon": "admin-customizer",
+  "description": "Ashtech Landing Testimonials block",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

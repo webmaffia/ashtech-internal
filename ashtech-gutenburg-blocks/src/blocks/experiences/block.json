@@ -1,0 +1,15 @@
+{
+  "apiVersion": 2,
+  "name": "ashtech/experiences",
+  "title": "Experiences",
+  "category": "ashtech-blocks",
+  "icon": "admin-customizer",
+  "description": "Ashtech Experiences block",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}

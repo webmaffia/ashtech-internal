@@ -1,0 +1,15 @@
+{
+  "apiVersion": 2,
+  "name": "ashtech/resources-content",
+  "title": "Resources Content",
+  "category": "ashtech-blocks",
+  "icon": "admin-customizer",
+  "description": "Ashtech Resources Content block",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "ashtech-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css"
+}
