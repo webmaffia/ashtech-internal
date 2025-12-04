@@ -118,7 +118,11 @@ $assets_url = ASHTECH_BLOCKS_URL . 'assets/';
             <!-- Corporate Office -->
             <div class="contact-offices__card">
                 <div class="contact-offices__image">
-                    <img src="<?php echo esc_url($assets_url); ?>images/contact/office-corporate.jpg" alt="Ashtech Corporate Office">
+                    <?php if (!empty($imageUrl)) : ?>
+                        <img src="<?php echo esc_url($imageUrl); ?>" alt="Ashtech Corporate Office">
+                    <?php else : ?>
+                        <img src="<?php echo esc_url($assets_url); ?>images/contact/office-corporate.jpg" alt="Ashtech Corporate Office">
+                    <?php endif; ?>
                 </div>
                 <div class="contact-offices__info">
                     <h3 class="contact-offices__card-title">Ashtech Corporate Office</h3>

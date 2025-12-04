@@ -98,9 +98,10 @@ add_action('wp_enqueue_scripts', 'ashtech_enqueue_frontend_assets');
 /**
  * Render Home Page Block
  */
-function ashtech_render_block_home_page($attributes) {
+function ashtech_render_block_home_page($attributes, $content) {
     $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : 'Nature and Architecture<br>in Perfect Sync';
-    $mainContent = isset($attributes['mainContent']) ? $attributes['mainContent'] : '';
+    $mainContent = isset($attributes['mainContent']) ? $attributes['mainContent'] : 'Ashtech Presidential Towers, a division of Ashtech Group...';
+    $imageUrl = isset($attributes['imageUrl']) ? $attributes['imageUrl'] : '';
     
     ob_start();
     include ASHTECH_BLOCKS_DIR . 'home-page/template.php';
@@ -110,9 +111,10 @@ function ashtech_render_block_home_page($attributes) {
 /**
  * Render Project Page Block
  */
-function ashtech_render_block_project_page($attributes) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
-    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : '';
+function ashtech_render_block_project_page($attributes, $content) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : 'A Space to Breathe<br>A Space to Belong';
+    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : 'Over 80% open greens...';
+    $imageUrl = isset($attributes['imageUrl']) ? $attributes['imageUrl'] : '';
     
     ob_start();
     include ASHTECH_BLOCKS_DIR . 'project-page/template.php';
@@ -167,11 +169,15 @@ function ashtech_render_block_career_page($attributes) {
 /**
  * Render Contact Page Block
  */
-function ashtech_render_block_contact_page($attributes) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
-    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : '';
-    $salesPhone = isset($attributes['salesPhone']) ? $attributes['salesPhone'] : '';
-    $salesEmail = isset($attributes['salesEmail']) ? $attributes['salesEmail'] : '';
+function ashtech_render_block_contact_page($attributes, $content) {
+    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : 'We\'re Here to Help!';
+    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : 'Got queries?';
+    $salesPhone = isset($attributes['salesPhone']) ? $attributes['salesPhone'] : '9278 333 333';
+    $salesEmail = isset($attributes['salesEmail']) ? $attributes['salesEmail'] : 'care@ashtechgroup.in';
+    $corporateAddress = isset($attributes['corporateAddress']) ? $attributes['corporateAddress'] : 'C-50, RDC, GHAZIABAD';
+    $corporatePhone = isset($attributes['corporatePhone']) ? $attributes['corporatePhone'] : '0120 45 38 000';
+    $corporateEmail = isset($attributes['corporateEmail']) ? $attributes['corporateEmail'] : 'flyash@ashtechgroup.in';
+    $imageUrl = isset($attributes['imageUrl']) ? $attributes['imageUrl'] : '';
     
     ob_start();
     include ASHTECH_BLOCKS_DIR . 'contact-page/template.php';
