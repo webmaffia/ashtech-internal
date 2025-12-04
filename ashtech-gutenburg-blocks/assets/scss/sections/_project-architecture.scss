@@ -1,0 +1,292 @@
+// ===========================================
+// PROJECT PAGE - ARCHITECTURE SECTION
+// ===========================================
+
+.project-architecture {
+  position: relative;
+  width: 100%;
+  min-height: vw(800);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.8s ease-in-out;
+  display: flex;
+  align-items: flex-end;
+  padding: vw(50) vw(100);
+  overflow: hidden;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1720);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: vw(50);
+    flex: 1;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: vw(45);
+    max-width: vw(1050);
+    padding: vw(30);
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: vw(18);
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-medium;
+    color: $color-white;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(72);
+    line-height: $line-height-tight;
+    color: $color-white;
+    font-weight: $font-weight-regular;
+    max-width: vw(707);
+  }
+
+  &__description {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    font-weight:400;
+    line-height: $line-height-medium;
+    color: $color-white;
+    max-width: vw(1050);
+  }
+
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  &__card {
+    background: $color-bg-primary;
+    max-width: vw(814);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__element {
+    padding: vw(30);
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  &__element-content {
+    display: flex;
+    gap: vw(60);
+    align-items: flex-start;
+  }
+
+  &__element-title {
+    font-family: $font-primary;
+    font-size: vw(44);
+    line-height: $line-height-normal;
+    color: $color-brand-black;
+    font-weight: $font-weight-regular;
+    min-width: vw(175);
+    margin: 0;
+  }
+
+  &__element-text {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-relaxed;
+    color: $color-brand-black;
+    flex: 1;
+    margin: 0;
+  }
+
+  &__tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 vw(30) vw(30);
+    gap: vw(20);
+  }
+
+  &__tab {
+    font-family: $font-secondary;
+    font-size: vw(14);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-medium;
+    color: $color-brand-black;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: opacity $transition-base;
+    padding: 0;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &__progress {
+    width: 100%;
+    height: vw(5);
+    background: $color-bg-primary;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: $color-brand-primary;
+    // Animation is controlled via JavaScript to restart on each tab change
+  }
+
+  @keyframes progressBar {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    min-height: vw(600);
+    padding: vw(40) vw(40);
+
+    &__header {
+      max-width: 100%;
+      padding: vw(20);
+    }
+
+    &__label {
+      font-size: vw(16);
+    }
+
+    &__title {
+      font-size: vw(48);
+      max-width: 100%;
+    }
+
+    &__description {
+      font-size: vw(18);
+      max-width: 100%;
+    }
+
+    &__card {
+      max-width: 100%;
+    }
+
+    &__element {
+      padding: vw(25);
+    }
+
+    &__element-content {
+      flex-direction: column;
+      gap: vw(30);
+    }
+
+    &__element-title {
+      font-size: vw(36);
+      min-width: auto;
+    }
+
+    &__element-text {
+      font-size: vw(18);
+    }
+
+    &__tabs {
+      padding: 0 vw(25) vw(25);
+      gap: vw(15);
+    }
+
+    &__tab {
+      font-size: vw(13);
+    }
+
+    &__progress {
+      height: vw(4);
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    min-height: vw(500, 414);
+    padding: vw(30, 414) vw(20, 414);
+
+    &__header {
+      gap: vw(25, 414);
+      padding: vw(15, 414);
+    }
+
+    &__label {
+      font-size: vw(14, 414);
+    }
+
+    &__title {
+      font-size: vw(32, 414);
+    }
+
+    &__description {
+      font-size: vw(16, 414);
+    }
+
+    &__element {
+      padding: vw(20, 414);
+    }
+
+    &__element-content {
+      gap: vw(20, 414);
+    }
+
+    &__element-title {
+      font-size: vw(28, 414);
+    }
+
+    &__element-text {
+      font-size: vw(16, 414);
+    }
+
+    &__tabs {
+      padding: 0 vw(20, 414) vw(20, 414);
+      gap: vw(10, 414);
+      flex-wrap: wrap;
+    }
+
+    &__tab {
+      font-size: vw(12, 414);
+      flex: 1;
+ 
+      text-align: center;
+      min-width: vw(65, 414);
+    }
+
+    &__progress {
+      height: vw(3, 414);
+    }
+  }
+}

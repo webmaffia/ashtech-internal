@@ -32,10 +32,10 @@ add_filter('block_categories_all', 'ashtech_blocks_category', 10, 2);
 
 // Enqueue assets for both frontend and editor
 function ashtech_blocks_enqueue_assets() {
-    // Main CSS - load from your main project assets folder
+    // Main CSS - load from plugin assets folder
     wp_enqueue_style(
         'ashtech-main-css',
-        get_site_url() . '/wp-content/themes/twentytwentyfive/assets/css/main.css',
+        ASHTECH_BLOCKS_URL . 'assets/css/main.css',
         array(),
         ASHTECH_BLOCKS_VERSION
     );
@@ -67,11 +67,11 @@ function ashtech_blocks_enqueue_assets() {
         true
     );
     
-    // Main JS - load from your main project assets folder
+    // Main JS - load from plugin assets folder
     wp_enqueue_script(
         'ashtech-main-js',
-        get_site_url() . '/wp-content/themes/twentytwentyfive/assets/js/main.js',
-        array('jquery'),
+        ASHTECH_BLOCKS_URL . 'assets/js/main.js',
+        array('jquery', 'slick-js'),
         ASHTECH_BLOCKS_VERSION,
         true
     );
@@ -148,22 +148,43 @@ function ashtech_register_blocks() {
 }
 add_action('init', 'ashtech_register_blocks');
 
-// Remove WordPress theme wrappers when using Ashtech blocks
-function ashtech_use_blank_template($template) {
+// Register custom page templates
+function ashtech_register_page_templates($templates) {
+    $templates['templates/full-width-template.php'] = __('Ashtech Full Width (No Wrappers)', 'ashtech-blocks');
+    $templates['templates/blank-template.php'] = __('Ashtech Blank (No Header/Footer)', 'ashtech-blocks');
+    return $templates;
+}
+add_filter('theme_page_templates', 'ashtech_register_page_templates');
+
+// Load custom page templates from plugin
+function ashtech_load_custom_template($template) {
     global $post;
     
-    if (is_singular() && has_block('ashtech/', $post)) {
-        // Use blank template for pages with Ashtech blocks
-        $blank_template = ASHTECH_BLOCKS_DIR . 'templates/blank-template.php';
-        
-        if (file_exists($blank_template)) {
-            return $blank_template;
+    if (!$post) {
+        return $template;
+    }
+    
+    $page_template = get_post_meta($post->ID, '_wp_page_template', true);
+    
+    // Full Width Template (with header/footer)
+    if ($page_template === 'templates/full-width-template.php') {
+        $plugin_template = ASHTECH_BLOCKS_DIR . 'templates/full-width-template.php';
+        if (file_exists($plugin_template)) {
+            return $plugin_template;
+        }
+    }
+    
+    // Blank Template (no header/footer)
+    if ($page_template === 'templates/blank-template.php') {
+        $plugin_template = ASHTECH_BLOCKS_DIR . 'templates/blank-template.php';
+        if (file_exists($plugin_template)) {
+            return $plugin_template;
         }
     }
     
     return $template;
 }
-add_filter('template_include', 'ashtech_use_blank_template', 99);
+add_filter('template_include', 'ashtech_load_custom_template', 99);
 
 // Add custom CSS to remove theme wrappers
 function ashtech_remove_theme_wrappers() {
@@ -196,30 +217,35 @@ function ashtech_remove_theme_wrappers() {
                 padding: 0 !important;
                 margin: 0 !important;
             }
+            
+            /* For Ashtech content div */
+            #ashtech-content {
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: none !important;
+            }
         </style>';
     }
 }
 add_action('wp_head', 'ashtech_remove_theme_wrappers');
 
-// Fix image paths in block content
+// Fix image paths in block content to use plugin URL
 function ashtech_fix_image_paths($block_content, $block) {
     if (empty($block['blockName']) || strpos($block['blockName'], 'ashtech/') !== 0) {
         return $block_content;
     }
     
-    // Get site URL
-    $site_url = get_site_url();
-    
-    // Replace relative asset paths with absolute URLs
+    // Replace relative asset paths with plugin URL
     $block_content = preg_replace(
         '/src=["\']assets\//',
-        'src="' . $site_url . '/wp-content/themes/twentytwentyfive/assets/',
+        'src="' . ASHTECH_BLOCKS_URL . 'assets/',
         $block_content
     );
     
     $block_content = preg_replace(
         '/href=["\']assets\//',
-        'href="' . $site_url . '/wp-content/themes/twentytwentyfive/assets/',
+        'href="' . ASHTECH_BLOCKS_URL . 'assets/',
         $block_content
     );
     

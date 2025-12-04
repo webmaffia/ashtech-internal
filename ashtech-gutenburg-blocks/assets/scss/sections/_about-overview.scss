@@ -1,0 +1,139 @@
+// About Overview Section
+.about-overview {
+    width: 100%;
+    padding: vw(120) vw(100) vw(120) vw(100);
+    background: $color-bg-primary;
+    position: relative;
+    display: flex;
+    gap: vw(70);
+
+    &__background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: vw(960);
+        height: vw(502);
+        background-image: url('../images/about/overview-bg-pattern.png');
+        background-size: cover;
+        background-position: center;
+        pointer-events: none;
+    }
+
+    &__container {
+        width: 100%;
+        display: flex;
+      
+        position: relative;
+        z-index: 1;
+    }
+
+    &__header {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: vw(35);
+    }
+
+    &__label {
+        font-family: $font-secondary;
+        font-weight: 600;
+        font-size: vw(18);
+        line-height: 1.5;
+        color: $color-brand-primary;
+      
+        margin: 0;
+    }
+
+    &__title {
+        font-family: $font-primary;
+        font-size: vw(58);
+        line-height: 1.2;
+        color: $color-brand-primary;
+        margin: 0;
+        width: vw(556);
+    }
+
+    &__text {
+        flex: 1;
+        font-family: $font-secondary;
+        font-weight: 500;
+        font-size: vw(20);
+        line-height: 1.7;
+        color: $color-text-primary;
+        width: vw(974);
+
+        p {
+            margin: 0 0 vw(10) 0;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // Tablet
+    @media (max-width: 1024px) {
+        padding: vw(80, 1024) vw(60, 1024);
+        flex-direction: column;
+        gap: vw(50, 1024);
+
+        &__background {
+            width: vw(700, 1024);
+            height: vw(400, 1024);
+        }
+
+        &__container {
+            flex-direction: column;
+            gap: vw(50, 1024);
+        }
+
+        &__label {
+            font-size: vw(16, 1024);
+        }
+
+        &__title {
+            font-size: vw(42, 1024);
+            width: 100%;
+        }
+
+        &__text {
+            font-size: vw(18, 1024);
+            width: 100%;
+        }
+    }
+
+    // Mobile
+    @media (max-width: 414px) {
+        padding: vw(60, 414) vw(20, 414);
+        gap: vw(30, 414);
+
+        &__background {
+            width: 100%;
+            height: vw(250, 414);
+        }
+
+        &__container {
+            gap: vw(30, 414);
+        }
+
+        &__label {
+            font-size: vw(14, 414);
+            text-align: center;
+        }
+
+        &__title {
+            font-size: vw(24, 414);
+            text-align: center;
+        }
+
+        &__text {
+            font-size: vw(16, 414);
+            text-align: center;
+
+            p {
+                margin-bottom: vw(10, 414);
+            }
+        }
+    }
+}
+

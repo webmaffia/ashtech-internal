@@ -1,0 +1,334 @@
+// ===========================================
+// EXPERIENCES SECTION
+// ===========================================
+
+.experiences {
+  position: relative;
+  background-color: $color-bg-primary;
+  @include flex-column;
+  gap: $spacing-2xl;
+  padding: vw(120) vw(99) vw(60);
+  overflow: hidden;
+
+  @include respond-to('desktop') {
+    padding: vw(80) $container-padding-tablet;
+  }
+
+  @include respond-to('tablet') {
+    padding: vw(60,414) vw(20,414);
+    gap: vw(40);
+  }
+}
+
+.experiences__decoration {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: vw(960);
+  height: vw(502);
+  z-index: 0;
+
+  @include respond-to('laptop') {
+    width: vw(600);
+    height: vw(300);
+  }
+
+  @include respond-to('tablet') {
+   height: vw(300,414) !important;
+   width:100% !important
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.experiences__header {
+  display: flex;
+  gap: vw(169);
+  align-items: flex-start;
+  width: 100%;
+  z-index: 2;
+
+  @include respond-to('laptop') {
+    gap: vw(80);
+  }
+
+  @include respond-to('tablet') {
+    flex-direction: column;
+    gap: vw(40);
+  }
+}
+
+.experiences__header-left {
+  @include flex-column;
+  gap: $spacing-xl;
+  flex: 1;
+
+  @include respond-to('tablet') {
+    gap: vw(25);
+  }
+}
+
+.experiences__label {
+  @include heading-secondary;
+  font-size: $font-size-small;
+  color: $color-brand-primary;
+  text-align: center;
+
+  @include respond-to('tablet') {
+    font-size: vw(16,414);
+  }
+}
+
+.experiences__title {
+  @include heading-primary;
+  font-size: $font-size-h2;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+
+  @include respond-to('desktop') {
+    font-size: vw(52);
+  }
+
+  @include respond-to('laptop') {
+    font-size: vw(46);
+  }
+
+  @include respond-to('tablet') {
+    font-size: vw(36);
+  }
+
+  @include respond-to('mobile') {
+    font-size: vw(28, 414);
+  }
+}
+
+.experiences__header-right {
+  .btn {
+    width: vw(300);
+  }
+  @include flex-column;
+  gap: $spacing-2xl;
+  width: vw(974);
+  flex-shrink: 0;
+
+  @include respond-to('laptop') {
+    width: vw(600);
+  }
+
+  @include respond-to('tablet') {
+    width: 100%;
+    gap: $spacing-lg;
+     .btn {
+    width: vw(220,414);
+    margin: vw(20,414) auto;
+  }
+  }
+}
+
+.experiences__description {
+  @include body-paragraph;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+
+  @include respond-to('laptop') {
+    font-size: vw(18);
+  }
+
+  @include respond-to('tablet') {
+    font-size: vw(16,414);
+  }
+}
+
+.experiences__tabs {
+  display: flex;
+  width: vw(1720);
+  max-width: 100%;
+  z-index: 2;
+
+  @include respond-to('laptop') {
+    flex-direction: column;
+  }
+}
+
+.experiences__tab-list {
+  @include flex-column;
+  width: vw(643);
+  flex-shrink: 0;
+  position: relative;
+
+  @include respond-to('laptop') {
+    width: 100%;
+  }
+
+  @include respond-to('mobile') {
+    position: relative;
+    
+    // Dropdown styling when open
+    &--open {
+      background-color: $color-white;
+      border: 1px solid rgba($color-brand-primary, 0.2);
+      border-radius: vw(4, 414);
+      box-shadow: 0 vw(4, 414) vw(12, 414) rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      z-index: 10;
+    }
+  }
+}
+
+.experiences__tab-button {
+  @include button-reset;
+  @include flex-center;
+  justify-content: left !important;
+  gap: $spacing-xs;
+  padding: $spacing-lg vw(16);
+  width: 100%;
+  height: vw(84);
+  cursor: pointer;
+  transition: background-color $transition-base;
+  position: relative;
+
+  &:hover {
+    background-color: rgba($color-brand-primary, 0.05);
+  }
+
+  &--active {
+    background-color: $color-brand-primary;
+    &:hover {
+      background-color: $color-brand-primary;
+    }
+    
+    .experiences__tab-text {
+      color: $color-white;
+    }
+
+    .experiences__tab-icon {
+      display: block;
+    }
+  }
+
+  @include respond-to('tablet') {
+    height: vw(70);
+    padding: vw(20) vw(16);
+  }
+
+  @include respond-to('mobile') {
+    height: vw(60, 414);
+    padding: vw(15, 414) vw(40, 414) vw(15, 414) vw(12, 414);
+    
+    // Hide non-active buttons on mobile by default
+    &:not(.experiences__tab-button--active) {
+      display: none;
+    }
+    
+    // Show all buttons when dropdown is open
+    .experiences__tab-list--open & {
+      display: flex;
+    }
+    
+    // Add dropdown arrow to active button on mobile
+    &.experiences__tab-button--active {
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        right: vw(12, 414);
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: vw(5, 414) solid transparent;
+        border-right: vw(5, 414) solid transparent;
+        border-top: vw(6, 414) solid $color-white;
+        transition: transform $transition-base;
+      }
+    }
+    
+    // Rotate arrow when dropdown is open
+    .experiences__tab-list--open &.experiences__tab-button--active::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+}
+
+.experiences__tab-icon {
+  width: vw(24);
+  height: vw(24);
+  display: none;
+
+  @include respond-to('mobile') {
+    width: vw(20, 414);
+    height: vw(20, 414);
+    & > img {
+     display: none;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.experiences__tab-text {
+  @include heading-primary;
+  font-size: $font-size-h5;
+  line-height: $line-height-medium;
+  color: $color-brand-primary;
+  flex-shrink: 0;
+
+  @include respond-to('laptop') {
+    font-size: vw(26);
+  }
+
+  @include respond-to('tablet') {
+    font-size: vw(22);
+  }
+
+  @include respond-to('mobile') {
+    font-size: vw(18, 414);
+  }
+}
+
+.experiences__tab-content {
+  flex: 1;
+  background-color: $color-bg-red;
+  padding: $spacing-2xl $spacing-lg;
+  @include flex-center;
+  flex-wrap: wrap;
+  gap: $spacing-2xl 0;
+  display: none;
+
+  &--active {
+    display: flex;
+  }
+
+  @include respond-to('laptop') {
+    padding: vw(40) vw(20);
+  }
+
+  @include respond-to('tablet') {
+    padding: vw(30,414) 0;
+    gap: $spacing-lg;
+  }
+}
+
+.experiences__features {
+  @include flex-center;
+  justify-content: center;
+  flex-wrap: wrap;
+row-gap: vw(60);
+  @include respond-to('tablet') {
+    gap: vw(20,414);
+
+    .feature-card {
+      max-width: vw(125,414);
+    }
+  }
+}
+

@@ -1,0 +1,83 @@
+// ===========================================
+// MAIN STYLESHEET - Ashtech Presidential Towers
+// ===========================================
+
+// Base
+@import 'base/functions';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/reset';
+
+
+// Layout
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+
+// Components
+@import 'components/navbar';
+@import 'components/buttons';
+@import 'components/cards';
+
+@import 'components/landing-animations';
+
+
+@import 'sections/landing-banner';
+@import 'sections/landing-overview';
+@import 'sections/landing-values';
+@import 'sections/landing-projects';
+@import 'sections/landing-nri';
+@import 'sections/landing-awards';
+@import 'sections/landing-testimonials';
+@import 'sections/landing-footer';
+
+// Project Page Sections
+@import 'sections/project-hero';
+@import 'sections/project-submenu';
+@import 'sections/project-overview';
+@import 'sections/project-architecture';
+@import 'sections/project-experiences';
+@import 'sections/project-location';
+@import 'sections/project-specifications';
+@import 'sections/project-about';
+
+// NRI Page Sections
+@import 'sections/nri-page';
+
+// Contact Page Sections
+@import 'sections/contact-enquiry';
+@import 'sections/contact-offices';
+@import 'sections/contact-form';
+
+// Resources Page Sections
+@import 'sections/resources-tabs';
+@import 'sections/resources-content';
+@import 'sections/resources-news';
+@import 'components/news-card';
+
+// Career Page Sections
+@import 'sections/career-overview';
+@import 'sections/career-why';
+@import 'sections/career-life';
+@import 'sections/career-openings';
+@import 'sections/career-form';
+@import 'sections/career-assurance';
+@import 'components/job-card';
+
+// About Us Page Sections
+@import 'sections/about-overview';
+@import 'sections/about-values';
+@import 'sections/about-vision-mission';
+@import 'sections/about-history';
+@import 'sections/about-leadership';
+@import 'sections/about-director-message';
+@import 'sections/about-projects';
+
+// Privacy Policy Page
+@import 'sections/privacy-policy';
+
+
+html {
+    overflow-x: hidden;
+}
+

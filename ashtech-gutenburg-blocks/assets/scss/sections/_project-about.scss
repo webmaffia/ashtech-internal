@@ -1,0 +1,120 @@
+// Project About Section
+.project-about {
+  position: relative;
+  background: $color-bg-primary;
+  padding: vw(120) $container-padding-desktop;
+
+  &__decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: vw(960);
+    height: vw(502);
+    background-image: url('../images/decore.svg');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    opacity: 0.8;
+  }
+
+  &__container {
+    position: relative;
+    max-width: vw(1720);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: vw(169);
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: vw(35);
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: vw(18);
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-medium;
+    color: $color-brand-primary;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(58);
+    line-height: $line-height-tight;
+    color: $color-brand-black;
+    font-weight: $font-weight-regular;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: vw(50);
+    justify-content: flex-start;
+  }
+
+  &__description {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    font-weight: $font-weight-medium;
+    line-height: $line-height-relaxed;
+    color: $color-brand-black;
+  }
+  .btn {
+    width: vw(211);
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    padding: vw(80) vw(40);
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: vw(50);
+    }
+
+    &__title {
+      font-size: vw(42);
+    }
+
+    &__description {
+      font-size: vw(18);
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    padding: vw(60, 414) vw(20, 414);
+
+    &__decoration {
+      width: 100%;
+      height: vw(300, 414);
+    }
+
+    &__left {
+      gap: vw(25, 414);
+    }
+
+    &__label {
+      font-size: vw(16, 414);
+    }
+
+    &__title {
+      font-size: vw(32, 414);
+    }
+
+    &__right {
+      gap: vw(30, 414);
+    }
+
+    &__description {
+      font-size: vw(16, 414);
+    }
+     .btn {
+    width: 45% !important;
+    margin: 0 auto;
+  }
+  }
+}

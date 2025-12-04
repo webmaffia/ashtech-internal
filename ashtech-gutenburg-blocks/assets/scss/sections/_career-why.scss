@@ -1,0 +1,224 @@
+// Career Why Choose Us Section
+.career-why {
+  position: relative;
+  width: 100%;
+  background-color: $color-bg-primary;
+  padding: vw(0) 0 vw(100);
+  overflow: hidden;
+
+  &__container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(100);
+    display: flex;
+    flex-direction: column;
+    gap: vw(10);
+  }
+
+  &__header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: vw(35);
+    margin-bottom: vw(60);
+  }
+
+  &__label {
+    font-family: $font-secondary;
+    font-size: vw(18);
+    line-height: 1.5;
+    color: $color-brand-primary;
+    font-weight: $font-weight-semibold;
+    margin: 0;
+    text-transform: capitalize;
+  }
+
+  &__title {
+    font-family: $font-primary;
+    font-size: vw(58);
+    line-height: 1.2;
+    color: $color-text-primary;
+    font-weight: $font-weight-regular;
+    margin: 0;
+    max-width: vw(756);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__cards {
+    display: flex;
+    gap: vw(30);
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &__card {
+    width: vw(550);
+    display: flex;
+    flex-direction: column;
+    gap: vw(30);
+    align-items: center;
+
+    &--offset-1 {
+      padding-top: vw(300);
+    }
+
+    &--offset-2 {
+      padding-top: vw(80);
+    }
+
+    &--offset-3 {
+      padding-top: vw(200);
+    }
+  }
+
+  &__image {
+    width: vw(550);
+    height: vw(480);
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform $transition-slow;
+    }
+  }
+
+  &__card:hover &__image img {
+    transform: scale(1.05);
+  }
+
+  &__content {
+    width: vw(476);
+    display: flex;
+    flex-direction: column;
+    gap: vw(30);
+  }
+
+  &__card-title {
+    font-family: $font-primary;
+    font-size: vw(36);
+    line-height: 1.5;
+    color: $color-brand-primary;
+    font-weight: $font-weight-regular;
+    margin: 0;
+  }
+
+  &__card-desc {
+    font-family: $font-secondary;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: $color-body;
+    font-weight: $font-weight-medium;
+    margin: 0;
+  }
+
+  // Tablet styles
+  @media (max-width: 1024px) {
+    padding: vw(40, 1024) 0 vw(80, 1024);
+
+    &__container {
+      padding: 0 vw(60, 1024);
+    }
+
+    &__header {
+      gap: vw(25, 1024);
+      margin-bottom: vw(40, 1024);
+    }
+
+    &__label {
+      font-size: vw(16, 1024);
+    }
+
+    &__title {
+      font-size: vw(48, 1024);
+    }
+
+    &__cards {
+      flex-direction: column;
+      gap: vw(60, 1024);
+      align-items: center;
+    }
+
+    &__card {
+      width: 100%;
+      max-width: vw(600, 1024);
+
+      &--offset-1,
+      &--offset-2,
+      &--offset-3 {
+        padding-top: 0;
+      }
+    }
+
+    &__image {
+      width: 100%;
+      height: vw(400, 1024);
+    }
+
+    &__content {
+      width: 100%;
+      gap: vw(25, 1024);
+    }
+
+    &__card-title {
+      font-size: vw(30, 1024);
+    }
+
+    &__card-desc {
+      font-size: vw(18, 1024);
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: 768px) {
+    padding: vw(30, 414) 0 vw(60, 414);
+
+    &__container {
+      padding: 0 vw(20, 414);
+    }
+
+    &__header {
+      gap: vw(20, 414);
+      margin-bottom: vw(30, 414);
+    }
+
+    &__label {
+      font-size: vw(14, 414);
+    }
+
+    &__title {
+      font-size: vw(36, 414);
+      max-width: 100%;
+    }
+
+    &__cards {
+      gap: vw(40, 414);
+    }
+
+    &__card {
+        max-width: 100%;
+      }
+
+    &__image {
+      height: vw(300, 414);
+    }
+
+    &__content {
+      gap: vw(20, 414);
+    }
+
+    &__card-title {
+      font-size: vw(24, 414);
+    }
+
+    &__card-desc {
+      font-size: vw(16, 414);
+    }
+  }
+}
+

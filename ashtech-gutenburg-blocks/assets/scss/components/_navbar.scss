@@ -1,0 +1,179 @@
+// ===========================================
+// NAVIGATION
+// ===========================================
+
+// Sub Menu Bar (sticky navigation)
+.navbar {
+  background-color: $color-white;
+  padding: 20px $container-padding-desktop;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: $z-index-sticky;
+  transition: all $transition-base;
+
+  @include respond-to('desktop') {
+    padding: 20px $container-padding-tablet;
+  }
+
+  @include respond-to('tablet') {
+    padding: 15px $container-padding-mobile;
+  }
+}
+
+.navbar__container {
+  @include flex-between;
+  gap: 50px;
+  max-width: $container-max-width;
+  margin: 0 auto;
+
+  @include respond-to('laptop') {
+    gap: $spacing-lg;
+  }
+
+  @include respond-to('tablet') {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+}
+
+.navbar__logo {
+  height: 40px;
+  width: 159px;
+  flex-shrink: 0;
+
+  @include respond-to('tablet') {
+    height: 32px;
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+}
+
+.navbar__menu {
+  @include flex-center;
+  gap: $spacing-2xl;
+
+  @include respond-to('laptop') {
+    gap: $spacing-lg;
+  }
+
+  @include respond-to('tablet') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+  }
+}
+
+.navbar__item {
+  @include body-text;
+  font-size: $font-size-small;
+  line-height: $line-height-medium;
+  text-align: center;
+  color: $color-brand-black;
+  transition: color $transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-brand-primary;
+  }
+
+  &--active {
+    font-weight: $font-weight-semibold;
+    color: $color-brand-primary;
+  }
+
+  @include respond-to('laptop') {
+    font-size: 16px;
+  }
+
+  @include respond-to('tablet') {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 14px;
+  }
+}
+
+// Hero Menu (main header)
+.hero-menu {
+  @include flex-between;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+
+  @include respond-to('tablet') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+.hero-menu__logo {
+  height: 45px;
+  width: 297.72px;
+  flex-shrink: 0;
+
+  @include respond-to('tablet') {
+    height: 36px;
+    width: auto;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.hero-menu__toggle {
+  @include button-reset;
+  @include flex-center;
+  gap: 15px;
+  cursor: pointer;
+
+  @include respond-to('mobile') {
+    gap: 10px;
+  }
+}
+
+.hero-menu__text {
+  @include heading-primary;
+  font-size: $font-size-h6;
+  line-height: $line-height-normal;
+  color: $color-white;
+
+  @include respond-to('tablet') {
+    font-size: 20px;
+  }
+
+  @include respond-to('mobile') {
+    font-size: 18px;
+  }
+}
+
+.hero-menu__icon {
+  width: 46px;
+  height: 10px;
+
+  @include respond-to('mobile') {
+    width: 36px;
+    height: 8px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
