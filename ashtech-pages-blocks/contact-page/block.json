@@ -1,0 +1,65 @@
+{
+  "apiVersion": 3,
+  "name": "ashtech/contact-page",
+  "title": "Contact Page",
+  "category": "layout",
+  "icon": "admin-page",
+  "description": "Full-page block for Contact page",
+  "supports": {
+    "align": ["full"],
+    "html": false
+  },
+  "textdomain": "ashtech-pages-blocks",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "We're Here to Help!"
+    },
+    "heroSubtitle": {
+      "type": "string",
+      "default": "Got queries or just a word to share? Reach out to us for answers, support or a conversation."
+    },
+    "enquiryTitle": {
+      "type": "string",
+      "default": "Enquiry Directory"
+    },
+    "salesPhone": {
+      "type": "string",
+      "default": "9278 333 333"
+    },
+    "salesEmail": {
+      "type": "string",
+      "default": "care@ashtechgroup.in"
+    },
+    "customerPhone": {
+      "type": "string",
+      "default": "9278 333 333"
+    },
+    "customerEmail": {
+      "type": "string",
+      "default": "care@ashtechgroup.in"
+    },
+    "corporateAddress": {
+      "type": "string",
+      "default": "C-50, RDC, GHAZIABAD-DELHI NCR"
+    },
+    "corporatePhone": {
+      "type": "string",
+      "default": "0120 45 38 000"
+    },
+    "corporateEmail": {
+      "type": "string",
+      "default": "flyash@ashtechgroup.in"
+    },
+    "siteAddress": {
+      "type": "string",
+      "default": "GH-01/F, G, H & I, Sector 12, Greater Noida west, Uttar Pradesh, India, Pin: 201318"
+    },
+    "siteEmail": {
+      "type": "string",
+      "default": "care@ashtechgroup.in"
+    }
+  }
+}
+

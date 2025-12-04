@@ -1,0 +1,25 @@
+{
+  "apiVersion": 3,
+  "name": "ashtech/home-page",
+  "title": "Home Page",
+  "category": "layout",
+  "icon": "admin-page",
+  "description": "Full-page block for Home page (Landing Page)",
+  "supports": {
+    "align": ["full"],
+    "html": false
+  },
+  "textdomain": "ashtech-pages-blocks",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "Nature and Architecture<br>in Perfect Sync"
+    },
+    "mainContent": {
+      "type": "string",
+      "default": "Ashtech Presidential Towers, a division of Ashtech Group, translates decades of engineering mastery into residential masterpieces. Every initiative reflects meticulous craft, quality, and refined excellence, establishing Ashtech as a hallmark of trust, sophistication and visionary living."
+    }
+  }
+}
+

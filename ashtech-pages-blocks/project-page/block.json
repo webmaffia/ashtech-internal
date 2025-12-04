@@ -1,0 +1,33 @@
+{
+  "apiVersion": 3,
+  "name": "ashtech/project-page",
+  "title": "Project Page",
+  "category": "layout",
+  "icon": "admin-page",
+  "description": "Full-page block for Project page",
+  "supports": {
+    "align": ["full"],
+    "html": false
+  },
+  "textdomain": "ashtech-pages-blocks",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "A Space to Breathe<br>A Space to Belong"
+    },
+    "heroSubtitle": {
+      "type": "string",
+      "default": "Over 80% open greens, enveloped by quiet avenues and timeless design."
+    },
+    "overviewTitle": {
+      "type": "string",
+      "default": "Crafted for Those Who <br>Value the Calm Within"
+    },
+    "overviewContent": {
+      "type": "string",
+      "default": "<p>On 5.6 acres of resort-style landscaped greens rise five serene towers, home to 456 residences designed with care and precision.</p><p>Every home at Ashtech Presidential Towers is an orchestration of light, proportion, and privacy, designed for those who seek permanence over display.</p>"
+    }
+  }
+}
+

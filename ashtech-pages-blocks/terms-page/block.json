@@ -1,0 +1,32 @@
+{
+  "apiVersion": 3,
+  "name": "ashtech/terms-page",
+  "title": "Terms and Conditions Page",
+  "category": "layout",
+  "icon": "admin-page",
+  "description": "Full-page block for Terms and Conditions page",
+  "supports": {
+    "align": ["full"],
+    "html": false
+  },
+  "textdomain": "ashtech-pages-blocks",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "Terms and Conditions"
+    },
+    "mainContent": {
+      "type": "string",
+      "default": "Please read these terms and conditions carefully before using Our Service..."
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number"
+    }
+  }
+}
+

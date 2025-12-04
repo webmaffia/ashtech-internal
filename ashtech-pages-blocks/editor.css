@@ -1,0 +1,51 @@
+/* Editor styles for Ashtech Pages Blocks */
+.ashtech-page-wrapper {
+    padding: 20px;
+    border: 2px dashed #ccc;
+    margin: 10px 0;
+}
+
+.ashtech-hero {
+    padding: 40px 20px;
+    background: #f5f5f5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.ashtech-hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.ashtech-hero p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.ashtech-content {
+    padding: 20px;
+}
+
+.ashtech-image-wrapper {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.ashtech-image-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
+
+.ashtech-upload-button {
+    padding: 10px 20px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.ashtech-upload-button:hover {
+    background: #005177;
+}
+

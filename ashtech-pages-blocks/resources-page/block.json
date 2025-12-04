@@ -1,0 +1,21 @@
+{
+  "apiVersion": 3,
+  "name": "ashtech/resources-page",
+  "title": "Resources Page",
+  "category": "layout",
+  "icon": "admin-page",
+  "description": "Full-page block for Resources page",
+  "supports": {
+    "align": ["full"],
+    "html": false
+  },
+  "textdomain": "ashtech-pages-blocks",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "Insights, Updates, Perspectives"
+    }
+  }
+}
+

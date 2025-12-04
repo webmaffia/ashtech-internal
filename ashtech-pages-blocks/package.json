@@ -1,0 +1,31 @@
+{
+  "name": "ashtech-pages-blocks",
+  "version": "1.0.0",
+  "description": "Gutenberg blocks for Ashtech website pages",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "keywords": [
+    "gutenberg",
+    "blocks",
+    "wordpress"
+  ],
+  "author": "Ashtech",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@wordpress/scripts": "^26.0.0"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "^12.0.0",
+    "@wordpress/blocks": "^12.0.0",
+    "@wordpress/components": "^25.0.0",
+    "@wordpress/i18n": "^4.0.0"
+  }
+}
+

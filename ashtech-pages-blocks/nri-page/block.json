@@ -1,0 +1,33 @@
+{
+  "apiVersion": 3,
+  "name": "ashtech/nri-page",
+  "title": "NRI Corner Page",
+  "category": "layout",
+  "icon": "admin-page",
+  "description": "Full-page block for NRI Corner page",
+  "supports": {
+    "align": ["full"],
+    "html": false
+  },
+  "textdomain": "ashtech-pages-blocks",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "Ashtech Presidential Towers"
+    },
+    "heroSubtitle": {
+      "type": "string",
+      "default": "Invest in India's Finest Address & Live the Legacy"
+    },
+    "overviewTitle": {
+      "type": "string",
+      "default": "An Investment Opportunity<br>Like None Other!"
+    },
+    "overviewDescription": {
+      "type": "string",
+      "default": "Discover a home that brings you closer to where it all began and yet keeps pace with your global aspirations.\n\nAt Ashtech Presidential Towers, Greater Noida, we invite you to own an address that stands as a symbol of success, stability, and pride. Designed for a select few, this 5.6-acre landmark blends precision engineering with timeless luxury, a legacy investment that grows in value and meaning."
+    }
+  }
+}
+

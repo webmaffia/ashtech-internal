@@ -1,0 +1,41 @@
+{
+  "apiVersion": 3,
+  "name": "ashtech/about-page",
+  "title": "About Us Page",
+  "category": "layout",
+  "icon": "admin-page",
+  "description": "Full-page block for About Us page",
+  "supports": {
+    "align": ["full"],
+    "html": false
+  },
+  "textdomain": "ashtech-pages-blocks",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "heroTitle": {
+      "type": "string",
+      "default": "From Building the Nation to <br>Crafting Its Finest Homes"
+    },
+    "heroSubtitleMain": {
+      "type": "string",
+      "default": "Ashtech Presidential Towers by Ashtech Group"
+    },
+    "heroSubtitleText": {
+      "type": "string",
+      "default": "A legacy of trust and precision, now shaping exquisite homes that redefine luxury living."
+    },
+    "overviewTitle": {
+      "type": "string",
+      "default": "From Foundations of Strength to Towers of Excellence"
+    },
+    "overviewText1": {
+      "type": "string",
+      "default": "For over three decades, Ashtech Group has been synonymous with engineering excellence, innovation, and integrity. After establishing a strong legacy in infrastructure and industrial development, we now bring the same commitment to luxury real estate in Greater Noida, West, with Ashtech Presidential Towers, a true landmark of refinement and responsibility."
+    },
+    "overviewText2": {
+      "type": "string",
+      "default": "Every residence we craft embodies our core philosophy — precision in construction, sustainability in design, and a deep understanding of the people we build for. We are dedicated to creating homes that stand the test of time, inspire every day, and enrich life for generations to come."
+    }
+  }
+}
+
