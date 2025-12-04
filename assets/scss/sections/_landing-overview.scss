@@ -86,7 +86,7 @@
   &__title {
     font-family: $font-primary;
     font-size: vw(58);
-    line-height: 1.2;
+    line-height: 0 !important;
     color: $color-brand-black;
     text-align: center;
     font-weight: 325;
@@ -112,6 +112,10 @@
     flex-direction: column;
     align-items: flex-start;
     overflow: hidden;
+    margin-top: vw(-40);
+    .btn{
+      width: vw(239);
+    }
   }
 
   // Bottom gradient
