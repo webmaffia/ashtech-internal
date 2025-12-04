@@ -7,7 +7,7 @@
   background-color: $color-bg-primary;
   @include flex-column;
   gap: $spacing-2xl;
-  padding: $spacing-6xl $container-padding-desktop;
+  padding: vw(120) vw(99) vw(60);
   overflow: hidden;
 
   @include respond-to('desktop') {

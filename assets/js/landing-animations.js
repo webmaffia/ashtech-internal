@@ -208,9 +208,6 @@ if (!prefersReducedMotion) {
     entries.forEach(entry => {
       if (entry.isIntersecting && svgAnimationComplete) {
         entry.target.classList.add('animate');
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        entry.target.classList.remove('animate');
       }
     });
   }, observerOptions);
@@ -225,9 +222,6 @@ if (!prefersReducedMotion) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        entry.target.classList.remove('animate');
       }
     });
   }, observerOptions);
@@ -279,37 +273,6 @@ if (!prefersReducedMotion) {
             });
           }, pairIndex * 300);
         });
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        const valueItems = document.querySelectorAll('.landing-values__item');
-        const pairs = [
-          [valueItems[0], valueItems[3]],
-          [valueItems[1], valueItems[4]],
-          [valueItems[2], valueItems[5]]
-        ];
-        
-        pairs.reverse().forEach((pair, pairIndex) => {
-          setTimeout(() => {
-            pair.forEach((item) => {
-              if (item) {
-                const title = item.querySelector('.landing-values__item-title');
-                const description = item.querySelector('.landing-values__item-description');
-                
-                if (description) {
-                  description.style.opacity = '0';
-                  description.style.transform = 'translateY(40px)';
-                }
-                
-                if (title) {
-                  setTimeout(() => {
-                    title.style.opacity = '0';
-                    title.style.transform = 'translateY(40px)';
-                  }, 150);
-                }
-              }
-            });
-          }, pairIndex * 200);
-        });
       }
     });
   }, valuesObserverOptions);
@@ -335,9 +298,6 @@ if (!prefersReducedMotion) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        entry.target.classList.remove('animate');
       }
     });
   }, observerOptions);
@@ -354,9 +314,6 @@ if (!prefersReducedMotion) {
       if (buildingImg) {
         if (entry.isIntersecting) {
           buildingImg.style.bottom = '0';
-        } else if (!isMobileDevice) {
-          // Only apply reverse animation on desktop
-          buildingImg.style.bottom = '-50vw';
         }
       }
     });
@@ -392,32 +349,6 @@ if (!prefersReducedMotion) {
             feature.style.transform = 'translateX(0)';
           }, 500 + (index * 150));
         });
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        const nriContent = entry.target.querySelector('.landing-nri__info');
-        const nriFeatures = entry.target.querySelectorAll('.landing-nri__feature');
-        const nriImage = entry.target.querySelector('.landing-nri__image');
-        
-        Array.from(nriFeatures).reverse().forEach((feature, index) => {
-          setTimeout(() => {
-            feature.style.opacity = '0';
-            feature.style.transform = 'translateX(-30px)';
-          }, index * 100);
-        });
-        
-        if (nriContent) {
-          setTimeout(() => {
-            nriContent.style.opacity = '0';
-            nriContent.style.transform = 'translateY(40px)';
-          }, nriFeatures.length * 100);
-        }
-        
-        if (nriImage) {
-          setTimeout(() => {
-            nriImage.style.opacity = '0';
-            nriImage.style.transform = 'translateX(100px)';
-          }, nriFeatures.length * 100 + 150);
-        }
       }
     });
   }, observerOptions);
@@ -466,24 +397,6 @@ if (!prefersReducedMotion) {
             item.style.transform = 'translateY(0)';
           }, 400 + (index * 150));
         });
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        const header = entry.target.querySelector('.landing-awards__header');
-        const items = entry.target.querySelectorAll('.landing-awards__item');
-        
-        Array.from(items).reverse().forEach((item, index) => {
-          setTimeout(() => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(40px)';
-          }, index * 100);
-        });
-        
-        if (header) {
-          setTimeout(() => {
-            header.style.opacity = '0';
-            header.style.transform = 'translateY(40px)';
-          }, items.length * 100);
-        }
       }
     });
   }, observerOptions);
@@ -527,22 +440,6 @@ if (!prefersReducedMotion) {
             content.style.transform = 'translateX(0)';
           }, 400);
         }
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        const header = entry.target.querySelector('.landing-testimonials__header');
-        const content = entry.target.querySelector('.landing-testimonials__content');
-        
-        if (content) {
-          content.style.opacity = '0';
-          content.style.transform = 'translateX(100px)';
-        }
-        
-        if (header) {
-          setTimeout(() => {
-            header.style.opacity = '0';
-            header.style.transform = 'translateX(-100px)';
-          }, 150);
-        }
       }
     });
   }, observerOptions);
@@ -571,9 +468,6 @@ if (!prefersReducedMotion) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        entry.target.classList.remove('animate');
       }
     });
   }, observerOptions);
@@ -589,10 +483,6 @@ if (!prefersReducedMotion) {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateY(0)';
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        entry.target.style.opacity = '0';
-        entry.target.style.transform = 'translateY(40px)';
       }
     });
   }, observerOptions);
@@ -602,10 +492,6 @@ if (!prefersReducedMotion) {
       if (entry.isIntersecting) {
         entry.target.style.opacity = '1';
         entry.target.style.transform = 'translateX(0)';
-      } else if (!isMobileDevice) {
-        // Only apply reverse animation on desktop
-        entry.target.style.opacity = '0';
-        entry.target.style.transform = 'translateX(100px)';
       }
     });
   }, observerOptions);

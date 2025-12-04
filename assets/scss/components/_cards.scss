@@ -153,30 +153,30 @@
   @include flex-column-center;
   gap: $spacing-sm;
   text-align: center;
-  width: 243.5px;
+  width: vw(243.5);
 
   @include respond-to('laptop') {
-    width: 200px;
+    
   }
 
   @include respond-to('tablet') {
-    width: 150px;
+    width: vw(150,1023);
   }
 
   @include respond-to('mobile') {
     width: 100%;
-    max-width: 180px;
+    max-width: vw(180,414);
   }
 }
 
 .feature-card__icon {
-  width: 42px;
-  height: 42px;
+  width: vw(42);
+  height: vw(42);
   flex-shrink: 0;
 
   @include respond-to('mobile') {
-    width: 36px;
-    height: 36px;
+    width: vw(36,414);
+    height: vw(36,414);
   }
 
   img {
@@ -194,7 +194,7 @@
   text-align: center;
 
   @include respond-to('tablet') {
-    font-size: 12px;
+    font-size: vw(12,1023);
   }
 }
 
@@ -211,13 +211,13 @@
 }
 
 .location-card__icon {
-  width: 42px;
-  height: 42px;
+  width: vw(42);
+  height: vw(42);
   flex-shrink: 0;
 
   @include respond-to('mobile') {
-    width: 32px;
-    height: 32px;
+    width: vw(32,414);
+    height: vw(32,414);
   }
 
   img {
@@ -233,16 +233,14 @@
   color: $color-body;
   line-height: $line-height-medium;
 
-  @include respond-to('laptop') {
-    font-size: 18px;
-  }
+ 
 
   @include respond-to('tablet') {
-    font-size: 16px;
+    font-size: vw(16,1023);
   }
 
   @include respond-to('mobile') {
-    font-size: 14px;
+    font-size: vw(14,414);
   }
 }
 
