@@ -1,8 +1,9 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { Button } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
-    const { heroTitle, heroSubtitle, overviewTitle, overviewContent } = attributes;
+    const { heroTitle, heroSubtitle, overviewTitle, overviewContent, whyImage1, whyImage2, whyImage3 } = attributes;
     const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
@@ -56,17 +57,74 @@ export default function Edit({ attributes, setAttributes }) {
                     <h2 className="career-why__title">Why Choose Ashtech?</h2>
                     <div className="career-why__grid">
                         <div className="career-why__card">
-                            <img src={`${assetsUrl}images/career/growth.jpg`} alt="Growth" />
+                            <MediaUploadCheck>
+                                <MediaUpload
+                                    onSelect={(media) => setAttributes({ whyImage1: media.url })}
+                                    allowedTypes={['image']}
+                                    value={whyImage1}
+                                    render={({ open }) => (
+                                        <div style={{ position: 'relative' }}>
+                                            <img 
+                                                src={whyImage1 || `${assetsUrl}images/career/growth.jpg`} 
+                                                alt="Growth"
+                                                style={{ width: '100%', cursor: 'pointer' }}
+                                                onClick={open}
+                                            />
+                                            <Button onClick={open} isPrimary style={{ position: 'absolute', top: '5px', right: '5px', fontSize: '10px' }}>
+                                                {whyImage1 ? __('Change', 'ashtech-pages-blocks') : __('Upload', 'ashtech-pages-blocks')}
+                                            </Button>
+                                        </div>
+                                    )}
+                                />
+                            </MediaUploadCheck>
                             <h3>Career Growth</h3>
                             <p>Opportunities to grow and advance</p>
                         </div>
                         <div className="career-why__card">
-                            <img src={`${assetsUrl}images/career/culture.jpg`} alt="Culture" />
+                            <MediaUploadCheck>
+                                <MediaUpload
+                                    onSelect={(media) => setAttributes({ whyImage2: media.url })}
+                                    allowedTypes={['image']}
+                                    value={whyImage2}
+                                    render={({ open }) => (
+                                        <div style={{ position: 'relative' }}>
+                                            <img 
+                                                src={whyImage2 || `${assetsUrl}images/career/culture.jpg`} 
+                                                alt="Culture"
+                                                style={{ width: '100%', cursor: 'pointer' }}
+                                                onClick={open}
+                                            />
+                                            <Button onClick={open} isPrimary style={{ position: 'absolute', top: '5px', right: '5px', fontSize: '10px' }}>
+                                                {whyImage2 ? __('Change', 'ashtech-pages-blocks') : __('Upload', 'ashtech-pages-blocks')}
+                                            </Button>
+                                        </div>
+                                    )}
+                                />
+                            </MediaUploadCheck>
                             <h3>Work Culture</h3>
                             <p>Positive and collaborative environment</p>
                         </div>
                         <div className="career-why__card">
-                            <img src={`${assetsUrl}images/career/benefits.jpg`} alt="Benefits" />
+                            <MediaUploadCheck>
+                                <MediaUpload
+                                    onSelect={(media) => setAttributes({ whyImage3: media.url })}
+                                    allowedTypes={['image']}
+                                    value={whyImage3}
+                                    render={({ open }) => (
+                                        <div style={{ position: 'relative' }}>
+                                            <img 
+                                                src={whyImage3 || `${assetsUrl}images/career/benefits.jpg`} 
+                                                alt="Benefits"
+                                                style={{ width: '100%', cursor: 'pointer' }}
+                                                onClick={open}
+                                            />
+                                            <Button onClick={open} isPrimary style={{ position: 'absolute', top: '5px', right: '5px', fontSize: '10px' }}>
+                                                {whyImage3 ? __('Change', 'ashtech-pages-blocks') : __('Upload', 'ashtech-pages-blocks')}
+                                            </Button>
+                                        </div>
+                                    )}
+                                />
+                            </MediaUploadCheck>
                             <h3>Benefits</h3>
                             <p>Competitive compensation package</p>
                         </div>

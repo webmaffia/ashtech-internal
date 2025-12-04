@@ -1,8 +1,9 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { Button } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
-    const { heroTitle, mainContent } = attributes;
+    const { heroTitle, mainContent, overviewImage, project1Image, project2Image, nriImage, testimonialBgImage } = attributes;
     const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
@@ -49,7 +50,26 @@ export default function Edit({ attributes, setAttributes }) {
                             </button>
                         </div>
                         <div className="landing-overview__image">
-                            <img src={`${assetsUrl}images/landing/overview-image.jpg`} alt="Ashtech Overview" />
+                            <MediaUploadCheck>
+                                <MediaUpload
+                                    onSelect={(media) => setAttributes({ overviewImage: media.url })}
+                                    allowedTypes={['image']}
+                                    value={overviewImage}
+                                    render={({ open }) => (
+                                        <div style={{ position: 'relative' }}>
+                                            <img 
+                                                src={overviewImage || `${assetsUrl}images/landing/overview-image.jpg`} 
+                                                alt="Ashtech Overview"
+                                                style={{ width: '100%', cursor: 'pointer' }}
+                                                onClick={open}
+                                            />
+                                            <Button onClick={open} isPrimary style={{ position: 'absolute', top: '10px', right: '10px' }}>
+                                                {overviewImage ? __('Change', 'ashtech-pages-blocks') : __('Upload', 'ashtech-pages-blocks')}
+                                            </Button>
+                                        </div>
+                                    )}
+                                />
+                            </MediaUploadCheck>
                         </div>
                     </div>
                 </div>
@@ -77,7 +97,26 @@ export default function Edit({ attributes, setAttributes }) {
                     <div className="landing-projects__content">
                         <div className="landing-projects__card">
                             <div className="landing-projects__image">
-                                <img src={`${assetsUrl}images/landing/project-presidential.jpg`} alt="Presidential Towers" />
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={(media) => setAttributes({ project1Image: media.url })}
+                                        allowedTypes={['image']}
+                                        value={project1Image}
+                                        render={({ open }) => (
+                                            <div style={{ position: 'relative' }}>
+                                                <img 
+                                                    src={project1Image || `${assetsUrl}images/landing/project-presidential.jpg`} 
+                                                    alt="Presidential Towers"
+                                                    style={{ width: '100%', cursor: 'pointer' }}
+                                                    onClick={open}
+                                                />
+                                                <Button onClick={open} isPrimary style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '11px' }}>
+                                                    {project1Image ? __('Change', 'ashtech-pages-blocks') : __('Upload', 'ashtech-pages-blocks')}
+                                                </Button>
+                                            </div>
+                                        )}
+                                    />
+                                </MediaUploadCheck>
                             </div>
                             <div className="landing-projects__info">
                                 <h3 className="landing-projects__card-title">Ashtech Presidential Towers</h3>
@@ -92,7 +131,26 @@ export default function Edit({ attributes, setAttributes }) {
                         </div>
                         <div className="landing-projects__card">
                             <div className="landing-projects__image">
-                                <img src={`${assetsUrl}images/landing/project-grand.jpg`} alt="Grand View" />
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={(media) => setAttributes({ project2Image: media.url })}
+                                        allowedTypes={['image']}
+                                        value={project2Image}
+                                        render={({ open }) => (
+                                            <div style={{ position: 'relative' }}>
+                                                <img 
+                                                    src={project2Image || `${assetsUrl}images/landing/project-grand.jpg`} 
+                                                    alt="Grand View"
+                                                    style={{ width: '100%', cursor: 'pointer' }}
+                                                    onClick={open}
+                                                />
+                                                <Button onClick={open} isPrimary style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '11px' }}>
+                                                    {project2Image ? __('Change', 'ashtech-pages-blocks') : __('Upload', 'ashtech-pages-blocks')}
+                                                </Button>
+                                            </div>
+                                        )}
+                                    />
+                                </MediaUploadCheck>
                             </div>
                             <div className="landing-projects__info">
                                 <h3 className="landing-projects__card-title">Ashtech Grand View</h3>

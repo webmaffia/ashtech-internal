@@ -1,7 +1,7 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
-    const { heroTitle, mainContent, imageUrl } = attributes;
+    const { heroTitle, mainContent, imageUrl, overviewImage, project1Image, project2Image, nriImage, testimonialBgImage } = attributes;
     const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
@@ -239,7 +239,7 @@ export default function Save({ attributes }) {
             {/* NRI Desk Section */}
             <section className="landing-nri">
                 <div className="landing-nri__image">
-                    <img src={`${assetsUrl}images/landing/nri.png`} alt="NRI Desk" />
+                    <img src={nriImage || `${assetsUrl}images/landing/nri.png`} alt="NRI Desk" />
                 </div>
                 <div className="landing-nri__content">
                     <div className="landing-nri__info">

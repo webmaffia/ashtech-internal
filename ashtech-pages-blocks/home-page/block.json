@@ -19,6 +19,26 @@
     "mainContent": {
       "type": "string",
       "default": "Ashtech Presidential Towers, a division of Ashtech Group, translates decades of engineering mastery into residential masterpieces. Every initiative reflects meticulous craft, quality, and refined excellence, establishing Ashtech as a hallmark of trust, sophistication and visionary living."
+    },
+    "overviewImage": {
+      "type": "string",
+      "default": ""
+    },
+    "project1Image": {
+      "type": "string",
+      "default": ""
+    },
+    "project2Image": {
+      "type": "string",
+      "default": ""
+    },
+    "nriImage": {
+      "type": "string",
+      "default": ""
+    },
+    "testimonialBgImage": {
+      "type": "string",
+      "default": ""
     }
   }
 }

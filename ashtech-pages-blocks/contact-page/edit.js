@@ -1,5 +1,6 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { Button } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
     const { 
@@ -14,7 +15,9 @@ export default function Edit({ attributes, setAttributes }) {
         corporatePhone,
         corporateEmail,
         siteAddress,
-        siteEmail
+        siteEmail,
+        corporateOfficeImage,
+        siteOfficeImage
     } = attributes;
     
     // Get assets URL
@@ -169,7 +172,30 @@ export default function Edit({ attributes, setAttributes }) {
                         {/* Corporate Office */}
                         <div className="contact-offices__card">
                             <div className="contact-offices__image">
-                                <img src={`${assetsUrl}images/contact/office-corporate.jpg`} alt="Ashtech Corporate Office" />
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={(media) => setAttributes({ corporateOfficeImage: media.url })}
+                                        allowedTypes={['image']}
+                                        value={corporateOfficeImage}
+                                        render={({ open }) => (
+                                            <div style={{ position: 'relative' }}>
+                                                <img 
+                                                    src={corporateOfficeImage || `${assetsUrl}images/contact/office-corporate.jpg`} 
+                                                    alt="Ashtech Corporate Office"
+                                                    style={{ width: '100%', cursor: 'pointer' }}
+                                                    onClick={open}
+                                                />
+                                                <Button 
+                                                    onClick={open} 
+                                                    isPrimary
+                                                    style={{ position: 'absolute', top: '10px', right: '10px' }}
+                                                >
+                                                    {corporateOfficeImage ? __('Change Image', 'ashtech-pages-blocks') : __('Upload Image', 'ashtech-pages-blocks')}
+                                                </Button>
+                                            </div>
+                                        )}
+                                    />
+                                </MediaUploadCheck>
                             </div>
                             <div className="contact-offices__info">
                                 <h3 className="contact-offices__card-title">Ashtech Corporate Office</h3>
@@ -229,7 +255,30 @@ export default function Edit({ attributes, setAttributes }) {
                         {/* Site Office */}
                         <div className="contact-offices__card">
                             <div className="contact-offices__image contact-offices__image--site">
-                                <img src={`${assetsUrl}images/contact/office-site.jpg`} alt="Ashtech Site Office" />
+                                <MediaUploadCheck>
+                                    <MediaUpload
+                                        onSelect={(media) => setAttributes({ siteOfficeImage: media.url })}
+                                        allowedTypes={['image']}
+                                        value={siteOfficeImage}
+                                        render={({ open }) => (
+                                            <div style={{ position: 'relative' }}>
+                                                <img 
+                                                    src={siteOfficeImage || `${assetsUrl}images/contact/office-site.jpg`} 
+                                                    alt="Ashtech Site Office"
+                                                    style={{ width: '100%', cursor: 'pointer' }}
+                                                    onClick={open}
+                                                />
+                                                <Button 
+                                                    onClick={open} 
+                                                    isPrimary
+                                                    style={{ position: 'absolute', top: '10px', right: '10px' }}
+                                                >
+                                                    {siteOfficeImage ? __('Change Image', 'ashtech-pages-blocks') : __('Upload Image', 'ashtech-pages-blocks')}
+                                                </Button>
+                                            </div>
+                                        )}
+                                    />
+                                </MediaUploadCheck>
                             </div>
                             <div className="contact-offices__info">
                                 <h3 className="contact-offices__card-title">Ashtech Site Office</h3>

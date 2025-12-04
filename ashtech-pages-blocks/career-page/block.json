@@ -14,20 +14,31 @@
   "attributes": {
     "heroTitle": {
       "type": "string",
-      "default": "Careers at The Ashtech<br> Presidential Towers"
+      "default": "Build Your Career With Us"
     },
     "heroSubtitle": {
       "type": "string",
-      "default": "Come, Build the Future With Us!"
+      "default": "Join our team"
     },
     "overviewTitle": {
       "type": "string",
-      "default": "Join a Legacy of Excellence"
+      "default": "Career Overview"
     },
-    "overviewText": {
+    "overviewContent": {
       "type": "string",
-      "default": "<p>Ashtech Presidential Towers is a testament to the legacy of excellence, trust, and precision of Ashtech Group. From building landmark infrastructure to crafting premium properties, we believe in creating icons that define the future — for cities and for people.</p><p>If you're driven by purpose, inspired by challenges, and ready to make an impact, your journey begins here.</p>"
+      "default": "Join our growing team"
+    },
+    "whyImage1": {
+      "type": "string",
+      "default": ""
+    },
+    "whyImage2": {
+      "type": "string",
+      "default": ""
+    },
+    "whyImage3": {
+      "type": "string",
+      "default": ""
     }
   }
 }
-

@@ -13,7 +13,9 @@ export default function Save({ attributes }) {
         corporatePhone,
         corporateEmail,
         siteAddress,
-        siteEmail
+        siteEmail,
+        corporateOfficeImage,
+        siteOfficeImage
     } = attributes;
     
     // Get assets URL
@@ -134,7 +136,7 @@ export default function Save({ attributes }) {
                         {/* Corporate Office */}
                         <div className="contact-offices__card">
                             <div className="contact-offices__image">
-                                <img src={`${assetsUrl}images/contact/office-corporate.jpg`} alt="Ashtech Corporate Office" />
+                                <img src={corporateOfficeImage || `${assetsUrl}images/contact/office-corporate.jpg`} alt="Ashtech Corporate Office" />
                             </div>
                             <div className="contact-offices__info">
                                 <h3 className="contact-offices__card-title">Ashtech Corporate Office</h3>
@@ -180,7 +182,7 @@ export default function Save({ attributes }) {
                         {/* Site Office */}
                         <div className="contact-offices__card">
                             <div className="contact-offices__image contact-offices__image--site">
-                                <img src={`${assetsUrl}images/contact/office-site.jpg`} alt="Ashtech Site Office" />
+                                <img src={siteOfficeImage || `${assetsUrl}images/contact/office-site.jpg`} alt="Ashtech Site Office" />
                             </div>
                             <div className="contact-offices__info">
                                 <h3 className="contact-offices__card-title">Ashtech Site Office</h3>

@@ -59,6 +59,14 @@
     "siteEmail": {
       "type": "string",
       "default": "care@ashtechgroup.in"
+    },
+    "corporateOfficeImage": {
+      "type": "string",
+      "default": ""
+    },
+    "siteOfficeImage": {
+      "type": "string",
+      "default": ""
     }
   }
 }
