@@ -1,7 +1,8 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
-    const { heroTitle, heroSubtitle, overviewTitle, overviewText } = attributes;
+    const { heroTitle, heroSubtitle, overviewTitle, overviewText, whyImage1, whyImage2, whyImage3 } = attributes;
+    const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
         <div {...useBlockProps.save()}>
@@ -58,7 +59,7 @@ export default function Save({ attributes }) {
                     <div className="career-why__cards">
                         <div className="career-why__card career-why__card--offset-1">
                             <div className="career-why__image">
-                                <img src={`${assetsUrl}images/career/why-3.jpg`} alt="Culture of Trust" />
+                                <img src={whyImage1 || `${assetsUrl}images/career/why-3.jpg`} alt="Culture of Trust" />
                             </div>
                             <div className="career-why__content">
                                 <h3 className="career-why__card-title animate-text">Real Projects. Real Impact.</h3>
@@ -68,7 +69,7 @@ export default function Save({ attributes }) {
                         
                         <div className="career-why__card career-why__card--offset-2">
                             <div className="career-why__image">
-                                <img src={`${assetsUrl}images/career/why-2.jpg`} alt="Grow With Confidence" />
+                                <img src={whyImage2 || `${assetsUrl}images/career/why-2.jpg`} alt="Grow With Confidence" />
                             </div>
                             <div className="career-why__content">
                                 <h3 className="career-why__card-title animate-text">Grow With Confidence.</h3>
@@ -78,7 +79,7 @@ export default function Save({ attributes }) {
                         
                         <div className="career-why__card career-why__card--offset-3">
                             <div className="career-why__image">
-                                <img src={`${assetsUrl}images/career/why-1.jpg`} alt="Real Projects" />
+                                <img src={whyImage3 || `${assetsUrl}images/career/why-1.jpg`} alt="Real Projects" />
                             </div>
                             <div className="career-why__content">
                                 <h3 className="career-why__card-title animate-text">Culture of Trust.</h3>
