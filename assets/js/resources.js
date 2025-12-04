@@ -37,5 +37,25 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Load More Functionality
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            // Get all hidden news cards
+            const hiddenCards = document.querySelectorAll('.news-card--hidden');
+            
+            // Show all hidden cards with animation
+            hiddenCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.remove('news-card--hidden');
+                    card.classList.add('news-card--visible');
+                }, index * 100); // Stagger the animation
+            });
+            
+            // Hide the Load More button
+            this.parentElement.style.display = 'none';
+        });
+    }
 });
 
