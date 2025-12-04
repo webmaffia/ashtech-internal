@@ -279,26 +279,22 @@
         function updateContent(index) {
             const data = timelineData[index];
             
-            // Fade out
+            // Update image immediately
+            if (historyImage && data.image) {
+                historyImage.src = data.image;
+            }
+            
+            // Fade out text only
             historyTitle.style.opacity = '0';
             historyDescription.style.opacity = '0';
-            if (historyImage) {
-                historyImage.style.opacity = '0';
-            }
             
             setTimeout(() => {
                 historyTitle.textContent = data.title;
                 historyDescription.textContent = data.description;
-                if (historyImage && data.image) {
-                    historyImage.src = data.image;
-                }
                 
-                // Fade in
+                // Fade in text
                 historyTitle.style.opacity = '1';
                 historyDescription.style.opacity = '1';
-                if (historyImage) {
-                    historyImage.style.opacity = '1';
-                }
             }, 300);
 
             // Update active state
@@ -382,22 +378,6 @@
             }, { threshold: 0.3 });
 
             historyObserver.observe(historySection);
-        }
-
-        // Pause on hover
-        const timelineWrapper = document.querySelector('.about-history__timeline');
-        if (timelineWrapper) {
-            timelineWrapper.addEventListener('mouseenter', stopAutoPlay);
-            timelineWrapper.addEventListener('mouseleave', () => {
-                const historySection = document.querySelector('.about-history');
-                if (historySection) {
-                    const rect = historySection.getBoundingClientRect();
-                    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-                    if (isVisible) {
-                        startAutoPlay();
-                    }
-                }
-            });
         }
     }
 
