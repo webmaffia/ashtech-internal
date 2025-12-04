@@ -1,7 +1,10 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
-    const { heroTitle, heroSubtitle, mainContent, imageUrl } = attributes;
+    const { heroTitle, mainContent, imageUrl } = attributes;
+    
+    // Get assets URL from WordPress
+    const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
         <div {...useBlockProps.save()}>
@@ -177,7 +180,7 @@ export default function Save({ attributes }) {
                         <h2 className="landing-values__title animate-text-rtl">30 Years of Excellence</h2>
                     </div>
                     <div className="landing-values__graphic">
-                        <img src="assets/images/landing/values-graphic.svg" alt="Core Values" />
+                        <img src={`${assetsUrl}images/landing/values-graphic.svg`} alt="Core Values" />
                     </div>
                     <div className="landing-values__items">
                         <div className="landing-values__item landing-values__item--left landing-values__item--1" data-value="0">

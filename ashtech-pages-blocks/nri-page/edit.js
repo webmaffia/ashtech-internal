@@ -1,73 +1,127 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
-import { Button } from '@wordpress/components';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Edit({ attributes, setAttributes }) {
-    const { heroTitle, heroSubtitle, overviewTitle, overviewDescription } = attributes;
+    const { heroTitle, heroSubtitle } = attributes;
 
     return (
         <div {...useBlockProps()}>
-            <div style={{ padding: '20px', border: '2px dashed #ccc' }}>
-                <h3 style={{ background: '#667eea', color: 'white', padding: '15px', marginBottom: '20px' }}>
-                    {__('🌏 NRI Corner Page Block', 'ashtech-pages-blocks')}
-                </h3>
-
-                <div style={{ marginBottom: '30px', padding: '20px', background: '#f5f5f5' }}>
-                    <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '10px' }}>
-                        {__('Hero Title:', 'ashtech-pages-blocks')}
-                    </label>
+            {/* Hero Banner */}
+            <section className="project-hero contactbg">
+                <div className="project-hero__overlay"></div>
+                <div className="project-hero__content">
                     <RichText
                         tagName="h1"
+                        className="project-hero__title"
                         value={heroTitle}
                         onChange={(value) => setAttributes({ heroTitle: value })}
-                        placeholder={__('Ashtech Presidential Towers', 'ashtech-pages-blocks')}
+                        placeholder={__('NRI Corner', 'ashtech-pages-blocks')}
                     />
+                    <div className="project-hero__subtitle">
+                        <RichText
+                            tagName="p"
+                            className="project-hero__subtitle-main"
+                            value={heroSubtitle}
+                            onChange={(value) => setAttributes({ heroSubtitle: value })}
+                            placeholder={__('Your trusted partner...', 'ashtech-pages-blocks')}
+                        />
+                    </div>
                 </div>
+            </section>
 
-                <div style={{ marginBottom: '30px', padding: '20px', background: '#f5f5f5' }}>
-                    <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '10px' }}>
-                        {__('Hero Subtitle:', 'ashtech-pages-blocks')}
-                    </label>
-                    <RichText
-                        tagName="p"
-                        value={heroSubtitle}
-                        onChange={(value) => setAttributes({ heroSubtitle: value })}
-                        placeholder={__('Invest in India\'s Finest Address...', 'ashtech-pages-blocks')}
-                    />
+            {/* NRI Overview */}
+            <section className="nri-overview">
+                <div className="nri-overview__container">
+                    <h2 className="nri-overview__title">Overview</h2>
+                    <p className="nri-overview__content">Specialized services for Non-Resident Indians</p>
+                    <button className="btn btn--primary">
+                        <span>Book a Virtual Tour</span>
+                        <div className="btn__icon">
+                            <img src="assets/images/nri/icon-video.svg" alt="Video" />
+                        </div>
+                    </button>
                 </div>
+            </section>
 
-                <div style={{ marginBottom: '30px', padding: '20px', background: '#f5f5f5' }}>
-                    <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '10px' }}>
-                        {__('Overview Title:', 'ashtech-pages-blocks')}
-                    </label>
-                    <RichText
-                        tagName="h2"
-                        value={overviewTitle}
-                        onChange={(value) => setAttributes({ overviewTitle: value })}
-                        placeholder={__('An Investment Opportunity Like None Other!', 'ashtech-pages-blocks')}
-                    />
+            {/* Why Invest */}
+            <section className="nri-invest">
+                <div className="nri-invest__container">
+                    <h2 className="nri-invest__title">Why Invest in India?</h2>
+                    <div className="nri-invest__grid">
+                        <div className="nri-invest__feature">
+                            <img src="assets/images/nri/icon-growth.svg" alt="Growth" />
+                            <h3>High Growth Potential</h3>
+                            <p>Real estate market with strong returns</p>
+                        </div>
+                        <div className="nri-invest__feature">
+                            <img src="assets/images/nri/icon-repatriation.svg" alt="Repatriation" />
+                            <h3>Easy Repatriation</h3>
+                            <p>Simple fund transfer process</p>
+                        </div>
+                        <div className="nri-invest__feature">
+                            <img src="assets/images/nri/icon-tax.svg" alt="Tax" />
+                            <h3>Tax Benefits</h3>
+                            <p>Various tax exemptions available</p>
+                        </div>
+                    </div>
                 </div>
+            </section>
 
-                <div style={{ marginBottom: '30px', padding: '20px', background: '#f5f5f5' }}>
-                    <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '10px' }}>
-                        {__('Overview Description:', 'ashtech-pages-blocks')}
-                    </label>
-                    <RichText
-                        tagName="p"
-                        value={overviewDescription}
-                        onChange={(value) => setAttributes({ overviewDescription: value })}
-                        placeholder={__('Discover a home that brings you closer...', 'ashtech-pages-blocks')}
-                    />
+            {/* NRI Support */}
+            <section className="nri-support">
+                <div className="nri-support__container">
+                    <h2 className="nri-support__title">NRI Support Services</h2>
+                    <div className="nri-support__list">
+                        <div className="nri-support__item">
+                            <img src="assets/images/nri/icon-documentation.svg" alt="Documentation" />
+                            <span>Documentation Assistance</span>
+                        </div>
+                        <div className="nri-support__item">
+                            <img src="assets/images/nri/icon-legal.svg" alt="Legal" />
+                            <span>Legal Support</span>
+                        </div>
+                        <div className="nri-support__item">
+                            <img src="assets/images/nri/icon-payment.svg" alt="Payment" />
+                            <span>Payment Plans</span>
+                        </div>
+                        <div className="nri-support__item">
+                            <img src="assets/images/nri/icon-support.svg" alt="Support" />
+                            <span>24/7 Customer Support</span>
+                        </div>
+                    </div>
+                    <button className="btn btn--primary">
+                        <span>Schedule a Call</span>
+                        <div className="btn__icon">
+                            <img src="assets/images/nri/icon-phone.svg" alt="Phone" />
+                        </div>
+                    </button>
                 </div>
+            </section>
 
-                <div style={{ padding: '15px', background: '#e8f5e9', border: '1px solid #4caf50' }}>
-                    <p style={{ margin: 0, fontSize: '14px' }}>
-                        ✅ <strong>{__('Complete NRI page included:', 'ashtech-pages-blocks')}</strong>
-                        {__(' Hero, Overview, Investment Benefits, Why Choose section, NRI Support Services, Testimonials, and CTA sections.', 'ashtech-pages-blocks')}
-                    </p>
+            {/* Testimonials */}
+            <section className="nri-testimonials">
+                <div className="nri-testimonials__container">
+                    <h2 className="nri-testimonials__title">What Our NRI Customers Say</h2>
+                    <div className="nri-testimonials__grid">
+                        <div className="nri-testimonials__card">
+                            <p className="nri-testimonials__quote">Excellent service for NRI investors</p>
+                            <p className="nri-testimonials__author">- NRI Customer</p>
+                        </div>
+                    </div>
+                    <button className="btn btn--primary">
+                        <span>Connect with Us</span>
+                        <div className="btn__icon">
+                            <img src="assets/images/nri/icon-connect.svg" alt="Connect" />
+                        </div>
+                    </button>
                 </div>
+            </section>
+
+            <div style={{ padding: '20px', background: '#e8f5e9', margin: '20px 0' }}>
+                <p style={{ margin: 0 }}>
+                    ✅ {__('Complete NRI page with services and testimonials', 'ashtech-pages-blocks')}
+                </p>
             </div>
         </div>
     );
 }
-

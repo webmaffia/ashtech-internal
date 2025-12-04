@@ -37,47 +37,38 @@ function ashtech_register_blocks() {
         $block_folder = ASHTECH_BLOCKS_DIR . $block_name;
         
         if (file_exists($block_folder . '/block.json')) {
-            register_block_type($block_folder, array(
-                'render_callback' => 'ashtech_render_block_' . str_replace('-', '_', $block_name)
-            ));
+            // Register block - no render callback, uses save.js output
+            register_block_type($block_folder);
         }
     }
 }
 add_action('init', 'ashtech_register_blocks');
 
 /**
- * Enqueue block assets
+ * Enqueue block editor assets
  */
-function ashtech_enqueue_block_assets() {
-    // Enqueue editor script
-    wp_enqueue_script(
-        'ashtech-blocks-editor',
-        ASHTECH_BLOCKS_URL . 'blocks-editor.js',
-        array('wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-i18n'),
-        ASHTECH_BLOCKS_VERSION,
-        true
-    );
-
-    // Enqueue editor styles
+function ashtech_enqueue_block_editor_assets() {
+    // Editor styles
     wp_enqueue_style(
         'ashtech-blocks-editor',
         ASHTECH_BLOCKS_URL . 'editor.css',
         array('wp-edit-blocks'),
         ASHTECH_BLOCKS_VERSION
     );
-
-    // Localize script with plugin data
-    wp_localize_script('ashtech-blocks-editor', 'ashtechBlocksData', array(
+    
+    // Localize script with plugin data for use in blocks
+    wp_localize_script('wp-blocks', 'ashtechBlocksData', array(
         'pluginUrl' => ASHTECH_BLOCKS_URL,
         'assetsUrl' => ASHTECH_BLOCKS_URL . 'assets/'
     ));
 }
-add_action('enqueue_block_editor_assets', 'ashtech_enqueue_block_assets');
+add_action('enqueue_block_editor_assets', 'ashtech_enqueue_block_editor_assets');
 
 /**
- * Enqueue frontend styles
+ * Enqueue frontend and editor styles
  */
-function ashtech_enqueue_frontend_assets() {
+function ashtech_enqueue_block_styles() {
+    // Frontend styles
     wp_enqueue_style(
         'ashtech-blocks-frontend',
         ASHTECH_BLOCKS_URL . 'style.css',
@@ -93,118 +84,97 @@ function ashtech_enqueue_frontend_assets() {
         ASHTECH_BLOCKS_VERSION
     );
 }
-add_action('wp_enqueue_scripts', 'ashtech_enqueue_frontend_assets');
+add_action('enqueue_block_assets', 'ashtech_enqueue_block_styles');
 
 /**
- * Render Home Page Block
+ * Enqueue scripts for frontend (if needed for interactions)
  */
-function ashtech_render_block_home_page($attributes, $content) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : 'Nature and Architecture<br>in Perfect Sync';
-    $mainContent = isset($attributes['mainContent']) ? $attributes['mainContent'] : 'Ashtech Presidential Towers, a division of Ashtech Group...';
-    $imageUrl = isset($attributes['imageUrl']) ? $attributes['imageUrl'] : '';
+function ashtech_enqueue_frontend_scripts() {
+    // Enqueue jQuery
+    wp_enqueue_script('jquery');
     
-    ob_start();
-    include ASHTECH_BLOCKS_DIR . 'home-page/template.php';
-    return ob_get_clean();
-}
-
-/**
- * Render Project Page Block
- */
-function ashtech_render_block_project_page($attributes, $content) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : 'A Space to Breathe<br>A Space to Belong';
-    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : 'Over 80% open greens...';
-    $imageUrl = isset($attributes['imageUrl']) ? $attributes['imageUrl'] : '';
+    // Enqueue Slick Carousel for sliders
+    wp_enqueue_style(
+        'slick-carousel-css',
+        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
+        array(),
+        '1.8.1'
+    );
     
-    ob_start();
-    include ASHTECH_BLOCKS_DIR . 'project-page/template.php';
-    return ob_get_clean();
-}
-
-/**
- * Render NRI Page Block
- */
-function ashtech_render_block_nri_page($attributes) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
-    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : '';
+    wp_enqueue_script(
+        'slick-carousel-js',
+        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
+        array('jquery'),
+        '1.8.1',
+        true
+    );
     
-    ob_start();
-    include ASHTECH_BLOCKS_DIR . 'nri-page/template.php';
-    return ob_get_clean();
-}
-
-/**
- * Render About Page Block
- */
-function ashtech_render_block_about_page($attributes) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    // Enqueue all your custom scripts
+    wp_enqueue_script(
+        'ashtech-main-js',
+        ASHTECH_BLOCKS_URL . 'assets/js/main.js',
+        array('jquery'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
     
-    ob_start();
-    include ASHTECH_BLOCKS_DIR . 'about-page/template.php';
-    return ob_get_clean();
-}
-
-/**
- * Render Resources Page Block
- */
-function ashtech_render_block_resources_page($attributes) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    wp_enqueue_script(
+        'ashtech-landing-animations-js',
+        ASHTECH_BLOCKS_URL . 'assets/js/landing-animations.js',
+        array('jquery', 'ashtech-main-js'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
     
-    ob_start();
-    include ASHTECH_BLOCKS_DIR . 'resources-page/template.php';
-    return ob_get_clean();
-}
-
-/**
- * Render Career Page Block
- */
-function ashtech_render_block_career_page($attributes) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    wp_enqueue_script(
+        'ashtech-project-js',
+        ASHTECH_BLOCKS_URL . 'assets/js/project.js',
+        array('jquery', 'ashtech-main-js'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
     
-    ob_start();
-    include ASHTECH_BLOCKS_DIR . 'career-page/template.php';
-    return ob_get_clean();
-}
-
-/**
- * Render Contact Page Block
- */
-function ashtech_render_block_contact_page($attributes, $content) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : 'We\'re Here to Help!';
-    $heroSubtitle = isset($attributes['heroSubtitle']) ? $attributes['heroSubtitle'] : 'Got queries?';
-    $salesPhone = isset($attributes['salesPhone']) ? $attributes['salesPhone'] : '9278 333 333';
-    $salesEmail = isset($attributes['salesEmail']) ? $attributes['salesEmail'] : 'care@ashtechgroup.in';
-    $corporateAddress = isset($attributes['corporateAddress']) ? $attributes['corporateAddress'] : 'C-50, RDC, GHAZIABAD';
-    $corporatePhone = isset($attributes['corporatePhone']) ? $attributes['corporatePhone'] : '0120 45 38 000';
-    $corporateEmail = isset($attributes['corporateEmail']) ? $attributes['corporateEmail'] : 'flyash@ashtechgroup.in';
-    $imageUrl = isset($attributes['imageUrl']) ? $attributes['imageUrl'] : '';
+    wp_enqueue_script(
+        'ashtech-career-js',
+        ASHTECH_BLOCKS_URL . 'assets/js/career.js',
+        array('jquery', 'ashtech-main-js'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
     
-    ob_start();
-    include ASHTECH_BLOCKS_DIR . 'contact-page/template.php';
-    return ob_get_clean();
-}
-
-/**
- * Render Terms Page Block
- */
-function ashtech_render_block_terms_page($attributes) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    wp_enqueue_script(
+        'ashtech-nri-js',
+        ASHTECH_BLOCKS_URL . 'assets/js/nri.js',
+        array('jquery', 'slick-carousel-js', 'ashtech-main-js'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
     
-    ob_start();
-    include ASHTECH_BLOCKS_DIR . 'terms-page/template.php';
-    return ob_get_clean();
-}
-
-/**
- * Render Privacy Page Block
- */
-function ashtech_render_block_privacy_page($attributes) {
-    $heroTitle = isset($attributes['heroTitle']) ? $attributes['heroTitle'] : '';
+    wp_enqueue_script(
+        'ashtech-about-js',
+        ASHTECH_BLOCKS_URL . 'assets/js/about.js',
+        array('jquery', 'ashtech-main-js'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
     
-    ob_start();
-    include ASHTECH_BLOCKS_DIR . 'privacy-page/template.php';
-    return ob_get_clean();
+    wp_enqueue_script(
+        'ashtech-resources-js',
+        ASHTECH_BLOCKS_URL . 'assets/js/resources.js',
+        array('jquery', 'ashtech-main-js'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
+    
+    wp_enqueue_script(
+        'ashtech-contact-js',
+        ASHTECH_BLOCKS_URL . 'assets/js/contact.js',
+        array('jquery', 'ashtech-main-js'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
 }
+add_action('wp_enqueue_scripts', 'ashtech_enqueue_frontend_scripts');
 
 /**
  * Add custom page templates

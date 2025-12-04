@@ -10,9 +10,7 @@
     "html": false
   },
   "textdomain": "ashtech-pages-blocks",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./editor.css",
-  "style": "file:./style.css",
+  "editorScript": "file:../build/project-page/index.js",
   "attributes": {
     "heroTitle": {
       "type": "string",

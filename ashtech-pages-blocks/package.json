@@ -2,14 +2,12 @@
   "name": "ashtech-pages-blocks",
   "version": "1.0.0",
   "description": "Gutenberg blocks for Ashtech website pages",
-  "main": "index.js",
   "scripts": {
-    "build": "wp-scripts build home-page/index.js project-page/index.js nri-page/index.js about-page/index.js resources-page/index.js career-page/index.js contact-page/index.js terms-page/index.js privacy-page/index.js --output-path=build",
-    "start": "wp-scripts start home-page/index.js project-page/index.js nri-page/index.js about-page/index.js resources-page/index.js career-page/index.js contact-page/index.js terms-page/index.js privacy-page/index.js --output-path=build",
+    "build": "wp-scripts build --webpack-copy-php",
+    "start": "wp-scripts start --webpack-copy-php",
     "format": "wp-scripts format",
     "lint:css": "wp-scripts lint-style",
-    "lint:js": "wp-scripts lint-js",
-    "packages-update": "wp-scripts packages-update"
+    "lint:js": "wp-scripts lint-js"
   },
   "keywords": [
     "gutenberg",
@@ -19,13 +17,14 @@
   "author": "Ashtech",
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "@wordpress/scripts": "^26.0.0"
+    "@wordpress/scripts": "^27.0.0"
   },
   "dependencies": {
-    "@wordpress/block-editor": "^12.0.0",
-    "@wordpress/blocks": "^12.0.0",
-    "@wordpress/components": "^25.0.0",
-    "@wordpress/i18n": "^4.0.0"
+    "@wordpress/block-editor": "^13.0.0",
+    "@wordpress/blocks": "^13.0.0",
+    "@wordpress/components": "^27.0.0",
+    "@wordpress/i18n": "^5.0.0",
+    "@wordpress/element": "^6.0.0"
   }
 }
 
