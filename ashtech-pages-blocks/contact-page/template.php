@@ -1,11 +1,8 @@
 <?php
 /**
- * Contact Page Block Template
- * Renders the complete contact page HTML
+ * Contact Page Block Template - COMPLETE HTML
  */
-
 if (!defined('ABSPATH')) exit;
-
 $assets_url = ASHTECH_BLOCKS_URL . 'assets/';
 ?>
 
@@ -38,17 +35,13 @@ $assets_url = ASHTECH_BLOCKS_URL . 'assets/';
                             <div class="contact-enquiry__icon">
                                 <img src="<?php echo esc_url($assets_url); ?>images/contact/icon-phone.svg" alt="Phone">
                             </div>
-                            <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $salesPhone)); ?>" class="contact-enquiry__text">
-                                <?php echo esc_html($salesPhone); ?>
-                            </a>
+                            <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $salesPhone)); ?>" class="contact-enquiry__text"><?php echo esc_html($salesPhone); ?></a>
                         </div>
                         <div class="contact-enquiry__detail-item contact-enquiry__detail-item--email">
                             <div class="contact-enquiry__icon">
                                 <img src="<?php echo esc_url($assets_url); ?>images/contact/icon-email.svg" alt="Email">
                             </div>
-                            <a href="mailto:<?php echo esc_attr($salesEmail); ?>" class="contact-enquiry__text">
-                                <?php echo esc_html($salesEmail); ?>
-                            </a>
+                            <a href="mailto:<?php echo esc_attr($salesEmail); ?>" class="contact-enquiry__text"><?php echo esc_html($salesEmail); ?></a>
                         </div>
                     </div>
                 </div>
@@ -140,9 +133,7 @@ $assets_url = ASHTECH_BLOCKS_URL . 'assets/';
                                 <img src="<?php echo esc_url($assets_url); ?>images/contact/icon-phone-office.svg" alt="Phone">
                             </div>
                             <div class="contact-offices__text-wrapper">
-                                <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $corporatePhone)); ?>" class="contact-offices__text">
-                                    <?php echo esc_html($corporatePhone); ?>
-                                </a>
+                                <a href="tel:<?php echo esc_attr(preg_replace('/\s+/', '', $corporatePhone)); ?>" class="contact-offices__text"><?php echo esc_html($corporatePhone); ?></a>
                             </div>
                         </div>
                         <div class="contact-offices__detail-item">
@@ -150,9 +141,7 @@ $assets_url = ASHTECH_BLOCKS_URL . 'assets/';
                                 <img src="<?php echo esc_url($assets_url); ?>images/contact/icon-email-office.svg" alt="Email">
                             </div>
                             <div class="contact-offices__text-wrapper">
-                                <a href="mailto:<?php echo esc_attr($corporateEmail); ?>" class="contact-offices__text">
-                                    <?php echo esc_html($corporateEmail); ?>
-                                </a>
+                                <a href="mailto:<?php echo esc_attr($corporateEmail); ?>" class="contact-offices__text"><?php echo esc_html($corporateEmail); ?></a>
                             </div>
                         </div>
                     </div>
@@ -252,3 +241,5 @@ $assets_url = ASHTECH_BLOCKS_URL . 'assets/';
     </div>
 </section>
 
+<script src="<?php echo esc_url($assets_url); ?>js/main.js"></script>
+<script src="<?php echo esc_url($assets_url); ?>js/project.js"></script>
