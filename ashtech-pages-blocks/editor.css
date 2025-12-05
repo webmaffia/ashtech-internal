@@ -72,11 +72,7 @@
     width: 100% !important;
 }
 
-/* Interface complementary area and editor sidebar constraints */
-.interface-complementary-area,
-.editor-sidebar {
-    /* Keep sidebar normal */
-}
+/* Interface complementary area and editor sidebar constraints - keep normal */
 
 /* Editor content area - make sure it's full width */
 .editor-post-text-editor__body .editor-post-text-editor {
@@ -231,5 +227,77 @@ body .editor-styles-wrapper {
 
 .ashtech-upload-button:hover {
     background: #005177;
+}
+
+/* ============================================
+   BANNER VISIBILITY FIXES FOR EDITOR
+   ============================================ */
+
+/* Override banner CSS that hides content */
+.ashtech-editor-banner {
+    position: relative !important;
+    z-index: 1 !important;
+    opacity: 1 !important;
+    min-height: 600px !important;
+    background-color: #0C0D0D !important;
+}
+
+.ashtech-editor-banner-title,
+.ashtech-editor-banner .landing-banner__title {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    color: #FFFFFF !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    font-size: 48px !important;
+    font-weight: bold !important;
+}
+
+.ashtech-editor-banner-scroll,
+.ashtech-editor-banner .landing-banner__scroll {
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #FFFFFF !important;
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+}
+
+.ashtech-editor-banner .landing-banner__content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10 !important;
+    position: relative !important;
+}
+
+.ashtech-editor-banner .landing-banner__content h1,
+.ashtech-editor-banner .landing-banner__content .rich-text {
+    color: #FFFFFF !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* ============================================
+   TESTIMONIAL BUTTON VISIBILITY FIXES
+   ============================================ */
+
+/* Ensure testimonial button is always visible and not hidden */
+.ashtech-testimonial-add-button-wrapper {
+    position: relative !important;
+    z-index: 9999 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin: 20px 0 !important;
+    clear: both !important;
+}
+
+.landing-testimonials__slider-wrapper {
+    position: relative;
+    z-index: 1;
 }
 

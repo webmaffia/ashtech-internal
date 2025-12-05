@@ -134,21 +134,94 @@ export default function Edit({ attributes, setAttributes }) {
             }
         })}>
             {/* Banner Section */}
-            <section className="landing-banner">
-                <div className="landing-banner__overlay"></div>
-                <div className="landing-banner__content">
+            <section className="landing-banner ashtech-editor-banner" style={{
+                position: 'relative',
+                width: '100%',
+                minHeight: '600px',
+                backgroundColor: '#0C0D0D',
+                backgroundImage: `url(${assetsUrl}images/landing/banner-bg.jpg)`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden',
+                zIndex: 1,
+                opacity: 1
+            }}>
+                <div className="landing-banner__overlay" style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(180deg, rgba(25, 29, 47, 0) 59.86%, rgba(8, 9, 15, 0.8) 98.85%), linear-gradient(0deg, rgba(0, 0, 0, 0) 64.82%, rgba(0, 0, 0, 0.7) 110.65%)',
+                    zIndex: 1,
+                    pointerEvents: 'none'
+                }}></div>
+                <div className="landing-banner__content" style={{
+                    position: 'relative',
+                    zIndex: 10,
+                    textAlign: 'center',
+                    color: '#fff',
+                    padding: '60px 40px',
+                    maxWidth: '1200px',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
                     <RichText
                         tagName="h1"
-                        className="landing-banner__title"
+                        className="landing-banner__title ashtech-editor-banner-title"
                         value={heroTitle}
                         onChange={(value) => setAttributes({ heroTitle: value })}
                         placeholder={__('Nature and Architecture in Perfect Sync', 'ashtech-pages-blocks')}
+                        style={{
+                            color: '#FFFFFF',
+                            fontSize: '48px',
+                            fontWeight: 'bold',
+                            lineHeight: '1.2',
+                            marginBottom: '30px',
+                            textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+                            opacity: 1,
+                            visibility: 'visible',
+                            display: 'block',
+                            position: 'relative',
+                            top: 'auto',
+                            left: 'auto',
+                            transform: 'none'
+                        }}
                     />
-                    <p className="landing-banner__scroll">(SCROLL)</p>
+                    <p className="landing-banner__scroll ashtech-editor-banner-scroll" style={{
+                        color: '#FFFFFF',
+                        fontSize: '14px',
+                        textTransform: 'uppercase',
+                        letterSpacing: '2px',
+                        marginTop: '20px',
+                        opacity: 1,
+                        visibility: 'visible',
+                        position: 'relative',
+                        bottom: 'auto',
+                        left: 'auto',
+                        transform: 'none'
+                    }}>(SCROLL)</p>
                 </div>
 
-                <div className="landing-banner__svg-placeholder">
-                    <p style={{ color: '#fff', textAlign: 'center', padding: '50px' }}>
+                <div className="landing-banner__svg-placeholder" style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '200px',
+                    zIndex: 1,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    pointerEvents: 'none'
+                }}>
+                    <p style={{ color: '#fff', textAlign: 'center', padding: '20px', fontSize: '12px', opacity: 0.5 }}>
                         {__('SVG Animation will display on frontend', 'ashtech-pages-blocks')}
                     </p>
                 </div>
@@ -579,6 +652,47 @@ export default function Edit({ attributes, setAttributes }) {
                         <div className="landing-testimonials__label animate-text">Testimonials</div>
                         <h2 className="landing-testimonials__title animate-text">Trusted by Those Who<br />Value Mastery</h2>
                     </div>
+                    {/* Add New Testimonial Button - Outside slider, always visible */}
+                    {/* Add New Testimonial Button - Outside slider, always visible */}
+                    <div className="ashtech-testimonial-add-button-wrapper" style={{ 
+                        textAlign: 'center', 
+                        marginBottom: '40px', 
+                        marginTop: '30px',
+                        padding: '25px', 
+                        backgroundColor: testimonials.length >= 2 ? '#f0f0f0' : '#fff3cd', 
+                        borderRadius: '8px',
+                        border: '3px solid #0073aa',
+                        position: 'relative',
+                        zIndex: 9999,
+                        width: '100%',
+                        boxSizing: 'border-box',
+                        clear: 'both',
+                        overflow: 'visible'
+                    }}>
+                        {testimonials.length < 2 && (
+                            <p style={{ margin: '0 0 15px 0', fontSize: '13px', color: '#856404' }}>
+                                {__('Note: Add at least 2 testimonials for best display', 'ashtech-pages-blocks')}
+                            </p>
+                        )}
+                        <Button
+                            isPrimary
+                            onClick={addTestimonial}
+                            style={{ 
+                                padding: '12px 24px', 
+                                fontSize: '14px', 
+                                fontWeight: 'bold',
+                                backgroundColor: '#0073aa',
+                                color: '#fff',
+                                border: 'none',
+                                borderRadius: '4px',
+                                cursor: 'pointer',
+                                boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                            }}
+                        >
+                            {__('+ Add New Testimonial', 'ashtech-pages-blocks')}
+                        </Button>
+                    </div>
+
                     <div className="landing-testimonials__slider-wrapper">
                         <div className="landing-testimonials__slider">
                             {testimonials.length === 0 ? (
@@ -695,16 +809,6 @@ export default function Edit({ attributes, setAttributes }) {
                                     </div>
                                 ))
                             )}
-                        </div>
-                        
-                        {/* Add New Testimonial Button */}
-                        <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                            <Button
-                                isPrimary
-                                onClick={addTestimonial}
-                            >
-                                {__('+ Add New Testimonial', 'ashtech-pages-blocks')}
-                            </Button>
                         </div>
 
                         <div className="landing-testimonials__navigation">
