@@ -235,24 +235,69 @@ add_action('enqueue_block_assets', 'ashtech_enqueue_block_styles');
  * Enqueue scripts for frontend (if needed for interactions)
  */
 function ashtech_enqueue_frontend_scripts() {
+    global $post;
+    
+    // Check if we have any Ashtech blocks on this page
+    $has_ashtech_blocks = false;
+    $has_home_block = false;
+    
+    if (is_a($post, 'WP_Post')) {
+        // Check if home-page block exists
+        if (has_block('ashtech/home-page', $post)) {
+            $has_home_block = true;
+            $has_ashtech_blocks = true;
+        }
+        
+        // Check for any other Ashtech blocks
+        if (!$has_ashtech_blocks) {
+            $blocks = array(
+                'ashtech/project-page',
+                'ashtech/nri-page',
+                'ashtech/about-page',
+                'ashtech/resources-page',
+                'ashtech/career-page',
+                'ashtech/contact-page',
+                'ashtech/terms-page',
+                'ashtech/privacy-page'
+            );
+            
+            foreach ($blocks as $block_name) {
+                if (has_block($block_name, $post)) {
+                    $has_ashtech_blocks = true;
+                    break;
+                }
+            }
+        }
+    }
+    
+    // Only enqueue if we have blocks on this page
+    if (!$has_ashtech_blocks) {
+        return;
+    }
+    
+    // Check if NRI page block exists (also needs Slick)
+    $has_nri_block = is_a($post, 'WP_Post') && has_block('ashtech/nri-page', $post);
+    
     // Enqueue jQuery
     wp_enqueue_script('jquery');
     
-    // Enqueue Slick Carousel for sliders
-    wp_enqueue_style(
-        'slick-carousel-css',
-        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
-        array(),
-        '1.8.1'
-    );
-    
-    wp_enqueue_script(
-        'slick-carousel-js',
-        'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
-        array('jquery'),
-        '1.8.1',
-        true
-    );
+    // Enqueue Slick Carousel for sliders (needed for home page and NRI page)
+    if ($has_home_block || $has_nri_block) {
+        wp_enqueue_style(
+            'slick-carousel-css',
+            'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css',
+            array(),
+            '1.8.1'
+        );
+        
+        wp_enqueue_script(
+            'slick-carousel-js',
+            'https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js',
+            array('jquery'),
+            '1.8.1',
+            true
+        );
+    }
     
     // Enqueue all your custom scripts
     wp_enqueue_script(
@@ -263,21 +308,35 @@ function ashtech_enqueue_frontend_scripts() {
         true
     );
     
-    wp_enqueue_script(
-        'ashtech-landing-animations-js',
-        ASHTECH_BLOCKS_URL . 'assets/js/landing-animations.js',
-        array('jquery', 'slick-carousel-js', 'ashtech-main-js'),
-        ASHTECH_BLOCKS_VERSION,
-        true
-    );
-    
-    wp_enqueue_script(
-        'ashtech-home-testimonials-js',
-        ASHTECH_BLOCKS_URL . 'assets/js/home-testimonials.js',
-        array('jquery', 'slick-carousel-js', 'ashtech-landing-animations-js'),
-        ASHTECH_BLOCKS_VERSION,
-        true
-    );
+    // Only enqueue landing animations for home page
+    if ($has_home_block) {
+        // Ensure slick is loaded before landing animations
+        $landing_deps = array('jquery', 'ashtech-main-js');
+        if ($has_home_block || $has_nri_block) {
+            $landing_deps[] = 'slick-carousel-js';
+        }
+        
+        wp_enqueue_script(
+            'ashtech-landing-animations-js',
+            ASHTECH_BLOCKS_URL . 'assets/js/landing-animations.js',
+            $landing_deps,
+            ASHTECH_BLOCKS_VERSION,
+            true
+        );
+        
+        $testimonials_deps = array('jquery', 'ashtech-landing-animations-js');
+        if ($has_home_block || $has_nri_block) {
+            $testimonials_deps[] = 'slick-carousel-js';
+        }
+        
+        wp_enqueue_script(
+            'ashtech-home-testimonials-js',
+            ASHTECH_BLOCKS_URL . 'assets/js/home-testimonials.js',
+            $testimonials_deps,
+            ASHTECH_BLOCKS_VERSION,
+            true
+        );
+    }
     
     wp_enqueue_script(
         'ashtech-project-js',

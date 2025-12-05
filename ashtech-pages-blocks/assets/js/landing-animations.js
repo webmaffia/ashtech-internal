@@ -1,44 +1,62 @@
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function() {
+  'use strict';
+  
+  // Check if this is a home page (has landing banner)
+  const landingBanner = document.querySelector('.landing-banner');
+  if (!landingBanner) {
+    console.log('Landing banner not found, skipping landing animations');
+    return;
+  }
+  
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (!prefersReducedMotion) {
-  window.addEventListener('load', () => {
-    const bannerTitle = document.querySelector('.landing-banner__title');
-    const bannerScroll = document.querySelector('.landing-banner__scroll');
-    const isMobile = window.innerWidth <= 767; // Match tablet breakpoint for mobile devices
-    
-    if (bannerTitle) {
-      setTimeout(() => {
-        bannerTitle.style.opacity = '1';
-        // Different transform for mobile vs desktop
-        if (isMobile) {
-          bannerTitle.style.transform = 'translate(-50%, calc(-50% + 50px))';
-        } else {
-          bannerTitle.style.transform = 'translate(-50%, calc(-50% + 103px))';
-        }
-      }, 300);
-    }
-    
-    if (bannerScroll) {
-      setTimeout(() => {
-        bannerScroll.style.opacity = '1';
-      }, 600);
-    }
-  });
+  if (!prefersReducedMotion) {
+    window.addEventListener('load', () => {
+      const bannerTitle = document.querySelector('.landing-banner__title');
+      const bannerScroll = document.querySelector('.landing-banner__scroll');
+      const isMobile = window.innerWidth <= 767; // Match tablet breakpoint for mobile devices
+      
+      if (bannerTitle) {
+        setTimeout(() => {
+          bannerTitle.style.opacity = '1';
+          // Different transform for mobile vs desktop
+          if (isMobile) {
+            bannerTitle.style.transform = 'translate(-50%, calc(-50% + 50px))';
+          } else {
+            bannerTitle.style.transform = 'translate(-50%, calc(-50% + 103px))';
+          }
+        }, 300);
+      }
+      
+      if (bannerScroll) {
+        setTimeout(() => {
+          bannerScroll.style.opacity = '1';
+        }, 600);
+      }
+    });
 
-  let svgAnimationComplete = false;
+    let svgAnimationComplete = false;
+    
+    // Wait for DOM to be fully loaded before looking for SVGs
+    function initSvgAnimations() {
+      // Get both desktop and mobile SVGs
+      const desktopSvg = document.getElementById('banner-svg-animation');
+      const mobileSvg = document.getElementById('banner-svg-animation-mobile');
+      const bannerSvgs = [desktopSvg, mobileSvg].filter(svg => svg !== null);
+      const pathData = [];
+      
+      console.log('Desktop SVG found:', desktopSvg !== null);
+      console.log('Mobile SVG found:', mobileSvg !== null);
+      console.log('Window width:', window.innerWidth);
+      
+      if (bannerSvgs.length === 0) {
+        console.log('No banner SVGs found, retrying in 500ms...');
+        setTimeout(initSvgAnimations, 500);
+        return;
+      }
   
-  // Get both desktop and mobile SVGs
-  const desktopSvg = document.getElementById('banner-svg-animation');
-  const mobileSvg = document.getElementById('banner-svg-animation-mobile');
-  const bannerSvgs = [desktopSvg, mobileSvg].filter(svg => svg !== null);
-  const pathData = [];
-  
-  console.log('Desktop SVG found:', desktopSvg !== null);
-  console.log('Mobile SVG found:', mobileSvg !== null);
-  console.log('Window width:', window.innerWidth);
-  
-  // Initialize animation for all SVGs (both desktop and mobile)
-  bannerSvgs.forEach((bannerSvg) => {
+      // Initialize animation for all SVGs (both desktop and mobile)
+      bannerSvgs.forEach((bannerSvg) => {
     const svgPaths = bannerSvg.querySelectorAll('path, line');
     const isMobile = bannerSvg.classList.contains('mobile-svg');
     const filterUrl = isMobile ? 'url(#strongGlow-mobile)' : 'url(#strongGlow)';
@@ -67,129 +85,144 @@ if (!prefersReducedMotion) {
         console.error('Error initializing path:', error);
       }
     });
-  });
-  
-  console.log(`Total paths to animate: ${pathData.length}`);
-  
-  // Only set up scroll animation if we found paths to animate
-  if (pathData.length > 0) {
-    const bannerTitle = document.querySelector('.landing-banner__title');
-    const bannerScrollText = document.querySelector('.landing-banner__scroll');
-    const header = document.querySelector('.header');
-    
-    if (header) {
-      header.style.transition = 'opacity 0.5s ease-out';
+      });
+      
+      console.log(`Total paths to animate: ${pathData.length}`);
+      
+      // Only set up scroll animation if we found paths to animate
+      if (pathData.length > 0) {
+        const bannerTitle = document.querySelector('.landing-banner__title');
+        const bannerScrollText = document.querySelector('.landing-banner__scroll');
+        const header = document.querySelector('.header');
+        
+        if (header) {
+          header.style.transition = 'opacity 0.5s ease-out';
+        }
+        
+        let svgTicking = false;
+        
+        window.addEventListener('scroll', () => {
+          if (!svgTicking) {
+            window.requestAnimationFrame(() => {
+              const scrollY = window.scrollY;
+              const windowHeight = window.innerHeight;
+              
+              const maxScroll = windowHeight * 0.8;
+              const scrollProgress = Math.min(scrollY / maxScroll, 1);
+              
+              pathData.forEach((data) => {
+                const drawLength = data.length * (1 - scrollProgress);
+                data.element.style.strokeDashoffset = drawLength;
+              });
+              
+              if (scrollProgress > 0) {
+                const fadeOutProgress = Math.min(scrollProgress * 2, 1);
+                const opacity = 1 - fadeOutProgress;
+                
+                if (bannerTitle) {
+                  bannerTitle.style.opacity = opacity;
+                }
+                if (bannerScrollText) {
+                  bannerScrollText.style.opacity = opacity;
+                }
+              } else {
+                if (bannerTitle) {
+                  bannerTitle.style.opacity = '1';
+                }
+                if (bannerScrollText) {
+                  bannerScrollText.style.opacity = '1';
+                }
+              }
+              
+              if (scrollProgress >= 1 && !svgAnimationComplete) {
+                svgAnimationComplete = true;
+                if (header) {
+                  header.style.opacity = '0';
+                  header.style.pointerEvents = 'none';
+                }
+              } else if (scrollProgress < 1 && svgAnimationComplete) {
+                svgAnimationComplete = false;
+                if (header) {
+                  header.style.opacity = '1';
+                  header.style.pointerEvents = 'auto';
+                }
+              }
+              
+              svgTicking = false;
+            });
+            
+            svgTicking = true;
+          }
+        });
+        
+        window.dispatchEvent(new Event('scroll'));
+      }
     }
     
-    let svgTicking = false;
+    // Initialize SVG animations when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(initSvgAnimations, 100);
+      });
+    } else {
+      setTimeout(initSvgAnimations, 100);
+    }
     
-    window.addEventListener('scroll', () => {
-      if (!svgTicking) {
-        window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          const windowHeight = window.innerHeight;
-          
-          const maxScroll = windowHeight * 0.8;
-          const scrollProgress = Math.min(scrollY / maxScroll, 1);
-          
-          pathData.forEach((data) => {
-            const drawLength = data.length * (1 - scrollProgress);
-            data.element.style.strokeDashoffset = drawLength;
+    // Also try on window load
+    window.addEventListener('load', function() {
+      setTimeout(initSvgAnimations, 200);
+    });
+
+    const overviewSection = document.querySelector('.landing-overview');
+    const bannerSection = document.querySelector('.landing-banner');
+    const overviewDecoration = document.querySelector('.landing-overview__decoration');
+    
+    if (overviewSection && bannerSection) {
+      let ticking = false;
+      
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+            
+            if (svgAnimationComplete) {
+              overviewSection.style.opacity = '1';
+            } else {
+              overviewSection.style.opacity = '0';
+            }
+            
+            if (svgAnimationComplete && scrollY > windowHeight * 0.8) {
+              const progress = Math.min((scrollY - windowHeight * 0.8) / (windowHeight * 0.8), 1);
+              const translateValue = 100 - (progress * 100);
+              overviewSection.style.top = `${translateValue}vh`;
+              
+              bannerSection.style.opacity = translateValue / 100;
+              
+              if (overviewDecoration) {
+                const startScale = 1.565;
+                const endScale = 1.0;
+                
+                const currentScale = startScale - ((startScale - endScale) * progress);
+                
+                overviewDecoration.style.transform = `translateX(-50%) scale(${currentScale})`;
+              }
+            } else {
+              overviewSection.style.top = '100vh';
+              bannerSection.style.opacity = '1';
+              
+              if (overviewDecoration) {
+                overviewDecoration.style.transform = 'translateX(-50%) scale(1.565)';
+              }
+            }
+            
+            ticking = false;
           });
           
-          if (scrollProgress > 0) {
-            const fadeOutProgress = Math.min(scrollProgress * 2, 1);
-            const opacity = 1 - fadeOutProgress;
-            
-            if (bannerTitle) {
-              bannerTitle.style.opacity = opacity;
-            }
-            if (bannerScrollText) {
-              bannerScrollText.style.opacity = opacity;
-            }
-          } else {
-            if (bannerTitle) {
-              bannerTitle.style.opacity = '1';
-            }
-            if (bannerScrollText) {
-              bannerScrollText.style.opacity = '1';
-            }
-          }
-          
-          if (scrollProgress >= 1 && !svgAnimationComplete) {
-            svgAnimationComplete = true;
-            if (header) {
-              header.style.opacity = '0';
-              header.style.pointerEvents = 'none';
-            }
-          } else if (scrollProgress < 1 && svgAnimationComplete) {
-            svgAnimationComplete = false;
-            if (header) {
-              header.style.opacity = '1';
-              header.style.pointerEvents = 'auto';
-            }
-          }
-          
-          svgTicking = false;
-        });
-        
-        svgTicking = true;
-      }
-    });
-    
-    window.dispatchEvent(new Event('scroll'));
-  }
-
-  const overviewSection = document.querySelector('.landing-overview');
-  const bannerSection = document.querySelector('.landing-banner');
-  const overviewDecoration = document.querySelector('.landing-overview__decoration');
-  
-  if (overviewSection && bannerSection) {
-    let ticking = false;
-    
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          const windowHeight = window.innerHeight;
-          
-          if (svgAnimationComplete) {
-            overviewSection.style.opacity = '1';
-          } else {
-            overviewSection.style.opacity = '0';
-          }
-          
-          if (svgAnimationComplete && scrollY > windowHeight * 0.8) {
-            const progress = Math.min((scrollY - windowHeight * 0.8) / (windowHeight * 0.8), 1);
-            const translateValue = 100 - (progress * 100);
-            overviewSection.style.top = `${translateValue}vh`;
-            
-            bannerSection.style.opacity = translateValue / 100;
-            
-            if (overviewDecoration) {
-              const startScale = 1.565;
-              const endScale = 1.0;
-              
-              const currentScale = startScale - ((startScale - endScale) * progress);
-              
-              overviewDecoration.style.transform = `translateX(-50%) scale(${currentScale})`;
-            }
-          } else {
-            overviewSection.style.top = '100vh';
-            bannerSection.style.opacity = '1';
-            
-            if (overviewDecoration) {
-              overviewDecoration.style.transform = 'translateX(-50%) scale(1.565)';
-            }
-          }
-          
-          ticking = false;
-        });
-        
-        ticking = true;
-      }
-    });
-  }
+          ticking = true;
+        }
+      });
+    }
 
   // Different observer options for mobile vs desktop
   const isMobileView = window.innerWidth <= 767;
@@ -513,7 +546,8 @@ if (!prefersReducedMotion) {
     
     textRTLAnimationObserver.observe(element);
   });
-}
+  }
+})();
 
 // Testimonials Slider Initialization
 (function() {
