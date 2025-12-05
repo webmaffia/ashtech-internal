@@ -1,8 +1,19 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { Button } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
-    const { heroTitle, heroSubtitleMain, heroSubtitleText, overviewTitle, overviewText1, overviewText2 } = attributes;
+    const { 
+        heroTitle, heroSubtitleMain, heroSubtitleText,
+        overviewLabel, overviewTitle, overviewText1, overviewText2,
+        valuesLabel, valuesTitle, valuesIntro1, valuesIntro2, values, valuesFooter,
+        visionTitle, visionText1, visionText2, visionImage,
+        missionTitle, missionText1, missionText2,
+        timelineItems,
+        leadershipLabel, leadershipTitle, directorImage, directorMessage1, directorMessage2, directorName, directorPosition, teamMembers,
+        directorMessageLabel, directorMessageTitle, directorMessageText1, directorMessageText2, directorMessageText3, directorMessageText4, directorMessageName, directorMessagePosition, directorMessageImage,
+        projectsLabel, projectsTitle, projectsDescription, projectsButtonText
+    } = attributes;
     const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
@@ -42,7 +53,13 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="project-overview__decoration"></div>
                 <div className="about-overview__container">
                     <div className="about-overview__header">
-                        <p className="about-overview__label animate-text">Overview</p>
+                        <RichText
+                            tagName="p"
+                            className="about-overview__label animate-text"
+                            value={overviewLabel}
+                            onChange={(value) => setAttributes({ overviewLabel: value })}
+                            placeholder={__('Overview', 'ashtech-pages-blocks')}
+                        />
                         <RichText
                             tagName="h2"
                             className="about-overview__title animate-text"
@@ -74,40 +91,70 @@ export default function Edit({ attributes, setAttributes }) {
             <section className="about-values">
                 <div className="about-values__container">
                     <div className="about-values__header">
-                        <p className="about-values__label animate-text">Legacy & Values</p>
-                        <h2 className="about-values__title animate-text">A Legacy Rooted in Purpose, Guided by Values</h2>
+                        <RichText
+                            tagName="p"
+                            className="about-values__label animate-text"
+                            value={valuesLabel}
+                            onChange={(value) => setAttributes({ valuesLabel: value })}
+                            placeholder={__('Legacy & Values', 'ashtech-pages-blocks')}
+                        />
+                        <RichText
+                            tagName="h2"
+                            className="about-values__title animate-text"
+                            value={valuesTitle}
+                            onChange={(value) => setAttributes({ valuesTitle: value })}
+                            placeholder={__('A Legacy Rooted in Purpose, Guided by Values', 'ashtech-pages-blocks')}
+                        />
                         <div className="about-values__intro">
-                            <p className="animate-text">Ashtech Group's story is one of dedication and vision. What began as an engineering-driven enterprise has evolved into a <br />multi-vertical group with 9 business divisions, 1600+ employees, and 2000+ skilled labourers — each contributing to <br />nation-building in their own way.</p>
-                            <p className="animate-text"><strong>At the heart of our journey lie six enduring values:</strong></p>
+                            <RichText
+                                tagName="p"
+                                className="animate-text"
+                                value={valuesIntro1}
+                                onChange={(value) => setAttributes({ valuesIntro1: value })}
+                                placeholder={__('Values intro text...', 'ashtech-pages-blocks')}
+                            />
+                            <RichText
+                                tagName="p"
+                                className="animate-text"
+                                value={valuesIntro2}
+                                onChange={(value) => setAttributes({ valuesIntro2: value })}
+                                placeholder={__('Values intro text 2...', 'ashtech-pages-blocks')}
+                            />
                         </div>
                     </div>
                     
                     <div className="about-values__graphic">
                         <img src={`${assetsUrl}images/about/values-graphic.svg`} alt="Values Graphic" className="about-values__graphic-image" />
                         <div className="about-values__items">
-                            <div className="about-values__item about-values__item--left about-values__item--1">
-                                <p className="about-values__item-text">जुनून (Passion)</p>
-                            </div>
-                            <div className="about-values__item about-values__item--left about-values__item--2">
-                                <p className="about-values__item-text">संकल्प (Resolution)</p>
-                            </div>
-                            <div className="about-values__item about-values__item--left about-values__item--3">
-                                <p className="about-values__item-text">लगन (Commitment)</p>
-                            </div>
-                            <div className="about-values__item about-values__item--right about-values__item--4">
-                                <p className="about-values__item-text">विश्वास (Trust)</p>
-                            </div>
-                            <div className="about-values__item about-values__item--right about-values__item--5">
-                                <p className="about-values__item-text">निष्ठा (Dedication)</p>
-                            </div>
-                            <div className="about-values__item about-values__item--right about-values__item--6">
-                                <p className="about-values__item-text">दृढता (Strength)</p>
-                            </div>
+                            {(values || []).map((value, index) => {
+                                const positions = ['about-values__item--left about-values__item--1', 'about-values__item--left about-values__item--2', 'about-values__item--left about-values__item--3', 'about-values__item--right about-values__item--4', 'about-values__item--right about-values__item--5', 'about-values__item--right about-values__item--6'];
+                                return (
+                                    <div key={index} className={`about-values__item ${positions[index] || ''}`}>
+                                        <RichText
+                                            tagName="p"
+                                            className="about-values__item-text"
+                                            value={value}
+                                            onChange={(valueText) => {
+                                                const newValues = [...(values || [])];
+                                                newValues[index] = valueText;
+                                                setAttributes({ values: newValues });
+                                            }}
+                                            placeholder={__('Value text...', 'ashtech-pages-blocks')}
+                                        />
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
 
                     <div className="about-values__footer">
-                        <p className="animate-text">These are the values that continue to shape the spaces we create. Every project, including Ashtech Presidential Towers, <br />stands as a reflection of these principles, strengthened by Tata Group's <strong>TQ Cert</strong> quality certification and our relentless <br />pursuit of perfection.</p>
+                        <RichText
+                            tagName="p"
+                            className="animate-text"
+                            value={valuesFooter}
+                            onChange={(value) => setAttributes({ valuesFooter: value })}
+                            placeholder={__('Values footer text...', 'ashtech-pages-blocks')}
+                        />
                     </div>
                 </div>
             </section>
@@ -116,22 +163,69 @@ export default function Edit({ attributes, setAttributes }) {
             <section className="about-vision-mission">
                 <div className="about-vision-mission__container">
                     <div className="about-vision-mission__vision">
-                        <h3 className="about-vision-mission__title">Vision</h3>
+                        <RichText
+                            tagName="h3"
+                            className="about-vision-mission__title"
+                            value={visionTitle}
+                            onChange={(value) => setAttributes({ visionTitle: value })}
+                            placeholder={__('Vision', 'ashtech-pages-blocks')}
+                        />
                         <div className="about-vision-mission__content">
-                            <p>Our vision is to be a global leader, transforming industries with pioneering technologies and sustainable practices.</p>
-                            <p>We aim to inspire progress by creating enduring value for our stakeholders, shaping a future where innovation, responsibility, and excellence converge seamlessly.</p>
+                            <RichText
+                                tagName="p"
+                                value={visionText1}
+                                onChange={(value) => setAttributes({ visionText1: value })}
+                                placeholder={__('Vision text 1...', 'ashtech-pages-blocks')}
+                            />
+                            <RichText
+                                tagName="p"
+                                value={visionText2}
+                                onChange={(value) => setAttributes({ visionText2: value })}
+                                placeholder={__('Vision text 2...', 'ashtech-pages-blocks')}
+                            />
                         </div>
                     </div>
                     
-                    <div className="about-vision-mission__image">
-                        <img src={`${assetsUrl}images/about/overview-pattern.png`} alt="Building" />
-                    </div>
+                    <MediaUploadCheck>
+                        <MediaUpload
+                            onSelect={(media) => setAttributes({ visionImage: media.url })}
+                            allowedTypes={['image']}
+                            render={({ open }) => (
+                                <div className="about-vision-mission__image">
+                                    {visionImage ? (
+                                        <img src={visionImage} alt="Building" />
+                                    ) : (
+                                        <img src={`${assetsUrl}images/about/overview-pattern.png`} alt="Building" />
+                                    )}
+                                    <Button onClick={open} isPrimary style={{ marginTop: '10px' }}>
+                                        {visionImage ? __('Replace Image', 'ashtech-pages-blocks') : __('Upload Image', 'ashtech-pages-blocks')}
+                                    </Button>
+                                </div>
+                            )}
+                        />
+                    </MediaUploadCheck>
                     
                     <div className="about-vision-mission__mission">
-                        <h3 className="about-vision-mission__title">Mission</h3>
+                        <RichText
+                            tagName="h3"
+                            className="about-vision-mission__title"
+                            value={missionTitle}
+                            onChange={(value) => setAttributes({ missionTitle: value })}
+                            placeholder={__('Mission', 'ashtech-pages-blocks')}
+                        />
                         <div className="about-vision-mission__content">
-                            <p>At Ashtech Group, our mission is to redefine excellence by delivering innovative, sustainable, and value-driven solutions across all our business verticals.</p>
-                            <p>Guided by our ethos of "Innovation with Integrity," we are dedicated to exceeding customer expectations, fostering environmental stewardship, and empowering communities through cutting-edge products and services.</p>
+                            <RichText
+                                tagName="p"
+                                value={missionText1}
+                                onChange={(value) => setAttributes({ missionText1: value })}
+                                placeholder={__('Mission text 1...', 'ashtech-pages-blocks')}
+                            />
+                            <RichText
+                                tagName="p"
+                                value={missionText2}
+                                onChange={(value) => setAttributes({ missionText2: value })}
+                                placeholder={__('Mission text 2...', 'ashtech-pages-blocks')}
+                            />
                         </div>
                     </div>
                 </div>
@@ -139,69 +233,136 @@ export default function Edit({ attributes, setAttributes }) {
 
             {/* History Timeline Section */}
             <section className="about-history">
-                <div className="about-history__image-container">
-                    <img src={`${assetsUrl}images/about/history-1.jpg`} alt="Ashtech Manufacturing" className="about-history__image" id="historyImage" />
-                </div>
-                
-                <div className="about-history__content-box">
-                    <h3 className="about-history__title" id="historyTitle">Fly Ash Supply</h3>
-                    <p className="about-history__description" id="historyDescription">
-                        Combining innovation in materials and precision in delivery, Ashtech's Ready-Mix Concrete and Fly Ash Bricks manufacturing vertical delivers 10 million cubic metres of concrete and 100 million eco-friendly bricks and AAC blocks.
-                    </p>
-                </div>
+                {(timelineItems && timelineItems.length > 0) && (
+                    <>
+                        <div className="about-history__image-container">
+                            <MediaUploadCheck>
+                                <MediaUpload
+                                    onSelect={(media) => {
+                                        const newItems = [...timelineItems];
+                                        newItems[0].image = media.url;
+                                        setAttributes({ timelineItems: newItems });
+                                    }}
+                                    allowedTypes={['image']}
+                                    render={({ open }) => (
+                                        <div>
+                                            {timelineItems[0].image ? (
+                                                <img src={timelineItems[0].image} alt="Timeline" className="about-history__image" id="historyImage" />
+                                            ) : (
+                                                <img src={`${assetsUrl}images/about/history-1.jpg`} alt="Timeline" className="about-history__image" id="historyImage" />
+                                            )}
+                                            <Button onClick={open} isPrimary style={{ marginTop: '10px' }}>
+                                                {timelineItems[0].image ? __('Replace Image', 'ashtech-pages-blocks') : __('Upload Image', 'ashtech-pages-blocks')}
+                                            </Button>
+                                        </div>
+                                    )}
+                                />
+                            </MediaUploadCheck>
+                        </div>
+                        
+                        <div className="about-history__content-box">
+                            <RichText
+                                tagName="h3"
+                                className="about-history__title"
+                                id="historyTitle"
+                                value={timelineItems[0].title}
+                                onChange={(value) => {
+                                    const newItems = [...timelineItems];
+                                    newItems[0].title = value;
+                                    setAttributes({ timelineItems: newItems });
+                                }}
+                                placeholder={__('Timeline title...', 'ashtech-pages-blocks')}
+                            />
+                            <RichText
+                                tagName="p"
+                                className="about-history__description"
+                                id="historyDescription"
+                                value={timelineItems[0].description}
+                                onChange={(value) => {
+                                    const newItems = [...timelineItems];
+                                    newItems[0].description = value;
+                                    setAttributes({ timelineItems: newItems });
+                                }}
+                                placeholder={__('Timeline description...', 'ashtech-pages-blocks')}
+                            />
+                        </div>
+                    </>
+                )}
                 
                 <div className="about-history__timeline-wrapper">
                     <div className="about-history__timeline">
                         <div className="about-history__timeline-line"></div>
                         <div className="about-history__timeline-progress" id="timelineProgress"></div>
                         
-                        <div className="about-history__timeline-item active" data-year="1992" data-title="Fly Ash Supply" data-description="Combining innovation in materials and precision in delivery, Ashtech's Ready-Mix Concrete and Fly Ash Bricks manufacturing vertical delivers 10 million cubic metres of concrete and 100 million eco-friendly bricks and AAC blocks." data-image={`${assetsUrl}images/about/history-1.jpg`}>
-                            <p className="about-history__timeline-year">1992</p>
-                            <div className="about-history__timeline-dot"></div>
-                            <p className="about-history__timeline-label">Fly Ash<br />Supply</p>
-                        </div>
-                        
-                        <div className="about-history__timeline-item" data-year="2004" data-title="Logistics" data-description="Ashtech's Logistics vertical ensures seamless transportation and supply chain management across all business divisions, maintaining efficiency and reliability in delivery." data-image={`${assetsUrl}images/about/history-2.jpg`}>
-                            <p className="about-history__timeline-year">2004</p>
-                            <div className="about-history__timeline-dot"></div>
-                            <p className="about-history__timeline-label">Logistics<br />&nbsp;</p>
-                        </div>
-                        
-                        <div className="about-history__timeline-item" data-year="2006" data-title="Ready-Mix Concrete & Bricks Manufacturing" data-description="Combining innovation in materials and precision in delivery, Ashtech's Ready-Mix Concrete and Fly Ash Bricks manufacturing vertical delivers 10 million cubic metres of concrete and 100 million eco-friendly bricks and AAC blocks." data-image={`${assetsUrl}images/about/history-3.jpg`}>
-                            <p className="about-history__timeline-year">2006</p>
-                            <div className="about-history__timeline-dot"></div>
-                            <p className="about-history__timeline-label">Ready-Mix Concrete<br />& Bricks Manufacturing</p>
-                        </div>
-                        
-                        <div className="about-history__timeline-item" data-year="2012" data-title="Fly Ash Processing" data-description="Advanced fly ash processing facilities established to deliver high-quality processed fly ash for sustainable construction applications across India." data-image={`${assetsUrl}images/about/history-4.jpg`}>
-                            <p className="about-history__timeline-year">2012</p>
-                            <div className="about-history__timeline-dot"></div>
-                            <p className="about-history__timeline-label">Fly Ash<br />Processing</p>
-                        </div>
-                        
-                        <div className="about-history__timeline-item" data-year="2020" data-title="Large Scale Infrastructure Projects" data-description="Expanded capabilities to undertake large-scale infrastructure projects, delivering world-class construction solutions for highways, bridges, and urban development." data-image={`${assetsUrl}images/about/history-5.jpg`}>
-                            <p className="about-history__timeline-year">2020</p>
-                            <div className="about-history__timeline-dot"></div>
-                            <p className="about-history__timeline-label">Large Scale<br />Infrastructure Projects</p>
-                        </div>
-                        
-                        <div className="about-history__timeline-item" data-year="2021" data-title="Pre-Engineered Buildings" data-description="Introduction of pre-engineered building solutions offering rapid construction, cost efficiency, and superior structural integrity for industrial and commercial spaces." data-image={`${assetsUrl}images/about/history-6.jpg`}>
-                            <p className="about-history__timeline-year">2021</p>
-                            <div className="about-history__timeline-dot"></div>
-                            <p className="about-history__timeline-label">Pre-Engineered<br />Buildings</p>
-                        </div>
-                        
-                        <div className="about-history__timeline-item" data-year="2021" data-title="Power Infrastructure" data-description="Venturing into power infrastructure development, providing comprehensive solutions for energy generation and distribution projects." data-image={`${assetsUrl}images/about/history-7.jpg`}>
-                            <p className="about-history__timeline-year">2021</p>
-                            <div className="about-history__timeline-dot"></div>
-                            <p className="about-history__timeline-label">Power<br />Infrastructure</p>
-                        </div>
-                        
-                        <div className="about-history__timeline-item" data-year="2024" data-title="Management Consultancy" data-description="Launched management consultancy services leveraging decades of industry expertise to guide construction and infrastructure projects toward excellence." data-image={`${assetsUrl}images/about/history-8.jpg`}>
-                            <p className="about-history__timeline-year">2024</p>
-                            <div className="about-history__timeline-dot"></div>
-                            <p className="about-history__timeline-label">Management<br />Consultancy</p>
-                        </div>
+                        {(timelineItems || []).map((item, index) => {
+                            const defaultImages = ['history-1.jpg', 'history-2.jpg', 'history-3.jpg', 'history-4.jpg', 'history-5.jpg', 'history-6.jpg', 'history-7.jpg', 'history-8.jpg'];
+                            return (
+                                <div key={index} className={`about-history__timeline-item ${index === 0 ? 'active' : ''}`} data-year={item.year} data-title={item.title} data-description={item.description} data-image={item.image || `${assetsUrl}images/about/${defaultImages[index] || 'history-1.jpg'}`}>
+                                    <RichText
+                                        tagName="p"
+                                        className="about-history__timeline-year"
+                                        value={item.year}
+                                        onChange={(value) => {
+                                            const newItems = [...timelineItems];
+                                            newItems[index].year = value;
+                                            setAttributes({ timelineItems: newItems });
+                                        }}
+                                        placeholder={__('Year...', 'ashtech-pages-blocks')}
+                                    />
+                                    <div className="about-history__timeline-dot"></div>
+                                    <RichText
+                                        tagName="p"
+                                        className="about-history__timeline-label"
+                                        value={item.label}
+                                        onChange={(value) => {
+                                            const newItems = [...timelineItems];
+                                            newItems[index].label = value;
+                                            setAttributes({ timelineItems: newItems });
+                                        }}
+                                        placeholder={__('Label...', 'ashtech-pages-blocks')}
+                                    />
+                                    <div style={{ marginTop: '10px', padding: '10px', background: '#f0f0f0', borderRadius: '4px' }}>
+                                        <MediaUploadCheck>
+                                            <MediaUpload
+                                                onSelect={(media) => {
+                                                    const newItems = [...timelineItems];
+                                                    newItems[index].image = media.url;
+                                                    setAttributes({ timelineItems: newItems });
+                                                }}
+                                                allowedTypes={['image']}
+                                                render={({ open }) => (
+                                                    <Button onClick={open} isSecondary>
+                                                        {item.image ? __('Replace Image', 'ashtech-pages-blocks') : __('Upload Image', 'ashtech-pages-blocks')}
+                                                    </Button>
+                                                )}
+                                            />
+                                        </MediaUploadCheck>
+                                        <RichText
+                                            tagName="div"
+                                            style={{ marginTop: '10px' }}
+                                            value={item.title}
+                                            onChange={(value) => {
+                                                const newItems = [...timelineItems];
+                                                newItems[index].title = value;
+                                                setAttributes({ timelineItems: newItems });
+                                            }}
+                                            placeholder={__('Title...', 'ashtech-pages-blocks')}
+                                        />
+                                        <RichText
+                                            tagName="div"
+                                            style={{ marginTop: '10px' }}
+                                            value={item.description}
+                                            onChange={(value) => {
+                                                const newItems = [...timelineItems];
+                                                newItems[index].description = value;
+                                                setAttributes({ timelineItems: newItems });
+                                            }}
+                                            placeholder={__('Description...', 'ashtech-pages-blocks')}
+                                        />
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -211,83 +372,131 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="project-overview__decoration"></div>
                 <div className="about-leadership__container">
                     <div className="about-leadership__header">
-                        <p className="about-leadership__label animate-text">Leadership</p>
-                        <h2 className="about-leadership__title animate-text">The Legacy Continues with Our Leadership Team</h2>
+                        <RichText
+                            tagName="p"
+                            className="about-leadership__label animate-text"
+                            value={leadershipLabel}
+                            onChange={(value) => setAttributes({ leadershipLabel: value })}
+                            placeholder={__('Leadership', 'ashtech-pages-blocks')}
+                        />
+                        <RichText
+                            tagName="h2"
+                            className="about-leadership__title animate-text"
+                            value={leadershipTitle}
+                            onChange={(value) => setAttributes({ leadershipTitle: value })}
+                            placeholder={__('The Legacy Continues with Our Leadership Team', 'ashtech-pages-blocks')}
+                        />
                     </div>
 
                     {/* Main Director */}
                     <div className="about-leadership__main">
-                        <div className="about-leadership__main-image">
-                            <img src={`${assetsUrl}images/about/director-sumit.jpg`} alt="Mr. Sumit Agarwal" />
-                        </div>
+                        <MediaUploadCheck>
+                            <MediaUpload
+                                onSelect={(media) => setAttributes({ directorImage: media.url })}
+                                allowedTypes={['image']}
+                                render={({ open }) => (
+                                    <div className="about-leadership__main-image">
+                                        {directorImage ? (
+                                            <img src={directorImage} alt="Director" />
+                                        ) : (
+                                            <img src={`${assetsUrl}images/about/director-sumit.jpg`} alt="Director" />
+                                        )}
+                                        <Button onClick={open} isPrimary style={{ marginTop: '10px' }}>
+                                            {directorImage ? __('Replace Image', 'ashtech-pages-blocks') : __('Upload Image', 'ashtech-pages-blocks')}
+                                        </Button>
+                                    </div>
+                                )}
+                            />
+                        </MediaUploadCheck>
                         <div className="about-leadership__main-content">
                             <div className="about-leadership__main-text">
-                                <p>The launch of our flagship residential project is about setting a new benchmark for luxury lifestyle in the NCR. We see a clear demand for premium homes that deliver on both high-end finishes and superior construction quality.</p>
-                                <p>By investing ₹1,800 crore in our Greater Noida West venture, we're putting our capital and reputation where our vision is, aiming to redefine 'world-class' through thoughtful design, exclusive amenities, and homes that truly reflect the evolving aspirations of modern urban families.</p>
+                                <RichText
+                                    tagName="p"
+                                    value={directorMessage1}
+                                    onChange={(value) => setAttributes({ directorMessage1: value })}
+                                    placeholder={__('Director message 1...', 'ashtech-pages-blocks')}
+                                />
+                                <RichText
+                                    tagName="p"
+                                    value={directorMessage2}
+                                    onChange={(value) => setAttributes({ directorMessage2: value })}
+                                    placeholder={__('Director message 2...', 'ashtech-pages-blocks')}
+                                />
                             </div>
                             <div className="about-leadership__main-info">
-                                <p className="about-leadership__main-name">Mr. Sumit Agarwal</p>
-                                <p className="about-leadership__main-position">Director</p>
+                                <RichText
+                                    tagName="p"
+                                    className="about-leadership__main-name"
+                                    value={directorName}
+                                    onChange={(value) => setAttributes({ directorName: value })}
+                                    placeholder={__('Director name...', 'ashtech-pages-blocks')}
+                                />
+                                <RichText
+                                    tagName="p"
+                                    className="about-leadership__main-position"
+                                    value={directorPosition}
+                                    onChange={(value) => setAttributes({ directorPosition: value })}
+                                    placeholder={__('Director position...', 'ashtech-pages-blocks')}
+                                />
                             </div>
                         </div>
                     </div>
 
                     {/* Core Team */}
                     <div className="about-leadership__team">
-                        <div className="about-leadership__team-member">
-                            <div className="about-leadership__team-image">
-                                <img src={`${assetsUrl}images/about/team-1.jpg`} alt="Sangeeta Tiwari" />
-                            </div>
-                            <div className="about-leadership__team-info">
-                                <p className="about-leadership__team-name">Sangeeta Tiwari</p>
-                                <p className="about-leadership__team-position">Brand and Marketing Head</p>
-                            </div>
-                        </div>
-                        <div className="about-leadership__team-member">
-                            <div className="about-leadership__team-image">
-                                <img src={`${assetsUrl}images/about/team-2.jpg`} alt="Mr. Sunny Chug" />
-                            </div>
-                            <div className="about-leadership__team-info">
-                                <p className="about-leadership__team-name">Mr. Sunny Chug</p>
-                                <p className="about-leadership__team-position">VP (Finance)</p>
-                            </div>
-                        </div>
-                        <div className="about-leadership__team-member">
-                            <div className="about-leadership__team-image">
-                                <img src={`${assetsUrl}images/about/team-3.jpg`} alt="Mr. Rahul Bhargava" />
-                            </div>
-                            <div className="about-leadership__team-info">
-                                <p className="about-leadership__team-name">Mr. Rahul Bhargava</p>
-                                <p className="about-leadership__team-position">AVP (Sales)</p>
-                            </div>
-                        </div>
-                        <div className="about-leadership__team-member">
-                            <div className="about-leadership__team-image">
-                                <img src={`${assetsUrl}images/about/team-4.jpg`} alt="Mr. Shyam Bisht" />
-                            </div>
-                            <div className="about-leadership__team-info">
-                                <p className="about-leadership__team-name">Mr. Shyam Bisht</p>
-                                <p className="about-leadership__team-position">AGM (Procurement)</p>
-                            </div>
-                        </div>
-                        <div className="about-leadership__team-member">
-                            <div className="about-leadership__team-image">
-                                <img src={`${assetsUrl}images/about/team-5.jpg`} alt="Mr. Aditya Yadav" />
-                            </div>
-                            <div className="about-leadership__team-info">
-                                <p className="about-leadership__team-name">Mr. Aditya Yadav</p>
-                                <p className="about-leadership__team-position">General Manager (Architect)</p>
-                            </div>
-                        </div>
-                        <div className="about-leadership__team-member">
-                            <div className="about-leadership__team-image">
-                                <img src={`${assetsUrl}images/about/team-6.jpg`} alt="Mr. Dilip Kumar Jain" />
-                            </div>
-                            <div className="about-leadership__team-info">
-                                <p className="about-leadership__team-name">Mr. Dilip Kumar Jain</p>
-                                <p className="about-leadership__team-position">General Manager (Accounts)</p>
-                            </div>
-                        </div>
+                        {(teamMembers || []).map((member, index) => {
+                            const defaultImages = ['team-1.jpg', 'team-2.jpg', 'team-3.jpg', 'team-4.jpg', 'team-5.jpg', 'team-6.jpg'];
+                            return (
+                                <div key={index} className="about-leadership__team-member">
+                                    <MediaUploadCheck>
+                                        <MediaUpload
+                                            onSelect={(media) => {
+                                                const newMembers = [...teamMembers];
+                                                newMembers[index].image = media.url;
+                                                setAttributes({ teamMembers: newMembers });
+                                            }}
+                                            allowedTypes={['image']}
+                                            render={({ open }) => (
+                                                <div className="about-leadership__team-image">
+                                                    {member.image ? (
+                                                        <img src={member.image} alt={member.name} />
+                                                    ) : (
+                                                        <img src={`${assetsUrl}images/about/${defaultImages[index] || 'team-1.jpg'}`} alt={member.name} />
+                                                    )}
+                                                    <Button onClick={open} isSecondary style={{ marginTop: '10px', fontSize: '12px' }}>
+                                                        {member.image ? __('Replace', 'ashtech-pages-blocks') : __('Upload', 'ashtech-pages-blocks')}
+                                                    </Button>
+                                                </div>
+                                            )}
+                                        />
+                                    </MediaUploadCheck>
+                                    <div className="about-leadership__team-info">
+                                        <RichText
+                                            tagName="p"
+                                            className="about-leadership__team-name"
+                                            value={member.name}
+                                            onChange={(value) => {
+                                                const newMembers = [...teamMembers];
+                                                newMembers[index].name = value;
+                                                setAttributes({ teamMembers: newMembers });
+                                            }}
+                                            placeholder={__('Team member name...', 'ashtech-pages-blocks')}
+                                        />
+                                        <RichText
+                                            tagName="p"
+                                            className="about-leadership__team-position"
+                                            value={member.position}
+                                            onChange={(value) => {
+                                                const newMembers = [...teamMembers];
+                                                newMembers[index].position = value;
+                                                setAttributes({ teamMembers: newMembers });
+                                            }}
+                                            placeholder={__('Team member position...', 'ashtech-pages-blocks')}
+                                        />
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -297,26 +506,89 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="about-director-message__background"></div>
                 <div className="about-director-message__container">
                     <div className="about-director-message__header">
-                        <p className="about-director-message__label animate-text">Director's Message</p>
-                        <h2 className="about-director-message__title animate-text">Crafting a New Legacy</h2>
+                        <RichText
+                            tagName="p"
+                            className="about-director-message__label animate-text"
+                            value={directorMessageLabel}
+                            onChange={(value) => setAttributes({ directorMessageLabel: value })}
+                            placeholder={__('Director\'s Message', 'ashtech-pages-blocks')}
+                        />
+                        <RichText
+                            tagName="h2"
+                            className="about-director-message__title animate-text"
+                            value={directorMessageTitle}
+                            onChange={(value) => setAttributes({ directorMessageTitle: value })}
+                            placeholder={__('Crafting a New Legacy', 'ashtech-pages-blocks')}
+                        />
                     </div>
 
                     <div className="about-director-message__content">
                         <div className="about-director-message__text-wrapper">
                             <div className="about-director-message__text">
-                                <p className="animate-text">For over thirty years, Ashtech has operated on a simple principle: trust through quality. We take immense pride in having engineered the very foundation of India's growth, from our materials to major infrastructure projects.</p>
-                                <p className="animate-text">Today, we transition to an exciting and personal new chapter by entering the world of luxury residential real estate.</p>
-                                <p className="animate-text">Our flagship project, Presidential Towers in Greater Noida West, is our promise made visible. This isn't just a structure; it's our decades of construction mastery and a ₹1,800 crore commitment to quality control, innovative design, and sustainability.</p>
-                                <p className="animate-text">We are leveraging everything we know to craft truly world-class homes, elevating the standards of sophisticated living in the NCR. Thank you for trusting the Ashtech name. We are ready to build your future.</p>
+                                <RichText
+                                    tagName="p"
+                                    className="animate-text"
+                                    value={directorMessageText1}
+                                    onChange={(value) => setAttributes({ directorMessageText1: value })}
+                                    placeholder={__('Director message text 1...', 'ashtech-pages-blocks')}
+                                />
+                                <RichText
+                                    tagName="p"
+                                    className="animate-text"
+                                    value={directorMessageText2}
+                                    onChange={(value) => setAttributes({ directorMessageText2: value })}
+                                    placeholder={__('Director message text 2...', 'ashtech-pages-blocks')}
+                                />
+                                <RichText
+                                    tagName="p"
+                                    className="animate-text"
+                                    value={directorMessageText3}
+                                    onChange={(value) => setAttributes({ directorMessageText3: value })}
+                                    placeholder={__('Director message text 3...', 'ashtech-pages-blocks')}
+                                />
+                                <RichText
+                                    tagName="p"
+                                    className="animate-text"
+                                    value={directorMessageText4}
+                                    onChange={(value) => setAttributes({ directorMessageText4: value })}
+                                    placeholder={__('Director message text 4...', 'ashtech-pages-blocks')}
+                                />
                             </div>
                             <div className="about-director-message__signature">
-                                <p className="about-director-message__name">Mr. Sumit Agarwal</p>
-                                <p className="about-director-message__position">Director, Ashtech Group</p>
+                                <RichText
+                                    tagName="p"
+                                    className="about-director-message__name"
+                                    value={directorMessageName}
+                                    onChange={(value) => setAttributes({ directorMessageName: value })}
+                                    placeholder={__('Director name...', 'ashtech-pages-blocks')}
+                                />
+                                <RichText
+                                    tagName="p"
+                                    className="about-director-message__position"
+                                    value={directorMessagePosition}
+                                    onChange={(value) => setAttributes({ directorMessagePosition: value })}
+                                    placeholder={__('Director position...', 'ashtech-pages-blocks')}
+                                />
                             </div>
                         </div>
-                        <div className="about-director-message__image">
-                            <img src={`${assetsUrl}images/about/director-updated.jpg`} alt="Mr. Sumit Agarwal" />
-                        </div>
+                        <MediaUploadCheck>
+                            <MediaUpload
+                                onSelect={(media) => setAttributes({ directorMessageImage: media.url })}
+                                allowedTypes={['image']}
+                                render={({ open }) => (
+                                    <div className="about-director-message__image">
+                                        {directorMessageImage ? (
+                                            <img src={directorMessageImage} alt="Director" />
+                                        ) : (
+                                            <img src={`${assetsUrl}images/about/director-updated.jpg`} alt="Director" />
+                                        )}
+                                        <Button onClick={open} isPrimary style={{ marginTop: '10px' }}>
+                                            {directorMessageImage ? __('Replace Image', 'ashtech-pages-blocks') : __('Upload Image', 'ashtech-pages-blocks')}
+                                        </Button>
+                                    </div>
+                                )}
+                            />
+                        </MediaUploadCheck>
                     </div>
                 </div>
             </section>
@@ -326,14 +598,37 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="project-overview__decoration"></div>
                 <div className="about-projects__container">
                     <div className="about-projects__header">
-                        <p className="about-projects__label animate-text">Projects</p>
-                        <h2 className="about-projects__title animate-text">Experience the New Benchmark of Luxury Living</h2>
+                        <RichText
+                            tagName="p"
+                            className="about-projects__label animate-text"
+                            value={projectsLabel}
+                            onChange={(value) => setAttributes({ projectsLabel: value })}
+                            placeholder={__('Projects', 'ashtech-pages-blocks')}
+                        />
+                        <RichText
+                            tagName="h2"
+                            className="about-projects__title animate-text"
+                            value={projectsTitle}
+                            onChange={(value) => setAttributes({ projectsTitle: value })}
+                            placeholder={__('Experience the New Benchmark of Luxury Living', 'ashtech-pages-blocks')}
+                        />
                     </div>
                     <div className="about-projects__content">
-                        <p className="about-projects__description animate-text">Explore Ashtech Presidential Towers — a limited collection of residences crafted to reflect excellence, well-being, and timeless sophistication.</p>
+                        <RichText
+                            tagName="p"
+                            className="about-projects__description animate-text"
+                            value={projectsDescription}
+                            onChange={(value) => setAttributes({ projectsDescription: value })}
+                            placeholder={__('Projects description...', 'ashtech-pages-blocks')}
+                        />
                         <div className="about-projects__button">
                             <a href="project.html" className="btn btn--primary">
-                                <span>View Our Project</span>
+                                <RichText
+                                    tagName="span"
+                                    value={projectsButtonText}
+                                    onChange={(value) => setAttributes({ projectsButtonText: value })}
+                                    placeholder={__('View Our Project', 'ashtech-pages-blocks')}
+                                />
                                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
                                     <path d="M1 1L7 8.5L1 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>

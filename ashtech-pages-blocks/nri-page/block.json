@@ -20,13 +20,169 @@
       "type": "string",
       "default": "Invest in India's Finest Address & Live the Legacy"
     },
+    "overviewLabel": {
+      "type": "string",
+      "default": "Overview"
+    },
     "overviewTitle": {
       "type": "string",
       "default": "An Investment Opportunity<br>Like None Other!"
     },
     "overviewDescription": {
       "type": "string",
-      "default": "Discover a home that brings you closer to where it all began and yet keeps pace with your global aspirations.\n\nAt Ashtech Presidential Towers, Greater Noida, we invite you to own an address that stands as a symbol of success, stability, and pride. Designed for a select few, this 5.6-acre landmark blends precision engineering with timeless luxury, a legacy investment that grows in value and meaning."
+      "default": "Discover a home that brings you closer to where it all began and yet keeps pace with your global aspirations.<br><br>At Ashtech Presidential Towers, Greater Noida, we invite you to own an address that stands as a symbol of success, stability, and pride. Designed for a select few, this 5.6-acre landmark blends precision engineering with timeless luxury, a legacy investment that grows in value and meaning."
+    },
+    "overviewButtonText": {
+      "type": "string",
+      "default": "Book a Virtual Tour"
+    },
+    "architectureLabel": {
+      "type": "string",
+      "default": "Why Invest in India's Greater Noida"
+    },
+    "architectureTitle": {
+      "type": "string",
+      "default": "Smartest Investment Opportunity<br>in Fastest-Growing Urban Corridor"
+    },
+    "architectureDescription": {
+      "type": "string",
+      "default": "Greater Noida has emerged as one of India's most promising investment corridors, attracting <br> professionals, global enterprises, and infrastructure growth on an unprecedented scale."
+    },
+    "architectureFeatures": {
+      "type": "array",
+      "default": [
+        "Strong rental demand from corporate professionals and new-age entrepreneurs.",
+        "Robust economic growth is supported by India's steady GDP expansion.",
+        "Investor-friendly reforms such as RERA and FEMA ensure transparency and compliance.",
+        "Exceptional connectivity via the Metro network, the upcoming Noida International (Jewar) Airport, and the FNG Expressway.",
+        "Rapidly evolving IT, industrial, and business hubs along the Noida–Yamuna Expressway belt.",
+        "World-class schools, universities, hospitals and malls, enhancing the quality of life and tenant appeal."
+      ]
+    },
+    "architectureFooter": {
+      "type": "string",
+      "default": "Whether you're seeking consistent ROI or long-term appreciation, Greater Noida stands out as a secure, high-growth investment destination."
+    },
+    "whyChooseLabel": {
+      "type": "string",
+      "default": "Why Choose Ashtech Presidential Towers"
+    },
+    "whyChooseTitle": {
+      "type": "string",
+      "default": "High On ROI<br>Higher In Demand"
+    },
+    "whyChooseDescription": {
+      "type": "string",
+      "default": "Crafted to perfection across 5.6 acres with 80% open greens, Ashtech Presidential Towers redefines urban luxury with a rare balance of architecture, nature and technology."
+    },
+    "whyChooseButtonText": {
+      "type": "string",
+      "default": "Download Brochure"
+    },
+    "whyChooseItems": {
+      "type": "array",
+      "default": [
+        "Exclusive range of 3–4 BHK residences and duplexes",
+        "3 levels of clubhouse and other amenities area spanning across 70000 sq ft.",
+        "Smart home features that complement a contemporary lifestyle.",
+        "TQ-Certified construction quality backed by Tata Group validation.",
+        "A 30-year Ashtech legacy, powered by nine business verticals and a 1,600+ strong team known for engineering excellence."
+      ]
+    },
+    "benefitsImage": {
+      "type": "string",
+      "default": ""
+    },
+    "benefitsLabel": {
+      "type": "string",
+      "default": "Investment Benefits for NRIs"
+    },
+    "benefitsTitle": {
+      "type": "string",
+      "default": "Specially Curated Offer<br>Just For 'You'!"
+    },
+    "benefitsDescription": {
+      "type": "string",
+      "default": "For NRIs seeking a rewarding and reliable investment, Ashtech Presidential Towers offers unmatched value:"
+    },
+    "benefitsItems": {
+      "type": "array",
+      "default": [
+        "High ROI potential and rental yield driven by rapid urban expansion.",
+        "Regular property updates and performance reports for investors abroad.",
+        "Strong resale opportunities supported by infrastructure growth.",
+        "Attractive tax benefits are available for NRI investors.",
+        "Hassle-free repatriation support under FEMA guidelines.",
+        "Home loan partnerships with HDFC, ICICI, Axis, and SBI NRI Services.",
+        "Prime Greater Noida West location, strategically<br>connected to Delhi, Noida,<br>and Gurgaon."
+      ]
+    },
+    "benefitsFooter": {
+      "type": "string",
+      "default": "Your investment here is more than a home; it's a long-term growth asset in one of India's most dynamic real estate zones."
+    },
+    "benefitsButtonText": {
+      "type": "string",
+      "default": "Schedule a Call Now"
+    },
+    "directorLabel": {
+      "type": "string",
+      "default": "NRI Support & Concierge Services"
+    },
+    "directorTitle1": {
+      "type": "string",
+      "default": "At Your Service Always,"
+    },
+    "directorTitle2": {
+      "type": "string",
+      "default": "Because Your Time Is Precious"
+    },
+    "directorDescription": {
+      "type": "string",
+      "default": "Owning a home in India should be as effortless as living abroad. That's why we've designed an end-to-end support ecosystem for our global residents:"
+    },
+    "directorFooter": {
+      "type": "string",
+      "default": "We make your investment journey transparent, secure, and globally<br> accessible."
+    },
+    "directorServices": {
+      "type": "array",
+      "default": [
+        "Virtual tours and personalised consultations from anywhere in the world.",
+        "Dedicated NRI relationship managers to guide you through every step.",
+        "Complete digital documentation and registration for remote completion.",
+        "Property management, leasing, and resale coordination via verified partners.",
+        "Regular updates on construction, possession, and performance reports."
+      ]
+    },
+    "directorImage": {
+      "type": "string",
+      "default": ""
+    },
+    "testimonialsLabel": {
+      "type": "string",
+      "default": "Global Homeowners"
+    },
+    "testimonialsTitle": {
+      "type": "string",
+      "default": "Stories of Confidence, Trust, and Commitment<br>from Our Global Residents"
+    },
+    "testimonials": {
+      "type": "array",
+      "default": [
+        {
+          "text": "\"I booked my residence at Ashtech Presidential Towers from Dubai without a single site visit. The process was completely digital, and the team kept me updated throughout.\"",
+          "name": "Rohan S.,<br>Dubai"
+        },
+        {
+          "text": "\"The combination of quality, trust, and location made this an easy decision. Ashtech's NRI team handled everything seamlessly.\"",
+          "name": "Priya M.,<br>Singapore"
+        },
+        {
+          "text": "\"Investing from the US was worry-free thanks to their transparent process and regular communication.\"",
+          "name": "Amit K.,<br>USA"
+        }
+      ]
     }
   }
 }

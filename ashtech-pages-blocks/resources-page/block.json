@@ -15,6 +15,158 @@
     "heroTitle": {
       "type": "string",
       "default": "Insights, Updates, Perspectives"
+    },
+    "tabLabels": {
+      "type": "array",
+      "default": [
+        "Highlights",
+        "Blogs",
+        "Video Gallery",
+        "Press & Media"
+      ]
+    },
+    "highlightsTitle": {
+      "type": "string",
+      "default": "Highlights"
+    },
+    "highlightsFeatured": {
+      "type": "object",
+      "default": {
+        "date": "December 1, 2025",
+        "title": "Ashtech Presidential Towers - A New Era of Luxury Living",
+        "description1": "Discover the epitome of luxury living at Ashtech Presidential Towers in Greater Noida West. With over 80% open greens and world-class amenities, this project redefines residential excellence.",
+        "description2": "Experience presidential living with 456 meticulously designed residences across 5.6 acres of prime land.",
+        "buttonText": "Read More",
+        "image": ""
+      }
+    },
+    "blogsTitle": {
+      "type": "string",
+      "default": "Latest Blogs"
+    },
+    "blogsFeatured": {
+      "type": "object",
+      "default": {
+        "date": "November 25, 2025",
+        "title": "The Future of Sustainable Living in NCR",
+        "description1": "Explore how Ashtech Group is pioneering sustainable construction practices in the Delhi-NCR region. From fly ash bricks to green building certifications, we're setting new standards.",
+        "description2": "Learn about our commitment to environmental responsibility and how it shapes every project we undertake.",
+        "buttonText": "Read More",
+        "image": ""
+      }
+    },
+    "videoTitle": {
+      "type": "string",
+      "default": "Video Gallery"
+    },
+    "videoFeatured": {
+      "type": "object",
+      "default": {
+        "date": "December 2, 2025",
+        "title": "Virtual Tour of Ashtech Presidential Towers",
+        "description1": "Take a virtual walkthrough of our flagship project. Experience the architecture, amenities, and lifestyle that awaits you at Ashtech Presidential Towers.",
+        "description2": "Watch exclusive interviews with our architects and design team as they explain the vision behind this landmark project.",
+        "buttonText": "Read More",
+        "image": ""
+      }
+    },
+    "pressTitle": {
+      "type": "string",
+      "default": "News & Press Releases"
+    },
+    "pressFeatured": {
+      "type": "object",
+      "default": {
+        "date": "November 17, 2025",
+        "title": "Ashtech Group enters real estate with ₹1,800-crore luxury project in Greater Noida",
+        "description1": "Marking its entry into real estate development, Delhi-NCR–based Ashtech Group will invest about ₹1,800 crore to build a luxury housing project in Greater Noida. The project will come up on a fully paid 5.6-acre parcel the company recently acquired for roughly ₹300 crore.",
+        "description2": "Sumit Agarwal, Director of Ashtech Group, said the company has been in allied sectors such as fly ash bricks, AAC Blocks, Ready-mix concrete (RMC), Pre-Engineered Building, large-scale infrastructure, and power infrastructure, news agency PTI reported.",
+        "buttonText": "Read More",
+        "buttonUrl": "https://torbitrealty.com/ashtech-group-enters-real-estate-with-1800-crore-luxury-project-in-greater-noida/",
+        "image": ""
+      }
+    },
+    "newsItems": {
+      "type": "array",
+      "default": [
+        {
+          "date": "November 17, 2025",
+          "title": "Plot prices near Jewar airport rise five times: Is it good time..",
+          "description": "PM Narendra Modi is likely to inaugurate the first phase of the Noida International Airport, Jewar, in the third week..",
+          "link": "https://www.businesstoday.in/personal-finance/real-estate/story/yamuna-expressway-property-prices-is-it-a-good-time-to-buy-ahead-of-jewar-airport-inauguration-502399-2025-11-17#google_vignette",
+          "image": ""
+        },
+        {
+          "date": "November 13, 2025",
+          "title": "Ashtech Group enters real estate with ₹1,800-Cr luxury project..",
+          "description": "Ashtech Group, a well-known name in construction materials and infrastructure development, has offic..",
+          "link": "https://businessreviewlive.com/ashtech-group-enters-real-estate-with-%e2%82%b91800-cr-luxury-project-in-greater-noida/",
+          "image": ""
+        },
+        {
+          "date": "November 17, 2025",
+          "title": "Ashtech Group enters real estate; to invest Rs 1,800 cr on 1st..",
+          "description": "NEW DELHI: (Nov 13) Realty firm Ashtech Group, which is into construction materials and infrastructure developmel..",
+          "link": "https://www.ptinews.com/story/business/ashtech-group-enters-real-estate-to-invest-rs-1-800-cr-on-1st-greater-noida-project/3093862",
+          "image": ""
+        },
+        {
+          "date": "November 13, 2025",
+          "title": "Ashtech Group enters real estate; to invest Rs 1,800 cr on 1st Gre..",
+          "description": "Realty firm Ashtech Group, which is into construction materials and infrastructure development, has..",
+          "link": "https://m.economictimes.com/industry/services/property-/-cstruction/ashtech-group-enters-real-estate-to-invest-rs-1800-cr-on-1st-greater-noida-project/articleshow/125297696.cms",
+          "image": ""
+        },
+        {
+          "date": "November 13, 2025",
+          "title": "Ashtech Group forays into real estate with ₹1,800 cr Greater N..",
+          "description": "Realty firm Ashtech Group, which is into construction materials and infrastructure development, has ent..",
+          "link": "https://www.business-standard.com/companies/news/ashtech-group-forays-into-real-estate-with-1-800-cr-greater-noida-project-125111301356_1.html",
+          "image": ""
+        },
+        {
+          "date": "November 13, 2025",
+          "title": "Ashtech Group Enters Realty with Rs.1,800 Cr Luxury Noida..",
+          "description": "Ashtech Group, a leader in sustainable construction materials and infrastructure development, has anno..",
+          "link": "https://www.homesindiamagazine.com/news/ashtech-group-enters-realty-with-rs1800-cr-luxury-noida-project-nwid-5701.html",
+          "image": ""
+        },
+        {
+          "date": "October 7, 2025",
+          "title": "Ashtech Group to Invest Rs 1,800 crore to develop Luxury..",
+          "description": "Ashtech Group has announced its foray into the real estate sector with plans to invest Rs 1,800 crore to develop a lu..",
+          "link": "https://realtyninfra.in/ashtech-group-to-invest-rs-1800-crore-to-develop-luxury-housing-project-in-greater-noida-west/",
+          "image": ""
+        },
+        {
+          "date": "October 7, 2025",
+          "title": "Ashtech Group Announces ₹1,800 Crore Luxury Housing Project in Greater Noida",
+          "description": "Delhi-NCR based Ashtech Group has announced plans to invest ₹1,800 crore in developing a luxury residential project in Greater Noida West.",
+          "link": "#",
+          "image": ""
+        },
+        {
+          "date": "October 5, 2025",
+          "title": "Greater Noida Real Estate Market Sees Surge in Luxury Projects",
+          "description": "The real estate market in Greater Noida is witnessing a significant surge in luxury residential projects, with developers focusing on premium amenities and sustainable construction.",
+          "link": "#",
+          "image": ""
+        },
+        {
+          "date": "September 28, 2025",
+          "title": "Ashtech Group Expands Portfolio with Entry into Luxury Real Estate",
+          "description": "Ashtech Group, known for its expertise in construction materials and infrastructure, has expanded its portfolio by entering the luxury real estate segment.",
+          "link": "#",
+          "image": ""
+        },
+        {
+          "date": "September 20, 2025",
+          "title": "Noida International Airport to Boost Real Estate Development in Region",
+          "description": "The upcoming Noida International Airport at Jewar is expected to significantly boost real estate development in Greater Noida and surrounding areas.",
+          "link": "#",
+          "image": ""
+        }
+      ]
     }
   }
 }

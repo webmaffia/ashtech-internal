@@ -1,8 +1,17 @@
 import { __ } from '@wordpress/i18n';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import { Button } from '@wordpress/components';
 
 export default function Edit({ attributes, setAttributes }) {
-    const { heroTitle, heroSubtitle, overviewTitle, overviewDescription } = attributes;
+    const { 
+        heroTitle, heroSubtitle,
+        overviewLabel, overviewTitle, overviewDescription, overviewButtonText,
+        architectureLabel, architectureTitle, architectureDescription, architectureFeatures, architectureFooter,
+        whyChooseLabel, whyChooseTitle, whyChooseDescription, whyChooseButtonText, whyChooseItems,
+        benefitsImage, benefitsLabel, benefitsTitle, benefitsDescription, benefitsItems, benefitsFooter, benefitsButtonText,
+        directorLabel, directorTitle1, directorTitle2, directorDescription, directorFooter, directorServices, directorImage,
+        testimonialsLabel, testimonialsTitle, testimonials
+    } = attributes;
     const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
@@ -36,7 +45,13 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="nri-overview__container">
                     <div className="nri-overview__left">
                         <div className="nri-overview__header">
-                            <span className="nri-overview__label animate-text">Overview</span>
+                            <RichText
+                                tagName="span"
+                                className="nri-overview__label animate-text"
+                                value={overviewLabel}
+                                onChange={(value) => setAttributes({ overviewLabel: value })}
+                                placeholder={__('Overview', 'ashtech-pages-blocks')}
+                            />
                             <RichText
                                 tagName="h2"
                                 className="nri-overview__title animate-text"
@@ -56,7 +71,12 @@ export default function Edit({ attributes, setAttributes }) {
                         />
                         <div className="nri-overview__button">
                             <button className="btn btn--primary">
-                                <span>Book a Virtual Tour</span>
+                                <RichText
+                                    tagName="span"
+                                    value={overviewButtonText}
+                                    onChange={(value) => setAttributes({ overviewButtonText: value })}
+                                    placeholder={__('Book a Virtual Tour', 'ashtech-pages-blocks')}
+                                />
                                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
                                     <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
@@ -72,57 +92,77 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="nri-architecture__overlay"></div>
                 <div className="nri-architecture__container">
                     <div className="nri-architecture__header">
-                        <span className="nri-architecture__label animate-text">Why Invest in India's Greater Noida</span>
-                        <h2 className="nri-architecture__title animate-text">Smartest Investment Opportunity<br />in Fastest-Growing Urban Corridor</h2>
-                        <p className="nri-architecture__description animate-text">
-                            Greater Noida has emerged as one of India's most promising investment corridors, attracting <br /> professionals, global enterprises, and infrastructure growth on an unprecedented scale.
-                        </p>
+                        <RichText
+                            tagName="span"
+                            className="nri-architecture__label animate-text"
+                            value={architectureLabel}
+                            onChange={(value) => setAttributes({ architectureLabel: value })}
+                            placeholder={__('Why Invest in India\'s Greater Noida', 'ashtech-pages-blocks')}
+                        />
+                        <RichText
+                            tagName="h2"
+                            className="nri-architecture__title animate-text"
+                            value={architectureTitle}
+                            onChange={(value) => setAttributes({ architectureTitle: value })}
+                            placeholder={__('Smartest Investment Opportunity...', 'ashtech-pages-blocks')}
+                        />
+                        <RichText
+                            tagName="p"
+                            className="nri-architecture__description animate-text"
+                            value={architectureDescription}
+                            onChange={(value) => setAttributes({ architectureDescription: value })}
+                            placeholder={__('Architecture description...', 'ashtech-pages-blocks')}
+                        />
                     </div>
                     <div className="nri-architecture__features">
                         <div className="nri-architecture__feature-row">
-                            <div className="nri-architecture__feature-item animate-text">
-                                <div className="nri-architecture__feature-icon">
-                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
+                            {(architectureFeatures || []).slice(0, 3).map((feature, index) => (
+                                <div key={index} className="nri-architecture__feature-item animate-text">
+                                    <div className="nri-architecture__feature-icon">
+                                        <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
+                                    </div>
+                                    <RichText
+                                        tagName="p"
+                                        className="nri-architecture__feature-text"
+                                        value={feature}
+                                        onChange={(value) => {
+                                            const newFeatures = [...(architectureFeatures || [])];
+                                            newFeatures[index] = value;
+                                            setAttributes({ architectureFeatures: newFeatures });
+                                        }}
+                                        placeholder={__('Feature text...', 'ashtech-pages-blocks')}
+                                    />
                                 </div>
-                                <p className="nri-architecture__feature-text">Strong rental demand from corporate professionals and new-age entrepreneurs.</p>
-                            </div>
-                            <div className="nri-architecture__feature-item animate-text">
-                                <div className="nri-architecture__feature-icon">
-                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
-                                </div>
-                                <p className="nri-architecture__feature-text">Robust economic growth is supported by India's steady GDP expansion.</p>
-                            </div>
-                            <div className="nri-architecture__feature-item animate-text">
-                                <div className="nri-architecture__feature-icon">
-                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
-                                </div>
-                                <p className="nri-architecture__feature-text">Investor-friendly reforms such as RERA and FEMA ensure transparency and compliance.</p>
-                            </div>
+                            ))}
                         </div>
                         <div className="nri-architecture__feature-row">
-                            <div className="nri-architecture__feature-item animate-text">
-                                <div className="nri-architecture__feature-icon">
-                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
+                            {(architectureFeatures || []).slice(3, 6).map((feature, index) => (
+                                <div key={index + 3} className="nri-architecture__feature-item animate-text">
+                                    <div className="nri-architecture__feature-icon">
+                                        <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
+                                    </div>
+                                    <RichText
+                                        tagName="p"
+                                        className="nri-architecture__feature-text"
+                                        value={feature}
+                                        onChange={(value) => {
+                                            const newFeatures = [...(architectureFeatures || [])];
+                                            newFeatures[index + 3] = value;
+                                            setAttributes({ architectureFeatures: newFeatures });
+                                        }}
+                                        placeholder={__('Feature text...', 'ashtech-pages-blocks')}
+                                    />
                                 </div>
-                                <p className="nri-architecture__feature-text">Exceptional connectivity via the Metro network, the upcoming Noida International (Jewar) Airport, and the FNG Expressway.</p>
-                            </div>
-                            <div className="nri-architecture__feature-item animate-text">
-                                <div className="nri-architecture__feature-icon">
-                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
-                                </div>
-                                <p className="nri-architecture__feature-text">Rapidly evolving IT, industrial, and business hubs along the Noida–Yamuna Expressway belt.</p>
-                            </div>
-                            <div className="nri-architecture__feature-item animate-text">
-                                <div className="nri-architecture__feature-icon">
-                                    <img src={`${assetsUrl}images/nri/tick.svg`} alt="" />
-                                </div>
-                                <p className="nri-architecture__feature-text">World-class schools, universities, hospitals and malls, enhancing the quality of life and tenant appeal.</p>
-                            </div>
+                            ))}
                         </div>
                     </div>
-                    <p className="nri-architecture__footer-text animate-text">
-                        Whether you're seeking consistent ROI or long-term appreciation, Greater Noida stands out as a secure, high-growth investment destination.
-                    </p>
+                    <RichText
+                        tagName="p"
+                        className="nri-architecture__footer-text animate-text"
+                        value={architectureFooter}
+                        onChange={(value) => setAttributes({ architectureFooter: value })}
+                        placeholder={__('Architecture footer text...', 'ashtech-pages-blocks')}
+                    />
                 </div>
             </section>
 
@@ -131,15 +171,36 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="nri-why-choose__container">
                     <div className="nri-why-choose__header">
                         <div className="nri-why-choose__header-left">
-                            <span className="nri-why-choose__label animate-text">Why Choose Ashtech Presidential Towers</span>
-                            <h2 className="nri-why-choose__title animate-text">High On ROI<br />Higher In Demand</h2>
+                            <RichText
+                                tagName="span"
+                                className="nri-why-choose__label animate-text"
+                                value={whyChooseLabel}
+                                onChange={(value) => setAttributes({ whyChooseLabel: value })}
+                                placeholder={__('Why Choose Ashtech Presidential Towers', 'ashtech-pages-blocks')}
+                            />
+                            <RichText
+                                tagName="h2"
+                                className="nri-why-choose__title animate-text"
+                                value={whyChooseTitle}
+                                onChange={(value) => setAttributes({ whyChooseTitle: value })}
+                                placeholder={__('High On ROI...', 'ashtech-pages-blocks')}
+                            />
                         </div>
                         <div className="nri-why-choose__header-right">
-                            <p className="nri-why-choose__description animate-text">
-                                Crafted to perfection across 5.6 acres with 80% open greens, Ashtech Presidential Towers redefines urban luxury with a rare balance of architecture, nature and technology.
-                            </p>
+                            <RichText
+                                tagName="p"
+                                className="nri-why-choose__description animate-text"
+                                value={whyChooseDescription}
+                                onChange={(value) => setAttributes({ whyChooseDescription: value })}
+                                placeholder={__('Why choose description...', 'ashtech-pages-blocks')}
+                            />
                             <button className="btn btn--primary downloadCta">
-                                <span>Download Brochure</span>
+                                <RichText
+                                    tagName="span"
+                                    value={whyChooseButtonText}
+                                    onChange={(value) => setAttributes({ whyChooseButtonText: value })}
+                                    placeholder={__('Download Brochure', 'ashtech-pages-blocks')}
+                                />
                                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
                                     <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
@@ -147,36 +208,24 @@ export default function Edit({ attributes, setAttributes }) {
                         </div>
                     </div>
                     <div className="nri-why-choose__items">
-                        <div className="nri-why-choose__item nri-why-choose__item--first animate-text">
-                            <span className="nri-why-choose__item-number">01</span>
-                            <div className="nri-why-choose__item-content">
-                                <p className="nri-why-choose__item-text">Exclusive range of 3–4 BHK residences and duplexes</p>
+                        {(whyChooseItems || []).map((item, index) => (
+                            <div key={index} className={`nri-why-choose__item ${index === 0 ? 'nri-why-choose__item--first' : 'nri-why-choose__item--others'} animate-text`}>
+                                <span className="nri-why-choose__item-number">{String(index + 1).padStart(2, '0')}</span>
+                                <div className="nri-why-choose__item-content">
+                                    <RichText
+                                        tagName="p"
+                                        className="nri-why-choose__item-text"
+                                        value={item}
+                                        onChange={(value) => {
+                                            const newItems = [...(whyChooseItems || [])];
+                                            newItems[index] = value;
+                                            setAttributes({ whyChooseItems: newItems });
+                                        }}
+                                        placeholder={__('Why choose item text...', 'ashtech-pages-blocks')}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className="nri-why-choose__item nri-why-choose__item--others animate-text">
-                            <span className="nri-why-choose__item-number">02</span>
-                            <div className="nri-why-choose__item-content">
-                                <p className="nri-why-choose__item-text">3 levels of clubhouse and other amenities area spanning across 70000 sq ft.</p>
-                            </div>
-                        </div>
-                        <div className="nri-why-choose__item nri-why-choose__item--others animate-text">
-                            <span className="nri-why-choose__item-number">03</span>
-                            <div className="nri-why-choose__item-content">
-                                <p className="nri-why-choose__item-text">Smart home features that complement a contemporary lifestyle.</p>
-                            </div>
-                        </div>
-                        <div className="nri-why-choose__item nri-why-choose__item--others animate-text">
-                            <span className="nri-why-choose__item-number">04</span>
-                            <div className="nri-why-choose__item-content">
-                                <p className="nri-why-choose__item-text">TQ-Certified construction quality backed by Tata Group validation.</p>
-                            </div>
-                        </div>
-                        <div className="nri-why-choose__item nri-why-choose__item--others animate-text">
-                            <span className="nri-why-choose__item-number">05</span>
-                            <div className="nri-why-choose__item-content">
-                                <p className="nri-why-choose__item-text">A 30-year Ashtech legacy, powered by nine business verticals and a 1,600+ strong team known for engineering excellence.</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -184,69 +233,113 @@ export default function Edit({ attributes, setAttributes }) {
             {/* Investment Benefits Section */}
             <section className="nri-benefits">
                 <div className="nri-benefits__container">
-                    <div className="nri-benefits__image">
-                        <img src={`${assetsUrl}images/nri/nri-benefits.jpg`} alt="Investment Benefits" />
-                    </div>
+                    <MediaUploadCheck>
+                        <MediaUpload
+                            onSelect={(media) => setAttributes({ benefitsImage: media.url })}
+                            allowedTypes={['image']}
+                            render={({ open }) => (
+                                <div className="nri-benefits__image">
+                                    {benefitsImage ? (
+                                        <img src={benefitsImage} alt="Investment Benefits" />
+                                    ) : (
+                                        <img src={`${assetsUrl}images/nri/nri-benefits.jpg`} alt="Investment Benefits" />
+                                    )}
+                                    <Button onClick={open} isPrimary style={{ marginTop: '10px' }}>
+                                        {benefitsImage ? __('Replace Image', 'ashtech-pages-blocks') : __('Upload Image', 'ashtech-pages-blocks')}
+                                    </Button>
+                                </div>
+                            )}
+                        />
+                    </MediaUploadCheck>
                     <div className="nri-benefits__content">
                         <div className="nri-benefits__header">
                             <div className="nri-benefits__header-inner">
-                                <span className="nri-benefits__label animate-text">Investment Benefits for NRIs</span>
-                                <h2 className="nri-benefits__title animate-text">Specially Curated Offer<br />Just For 'You'!</h2>
+                                <RichText
+                                    tagName="span"
+                                    className="nri-benefits__label animate-text"
+                                    value={benefitsLabel}
+                                    onChange={(value) => setAttributes({ benefitsLabel: value })}
+                                    placeholder={__('Investment Benefits for NRIs', 'ashtech-pages-blocks')}
+                                />
+                                <RichText
+                                    tagName="h2"
+                                    className="nri-benefits__title animate-text"
+                                    value={benefitsTitle}
+                                    onChange={(value) => setAttributes({ benefitsTitle: value })}
+                                    placeholder={__('Specially Curated Offer...', 'ashtech-pages-blocks')}
+                                />
                             </div>
-                            <p className="nri-benefits__description animate-text">For NRIs seeking a rewarding and reliable investment, Ashtech Presidential Towers offers unmatched value:</p>
+                            <RichText
+                                tagName="p"
+                                className="nri-benefits__description animate-text"
+                                value={benefitsDescription}
+                                onChange={(value) => setAttributes({ benefitsDescription: value })}
+                                placeholder={__('Benefits description...', 'ashtech-pages-blocks')}
+                            />
                         </div>
                         <div className="nri-benefits__grid">
                             <div className="nri-benefits__grid-row nri-benefits__grid-row--first">
-                                <div className="nri-benefits__grid-item animate-text">
-                                    <div className="nri-benefits__grid-icon">
-                                        <img src={`${assetsUrl}images/nri/nri-benefit-1.svg`} alt="Icon" />
-                                    </div>
-                                    <p className="nri-benefits__grid-text">High ROI potential and rental yield driven by rapid urban expansion.</p>
-                                </div>
-                                <div className="nri-benefits__grid-item animate-text">
-                                    <div className="nri-benefits__grid-icon">
-                                        <img src={`${assetsUrl}images/nri/nri-benefit-2.svg`} alt="Icon" />
-                                    </div>
-                                    <p className="nri-benefits__grid-text">Regular property updates and performance reports for investors abroad.</p>
-                                </div>
-                                <div className="nri-benefits__grid-item animate-text">
-                                    <div className="nri-benefits__grid-icon">
-                                        <img src={`${assetsUrl}images/nri/nri-benefit-3.svg`} alt="Icon" />
-                                    </div>
-                                    <p className="nri-benefits__grid-text">Strong resale opportunities supported by infrastructure growth.</p>
-                                </div>
-                                <div className="nri-benefits__grid-item animate-text">
-                                    <div className="nri-benefits__grid-icon">
-                                        <img src={`${assetsUrl}images/nri/nri-benefit-4.svg`} alt="Icon" />
-                                    </div>
-                                    <p className="nri-benefits__grid-text">Attractive tax benefits are available for NRI investors.</p>
-                                </div>
+                                {(benefitsItems || []).slice(0, 4).map((item, index) => {
+                                    const icons = ['nri-benefit-1.svg', 'nri-benefit-2.svg', 'nri-benefit-3.svg', 'nri-benefit-4.svg'];
+                                    return (
+                                        <div key={index} className="nri-benefits__grid-item animate-text">
+                                            <div className="nri-benefits__grid-icon">
+                                                <img src={`${assetsUrl}images/nri/${icons[index] || 'nri-benefit-1.svg'}`} alt="Icon" />
+                                            </div>
+                                            <RichText
+                                                tagName="p"
+                                                className="nri-benefits__grid-text"
+                                                value={item}
+                                                onChange={(value) => {
+                                                    const newItems = [...(benefitsItems || [])];
+                                                    newItems[index] = value;
+                                                    setAttributes({ benefitsItems: newItems });
+                                                }}
+                                                placeholder={__('Benefits item text...', 'ashtech-pages-blocks')}
+                                            />
+                                        </div>
+                                    );
+                                })}
                             </div>
                             <div className="nri-benefits__grid-row nri-benefits__grid-row--second">
-                                <div className="nri-benefits__grid-item animate-text">
-                                    <div className="nri-benefits__grid-icon">
-                                        <img src={`${assetsUrl}images/nri/nri-benefit-5.svg`} alt="Icon" />
-                                    </div>
-                                    <p className="nri-benefits__grid-text">Hassle-free repatriation support under FEMA guidelines.</p>
-                                </div>
-                                <div className="nri-benefits__grid-item animate-text">
-                                    <div className="nri-benefits__grid-icon">
-                                        <img src={`${assetsUrl}images/nri/nri-benefit-6.svg`} alt="Icon" />
-                                    </div>
-                                    <p className="nri-benefits__grid-text">Home loan partnerships with HDFC, ICICI, Axis, and SBI NRI Services.</p>
-                                </div>
-                                <div className="nri-benefits__grid-item animate-text">
-                                    <div className="nri-benefits__grid-icon">
-                                        <img src={`${assetsUrl}images/nri/nri-benefit-7.svg`} alt="Icon" />
-                                    </div>
-                                    <p className="nri-benefits__grid-text">Prime Greater Noida West location, strategically<br />connected to Delhi, Noida,<br />and Gurgaon.</p>
-                                </div>
+                                {(benefitsItems || []).slice(4, 7).map((item, index) => {
+                                    const icons = ['nri-benefit-5.svg', 'nri-benefit-6.svg', 'nri-benefit-7.svg'];
+                                    return (
+                                        <div key={index + 4} className="nri-benefits__grid-item animate-text">
+                                            <div className="nri-benefits__grid-icon">
+                                                <img src={`${assetsUrl}images/nri/${icons[index] || 'nri-benefit-5.svg'}`} alt="Icon" />
+                                            </div>
+                                            <RichText
+                                                tagName="p"
+                                                className="nri-benefits__grid-text"
+                                                value={item}
+                                                onChange={(value) => {
+                                                    const newItems = [...(benefitsItems || [])];
+                                                    newItems[index + 4] = value;
+                                                    setAttributes({ benefitsItems: newItems });
+                                                }}
+                                                placeholder={__('Benefits item text...', 'ashtech-pages-blocks')}
+                                            />
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                         <div className="nri-benefits__footer">
-                            <p className="nri-benefits__footer-text animate-text">Your investment here is more than a home; it's a long-term growth asset in one of India's most dynamic real estate zones.</p>
+                            <RichText
+                                tagName="p"
+                                className="nri-benefits__footer-text animate-text"
+                                value={benefitsFooter}
+                                onChange={(value) => setAttributes({ benefitsFooter: value })}
+                                placeholder={__('Benefits footer text...', 'ashtech-pages-blocks')}
+                            />
                             <button className="btn btn--primary downloadCta">
-                                <span>Schedule a Call Now</span>
+                                <RichText
+                                    tagName="span"
+                                    value={benefitsButtonText}
+                                    onChange={(value) => setAttributes({ benefitsButtonText: value })}
+                                    placeholder={__('Schedule a Call Now', 'ashtech-pages-blocks')}
+                                />
                                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
                                     <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
@@ -263,55 +356,87 @@ export default function Edit({ attributes, setAttributes }) {
                     <div className="nri-director__content">
                         <div className="nri-director__header">
                             <div className="nri-director__header-inner">
-                                <span className="nri-director__label animate-text">NRI Support & Concierge Services</span>
+                                <RichText
+                                    tagName="span"
+                                    className="nri-director__label animate-text"
+                                    value={directorLabel}
+                                    onChange={(value) => setAttributes({ directorLabel: value })}
+                                    placeholder={__('NRI Support & Concierge Services', 'ashtech-pages-blocks')}
+                                />
                                 <div className="nri-director__title animate-text">
-                                    <p className="nri-director__title-line">At Your Service Always,</p>
-                                    <p className="nri-director__title-line">Because Your Time Is Precious</p>
+                                    <RichText
+                                        tagName="p"
+                                        className="nri-director__title-line"
+                                        value={directorTitle1}
+                                        onChange={(value) => setAttributes({ directorTitle1: value })}
+                                        placeholder={__('At Your Service Always,', 'ashtech-pages-blocks')}
+                                    />
+                                    <RichText
+                                        tagName="p"
+                                        className="nri-director__title-line"
+                                        value={directorTitle2}
+                                        onChange={(value) => setAttributes({ directorTitle2: value })}
+                                        placeholder={__('Because Your Time Is Precious', 'ashtech-pages-blocks')}
+                                    />
                                 </div>
                             </div>
-                            <p className="nri-director__description animate-text">
-                                Owning a home in India should be as effortless as living abroad. That's why we've designed an end-to-end support ecosystem for our global residents:
-                            </p>
+                            <RichText
+                                tagName="p"
+                                className="nri-director__description animate-text"
+                                value={directorDescription}
+                                onChange={(value) => setAttributes({ directorDescription: value })}
+                                placeholder={__('Director description...', 'ashtech-pages-blocks')}
+                            />
                         </div>
-                        <p className="nri-director__footer-text animate-text">
-                            We make your investment journey transparent, secure, and globally<br /> accessible.
-                        </p>
+                        <RichText
+                            tagName="p"
+                            className="nri-director__footer-text animate-text"
+                            value={directorFooter}
+                            onChange={(value) => setAttributes({ directorFooter: value })}
+                            placeholder={__('Director footer text...', 'ashtech-pages-blocks')}
+                        />
                         <div className="nri-director__services">
-                            <div className="nri-director__service-item animate-text">
-                                <div className="nri-director__service-icon">
-                                    <img src={`${assetsUrl}images/landing/icon-virtual-tour.svg`} alt="Virtual Tours" />
-                                </div>
-                                <p className="nri-director__service-text">Virtual tours and personalised consultations from anywhere in the world.</p>
-                            </div>
-                            <div className="nri-director__service-item animate-text">
-                                <div className="nri-director__service-icon">
-                                    <img src={`${assetsUrl}images/landing/icon-support.svg`} alt="Support" />
-                                </div>
-                                <p className="nri-director__service-text">Dedicated NRI relationship managers to guide you through every step.</p>
-                            </div>
-                            <div className="nri-director__service-item animate-text">
-                                <div className="nri-director__service-icon">
-                                    <img src={`${assetsUrl}images/landing/icon-residences.svg`} alt="Residences" />
-                                </div>
-                                <p className="nri-director__service-text">Complete digital documentation and registration for remote completion.</p>
-                            </div>
-                            <div className="nri-director__service-item animate-text">
-                                <div className="nri-director__service-icon">
-                                    <img src={`${assetsUrl}images/landing/icon-documentation.svg`} alt="Documentation" />
-                                </div>
-                                <p className="nri-director__service-text">Property management, leasing, and resale coordination via verified partners.</p>
-                            </div>
-                            <div className="nri-director__service-item animate-text">
-                                <div className="nri-director__service-icon">
-                                    <img src={`${assetsUrl}images/landing/icon-documentation.svg`} alt="Updates" />
-                                </div>
-                                <p className="nri-director__service-text">Regular updates on construction, possession, and performance reports.</p>
-                            </div>
+                            {(directorServices || []).map((service, index) => {
+                                const icons = ['icon-virtual-tour.svg', 'icon-support.svg', 'icon-residences.svg', 'icon-documentation.svg', 'icon-documentation.svg'];
+                                return (
+                                    <div key={index} className="nri-director__service-item animate-text">
+                                        <div className="nri-director__service-icon">
+                                            <img src={`${assetsUrl}images/landing/${icons[index] || 'icon-virtual-tour.svg'}`} alt="Service" />
+                                        </div>
+                                        <RichText
+                                            tagName="p"
+                                            className="nri-director__service-text"
+                                            value={service}
+                                            onChange={(value) => {
+                                                const newServices = [...(directorServices || [])];
+                                                newServices[index] = value;
+                                                setAttributes({ directorServices: newServices });
+                                            }}
+                                            placeholder={__('Service text...', 'ashtech-pages-blocks')}
+                                        />
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
-                    <div className="nri-director__image">
-                        <img src={`${assetsUrl}images/nri/nri-director.png`} alt="Director" />
-                    </div>
+                    <MediaUploadCheck>
+                        <MediaUpload
+                            onSelect={(media) => setAttributes({ directorImage: media.url })}
+                            allowedTypes={['image']}
+                            render={({ open }) => (
+                                <div className="nri-director__image">
+                                    {directorImage ? (
+                                        <img src={directorImage} alt="Director" />
+                                    ) : (
+                                        <img src={`${assetsUrl}images/nri/nri-director.png`} alt="Director" />
+                                    )}
+                                    <Button onClick={open} isPrimary style={{ marginTop: '10px' }}>
+                                        {directorImage ? __('Replace Image', 'ashtech-pages-blocks') : __('Upload Image', 'ashtech-pages-blocks')}
+                                    </Button>
+                                </div>
+                            )}
+                        />
+                    </MediaUploadCheck>
                 </div>
             </section>
 
@@ -320,65 +445,83 @@ export default function Edit({ attributes, setAttributes }) {
                 <div className="nri-testimonials__decoration"></div>
                 <div className="nri-testimonials__container">
                     <div className="nri-testimonials__header">
-                        <span className="nri-testimonials__label animate-text">Global Homeowners</span>
-                        <h2 className="nri-testimonials__title animate-text">Stories of Confidence, Trust, and Commitment<br />from Our Global Residents</h2>
+                        <RichText
+                            tagName="span"
+                            className="nri-testimonials__label animate-text"
+                            value={testimonialsLabel}
+                            onChange={(value) => setAttributes({ testimonialsLabel: value })}
+                            placeholder={__('Global Homeowners', 'ashtech-pages-blocks')}
+                        />
+                        <RichText
+                            tagName="h2"
+                            className="nri-testimonials__title animate-text"
+                            value={testimonialsTitle}
+                            onChange={(value) => setAttributes({ testimonialsTitle: value })}
+                            placeholder={__('Stories of Confidence...', 'ashtech-pages-blocks')}
+                        />
                     </div>
                     <div className="nri-testimonials__cards">
-                        <div className="tm-item">
-                            <div className="nri-testimonials__card animate-text">
-                                <div className="nri-testimonials__card-quote">
-                                    <img src={`${assetsUrl}images/nri/nri-quote.svg`} alt="Quote" />
-                                </div>
-                                <p className="nri-testimonials__card-text">
-                                    "I booked my residence at Ashtech Presidential Towers from Dubai without a single site visit. The process was completely digital, and the team kept me updated throughout."
-                                </p>
-                                <div className="nri-testimonials__card-author">
-                                    <div className="nri-testimonials__card-avatar">
-                                        <img src={`${assetsUrl}images/nri/nri-avatar.png`} alt="Avatar" />
+                        {(testimonials || []).map((testimonial, index) => (
+                            <div key={index} className="tm-item">
+                                <div className="nri-testimonials__card animate-text">
+                                    <div className="nri-testimonials__card-quote">
+                                        <img src={`${assetsUrl}images/nri/nri-quote.svg`} alt="Quote" />
                                     </div>
-                                    <div className="nri-testimonials__card-info">
-                                        <p className="nri-testimonials__card-name">Rohan S.,<br />Dubai</p>
+                                    <RichText
+                                        tagName="p"
+                                        className="nri-testimonials__card-text"
+                                        value={testimonial.text}
+                                        onChange={(value) => {
+                                            const newTestimonials = [...(testimonials || [])];
+                                            newTestimonials[index].text = value;
+                                            setAttributes({ testimonials: newTestimonials });
+                                        }}
+                                        placeholder={__('Testimonial text...', 'ashtech-pages-blocks')}
+                                    />
+                                    <div className="nri-testimonials__card-author">
+                                        <div className="nri-testimonials__card-avatar">
+                                            <img src={`${assetsUrl}images/nri/nri-avatar.png`} alt="Avatar" />
+                                        </div>
+                                        <div className="nri-testimonials__card-info">
+                                            <RichText
+                                                tagName="p"
+                                                className="nri-testimonials__card-name"
+                                                value={testimonial.name}
+                                                onChange={(value) => {
+                                                    const newTestimonials = [...(testimonials || [])];
+                                                    newTestimonials[index].name = value;
+                                                    setAttributes({ testimonials: newTestimonials });
+                                                }}
+                                                placeholder={__('Testimonial name...', 'ashtech-pages-blocks')}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tm-item">
-                            <div className="nri-testimonials__card animate-text">
-                                <div className="nri-testimonials__card-quote">
-                                    <img src={`${assetsUrl}images/nri/nri-quote.svg`} alt="Quote" />
-                                </div>
-                                <p className="nri-testimonials__card-text">
-                                    "The combination of quality, trust, and location made this an easy decision. Ashtech's NRI team handled everything seamlessly."
-                                </p>
-                                <div className="nri-testimonials__card-author">
-                                    <div className="nri-testimonials__card-avatar">
-                                        <img src={`${assetsUrl}images/nri/nri-avatar.png`} alt="Avatar" />
-                                    </div>
-                                    <div className="nri-testimonials__card-info">
-                                        <p className="nri-testimonials__card-name">Ananya P.,<br />Singapore</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tm-item">
-                            <div className="nri-testimonials__card animate-text">
-                                <div className="nri-testimonials__card-quote">
-                                    <img src={`${assetsUrl}images/nri/nri-quote.svg`} alt="Quote" />
-                                </div>
-                                <p className="nri-testimonials__card-text">
-                                    "It's reassuring to invest with a developer that understands both luxury and long-term value."
-                                </p>
-                                <div className="nri-testimonials__card-author">
-                                    <div className="nri-testimonials__card-avatar">
-                                        <img src={`${assetsUrl}images/nri/nri-avatar.png`} alt="Avatar" />
-                                    </div>
-                                    <div className="nri-testimonials__card-info">
-                                        <p className="nri-testimonials__card-name">Vivek M.,<br />London</p>
-                                    </div>
+                                    <Button
+                                        onClick={() => {
+                                            const newTestimonials = [...(testimonials || [])];
+                                            newTestimonials.splice(index, 1);
+                                            setAttributes({ testimonials: newTestimonials });
+                                        }}
+                                        isDestructive
+                                        style={{ marginTop: '10px' }}
+                                    >
+                                        {__('Remove', 'ashtech-pages-blocks')}
+                                    </Button>
                                 </div>
                             </div>
-                        </div>
+                        ))}
                     </div>
+                    <Button
+                        onClick={() => {
+                            const newTestimonials = [...(testimonials || [])];
+                            newTestimonials.push({ text: '', name: '' });
+                            setAttributes({ testimonials: newTestimonials });
+                        }}
+                        isPrimary
+                        style={{ marginTop: '20px' }}
+                    >
+                        {__('Add New Testimonial', 'ashtech-pages-blocks')}
+                    </Button>
                     <p className="nri-testimonials__footer-text animate-text">
                         Each story is a testament to the trust our global community places in Ashtech.
                     </p>
