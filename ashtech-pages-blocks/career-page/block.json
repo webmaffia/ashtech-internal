@@ -14,19 +14,19 @@
   "attributes": {
     "heroTitle": {
       "type": "string",
-      "default": "Build Your Career With Us"
+      "default": "Careers at The Ashtech<br> Presidential Towers"
     },
     "heroSubtitle": {
       "type": "string",
-      "default": "Join our team"
+      "default": "Come, Build the Future With Us!"
     },
     "overviewTitle": {
       "type": "string",
-      "default": "Career Overview"
+      "default": "Join a Legacy of Excellence"
     },
-    "overviewContent": {
+    "overviewText": {
       "type": "string",
-      "default": "Join our growing team"
+      "default": "<p>Ashtech Presidential Towers is a testament to the legacy of excellence, trust, and precision of Ashtech Group. From building landmark infrastructure to crafting premium properties, we believe in creating icons that define the future — for cities and for people.</p><p>If you're driven by purpose, inspired by challenges, and ready to make an impact, your journey begins here.</p>"
     },
     "whyImage1": {
       "type": "string",
@@ -39,6 +39,29 @@
     "whyImage3": {
       "type": "string",
       "default": ""
+    },
+    "jobCards": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Site Engineer",
+          "category": "Construction",
+          "location": "Pune",
+          "date": "10 Oct 2025"
+        },
+        {
+          "title": "Project Manager",
+          "category": "Infrastructure",
+          "location": "Mumbai",
+          "date": "08 Oct 2025"
+        },
+        {
+          "title": "Marketing Executive",
+          "category": "Sales & Marketing",
+          "location": "Pune",
+          "date": "05 Oct 2025"
+        }
+      ]
     }
   }
 }

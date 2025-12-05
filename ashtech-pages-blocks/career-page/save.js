@@ -1,7 +1,7 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
-    const { heroTitle, heroSubtitle, overviewTitle, overviewText, whyImage1, whyImage2, whyImage3 } = attributes;
+    const { heroTitle, heroSubtitle, overviewTitle, overviewText, whyImage1, whyImage2, whyImage3, jobCards = [] } = attributes;
     const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
@@ -38,12 +38,10 @@ export default function Save({ attributes }) {
                         />
                     </div>
                     <div className="career-overview__right">
-                        <div className="career-overview__text animate-text">
-                            <RichText.Content 
-                                tagName="div" 
-                                value={overviewText} 
-                            />
-                        </div>
+                        <div 
+                            className="career-overview__text animate-text"
+                            dangerouslySetInnerHTML={{ __html: overviewText }}
+                        />
                     </div>
                 </div>
             </section>
@@ -128,86 +126,37 @@ export default function Save({ attributes }) {
                     </div>
                     
                     <div className="career-openings__list">
-                        {/* Job Card 1 */}
-                        <div className="job-card">
-                            <div className="job-card__info">
-                                <h3 className="job-card__title">Site Engineer</h3>
-                                <div className="job-card__tags">
-                                    <span className="job-card__tag">
-                                        <img src={`${assetsUrl}images/career/icon-category.svg`} alt="" />
-                                        Construction
-                                    </span>
-                                    <span className="job-card__tag">
-                                        <img src={`${assetsUrl}images/career/icon-location.svg`} alt="" />
-                                        Pune
-                                    </span>
-                                    <span className="job-card__tag">
-                                        <img src={`${assetsUrl}images/career/icon-clock.svg`} alt="" />
-                                        10 Oct 2025
-                                    </span>
+                        {jobCards.map((job, index) => (
+                            <div key={index} className="job-card">
+                                <div className="job-card__info">
+                                    <h3 className="job-card__title">{job.title || ''}</h3>
+                                    <div className="job-card__tags">
+                                        <span className="job-card__tag">
+                                            <img src={`${assetsUrl}images/career/icon-category.svg`} alt="" />
+                                            {job.category || ''}
+                                        </span>
+                                        <span className="job-card__tag">
+                                            <img src={`${assetsUrl}images/career/icon-location.svg`} alt="" />
+                                            {job.location || ''}
+                                        </span>
+                                        <span className="job-card__tag">
+                                            <img src={`${assetsUrl}images/career/icon-clock.svg`} alt="" />
+                                            {job.date || ''}
+                                        </span>
+                                    </div>
                                 </div>
+                                <button 
+                                    className="btn btn--secondary career-openings__apply apply-now-btn"
+                                    type="button"
+                                    data-job-title={job.title || ''}
+                                >
+                                    <span>Apply Now</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
+                                        <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </button>
                             </div>
-                            <button className="btn btn--secondary career-openings__apply">
-                                <span>Apply Now</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
-                                    <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </button>
-                        </div>
-                        
-                        {/* Job Card 2 */}
-                        <div className="job-card">
-                            <div className="job-card__info">
-                                <h3 className="job-card__title">Project Manager</h3>
-                                <div className="job-card__tags">
-                                    <span className="job-card__tag">
-                                        <img src={`${assetsUrl}images/career/icon-category.svg`} alt="" />
-                                        Infrastructure
-                                    </span>
-                                    <span className="job-card__tag">
-                                        <img src={`${assetsUrl}images/career/icon-location.svg`} alt="" />
-                                        Mumbai
-                                    </span>
-                                    <span className="job-card__tag">
-                                        <img src={`${assetsUrl}images/career/icon-clock.svg`} alt="" />
-                                        08 Oct 2025
-                                    </span>
-                                </div>
-                            </div>
-                            <button className="btn btn--secondary career-openings__apply">
-                                <span>Apply Now</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
-                                    <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </button>
-                        </div>
-                        
-                        {/* Job Card 3 */}
-                        <div className="job-card">
-                            <div className="job-card__info">
-                                <h3 className="job-card__title">Marketing Executive</h3>
-                                <div className="job-card__tags">
-                                    <span className="job-card__tag">
-                                        <img src={`${assetsUrl}images/career/icon-category.svg`} alt="" />
-                                        Sales & Marketing
-                                    </span>
-                                    <span className="job-card__tag">
-                                        <img src={`${assetsUrl}images/career/icon-location.svg`} alt="" />
-                                        Pune
-                                    </span>
-                                    <span className="job-card__tag">
-                                        <img src={`${assetsUrl}images/career/icon-clock.svg`} alt="" />
-                                        05 Oct 2025
-                                    </span>
-                                </div>
-                            </div>
-                            <button className="btn btn--secondary career-openings__apply">
-                                <span>Apply Now</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
-                                    <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </button>
-                        </div>
+                        ))}
                     </div>
                     
                     <div className="career-openings__how-to-apply">
@@ -218,7 +167,7 @@ export default function Save({ attributes }) {
             </section>
 
             {/* Career Form Section */}
-            <section className="career-form">
+            <section className="career-form" id="careerFormSection">
                 <div className="career-form__background"></div>
                 <div className="career-form__container">
                     <div className="career-form__header">

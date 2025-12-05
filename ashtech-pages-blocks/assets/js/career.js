@@ -113,4 +113,83 @@ if (!prefersReducedMotion) {
 
 console.log('Career page animations initialized');
 
+// ===========================================
+// CAREER PAGE - Apply Now Button Functionality
+// ===========================================
+
+/**
+ * Handle "Apply Now" button clicks
+ * Scrolls to career form and auto-fills position field
+ */
+function handleApplyNowButtons() {
+  // Get all "Apply Now" buttons
+  const applyButtons = document.querySelectorAll('.apply-now-btn');
+  
+  applyButtons.forEach(function(button) {
+    // Remove existing event listener to avoid duplicates
+    button.removeEventListener('click', handleApplyClick);
+    // Add event listener
+    button.addEventListener('click', handleApplyClick);
+  });
+}
+
+/**
+ * Handle click event on Apply Now button
+ */
+function handleApplyClick(e) {
+  e.preventDefault();
+  
+  // Get job title from data attribute
+  const jobTitle = this.getAttribute('data-job-title');
+  
+  if (!jobTitle) {
+    console.warn('No job title found for Apply Now button');
+    return;
+  }
+  
+  // Get the career form section
+  const formSection = document.getElementById('careerFormSection');
+  const positionField = document.getElementById('position');
+  
+  if (!formSection) {
+    console.warn('Career form section not found');
+    return;
+  }
+  
+  if (!positionField) {
+    console.warn('Position field not found');
+    return;
+  }
+  
+  // Auto-fill position field with job title
+  positionField.value = jobTitle;
+  
+  // Smooth scroll to form section
+  formSection.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+  
+  // Optional: Add a small delay and focus the first input field
+  setTimeout(function() {
+    const firstInput = formSection.querySelector('input[type="text"]:not([readonly])');
+    if (firstInput) {
+      firstInput.focus();
+    }
+  }, 500);
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', handleApplyNowButtons);
+} else {
+  // DOM is already loaded
+  handleApplyNowButtons();
+}
+
+// Also re-initialize on window load for dynamically loaded content
+window.addEventListener('load', function() {
+  handleApplyNowButtons();
+});
+
 

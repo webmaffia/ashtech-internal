@@ -96,6 +96,14 @@ function ashtech_enqueue_block_editor_assets() {
         array('wp-edit-blocks'),
         ASHTECH_BLOCKS_VERSION
     );
+    
+    // Enqueue main.css in editor so images and styling display properly
+    wp_enqueue_style(
+        'ashtech-main-css-editor',
+        ASHTECH_BLOCKS_URL . 'assets/css/main.css',
+        array('wp-edit-blocks', 'ashtech-blocks-editor'),
+        ASHTECH_BLOCKS_VERSION
+    );
 }
 add_action('enqueue_block_editor_assets', 'ashtech_enqueue_block_editor_assets');
 
@@ -112,7 +120,13 @@ function ashtech_localize_scripts() {
         ))
     );
     
+    // Add inline script directly (works in both editor and frontend)
     wp_add_inline_script('wp-blocks', $script, 'before');
+    
+    // Also add as a separate script to ensure it's available early
+    wp_register_script('ashtech-blocks-data', false);
+    wp_enqueue_script('ashtech-blocks-data');
+    wp_add_inline_script('ashtech-blocks-data', $script);
 }
 add_action('enqueue_block_editor_assets', 'ashtech_localize_scripts');
 add_action('wp_enqueue_scripts', 'ashtech_localize_scripts');
