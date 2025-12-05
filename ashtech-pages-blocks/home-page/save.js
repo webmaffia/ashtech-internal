@@ -1,7 +1,35 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function Save({ attributes }) {
-    const { heroTitle, mainContent, imageUrl, overviewImage, project1Image, project2Image, nriImage, testimonialBgImage } = attributes;
+    const { 
+        heroTitle, 
+        mainContent, 
+        imageUrl, 
+        overviewLabel,
+        overviewTitle,
+        overviewImage, 
+        valuesLabel,
+        valuesTitle,
+        values = [],
+        projectLabel,
+        projectTitle,
+        projectDescription,
+        buildingImage,
+        project1Image, 
+        project2Image, 
+        nriLabel,
+        nriTitle,
+        nriDescription,
+        nriButtonText,
+        nriFeatures = [],
+        nriImage, 
+        awardsLabel,
+        awardsTitle,
+        awardsDescription,
+        awards = [],
+        testimonialBgImage, 
+        testimonials = [] 
+    } = attributes;
     const assetsUrl = window.ashtechBlocksData ? window.ashtechBlocksData.assetsUrl : 'assets/';
 
     return (
@@ -148,9 +176,9 @@ export default function Save({ attributes }) {
                     <div className="landing-overview__content">
                         <div className="landing-overview__header">
                             <div className="landing-overview__label">
-                                <span className="animate-text">Overview</span>
+                                <span className="animate-text">{overviewLabel || "Overview"}</span>
                             </div>
-                            <h2 className="landing-overview__title animate-text">Curated for Magnificence</h2>
+                            <h2 className="landing-overview__title animate-text" dangerouslySetInnerHTML={{ __html: overviewTitle || "Curated for Magnificence" }} />
                         </div>
                         <RichText.Content 
                             tagName="p" 
@@ -174,37 +202,26 @@ export default function Save({ attributes }) {
             <section className="landing-values">
                 <div className="landing-values__container">
                     <div className="landing-values__header">
-                        <div className="landing-values__label animate-text">Core Values</div>
-                        <h2 className="landing-values__title animate-text-rtl">30 Years of Excellence</h2>
+                        <div className="landing-values__label animate-text">{valuesLabel || "Core Values"}</div>
+                        <h2 className="landing-values__title animate-text-rtl" dangerouslySetInnerHTML={{ __html: valuesTitle || "30 Years of Excellence" }} />
                     </div>
                     <div className="landing-values__graphic">
                         <img src={`${assetsUrl}images/landing/values-graphic.svg`} alt="Core Values" />
                     </div>
                     <div className="landing-values__items">
-                        <div className="landing-values__item landing-values__item--left landing-values__item--1" data-value="0">
-                            <h3 className="landing-values__item-title">जुनून (Passion)</h3>
-                            <p className="landing-values__item-description">Commitment to perfection in every detail.</p>
-                        </div>
-                        <div className="landing-values__item landing-values__item--left landing-values__item--2" data-value="1">
-                            <h3 className="landing-values__item-title">संकल्प (Resolution)</h3>
-                            <p className="landing-values__item-description">Delivering with precision at every step.</p>
-                        </div>
-                        <div className="landing-values__item landing-values__item--left landing-values__item--3" data-value="2">
-                            <h3 className="landing-values__item-title">लगन (Commitment)</h3>
-                            <p className="landing-values__item-description">A relentless pursuit of elevated standards.</p>
-                        </div>
-                        <div className="landing-values__item landing-values__item--right landing-values__item--4" data-value="3">
-                            <h3 className="landing-values__item-title">विश्वास (Trust)</h3>
-                            <p className="landing-values__item-description">Dependability and integrity, embedded in execution.</p>
-                        </div>
-                        <div className="landing-values__item landing-values__item--right landing-values__item--5" data-value="4">
-                            <h3 className="landing-values__item-title">निष्ठा (Dedication)</h3>
-                            <p className="landing-values__item-description">Every element executed with painstaking care.</p>
-                        </div>
-                        <div className="landing-values__item landing-values__item--right landing-values__item--6" data-value="5">
-                            <h3 className="landing-values__item-title">दृढता (Strength)</h3>
-                            <p className="landing-values__item-description">Structures and finishes designed to last.</p>
-                        </div>
+                        {values.map((value, index) => {
+                            const itemClasses = [
+                                'landing-values__item',
+                                index < 3 ? 'landing-values__item--left' : 'landing-values__item--right',
+                                `landing-values__item--${index + 1}`
+                            ].join(' ');
+                            return (
+                                <div key={index} className={itemClasses} data-value={index}>
+                                    <h3 className="landing-values__item-title" dangerouslySetInnerHTML={{ __html: value.title || '' }} />
+                                    <p className="landing-values__item-description">{value.description || ''}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -212,13 +229,13 @@ export default function Save({ attributes }) {
             {/* Ongoing Projects Section */}
             <section className="landing-projects">
                 <div className="landing-projects__background"></div>
-                <img src={`${assetsUrl}images/landing/building.png`} alt="" className="building" />
+                <img src={buildingImage || `${assetsUrl}images/landing/building.png`} alt="" className="building" />
                 <div className="landing-projects__content">
                     <div className="landing-projects__header">
-                        <div className="landing-projects__label animate-text">Ongoing Project</div>
-                        <h2 className="landing-projects__title animate-text">An Expression of Refinement</h2>
+                        <div className="landing-projects__label animate-text">{projectLabel || "Ongoing Project"}</div>
+                        <h2 className="landing-projects__title animate-text" dangerouslySetInnerHTML={{ __html: projectTitle || "An Expression of Refinement" }} />
                     </div>
-                    <p className="landing-projects__description animate-text">Discover Ashtech Presidential Towers, a 5.6-acre architectural masterpiece in Greater Noida, where the purest elements of nature meet modern precision to create a living experience that is rare, radiant and profoundly refined.</p>
+                    <p className="landing-projects__description animate-text">{projectDescription || "Discover Ashtech Presidential Towers, a 5.6-acre architectural masterpiece in Greater Noida, where the purest elements of nature meet modern precision to create a living experience that is rare, radiant and profoundly refined."}</p>
                     <div className="landing-projects__buttons">
                         <button className="btn btn--primary">
                             <span>Explore More</span>
@@ -244,13 +261,13 @@ export default function Save({ attributes }) {
                 <div className="landing-nri__content">
                     <div className="landing-nri__info">
                         <div className="landing-nri__header">
-                            <div className="landing-nri__label animate-text">NRI Desk</div>
-                            <h2 className="landing-nri__title animate-text">Seamless Access to Signature Residences</h2>
+                            <div className="landing-nri__label animate-text">{nriLabel || "NRI Desk"}</div>
+                            <h2 className="landing-nri__title animate-text" dangerouslySetInnerHTML={{ __html: nriTitle || "Seamless Access to Signature Residences" }} />
                         </div>
                         <div className="landing-nri__description-container">
-                            <p className="landing-nri__description animate-text">Ashtech Presidential Towers ensures global clients can acquire Ashtech luxury apartments and properties in Greater Noida with confidence and peace of mind.</p>
+                            <p className="landing-nri__description animate-text">{nriDescription || "Ashtech Presidential Towers ensures global clients can acquire Ashtech luxury apartments and properties in Greater Noida with confidence and peace of mind."}</p>
                             <button className="btn btn--primary">
-                                <span>Connect with Our NRI Desk</span>
+                                <span dangerouslySetInnerHTML={{ __html: nriButtonText || "Connect with Our NRI Desk" }} />
                                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="17" viewBox="0 0 8 17" fill="none">
                                     <path d="M0.499976 0.499169C0.499976 0.499169 5.36133 5.36052 6.3336 6.33279C7.30588 7.30507 7.30588 9.24962 6.3336 10.2219C5.36134 11.1942 0.499977 16.0555 0.499977 16.0555" stroke="#0C0D0D" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
@@ -258,30 +275,14 @@ export default function Save({ attributes }) {
                         </div>
                     </div>
                     <div className="landing-nri__features">
-                        <div className="landing-nri__feature">
-                            <div className="landing-nri__feature-icon">
-                                <img src={`${assetsUrl}images/landing/icon-virtual-tour.svg`} alt="Virtual Tours" />
+                        {nriFeatures.map((feature, index) => (
+                            <div key={index} className="landing-nri__feature">
+                                <div className="landing-nri__feature-icon">
+                                    <img src={`${assetsUrl}images/landing/icon-virtual-tour.svg`} alt="Feature" />
+                                </div>
+                                <p className="landing-nri__feature-text animate-text">{feature || ''}</p>
                             </div>
-                            <p className="landing-nri__feature-text animate-text">Virtual Tours Across Time Zones</p>
-                        </div>
-                        <div className="landing-nri__feature">
-                            <div className="landing-nri__feature-icon">
-                                <img src={`${assetsUrl}images/landing/icon-support.svg`} alt="Support" />
-                            </div>
-                            <p className="landing-nri__feature-text animate-text">Dedicated NRI Support</p>
-                        </div>
-                        <div className="landing-nri__feature">
-                            <div className="landing-nri__feature-icon">
-                                <img src={`${assetsUrl}images/landing/icon-residences.svg`} alt="Residences" />
-                            </div>
-                            <p className="landing-nri__feature-text animate-text">Residences Designed for Generations</p>
-                        </div>
-                        <div className="landing-nri__feature">
-                            <div className="landing-nri__feature-icon">
-                                <img src={`${assetsUrl}images/landing/icon-documentation.svg`} alt="Documentation" />
-                            </div>
-                            <p className="landing-nri__feature-text animate-text">Documentation Assistance</p>
-                        </div>
+                        ))}
                     </div>
                 </div>
                 <div className="landing-nri__accent"></div>
@@ -291,39 +292,20 @@ export default function Save({ attributes }) {
             <section className="landing-awards">
                 <div className="landing-awards__container">
                     <div className="landing-awards__header">
-                        <div className="landing-awards__label animate-text">Awards & Recognition</div>
-                        <h2 className="landing-awards__title animate-text">Honoured for Distinction</h2>
-                        <p className="landing-awards__description animate-text">Ashtech's pursuit of excellence has earned recognition through landmark infrastructure projects. With visionary planning and granular execution, each endeavour contributes to a legacy defined by enduring impact and distinguished achievement.</p>
+                        <div className="landing-awards__label animate-text">{awardsLabel || "Awards & Recognition"}</div>
+                        <h2 className="landing-awards__title animate-text" dangerouslySetInnerHTML={{ __html: awardsTitle || "Honoured for Distinction" }} />
+                        <p className="landing-awards__description animate-text">{awardsDescription || "Ashtech's pursuit of excellence has earned recognition through landmark infrastructure projects. With visionary planning and granular execution, each endeavour contributes to a legacy defined by enduring impact and distinguished achievement."}</p>
                     </div>
                     <div className="landing-awards__grid">
-                        <div className="landing-awards__item">
-                            <div className="landing-awards__item-images">
-                                <img src={`${assetsUrl}images/landing/award-laurel-left.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
-                                <img src={`${assetsUrl}images/landing/award-laurel-right.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
+                        {awards.map((award, index) => (
+                            <div key={index} className="landing-awards__item">
+                                <div className="landing-awards__item-images">
+                                    <img src={`${assetsUrl}images/landing/award-laurel-left.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
+                                    <img src={`${assetsUrl}images/landing/award-laurel-right.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
+                                </div>
+                                <p className="landing-awards__item-text animate-text">{award || ''}</p>
                             </div>
-                            <p className="landing-awards__item-text animate-text">National Infrastructure Excellence Award 2023</p>
-                        </div>
-                        <div className="landing-awards__item">
-                            <div className="landing-awards__item-images">
-                                <img src={`${assetsUrl}images/landing/award-laurel-left.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
-                                <img src={`${assetsUrl}images/landing/award-laurel-right.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
-                            </div>
-                            <p className="landing-awards__item-text animate-text">Engineering Visionary Award 2022</p>
-                        </div>
-                        <div className="landing-awards__item">
-                            <div className="landing-awards__item-images">
-                                <img src={`${assetsUrl}images/landing/award-laurel-left.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
-                                <img src={`${assetsUrl}images/landing/award-laurel-right.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
-                            </div>
-                            <p className="landing-awards__item-text animate-text">Structural Innovation Leadership Award 2021</p>
-                        </div>
-                        <div className="landing-awards__item">
-                            <div className="landing-awards__item-images">
-                                <img src={`${assetsUrl}images/landing/award-laurel-left.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--left" />
-                                <img src={`${assetsUrl}images/landing/award-laurel-right.svg`} alt="Award" className="landing-awards__laurel landing-awards__laurel--right" />
-                            </div>
-                            <p className="landing-awards__item-text animate-text">Sustainable Development in Infrastructure 2020</p>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -337,33 +319,63 @@ export default function Save({ attributes }) {
                     </div>
                     <div className="landing-testimonials__slider-wrapper">
                         <div className="landing-testimonials__slider">
-                            <div className="landing-testimonials__slide">
-                                <div className="landing-testimonials__content animate-text-rtl">
-                                    <div className="landing-testimonials__image">
-                                        <img src={`${assetsUrl}images/landing/testimonial-bg.jpg`} alt="Testimonials Background" />
-                                    </div>
-                                    <div className="landing-testimonials__card">
-                                        <div className="landing-testimonials__card-content">
-                                            <div className="landing-testimonials__stars">
-                                                {[...Array(5)].map((_, i) => (
-                                                    <svg key={i} className="landing-testimonials__star" width="26" height="26" viewBox="0 0 26 26" fill="none">
-                                                        <path d="M13 2.5L15.7 9.5L23 10.5L18 15.5L19 23L13 19.5L7 23L8 15.5L3 10.5L10.3 9.5L13 2.5Z" fill="#720C10"/>
-                                                    </svg>
-                                                ))}
-                                            </div>
-                                            <div className="landing-testimonials__text-content">
-                                                <p className="landing-testimonials__quote">"Working with Ashtech Group has been exceptional. Their attention to detail and commitment to quality sets them apart in every project."</p>
-                                                <div className="landing-testimonials__author">
-                                                    <div className="landing-testimonials__author-name">
-                                                        <span>K. Mehta</span>
+                            {testimonials.length > 0 ? testimonials.map((testimonial, index) => (
+                                <div key={index} className="landing-testimonials__slide">
+                                    <div className="landing-testimonials__content animate-text-rtl">
+                                        <div className="landing-testimonials__image">
+                                            <img src={testimonialBgImage || `${assetsUrl}images/landing/testimonial-bg.jpg`} alt="Testimonials Background" />
+                                        </div>
+                                        <div className="landing-testimonials__card">
+                                            <div className="landing-testimonials__card-content">
+                                                <div className="landing-testimonials__stars">
+                                                    {[...Array(5)].map((_, i) => (
+                                                        <svg key={i} className="landing-testimonials__star" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                                            <path d="M13 2.5L15.7 9.5L23 10.5L18 15.5L19 23L13 19.5L7 23L8 15.5L3 10.5L10.3 9.5L13 2.5Z" fill="#720C10"/>
+                                                        </svg>
+                                                    ))}
+                                                </div>
+                                                <div className="landing-testimonials__text-content">
+                                                    <p className="landing-testimonials__quote">"{testimonial.quote || ''}"</p>
+                                                    <div className="landing-testimonials__author">
+                                                        <div className="landing-testimonials__author-name">
+                                                            <span>{testimonial.authorName || ''}</span>
+                                                        </div>
+                                                        <span className="landing-testimonials__author-role">{testimonial.authorRole || ''}</span>
                                                     </div>
-                                                    <span className="landing-testimonials__author-role">Corporate Partner</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            )) : (
+                                <div className="landing-testimonials__slide">
+                                    <div className="landing-testimonials__content animate-text-rtl">
+                                        <div className="landing-testimonials__image">
+                                            <img src={testimonialBgImage || `${assetsUrl}images/landing/testimonial-bg.jpg`} alt="Testimonials Background" />
+                                        </div>
+                                        <div className="landing-testimonials__card">
+                                            <div className="landing-testimonials__card-content">
+                                                <div className="landing-testimonials__stars">
+                                                    {[...Array(5)].map((_, i) => (
+                                                        <svg key={i} className="landing-testimonials__star" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                                                            <path d="M13 2.5L15.7 9.5L23 10.5L18 15.5L19 23L13 19.5L7 23L8 15.5L3 10.5L10.3 9.5L13 2.5Z" fill="#720C10"/>
+                                                        </svg>
+                                                    ))}
+                                                </div>
+                                                <div className="landing-testimonials__text-content">
+                                                    <p className="landing-testimonials__quote">"Working with Ashtech Group has been exceptional. Their attention to detail and commitment to quality sets them apart in every project."</p>
+                                                    <div className="landing-testimonials__author">
+                                                        <div className="landing-testimonials__author-name">
+                                                            <span>K. Mehta</span>
+                                                        </div>
+                                                        <span className="landing-testimonials__author-role">Corporate Partner</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                         <div className="landing-testimonials__navigation">
                             <button className="landing-testimonials__nav-btn landing-testimonials__nav-btn--prev">

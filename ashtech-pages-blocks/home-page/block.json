@@ -20,7 +20,68 @@
       "type": "string",
       "default": "Ashtech Presidential Towers, a division of Ashtech Group, translates decades of engineering mastery into residential masterpieces. Every initiative reflects meticulous craft, quality, and refined excellence, establishing Ashtech as a hallmark of trust, sophistication and visionary living."
     },
+    "overviewLabel": {
+      "type": "string",
+      "default": "Overview"
+    },
+    "overviewTitle": {
+      "type": "string",
+      "default": "Curated for Magnificence"
+    },
     "overviewImage": {
+      "type": "string",
+      "default": ""
+    },
+    "valuesLabel": {
+      "type": "string",
+      "default": "Core Values"
+    },
+    "valuesTitle": {
+      "type": "string",
+      "default": "30 Years of Excellence"
+    },
+    "values": {
+      "type": "array",
+      "default": [
+        {
+          "title": "जुनून (Passion)",
+          "description": "Commitment to perfection in every detail."
+        },
+        {
+          "title": "संकल्प (Resolution)",
+          "description": "Delivering with precision at every step."
+        },
+        {
+          "title": "लगन (Commitment)",
+          "description": "A relentless pursuit of elevated standards."
+        },
+        {
+          "title": "विश्वास (Trust)",
+          "description": "Dependability and integrity, embedded in execution."
+        },
+        {
+          "title": "निष्ठा (Dedication)",
+          "description": "Every element executed with painstaking care."
+        },
+        {
+          "title": "दृढता (Strength)",
+          "description": "Structures and finishes designed to last."
+        }
+      ]
+    },
+    "projectLabel": {
+      "type": "string",
+      "default": "Ongoing Project"
+    },
+    "projectTitle": {
+      "type": "string",
+      "default": "An Expression of Refinement"
+    },
+    "projectDescription": {
+      "type": "string",
+      "default": "Discover Ashtech Presidential Towers, a 5.6-acre architectural masterpiece in Greater Noida, where the purest elements of nature meet modern precision to create a living experience that is rare, radiant and profoundly refined."
+    },
+    "buildingImage": {
       "type": "string",
       "default": ""
     },
@@ -32,13 +93,87 @@
       "type": "string",
       "default": ""
     },
+    "nriLabel": {
+      "type": "string",
+      "default": "NRI Desk"
+    },
+    "nriTitle": {
+      "type": "string",
+      "default": "Seamless Access to Signature Residences"
+    },
+    "nriDescription": {
+      "type": "string",
+      "default": "Ashtech Presidential Towers ensures global clients can acquire Ashtech luxury apartments and properties in Greater Noida with confidence and peace of mind."
+    },
+    "nriButtonText": {
+      "type": "string",
+      "default": "Connect with Our NRI Desk"
+    },
+    "nriFeatures": {
+      "type": "array",
+      "default": [
+        "Virtual Tours Across Time Zones",
+        "Dedicated NRI Support",
+        "Residences Designed for Generations",
+        "Documentation Assistance"
+      ]
+    },
     "nriImage": {
       "type": "string",
       "default": ""
     },
+    "awardsLabel": {
+      "type": "string",
+      "default": "Awards & Recognition"
+    },
+    "awardsTitle": {
+      "type": "string",
+      "default": "Honoured for Distinction"
+    },
+    "awardsDescription": {
+      "type": "string",
+      "default": "Ashtech's pursuit of excellence has earned recognition through landmark infrastructure projects. With visionary planning and granular execution, each endeavour contributes to a legacy defined by enduring impact and distinguished achievement."
+    },
+    "awards": {
+      "type": "array",
+      "default": [
+        "National Infrastructure Excellence Award 2023",
+        "Engineering Visionary Award 2022",
+        "Structural Innovation Leadership Award 2021",
+        "Sustainable Development in Infrastructure 2020"
+      ]
+    },
     "testimonialBgImage": {
       "type": "string",
       "default": ""
+    },
+    "testimonials": {
+      "type": "array",
+      "default": [
+        {
+          "quote": "Working with Ashtech Group has been exceptional. Their attention to detail and commitment to quality sets them apart in every project.",
+          "authorName": "K. Mehta",
+          "authorRole": "Corporate Partner"
+        },
+        {
+          "quote": "The professionalism and expertise displayed by Ashtech are truly remarkable. Every aspect of our project was handled with utmost care and precision.",
+          "authorName": "R. Sharma",
+          "authorRole": "Property Investor"
+        },
+        {
+          "quote": "Ashtech has redefined luxury living. Their vision and execution are unparalleled, making every project a masterpiece of architectural excellence.",
+          "authorName": "A. Gupta",
+          "authorRole": "Business Executive"
+        }
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "quote": { "type": "string" },
+          "authorName": { "type": "string" },
+          "authorRole": { "type": "string" }
+        }
+      }
     }
   }
 }

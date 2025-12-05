@@ -1,4 +1,188 @@
 /* Editor styles for Ashtech Pages Blocks */
+
+/* ============================================
+   FULL-WIDTH OVERRIDES FOR EDITOR
+   ============================================ */
+
+/* Override WordPress default max-width constraint - ALL blocks */
+.block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Full-width aligned blocks */
+.block-editor-block-list__layout.is-root-container > .alignfull,
+.block-editor-block-list__layout.is-root-container > [data-align="full"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* All Ashtech blocks - force full width */
+.block-editor-block-list__layout.is-root-container > [data-type^="ashtech/"],
+.block-editor-block-list__layout.is-root-container > [data-type^="ashtech/"] > *,
+.block-editor-block-list__layout.is-root-container > [data-type^="ashtech/"] .wp-block {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Root container itself */
+.block-editor-block-list__layout.is-root-container {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Editor writing flow container */
+.editor-writing-flow {
+    max-width: 100% !important;
+}
+
+/* Editor styles wrapper */
+.editor-styles-wrapper {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Editor post text editor container */
+.editor-post-text-editor,
+.block-editor-writing-flow {
+    max-width: 100% !important;
+}
+
+/* Block editor default block wrapper */
+.wp-block {
+    max-width: 100% !important;
+}
+
+/* Specific override for all direct children of root container */
+.block-editor-block-list__layout.is-root-container > * {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Block editor canvas - the main editing area */
+.block-editor-block-list__layout {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Interface complementary area and editor sidebar constraints */
+.interface-complementary-area,
+.editor-sidebar {
+    /* Keep sidebar normal */
+}
+
+/* Editor content area - make sure it's full width */
+.editor-post-text-editor__body .editor-post-text-editor {
+    max-width: 100% !important;
+}
+
+/* Block appender and default block width */
+.block-editor-block-list__layout .block-list-appender,
+.block-editor-block-list__layout .wp-block {
+    max-width: 100% !important;
+}
+
+/* Force full width on the actual block wrapper div */
+.wp-block[data-type^="ashtech/"],
+[data-type^="ashtech/"] > .wp-block-group,
+[data-type^="ashtech/"] > div {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Override any editor canvas width limits */
+.block-editor-block-canvas {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Editor iframe body if applicable */
+body.block-editor-page .editor-post-text-editor__body {
+    max-width: 100% !important;
+}
+
+/* Last resort - target everything in the editor */
+.block-editor-block-list__layout.is-root-container * {
+    max-width: 100% !important;
+}
+
+/* ============================================
+   AGGRESSIVE FULL-WIDTH OVERRIDES
+   ============================================ */
+
+/* Target the editor iframe if it exists */
+iframe[name="editor-canvas"],
+iframe[name="editor-canvas"] body,
+iframe[name="editor-canvas"] .editor-styles-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Editor canvas wrapper */
+.block-editor-block-canvas__container,
+.block-editor-block-canvas__container > * {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Editor post editor container */
+.editor-post-editor,
+.editor-post-editor__content-area {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Editor visual editor */
+.editor-visual-editor {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Editor writing flow and all nested containers */
+.editor-writing-flow,
+.editor-writing-flow > *,
+.editor-writing-flow > * > * {
+    max-width: 100% !important;
+}
+
+/* Editor styles wrapper - remove all padding/margin constraints */
+.editor-styles-wrapper {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Block editor default block wrapper - override completely */
+.wp-block:not([data-align="left"]):not([data-align="right"]):not([data-align="center"]) {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Any element with data-align="full" */
+[data-align="full"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* WordPress default content width override */
+body .editor-styles-wrapper {
+    --wp--custom--content--size: 100% !important;
+    --wp--style--global--content-size: 100% !important;
+    max-width: 100% !important;
+}
+
 .ashtech-page-wrapper {
     padding: 20px;
     border: 2px dashed #ccc;

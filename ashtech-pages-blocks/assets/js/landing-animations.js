@@ -515,17 +515,64 @@ if (!prefersReducedMotion) {
   });
 }
 
-const prevBtn = document.querySelector('.landing-testimonials__nav-btn--prev');
-const nextBtn = document.querySelector('.landing-testimonials__nav-btn--next');
+// Testimonials Slider Initialization
+(function() {
+  'use strict';
+  
+  function initTestimonialsSlider() {
+    if (typeof jQuery === 'undefined' || typeof jQuery.fn.slick === 'undefined') {
+      console.log('jQuery or Slick not loaded yet, retrying...');
+      setTimeout(initTestimonialsSlider, 100);
+      return;
+    }
 
-if (prevBtn && nextBtn) {
-  prevBtn.addEventListener('click', () => {
-    console.log('Previous testimonial');
-  });
+    var $slider = jQuery('.landing-testimonials__slider');
+    
+    if ($slider.length > 0 && !$slider.hasClass('slick-initialized')) {
+      $slider.slick({
+        dots: false,
+        infinite: true,
+        speed: 800,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        fade: true,
+        cssEase: 'ease-in-out',
+        arrows: false,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        adaptiveHeight: false
+      });
+      
+      console.log('Testimonials slider initialized successfully');
 
-  nextBtn.addEventListener('click', () => {
-    console.log('Next testimonial');
+      // Custom navigation buttons
+      jQuery('.landing-testimonials__nav-btn--prev').off('click').on('click', function(){
+        console.log('Previous button clicked');
+        $slider.slick('slickPrev');
+      });
+
+      jQuery('.landing-testimonials__nav-btn--next').off('click').on('click', function(){
+        console.log('Next button clicked');
+        $slider.slick('slickNext');
+      });
+    }
+  }
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(initTestimonialsSlider, 500);
+    });
+  } else {
+    setTimeout(initTestimonialsSlider, 500);
+  }
+
+  // Re-initialize on window load (in case content loads dynamically)
+  window.addEventListener('load', function() {
+    setTimeout(initTestimonialsSlider, 500);
   });
-}
+})();
 
 console.log('Landing page animations initialized');

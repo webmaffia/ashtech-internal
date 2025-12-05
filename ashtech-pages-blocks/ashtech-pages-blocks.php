@@ -104,6 +104,84 @@ function ashtech_enqueue_block_editor_assets() {
         array('wp-edit-blocks', 'ashtech-blocks-editor'),
         ASHTECH_BLOCKS_VERSION
     );
+    
+    // Add inline styles for full-width override (highest priority)
+    $inline_css = '
+        .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+            max-width: 100% !important;
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        .block-editor-block-list__layout.is-root-container > [data-type^="ashtech/"] {
+            max-width: 100% !important;
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+        .block-editor-block-list__layout.is-root-container {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+        .editor-styles-wrapper {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+        .wp-block[data-type^="ashtech/"] {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+    ';
+    wp_add_inline_style('ashtech-blocks-editor', $inline_css);
+    
+    // Add JavaScript to force full width (runs after editor loads)
+    $inline_js = '
+        (function() {
+            function forceFullWidth() {
+                // Force all Ashtech blocks to full width
+                const ashtechBlocks = document.querySelectorAll("[data-type^=\"ashtech/\"]");
+                ashtechBlocks.forEach(function(block) {
+                    block.style.maxWidth = "100%";
+                    block.style.width = "100%";
+                    block.style.marginLeft = "0";
+                    block.style.marginRight = "0";
+                });
+                
+                // Force root container
+                const rootContainer = document.querySelector(".block-editor-block-list__layout.is-root-container");
+                if (rootContainer) {
+                    rootContainer.style.maxWidth = "100%";
+                    rootContainer.style.width = "100%";
+                }
+                
+                // Force editor styles wrapper
+                const editorWrapper = document.querySelector(".editor-styles-wrapper");
+                if (editorWrapper) {
+                    editorWrapper.style.maxWidth = "100%";
+                    editorWrapper.style.width = "100%";
+                }
+            }
+            
+            // Run on load
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", forceFullWidth);
+            } else {
+                forceFullWidth();
+            }
+            
+            // Run after a delay to catch dynamically loaded content
+            setTimeout(forceFullWidth, 500);
+            setTimeout(forceFullWidth, 1500);
+            
+            // Watch for new blocks being added
+            if (window.wp && window.wp.data) {
+                const unsubscribe = window.wp.data.subscribe(function() {
+                    setTimeout(forceFullWidth, 100);
+                });
+            }
+        })();
+    ';
+    wp_add_inline_script('wp-blocks', $inline_js);
 }
 add_action('enqueue_block_editor_assets', 'ashtech_enqueue_block_editor_assets');
 
@@ -188,7 +266,15 @@ function ashtech_enqueue_frontend_scripts() {
     wp_enqueue_script(
         'ashtech-landing-animations-js',
         ASHTECH_BLOCKS_URL . 'assets/js/landing-animations.js',
-        array('jquery', 'ashtech-main-js'),
+        array('jquery', 'slick-carousel-js', 'ashtech-main-js'),
+        ASHTECH_BLOCKS_VERSION,
+        true
+    );
+    
+    wp_enqueue_script(
+        'ashtech-home-testimonials-js',
+        ASHTECH_BLOCKS_URL . 'assets/js/home-testimonials.js',
+        array('jquery', 'slick-carousel-js', 'ashtech-landing-animations-js'),
         ASHTECH_BLOCKS_VERSION,
         true
     );
