@@ -26,7 +26,251 @@
     },
     "overviewContent": {
       "type": "string",
-      "default": "<p>On 5.6 acres of resort-style landscaped greens rise five serene towers, home to 456 residences designed with care and precision.</p><p>Every home at Ashtech Presidential Towers is an orchestration of light, proportion, and privacy, designed for those who seek permanence over display.</p>"
+      "default": "<p>On 5.6 acres of resort-style landscaped greens rise five serene towers, home to 456 residences designed with care and precision.</p><p>Every home at Ashtech Presidential Towers is an orchestration of light, proportion, and privacy, designed for those who seek permanence over display. Expansive decks open to the sky, while shaded walkways replace traffic and noise below.</p><p>Here, craftsmanship becomes a quiet companion. Each of these premium 3 & 4 BHK apartments in Greater Noida - West, speaks to a life refined in detail and defined by time.</p><p>Project Designed, Landscape designed by International Architect- Studio Symbiosis- London</p>"
+    },
+    "overviewStatAcres": {
+      "type": "string",
+      "default": "5.6 ACRES"
+    },
+    "overviewStatOpenPlot": {
+      "type": "string",
+      "default": "3-SIDE OPEN PLOT"
+    },
+    "overviewStatTowers": {
+      "type": "string",
+      "default": "5 TOWERS"
+    },
+    "overviewStatResidences": {
+      "type": "string",
+      "default": "456 RESIDENCES"
+    },
+    "overviewButtonText": {
+      "type": "string",
+      "default": "Download Brochure"
+    },
+    "architectureLabel": {
+      "type": "string",
+      "default": "Architecture: The Four Elements"
+    },
+    "architectureTitle": {
+      "type": "string",
+      "default": "Architecture Shaped by the Elements of Nature"
+    },
+    "architectureDescription": {
+      "type": "string",
+      "default": "The architecture of Ashtech Presidential Towers, Greater Noida - West, draws inspiration from presidential living and also nature's four elements, expressed through timeless geometry, natural materials, and serene spaces that feel deeply personal."
+    },
+    "architectureSunTitle": {
+      "type": "string",
+      "default": "Sun"
+    },
+    "architectureSunText": {
+      "type": "string",
+      "default": "East-facing layouts, curved glass balustrades, and deep sundecks that receive every sunrise in quiet warmth."
+    },
+    "architectureAirTitle": {
+      "type": "string",
+      "default": "Air"
+    },
+    "architectureAirText": {
+      "type": "string",
+      "default": "Cross-ventilation through every home, open corridors, and layered terraces that invite movement and breath into the architecture."
+    },
+    "architectureWaterTitle": {
+      "type": "string",
+      "default": "Water"
+    },
+    "architectureWaterText": {
+      "type": "string",
+      "default": "Reflective water features, cascading elements, and aquatic landscaping that bring tranquility and fluidity to the environment."
+    },
+    "architectureEarthTitle": {
+      "type": "string",
+      "default": "Earth"
+    },
+    "architectureEarthText": {
+      "type": "string",
+      "default": "Natural stone finishes, grounded forms, and native landscaping that connect every residence to the terrain beneath."
+    },
+    "experiencesLabel": {
+      "type": "string",
+      "default": "Experiences and Privileges"
+    },
+    "experiencesTitle": {
+      "type": "string",
+      "default": "A Life Composed for Grace and Grandeur"
+    },
+    "experiencesDescription": {
+      "type": "string",
+      "default": "Every space at Ashtech Presidential Towers, Greater Noida - West, has been envisioned to create balance between solitude and togetherness, wellness and celebration, simplicity and splendour. Across seventy thousand square feet, experiences unfold with quiet precision."
+    },
+    "experiencesButtonText": {
+      "type": "string",
+      "default": "Download Brochure"
+    },
+    "experiencesWellnessTab": {
+      "type": "string",
+      "default": "Wellness & Rejuvenation"
+    },
+    "experiencesMovementTab": {
+      "type": "string",
+      "default": "Movement & Play"
+    },
+    "experiencesCultureTab": {
+      "type": "string",
+      "default": "Culture & Gathering"
+    },
+    "experiencesEaseTab": {
+      "type": "string",
+      "default": "Ease & Arrival"
+    },
+    "experiencesWellnessFeatures": {
+      "type": "array",
+      "default": [
+        "Temperature-controlled <br>pool for every season",
+        "International-inspired <br>spa with hot pool and <br>therapy suites",
+        "Steam and sauna retreats",
+        "Yoga and meditation studios"
+      ]
+    },
+    "experiencesMovementFeatures": {
+      "type": "array",
+      "default": [
+        "High-performance gym",
+        "Functional training zones",
+        "Sports Bar",
+        "Zumba & yoga zones",
+        "Bowling Alley",
+        "Golf Simulator",
+        "Indoor sports arena"
+      ]
+    },
+    "experiencesCultureFeatures": {
+      "type": "array",
+      "default": [
+        "Community Hall",
+        "Mini Theatre",
+        "Library Lounges",
+        "Podcast Room",
+        "Business Centre",
+        "Private Meeting Room",
+        "Alfesco Dining",
+        "Restaurant & Bar"
+      ]
+    },
+    "experiencesEaseFeatures": {
+      "type": "array",
+      "default": [
+        "Zero vehicular movement<br>at ground level",
+        "Fully air-conditioned,<br>triple-height grand lift lobby",
+        "Private lift foyers for every<br>home in Gold Towers with 2 <br>apartment per core",
+        "2-levels of basement parking"
+      ]
+    },
+    "locationLabel": {
+      "type": "string",
+      "default": "Location and Connectivity"
+    },
+    "locationTitle": {
+      "type": "string",
+      "default": "A Rare Balance of Access, Convenience and Calm"
+    },
+    "locationDescription": {
+      "type": "string",
+      "default": "Set in Sector 12, Greater Noida - West, the address combines convenience with quietude, close to key business corridors, airports, and lifestyle avenues."
+    },
+    "locationMapSrc": {
+      "type": "string",
+      "default": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.5!2d77.5!3d28.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37c5b5b5b5b5b5b5!2sSector%2012%2C%20Greater%20Noida%20West%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+    },
+    "locationConnectivityItems": {
+      "type": "array",
+      "default": [
+        "20 minutes from NH 24 Expressway",
+        "Close to leading schools and hospitals",
+        "20 minutes from Sector 18, Greater Noida",
+        "Well-connected to IT, corporate & retail hubs",
+        "25 minutes from Noida International Airport",
+        "25 minutes from Hindon Airport"
+      ]
+    },
+    "specificationsLabel": {
+      "type": "string",
+      "default": "Specifications"
+    },
+    "specificationsTitle": {
+      "type": "string",
+      "default": "Design That Reflects the<br>Art of Perfection"
+    },
+    "specResidencesImage": {
+      "type": "string",
+      "default": ""
+    },
+    "specResidencesTitle": {
+      "type": "string",
+      "default": "Residences"
+    },
+    "specResidencesList": {
+      "type": "array",
+      "default": [
+        "Italian marble flooring in the living, dining, and kitchen",
+        "Hot and cold VRV air-conditioning",
+        "Modular kitchens with premium fittings",
+        "PU-finish wardrobes",
+        "Ambient lighting design",
+        "Smart home automation",
+        "Private air-conditioned lift lobbies"
+      ]
+    },
+    "specStructureImage": {
+      "type": "string",
+      "default": ""
+    },
+    "specStructureTitle": {
+      "type": "string",
+      "default": "Structure & Safety"
+    },
+    "specStructureList": {
+      "type": "array",
+      "default": [
+        "Aluminium crown facade system",
+        "Ground-level free of vehicular movement",
+        "Seven-tier security with monitored access",
+        "TQ Cert quality assurance at every phase"
+      ]
+    },
+    "specSustainabilityImage": {
+      "type": "string",
+      "default": ""
+    },
+    "specSustainabilityTitle": {
+      "type": "string",
+      "default": "Sustainability"
+    },
+    "specSustainabilityList": {
+      "type": "array",
+      "default": [
+        "Passive cooling strategies",
+        "Cross-ventilation in every residence",
+        "Natural light planning for lower energy load",
+        "Materials chosen for endurance & environmental harmony"
+      ]
+    },
+    "aboutLabel": {
+      "type": "string",
+      "default": "About Ashtech Group"
+    },
+    "aboutTitle": {
+      "type": "string",
+      "default": "A Legacy Etched in Precision and Purpose"
+    },
+    "aboutDescription": {
+      "type": "string",
+      "default": "For over thirty years, the Ashtech Group has embodied engineering excellence and enduring quality, standing as a diversified force within India's construction and infrastructure landscape. Each milestone reflects a pursuit of perfection and a belief that true strength lies in detail. Every element of Ashtech Presidential Towers bears the imprint of that ethos audited by TQ Cert, executed by master craftsmen, and envisioned to remain timeless through generations."
+    },
+    "aboutButtonText": {
+      "type": "string",
+      "default": "Know More"
     }
   }
 }
